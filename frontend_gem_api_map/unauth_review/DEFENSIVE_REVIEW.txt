@@ -79,3 +79,11 @@ confirm the deployed dependency/build, keep dependencies patched, minimize parse
 error exposure, and commission a native-code security audit with runtime memory
 instrumentation in an owned test environment. This review supplies no exhaustive
 sink count, coverage percentage, exploitation recipe or security certification.
+
+Source-availability follow-up
+The complete oj 3.17.6 package is now locally available and its RubyGems hash
+verified. All 65 files in the previous native source inventory match the package.
+The package has 66 C/header files; ext/oj/encoder.c is outside that older inventory.
+Its relevance is unreviewed. native_source_manifest.json records all 94 package
+files. REVIEW_HANDOFF.txt identifies closed evidence gaps and remaining manual
+review priorities. This does not extend the native data-flow coverage claim.

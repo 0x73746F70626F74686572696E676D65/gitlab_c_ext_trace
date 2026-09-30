@@ -191,5 +191,27 @@
     "Concrete branch feasibility and whether each documented sink executes from this route",
     "Compiler/preprocessor/linker choices and Ruby/GMP/allocator implementation",
     "Runtime behavior, sanitizer coverage and application-specific security testing"
+  ],
+  "complete_source_download": {
+    "gem": "oj",
+    "version": "3.17.6",
+    "package_url": "https://rubygems.org/downloads/oj-3.17.6.gem",
+    "metadata_url": "https://rubygems.org/api/v2/rubygems/oj/versions/3.17.6.json",
+    "package_sha256": "f511257e01a12030c3ceb8023cd2e96fca924ea9c741f57ea366816f1fd8e68c",
+    "rubygems_sha256_verified": true,
+    "source_directory": "/workspace/oj-source-download/oj-3.17.6",
+    "total_files": 94,
+    "c_header_files": 66,
+    "compiled_or_executed": false,
+    "manifest": "native_source_manifest.json",
+    "previous_native_inventory_files_verified": 65,
+    "native_files_outside_previous_inventory": [
+      "ext/oj/encoder.c"
+    ]
+  },
+  "gaps_closed": [
+    "Complete source package downloaded and RubyGems archive hash verified",
+    "All 65 prior native inventory file hashes match the downloaded package",
+    "Normal adapter mode and primitive-string validation mode distinguished from source"
   ]
 }

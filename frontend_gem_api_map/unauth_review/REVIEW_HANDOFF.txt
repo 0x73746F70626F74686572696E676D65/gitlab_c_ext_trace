@@ -1,0 +1,38 @@
+Oj mapping: compact defensive review handoff
+
+RESULT: Limited review, not exhaustive. No confirmed memory-corruption finding.
+Do not treat the 22 recorded native sites as complete route-reachable coverage.
+
+Closed evidence gaps
+- Complete oj 3.17.6 source: /workspace/oj-source-download/oj-3.17.6
+- RubyGems package SHA256 verified; all 65 previous native-file hashes match.
+- Package has 66 C/header files. ext/oj/encoder.c is absent from the older native
+  file inventory; its reachability/relevance was not determined.
+- Normal GitLab adapter selects Rails/compatibility mode. Primitive-string
+  validation separately uses strict mode. The earlier strict chain is not a
+  complete argument-sensitive representation of this specific call site.
+
+Manual review priorities and current status
+1. Ingress/resource budget: verify deployed ingress body caps before buffering,
+   concurrency budgets, and middleware enforcement. Source confirms that body
+   reads precede application byte-limit checks; deployment controls are unknown.
+2. Parser configuration: confirm loaded gem/Ruby versions and process-wide Oj
+   settings. Source defaults were checked; deployed configuration was not.
+3. Native memory invariants: independent native-code audit is still needed for
+   size arithmetic, buffer capacities, ownership/GC, exception unwinding,
+   cleanup and allocator failure. Selected guarded operations were inspected;
+   all operation implementations and invariants were not audited.
+4. Build/runtime coverage: capture Ruby/platform/compiler settings and feature
+   probes. extconf.rb depends on Ruby APIs, platform, pthread availability and
+   CPU feature paths; it was read without running configuration or builds.
+5. Security validation: use maintained advisories, an owned instrumented test
+   environment and independent native-code review. The exact-version OSV query
+   returned no entries; no runtime security tests were performed.
+
+Evidence
+- defensive_review.json: source locations, reviewed ranges and control findings.
+- native_source_manifest.json: every package-file hash and prior-inventory match.
+- DEFENSIVE_REVIEW.txt: reasoning, source-mode correction and uncovered areas.
+
+Neither source availability nor a capacity guard proves memory safety. Remaining
+native data-flow/callback/sink gaps are explicit and were not closed by this handoff.

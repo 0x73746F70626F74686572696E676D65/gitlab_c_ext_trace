@@ -1,0 +1,869 @@
+{
+  "provenance": {
+    "gem": "oj",
+    "version": "3.17.6",
+    "package_url": "https://rubygems.org/downloads/oj-3.17.6.gem",
+    "metadata_url": "https://rubygems.org/api/v2/rubygems/oj/versions/3.17.6.json",
+    "package_sha256": "f511257e01a12030c3ceb8023cd2e96fca924ea9c741f57ea366816f1fd8e68c",
+    "rubygems_sha256_verified": true,
+    "source_directory": "/workspace/oj-source-download/oj-3.17.6",
+    "total_files": 94,
+    "c_header_files": 66,
+    "compiled_or_executed": false
+  },
+  "source_file_count": 94,
+  "native_source_file_count": 66,
+  "previous_native_inventory_files_verified": 65,
+  "native_files_outside_previous_inventory": [
+    "ext/oj/encoder.c"
+  ],
+  "coverage_claim": "Package source availability and hash verification only; no complete call-graph, sink or memory-safety coverage claim.",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 55094,
+      "sha256": "b391bd904b29383cc35207056aaccea5af247c28fbc78eb3d6460c4663f533e3",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1078,
+      "sha256": "f298aae4f40347d202cf158a427907506f9dad47b698da2ee481f9fdc3b4a07e",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "README.md",
+      "bytes": 3561,
+      "sha256": "3847e2237436728d7d5d5a973a9986e8a6a5a06331c6a3ce2ad576aae2aaed32",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "bytes": 2253,
+      "sha256": "bceb028c614f175562d60d7e3863acca53396c878bf83d12131994e63c77e63e",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/buf.h",
+      "bytes": 2122,
+      "sha256": "ba04c3b21d1b47e291dbc93eff4043393baa1eee5902d2f0d3352e11bf95d1f6",
+      "native_source": true,
+      "previous_inventory_sha256": "ba04c3b21d1b47e291dbc93eff4043393baa1eee5902d2f0d3352e11bf95d1f6",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/cache.c",
+      "bytes": 8785,
+      "sha256": "fa4afe602bd317299e351edacfa950bdbcca38abf29fd35e54d5dc9a136bc986",
+      "native_source": true,
+      "previous_inventory_sha256": "fa4afe602bd317299e351edacfa950bdbcca38abf29fd35e54d5dc9a136bc986",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/cache.h",
+      "bytes": 873,
+      "sha256": "4e1d584cac3a749cd0030a6fe3910723a846c72fc625faf6ae9eb808074e6ec0",
+      "native_source": true,
+      "previous_inventory_sha256": "4e1d584cac3a749cd0030a6fe3910723a846c72fc625faf6ae9eb808074e6ec0",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/cache8.c",
+      "bytes": 2550,
+      "sha256": "d4fd5f6b2c96971f33796d2d6ffe798e6fa543da0a2b846cf6a4a03f1dca080e",
+      "native_source": true,
+      "previous_inventory_sha256": "d4fd5f6b2c96971f33796d2d6ffe798e6fa543da0a2b846cf6a4a03f1dca080e",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/cache8.h",
+      "bytes": 552,
+      "sha256": "f609b0ad1fd513e73baa4f720ea06286e17b19b063bcb6c5e795c6b011a75d46",
+      "native_source": true,
+      "previous_inventory_sha256": "f609b0ad1fd513e73baa4f720ea06286e17b19b063bcb6c5e795c6b011a75d46",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/circarray.c",
+      "bytes": 1883,
+      "sha256": "ab0161c3d07dd680243ce7473a8b4f903f3fe574d83dd05a6e605417773e9e39",
+      "native_source": true,
+      "previous_inventory_sha256": "ab0161c3d07dd680243ce7473a8b4f903f3fe574d83dd05a6e605417773e9e39",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/circarray.h",
+      "bytes": 678,
+      "sha256": "13ddf1049b7dec83f9d848ed04a9868ef458eeda9d7a748d65c143e2074362bf",
+      "native_source": true,
+      "previous_inventory_sha256": "13ddf1049b7dec83f9d848ed04a9868ef458eeda9d7a748d65c143e2074362bf",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/code.c",
+      "bytes": 6431,
+      "sha256": "2748754f7b37903670b06a35afe62f1ae6ae5a3a0fc3436d8238c7cba1baee73",
+      "native_source": true,
+      "previous_inventory_sha256": "2748754f7b37903670b06a35afe62f1ae6ae5a3a0fc3436d8238c7cba1baee73",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/code.h",
+      "bytes": 1095,
+      "sha256": "01bac5573f2fe14713c6e965d5d1e9de33167c2662206c2bc0148950dcf4beb3",
+      "native_source": true,
+      "previous_inventory_sha256": "01bac5573f2fe14713c6e965d5d1e9de33167c2662206c2bc0148950dcf4beb3",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/compat.c",
+      "bytes": 8487,
+      "sha256": "67599c4cb0e43cedfe381acb694622d48742e1badd2a591bc2035403e03380a2",
+      "native_source": true,
+      "previous_inventory_sha256": "67599c4cb0e43cedfe381acb694622d48742e1badd2a591bc2035403e03380a2",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/custom.c",
+      "bytes": 36749,
+      "sha256": "2935234af6f3be7e5625f30f66baf230e1c457e602d8c2b2fcf179ec3ae5a54c",
+      "native_source": true,
+      "previous_inventory_sha256": "2935234af6f3be7e5625f30f66baf230e1c457e602d8c2b2fcf179ec3ae5a54c",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/debug.c",
+      "bytes": 4174,
+      "sha256": "d1cd5a397e7463765afe9db275f5381d459772a3e51686f0c1da20d70aaaa992",
+      "native_source": true,
+      "previous_inventory_sha256": "d1cd5a397e7463765afe9db275f5381d459772a3e51686f0c1da20d70aaaa992",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/dump.c",
+      "bytes": 58497,
+      "sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684",
+      "native_source": true,
+      "previous_inventory_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/dump.h",
+      "bytes": 4182,
+      "sha256": "ed20a56263a772097d371dd9688471a1afa92a2c7939fadca475bcb46a6408b1",
+      "native_source": true,
+      "previous_inventory_sha256": "ed20a56263a772097d371dd9688471a1afa92a2c7939fadca475bcb46a6408b1",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/dump_compat.c",
+      "bytes": 30016,
+      "sha256": "6cc83d96dbbcf02f01cce08206f381d273a8bfc40f16d4aac640b01ecbaa8bfd",
+      "native_source": true,
+      "previous_inventory_sha256": "6cc83d96dbbcf02f01cce08206f381d273a8bfc40f16d4aac640b01ecbaa8bfd",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/dump_leaf.c",
+      "bytes": 4804,
+      "sha256": "4450f06e391c455df4db2fe351c6e4e9b5a2fb627f379a4b94fbced4665d12cc",
+      "native_source": true,
+      "previous_inventory_sha256": "4450f06e391c455df4db2fe351c6e4e9b5a2fb627f379a4b94fbced4665d12cc",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/dump_object.c",
+      "bytes": 23329,
+      "sha256": "aa025fc8698158edd4b0cc9bb351c0f92983dc4ad920a0f4d9800d79473bb834",
+      "native_source": true,
+      "previous_inventory_sha256": "aa025fc8698158edd4b0cc9bb351c0f92983dc4ad920a0f4d9800d79473bb834",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/dump_strict.c",
+      "bytes": 13491,
+      "sha256": "dd6ab143094785b2d81245abb41c4eeb83b2c976cfb46cf75f2ab26b33a61e95",
+      "native_source": true,
+      "previous_inventory_sha256": "dd6ab143094785b2d81245abb41c4eeb83b2c976cfb46cf75f2ab26b33a61e95",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/encode.h",
+      "bytes": 388,
+      "sha256": "858591003aa9deebc06026e4cb0e6fd47f105d52265f2a5b5df28a5e9e6f5160",
+      "native_source": true,
+      "previous_inventory_sha256": "858591003aa9deebc06026e4cb0e6fd47f105d52265f2a5b5df28a5e9e6f5160",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/encoder.c",
+      "bytes": 1950,
+      "sha256": "1ab9bfaf75f828464a6f4a155d376075307926f35250df53ffe1808b88aa77de",
+      "native_source": true,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/err.c",
+      "bytes": 1626,
+      "sha256": "e98f98765422762c876506cf53c66bc03731a934b478eb643138776f4d86bd59",
+      "native_source": true,
+      "previous_inventory_sha256": "e98f98765422762c876506cf53c66bc03731a934b478eb643138776f4d86bd59",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/err.h",
+      "bytes": 1732,
+      "sha256": "66b062d32a0883bbdfdeac00923d49c93b604bd5d051067fbe201d47a2210e0e",
+      "native_source": true,
+      "previous_inventory_sha256": "66b062d32a0883bbdfdeac00923d49c93b604bd5d051067fbe201d47a2210e0e",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/extconf.rb",
+      "bytes": 2332,
+      "sha256": "a9d56f59d1cf363db02ca13dfcd50d7b097011818dde3947aaf7da0c3103340e",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/fast.c",
+      "bytes": 51988,
+      "sha256": "d7342690fae9c1cafcd68d7fb77598f4344765b7fcd94f6bc48a2f56de8c7072",
+      "native_source": true,
+      "previous_inventory_sha256": "d7342690fae9c1cafcd68d7fb77598f4344765b7fcd94f6bc48a2f56de8c7072",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/intern.c",
+      "bytes": 8708,
+      "sha256": "f5184315ab5fc4aaf1943578113f1797a01a2bcd455d411a306976e1753d62a8",
+      "native_source": true,
+      "previous_inventory_sha256": "f5184315ab5fc4aaf1943578113f1797a01a2bcd455d411a306976e1753d62a8",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/intern.h",
+      "bytes": 670,
+      "sha256": "1fc6b8551859062246ff55ff1a3dbd8c2815cc2d91a664e836684573af151662",
+      "native_source": true,
+      "previous_inventory_sha256": "1fc6b8551859062246ff55ff1a3dbd8c2815cc2d91a664e836684573af151662",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/mem.c",
+      "bytes": 8551,
+      "sha256": "843c44cb19099aa207b465b62dabcbf09119bbfc8a18b45d72fd49cf7d691aac",
+      "native_source": true,
+      "previous_inventory_sha256": "843c44cb19099aa207b465b62dabcbf09119bbfc8a18b45d72fd49cf7d691aac",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/mem.h",
+      "bytes": 1855,
+      "sha256": "e0243e378874dbc0897ac7393604deb58ab1fab8606986346f874e41d3a48eac",
+      "native_source": true,
+      "previous_inventory_sha256": "e0243e378874dbc0897ac7393604deb58ab1fab8606986346f874e41d3a48eac",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/mimic_json.c",
+      "bytes": 33882,
+      "sha256": "840221008b91afdd8114bc83fd3b07e1de68ec0bb38a32876fa5ef3f5d01b989",
+      "native_source": true,
+      "previous_inventory_sha256": "840221008b91afdd8114bc83fd3b07e1de68ec0bb38a32876fa5ef3f5d01b989",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/object.c",
+      "bytes": 25023,
+      "sha256": "38828e4f194ce86fa306795d7cb15c35672517ab403d21df17e46ab38e5f6f31",
+      "native_source": true,
+      "previous_inventory_sha256": "38828e4f194ce86fa306795d7cb15c35672517ab403d21df17e46ab38e5f6f31",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/odd.c",
+      "bytes": 7017,
+      "sha256": "f08f15350b55d2fac4ae81b74cf03cc677f7d3532f3269662ff5f1149a4c092c",
+      "native_source": true,
+      "previous_inventory_sha256": "f08f15350b55d2fac4ae81b74cf03cc677f7d3532f3269662ff5f1149a4c092c",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/odd.h",
+      "bytes": 1298,
+      "sha256": "21cf6c55da7db41bf575a1e8d8e8629d5a008bf770c19648b414e546c1205bce",
+      "native_source": true,
+      "previous_inventory_sha256": "21cf6c55da7db41bf575a1e8d8e8629d5a008bf770c19648b414e546c1205bce",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/oj.c",
+      "bytes": 103356,
+      "sha256": "ff0c40abe7cb6947885e97e06c4277263451d9892ccd140d741f004126f3ef3b",
+      "native_source": true,
+      "previous_inventory_sha256": "ff0c40abe7cb6947885e97e06c4277263451d9892ccd140d741f004126f3ef3b",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/oj.h",
+      "bytes": 12932,
+      "sha256": "08c696cf73357fca7f54f1023ef8893764d28bbec2cbb765ca6b5adef27af82a",
+      "native_source": true,
+      "previous_inventory_sha256": "08c696cf73357fca7f54f1023ef8893764d28bbec2cbb765ca6b5adef27af82a",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/parse.c",
+      "bytes": 47691,
+      "sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0",
+      "native_source": true,
+      "previous_inventory_sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/parse.h",
+      "bytes": 3621,
+      "sha256": "00187714d307a3591964dba60eae76f810d62d0224c902b05ac5c8096a404dc0",
+      "native_source": true,
+      "previous_inventory_sha256": "00187714d307a3591964dba60eae76f810d62d0224c902b05ac5c8096a404dc0",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/parser.c",
+      "bytes": 57090,
+      "sha256": "952785c9221a600f4e15d9defad495d1b33ac36823027dbac4ac917d69db68db",
+      "native_source": true,
+      "previous_inventory_sha256": "952785c9221a600f4e15d9defad495d1b33ac36823027dbac4ac917d69db68db",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/parser.h",
+      "bytes": 2751,
+      "sha256": "0d8bdc4187d166c5b336f27cd1955499ff8e75184fdcaae7edba39477fdc78a6",
+      "native_source": true,
+      "previous_inventory_sha256": "0d8bdc4187d166c5b336f27cd1955499ff8e75184fdcaae7edba39477fdc78a6",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/rails.c",
+      "bytes": 53282,
+      "sha256": "f7d99457491dfcc0a0ff01bf68ba4a9e2b83b4bf56387ef521747bd52ca009c6",
+      "native_source": true,
+      "previous_inventory_sha256": "f7d99457491dfcc0a0ff01bf68ba4a9e2b83b4bf56387ef521747bd52ca009c6",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/rails.h",
+      "bytes": 470,
+      "sha256": "5652c0e48c45073907d0063e1a072b78dee08583b82491545bd9e6642eb2e4a8",
+      "native_source": true,
+      "previous_inventory_sha256": "5652c0e48c45073907d0063e1a072b78dee08583b82491545bd9e6642eb2e4a8",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/reader.c",
+      "bytes": 7638,
+      "sha256": "dc1869c70841d865a5fcb67ca00967bc1fced236ec762c766b2c433bfca3ae5f",
+      "native_source": true,
+      "previous_inventory_sha256": "dc1869c70841d865a5fcb67ca00967bc1fced236ec762c766b2c433bfca3ae5f",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/reader.h",
+      "bytes": 3248,
+      "sha256": "2f97e181789f3b925ce78dc721cf09ef4088e32b03e49ff2303dca359b1640fb",
+      "native_source": true,
+      "previous_inventory_sha256": "2f97e181789f3b925ce78dc721cf09ef4088e32b03e49ff2303dca359b1640fb",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/resolve.c",
+      "bytes": 2648,
+      "sha256": "2617fae9e9fbee310fdde94f5eabae61b0d2a8646322b5f1ec75e9075818cff9",
+      "native_source": true,
+      "previous_inventory_sha256": "2617fae9e9fbee310fdde94f5eabae61b0d2a8646322b5f1ec75e9075818cff9",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/resolve.h",
+      "bytes": 424,
+      "sha256": "6024d57fbff18b4359543361f134ae6ade3be728adddaa8ee4704aa8e47b6f5b",
+      "native_source": true,
+      "previous_inventory_sha256": "6024d57fbff18b4359543361f134ae6ade3be728adddaa8ee4704aa8e47b6f5b",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/rxclass.c",
+      "bytes": 4013,
+      "sha256": "e661cb3a1e69767e86e60a54b5db8dcc21ceeef8ac8b39ebdeccc8539e6f99dd",
+      "native_source": true,
+      "previous_inventory_sha256": "e661cb3a1e69767e86e60a54b5db8dcc21ceeef8ac8b39ebdeccc8539e6f99dd",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/rxclass.h",
+      "bytes": 798,
+      "sha256": "3edc88a20ad1431077353a4d44c569aa7ee23d13f87d10bc89bdf44dc32a9c0c",
+      "native_source": true,
+      "previous_inventory_sha256": "3edc88a20ad1431077353a4d44c569aa7ee23d13f87d10bc89bdf44dc32a9c0c",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/safe.c",
+      "bytes": 8372,
+      "sha256": "0be292f55b78158cdc61127231e4b036ebaef5141dbcc419a6d0467e551af047",
+      "native_source": true,
+      "previous_inventory_sha256": "0be292f55b78158cdc61127231e4b036ebaef5141dbcc419a6d0467e551af047",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/safe.h",
+      "bytes": 4252,
+      "sha256": "2b6c68d3790e7ee9247dbbd3ec0f0a6d0b7e73eb35d8e05a522f1da339915012",
+      "native_source": true,
+      "previous_inventory_sha256": "2b6c68d3790e7ee9247dbbd3ec0f0a6d0b7e73eb35d8e05a522f1da339915012",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/saj.c",
+      "bytes": 21882,
+      "sha256": "4a24ee65ea5f96a6d71e9983a2c4cf1ab394aee5c9fc6516b5436de52bca45fe",
+      "native_source": true,
+      "previous_inventory_sha256": "4a24ee65ea5f96a6d71e9983a2c4cf1ab394aee5c9fc6516b5436de52bca45fe",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/saj2.c",
+      "bytes": 18141,
+      "sha256": "1d79372123ae5df399260106ace08a9455906fd674b0603c8a079e65ca169d7f",
+      "native_source": true,
+      "previous_inventory_sha256": "1d79372123ae5df399260106ace08a9455906fd674b0603c8a079e65ca169d7f",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/saj2.h",
+      "bytes": 609,
+      "sha256": "10a3f31d2ebbb085b8e40c37c5dac46447cfe44e6d21266b2ee0515b5c1a34ed",
+      "native_source": true,
+      "previous_inventory_sha256": "10a3f31d2ebbb085b8e40c37c5dac46447cfe44e6d21266b2ee0515b5c1a34ed",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/scp.c",
+      "bytes": 5777,
+      "sha256": "ccb9452caf7a1e3d3b32aabd52d90573e851318f09a2287269afa3bb6e54270c",
+      "native_source": true,
+      "previous_inventory_sha256": "ccb9452caf7a1e3d3b32aabd52d90573e851318f09a2287269afa3bb6e54270c",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/simd.h",
+      "bytes": 6684,
+      "sha256": "5e017adc9c9ab72163afbedf9af2fc7d166d7637110ae94d266f8cdbfc9e6e4a",
+      "native_source": true,
+      "previous_inventory_sha256": "5e017adc9c9ab72163afbedf9af2fc7d166d7637110ae94d266f8cdbfc9e6e4a",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/sparse.c",
+      "bytes": 31879,
+      "sha256": "92b320b17b13c98798f2dd5c955742aa3f414abd71dc0415cdf88511b80834e0",
+      "native_source": true,
+      "previous_inventory_sha256": "92b320b17b13c98798f2dd5c955742aa3f414abd71dc0415cdf88511b80834e0",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/stream_writer.c",
+      "bytes": 11277,
+      "sha256": "3b28472192bfc142c13805da0d2ffdcaaaea8522c9390f81502fd180c44853ae",
+      "native_source": true,
+      "previous_inventory_sha256": "3b28472192bfc142c13805da0d2ffdcaaaea8522c9390f81502fd180c44853ae",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/strict.c",
+      "bytes": 5886,
+      "sha256": "fc23bd0da8912ef1f44601b908cc9c92559e50245fc560656a4936c585423757",
+      "native_source": true,
+      "previous_inventory_sha256": "fc23bd0da8912ef1f44601b908cc9c92559e50245fc560656a4936c585423757",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/string_writer.c",
+      "bytes": 16838,
+      "sha256": "fcb3ef87300d4f44c5ed68b1fa8bbd92acf1c9b3843b12981eb90d2231cd2746",
+      "native_source": true,
+      "previous_inventory_sha256": "fcb3ef87300d4f44c5ed68b1fa8bbd92acf1c9b3843b12981eb90d2231cd2746",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/trace.c",
+      "bytes": 2216,
+      "sha256": "b2d4090e6dc0982d932f6c7e5b71ef518f031097c95a36b889f616b3faf6896e",
+      "native_source": true,
+      "previous_inventory_sha256": "b2d4090e6dc0982d932f6c7e5b71ef518f031097c95a36b889f616b3faf6896e",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/trace.h",
+      "bytes": 2139,
+      "sha256": "611c0fb87f14599807f35571c43d4db42fde5a21ed722429e090a39c78f41dc4",
+      "native_source": true,
+      "previous_inventory_sha256": "611c0fb87f14599807f35571c43d4db42fde5a21ed722429e090a39c78f41dc4",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/usual.c",
+      "bytes": 35605,
+      "sha256": "215cbd15891117564b2fc5f00a11cdfc80cb0aafb6d50bfe1c6999f3ab8d72d1",
+      "native_source": true,
+      "previous_inventory_sha256": "215cbd15891117564b2fc5f00a11cdfc80cb0aafb6d50bfe1c6999f3ab8d72d1",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/usual.h",
+      "bytes": 1608,
+      "sha256": "007855bfaaec95f9b3391c5dfb9a64c248dd5a5a2ce4f4e519ac470f4cad4dd2",
+      "native_source": true,
+      "previous_inventory_sha256": "007855bfaaec95f9b3391c5dfb9a64c248dd5a5a2ce4f4e519ac470f4cad4dd2",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/util.c",
+      "bytes": 5282,
+      "sha256": "36e8a0ea970f465eaa3798a8624e378741b8b39c2f5e659e72fc0989412f4ca9",
+      "native_source": true,
+      "previous_inventory_sha256": "36e8a0ea970f465eaa3798a8624e378741b8b39c2f5e659e72fc0989412f4ca9",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/util.h",
+      "bytes": 449,
+      "sha256": "c4ffc6253dd03a5b2468e01d8aa68578050e362d001c88703028a13257660e58",
+      "native_source": true,
+      "previous_inventory_sha256": "c4ffc6253dd03a5b2468e01d8aa68578050e362d001c88703028a13257660e58",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/val_stack.c",
+      "bytes": 2679,
+      "sha256": "a820c6f827b290cb8bf1bcd8c624a155b4e5548bec0c4c72c76f9227519b2953",
+      "native_source": true,
+      "previous_inventory_sha256": "a820c6f827b290cb8bf1bcd8c624a155b4e5548bec0c4c72c76f9227519b2953",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/val_stack.h",
+      "bytes": 4587,
+      "sha256": "48c7947a37ab0b1243d22bc32759685bc33750528dbca82f68b6ec91c55f32db",
+      "native_source": true,
+      "previous_inventory_sha256": "48c7947a37ab0b1243d22bc32759685bc33750528dbca82f68b6ec91c55f32db",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/validate.c",
+      "bytes": 1022,
+      "sha256": "a189312f5d5e841711329cf7615843c9ba4d9328e5993424a6a83d7b56b41de5",
+      "native_source": true,
+      "previous_inventory_sha256": "a189312f5d5e841711329cf7615843c9ba4d9328e5993424a6a83d7b56b41de5",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "ext/oj/wab.c",
+      "bytes": 16541,
+      "sha256": "25f9566eda5f6983a5be7c9635d2ae8e24a5cdbb881488157935359efa1fcc80",
+      "native_source": true,
+      "previous_inventory_sha256": "25f9566eda5f6983a5be7c9635d2ae8e24a5cdbb881488157935359efa1fcc80",
+      "matches_previous_inventory": true,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/active_support_helper.rb",
+      "bytes": 1072,
+      "sha256": "f413b69eeb5937ac1eff5239838a9ad7e7d0ca94ee5107375851419e66bf8a01",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/bag.rb",
+      "bytes": 3472,
+      "sha256": "eb4b1335c2731d4995ed2b9d6ee2d2154fc1e115de262e0a0c28092de0c99aca",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/easy_hash.rb",
+      "bytes": 1999,
+      "sha256": "4e2f5c493c48377a91c0d2bad3a58bc576d6012406c3ed24b73829b7495b8d00",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/error.rb",
+      "bytes": 630,
+      "sha256": "89ea8ccf50b7e8d75c2a95b47d56dd56f32d14d0373946e4a5cef65e4e6a38ee",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/json.rb",
+      "bytes": 6796,
+      "sha256": "b7f88689b1f84c912e8b2e40a1e98189347c46b60c632d4377b8d5fee217a449",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/mimic.rb",
+      "bytes": 8255,
+      "sha256": "69ac852ebacded865bb96dbef7cdf0021108b560d01e56972aabaf5df487ecc7",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/saj.rb",
+      "bytes": 1968,
+      "sha256": "b5d77496e0e7ffbbab387a1161e805b326da0dd9dbf4f89f7fe287223e641660",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/schandler.rb",
+      "bytes": 3968,
+      "sha256": "f74b84764d163c3cd828182eec4d944003a40110f5c447ab7b8bfcc01028d50f",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/state.rb",
+      "bytes": 4325,
+      "sha256": "62ae4347f92821b8f9911afb25c2d285a53e05e327b9aca92afa736a0ba1c041",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj/version.rb",
+      "bytes": 70,
+      "sha256": "06f484fe7fc23aff9486775d9832c683683311a23ff0e83668fbd5c644b333c0",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "lib/oj.rb",
+      "bytes": 248,
+      "sha256": "8cc45c7d72df874126b905fc33eacc4d329079f2b679ccb4e08b0425316645a6",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/Advanced.md",
+      "bytes": 1291,
+      "sha256": "1bf9c8367b57c6ab68657c807a4f04fc1bfc4440ee755fd1b32ebea7adcf8e60",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/Compatibility.md",
+      "bytes": 979,
+      "sha256": "dedd8fc315c21ed1258b32a8a476f12ecf89ec43a63b640b072c1d53233b212a",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/Custom.md",
+      "bytes": 1203,
+      "sha256": "fce44c3b153e41b9703c812b048c4c25ec8d830e94a6ffb673da2bcd3ee841e1",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/Encoding.md",
+      "bytes": 3441,
+      "sha256": "97f4985a0c8fdcabb303d64cb83b9c6b4ed8ee762adec6e5f896eaa6d30f808e",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/InstallOptions.md",
+      "bytes": 736,
+      "sha256": "68fce4970dd57833e2040e7c81eae7c164b16e87f2c546239a3d252e834ad4df",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/JsonGem.md",
+      "bytes": 3296,
+      "sha256": "010b5ec65031e36119ddbb1b76ce440bab96754ca64cc1acafc3ed85240d661c",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/Modes.md",
+      "bytes": 10252,
+      "sha256": "6b8186ff44ee389bdb68c3febb0e43f641b3c4432dc5163f22e336d904b625e1",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/Options.md",
+      "bytes": 10562,
+      "sha256": "91bdd7f037f8a1ff1756825f31e014a76c2b915eb1b36fd8c012169d1b0f3f90",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/Parser.md",
+      "bytes": 13569,
+      "sha256": "9e6d8dcbf910eccb4215a209591577daebe3fafb175d5927b5eedda367a23cbe",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/Rails.md",
+      "bytes": 7095,
+      "sha256": "07de50d9a477dbd4fc3f97406da58ac20323d3d363046b774989a817abba2e14",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/Security.md",
+      "bytes": 2226,
+      "sha256": "312ab995c4db4256cb05652e5e5bc3a15f9fedf4304bae40d6518678c1303e2e",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    },
+    {
+      "path": "pages/WAB.md",
+      "bytes": 601,
+      "sha256": "eb6f30a70d332cf87bd34e7f534a92c29d4641f35d29ac32ae8b93df4e4ac05c",
+      "native_source": false,
+      "previous_inventory_sha256": null,
+      "matches_previous_inventory": null,
+      "exhaustively_reviewed": false
+    }
+  ]
+}
