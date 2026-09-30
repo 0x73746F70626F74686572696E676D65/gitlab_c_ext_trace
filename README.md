@@ -1,8 +1,16 @@
 # GitLab static native results and semantic audit
 
-**The end-to-end path counts are candidates, not established user reachability.** A seeded source review of 80 frozen v2 chains found **59 contradicted, 14 conditionally supported, and 7 unresolved**. Errors include ignored Ruby overrides and argument/branch combinations that cannot follow the reported chain. No application, extension, endpoint or build hook was run.
+**The end-to-end path counts are candidates, not established user reachability.** The initial seeded source review of 80 frozen v2 chains found **59 contradicted, 14 conditionally supported, and 7 unresolved**. Errors include ignored Ruby overrides and argument/branch combinations that cannot follow the reported chain. No application, extension, endpoint or build hook was run.
 
 Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). Deterministic layer denominators are in [COVERAGE_FUNNEL.txt](COVERAGE_FUNNEL.txt) and the compact [coverage tables/scripts archive](gitlab-layer-coverage.tar.gz). Primary memory-call candidates: **29,108 → 6,707 with native-registration graph paths → CE497 / EE504 frontend candidate sites**. These are graph-discovery counters, not accuracy or recall. The small [audit archive](gitlab-path-audit.tar.gz) is **1,164,037 bytes** and contains samples, per-hop verdicts/evidence, coverage reviews, methodology, schemas and reproducible scripts. Weighted estimates have very wide conservative uncertainty intervals; neither a precise runtime accuracy percentage nor global path recall is established.
+
+## Latest complete candidate census and input flows
+
+The [census and flow companion](gitlab-c-ext-census-and-flows.tar.gz) (**5,470,414 bytes**; [index](CENSUS_AND_FLOWS_INDEX.txt)) independently reviews every one of frozen iteration3's **151 surviving candidates**, covering **52 profile-specific entrypoints and 51 distinct physical sites**. Results are **99 conditionally source-supported**, **20 dependent on unreviewed ICU contracts**, **26 otherwise unresolved**, and **6 contradicted**. These are disjoint path counts; distinct entrypoint/site sets overlap. Reviewer judgments and uncertainty are retained, including one disagreement among eight blind duplicate reviews. There is no sampling uncertainty for this selected census, but it is not a runtime accuracy estimate or global recall measurement.
+
+The latest reference ledger has **12 conditional request-to-memory-argument records plus one partial**, covering eight frontend cases in CE/EE controllers, middleware, Grape and GraphQL. They still represent only **two native influence mechanisms and two physical sites**: JSON-key content/derived length and compressed-chunk content/derived length. Authentication, version, encoding, callback/cache and branch conditions remain explicit. A conversion-site call can also be nonallocating: seven census paths share one `LONG2NUM(sf)` site whose valid nanosecond argument fits an immediate integer. No site count implies fresh allocation, arbitrary input control or vulnerability.
+
+This archive preserves the audited iteration3 population and adds zero-path-classification-change iteration4 binding evidence. Further in-progress repairs are excluded. Extract beside the prior V3 and iteration3 companions; their archives and source versions remain unchanged.
 
 ## Latest: iteration3
 

@@ -1,0 +1,39 @@
+GitLab C-extension analysis — census and conditional flows
+
+This is a compact companion, not a replacement graph or a runtime verification result. It preserves the audited frozen iteration3 revision and adds a separate iteration4 binding refinement plus reviewed request-flow evidence. In-flight iteration5 repairs are excluded. Existing published archives and baseline/source history remain unchanged.
+
+Full census of the remaining iteration3 candidate class
+All 151 candidate_not_disproved records (CE 66/EE 85) in frozen revision 5c88395340596b216070e4dcd52395a12ce9d27473b6bc60bf8719306865cdd2 were reviewed. Primary disjoint categories:
+ 99 conditional source-supported
+ 20 require additional unreviewed external ICU contracts
+ 26 other unresolved
+  6 contradicted
+These total 151. The earlier raw 119 supported/26 unresolved/6 contradicted labels are preserved for traceability; the strict 20-ICU split is the publication classification. Conditional support remains subject to dispatch, branch, input, external-model and deployment assumptions. This census describes only that exact remaining class, not all paths, endpoints, gems, missing sources, rejected paths, partial paths or runtime reachability. No broad precision/recall claim follows.
+
+The package includes every census record, per-hop reviewer evidence, all 151 source dossiers, three reviewer files, source manifests, eight blinded duplicate reviews, sensitivity/effect qualifications, dimension breakdowns, scripts and freezes. Blind duplicate agreement was 7/8; disagreement and reviewer uncertainty remain visible. Full enumeration removes sampling uncertainty for this exact population, not judgment uncertainty or dependence among shared edges. Multiple path records may share the same source site, mechanism or error.
+
+Use audit/candidate_census_iteration3/census_summary.json, census_results.jsonl and census_review.txt first. census_breakdowns.csv/json and census_path_dimensions.jsonl provide mappings without changing the audited graph. Frozen full iteration3 per-path decisions remain in the preceding iteration3 archive; path_id/profile are the join keys. The six contradictions remain present in the frozen graph and review overlay. They are not silently removed or repaired here.
+
+Separate iteration4 binding revision
+Closed keyword-rest handling improves 770 parameter-binding contexts and 728 local fact statuses. It changes ZERO per-path statuses and adds ZERO exclusions.46 synthetic tests and 314,707 structural/source checks validate the bounded implementation; this is not a demonstrated production reachability gain. Event Hash branch proof is not claimed: actual JSON adapter defaults remain unresolved, and no speculative adapter-assumption tier was accepted. Native Oj blocker evidence and bounded fixed-file feasibility results are retained.
+
+Iteration4 full Ruby per-path ledgers remain local, explicitly listed with counts/hashes in omitted_local_artifacts.json because their path classifications are unchanged. Binding gains, facts, bindings, models, tests and freeze manifests are included. The prior full iteration3 graph remains authoritative for the census; iteration4 analysis must not be retroactively described as the audited revision.
+
+Conditional request-to-memory flow union
+Read tables/request_flow_index_iteration4_final.jsonl and reports/request_flow_index_iteration4_final_counts.json. The reference-only union contains 13 records: 12 conditional (CE 7/EE 5), plus 1 CE partial. They represent 8 frontend source-case families but only 2 conditional native memory-influence mechanisms and 2 conditional physical native sites. A third terminal site belongs only to the unresolved partial continuation and is excluded from conditional counts. Encoding alternatives and repeated profiles are not additional mechanisms or independently observed executions.
+
+New Slack options/interactions recipes select a valid Slack-signed form payload String; they do not imply arbitrary GitLab-user access or equate a signed raw body with any merged request parameter. Signature/authentication and global filters are explicit conditions. The CE GraphQL package-pipelines cursor recipe includes retained registration, stored batch invocation, decoder and source/core contracts. Independent assembly review PASS is recorded additively in the final index: the earlier frozen GraphQL recipe's pending label is intentionally preserved as history, not overwritten. Read actual conditions and gaps before interpreting either recipe.
+
+These flows are source-supported conditional contracts, not runtime executions, vulnerabilities, global coverage estimates or proof of fresh heap allocation at every constructor/buffer call. Source-origin influence, byte/length derivation, storage identity and control conditions are distinct. The union references previous recipes in earlier archives by immutable hashes/IDs/profile/site; it does not duplicate or silently drop them.
+
+Package layout and reproduction
+- audit/candidate_census_iteration3/: complete 151-record census and evidence.
+- tables/, reports/: iteration4 binding evidence, new Slack/GraphQL recipes, independent reviews and final union index.
+- scripts/, tests/, fixtures/, schemas/: reproducible bounded analysis and contracts.
+- prerequisites.json: prior archives, hashes, source roots and audited revision.
+- omitted_local_artifacts.json: explicit full local ledgers omitted for size.
+- table_catalog.json and SHA256SUMS: included bytes, hashes and JSONL counts.
+
+Sources resolve under /workspace/gitlab_c_ext_trace; frozen analysis inputs under /workspace/gitlab_c_ext_v3. Full source trees are retained there, not duplicated here. Prior companion archives are required for full historical joins. Run from the saved environment:
+ python /workspace/gitlab_c_ext_v3/scripts/package_census_and_flows.py
+The script verifies freezes, census membership, all archive bytes and preservation of previous archives. It performs no push or external publication. No GitLab, native extension, gem build hook or runtime extension test was executed.
