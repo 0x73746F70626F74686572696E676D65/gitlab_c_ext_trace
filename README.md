@@ -4,6 +4,12 @@
 
 Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). Deterministic layer denominators are in [COVERAGE_FUNNEL.txt](COVERAGE_FUNNEL.txt) and the compact [coverage tables/scripts archive](gitlab-layer-coverage.tar.gz). Primary memory-call candidates: **29,108 → 6,707 with native-registration graph paths → CE497 / EE504 frontend candidate sites**. These are graph-discovery counters, not accuracy or recall. The small [audit archive](gitlab-path-audit.tar.gz) is **1,164,037 bytes** and contains samples, per-hop verdicts/evidence, coverage reviews, methodology, schemas and reproducible scripts. Weighted estimates have very wide conservative uncertainty intervals; neither a precise runtime accuracy percentage nor global path recall is established.
 
+## Latest request-input evidence
+
+The [JSON request-flow companion](gitlab-c-ext-json-request-flow.tar.gz) (**91,776 bytes**; [index](JSON_REQUEST_FLOW_INDEX.txt)) extends the separate conditional input ledger to **14 terminal-flow records plus one partial**, covering **four native sites and three mechanisms**. The new Rails parsing phase reuses the existing passkeys route: it adds no external route. Under the reviewed source conditions, request string bytes determine a JSON parser's buffer-capacity argument and pre-escape prefix-copy length. Capacity is not exact heap consumption.
+
+Independent review checks the complete route/framework/native chain, including parameter-cache behavior, parser backend and action-callback ordering. Outer middleware admission and matching backend/runtime remain conditions; this is not a runtime, unauthenticated-reachability or vulnerability claim. A separate six-path review finds VersionSorter arguments derive from persisted records selected by the request; no direct request-byte/count flow was established, and pagination occurs after sorting. The iteration6 broad graph below is unchanged.
+
 ## Latest: iterations 5/6
 
 The [new compact delta](gitlab-c-ext-iteration5-6.tar.gz) (**17,581,849 bytes**; [index](ITERATION5_6_INDEX.txt)) preserves all **38,499** baseline records while applying source-backed branch, registration-activation and deferred-callback constraints. The latest overlay has **119 candidates, 24,070 partial paths and 14,310 conditional exclusions**. No source trees are uploaded.
