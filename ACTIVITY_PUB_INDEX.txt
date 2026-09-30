@@ -1,0 +1,17 @@
+ActivityPub inbox — conditional cached-body input flow
+
+One reviewed CE ActivityPub releases-inbox source case adds one conditional terminal-flow record at an existing Oj String-constructor site/mechanism. The actual route was absent from the earlier baseline entrypoint inventory; its explicit route/callback proof is included rather than a fabricated baseline ID. This is targeted source-case coverage, not a recall estimate or newly discovered memory operation.
+
+The latest layered index has 21 references: 18 main conditional terminal-flow records (CE12/EE6), two main partials, and one separately qualified auxiliary libyaml flow. Main conditional records still cover five physical sites and four mechanisms. The new source-case family count is one; added conditional physical sites and native mechanisms are zero. Record/profile/phase/case counts must not be equated with independent external routes; global route count remains unestablished.
+
+This case requires enabled ActivityPub/project feature flags, an existing public/nondeleting project, successful project/read policy checks, and admitted middleware/global callbacks. Only the actual authenticate_user! skip is claimed. Null-session CSRF handling does not establish universal unauthenticated reachability. The inbox enforce_payload callback must run without prior halt/exception, @payload must initially be falsey, and selected cached raw-post bytes must remain intact. The 20MiB validation bound carries through the selected ASCII-preserving conversion; it does not bound earlier server/Rails allocations or imply exact heap usage.
+
+Mandatory constructor supplement: StringIO has its own singleton new implementation. The source chain is strio_s_new -> rb_class_new_instance_kw -> registered allocator/initialize, with the actual byte/encoding transfer evidence. Do not substitute inherited Class#new dispatch for StringIO. The distinct StreamValidator constructor retains its reviewed conditional Class#new model. Runtime method/backend/version identity remains conditional; no automatic verified label or observed allocation follows.
+
+Independent assembly review passed 240 checks across 48 files, including the mandatory singleton-new/source supplement. Original frozen feasibility/pending labels remain historical; the separately created reviewed flow and latest index supply additive conclusions without altering old records. All required source excerpts, cached-body model, reviews, scripts and index are included. The refreshed CURRENT_INPUT_FLOWS bundle contains all referenced full flow recipes for convenient inspection.
+
+Prior broad source/graph datasets remain prerequisites at /workspace/gitlab_c_ext_trace and /workspace/gitlab_c_ext_v3. This small companion excludes source trees, AST/all-call tables and unrelated path ledgers. Frozen input hashes, review gates, archive members and prior-archive preservation are verified; these integrity checks are not runtime or global accuracy proofs. See table_catalog.json, SHA256SUMS and package_validation.json; external archive_validation.json records the final package identity.
+
+Reproduce packing:
+ python /workspace/gitlab_c_ext_v3/scripts/package_activity_pub.py
+No GitLab/native runtime, gem hook or extension test is executed; no external publishing is performed.
