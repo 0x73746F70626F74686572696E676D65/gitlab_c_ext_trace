@@ -4,7 +4,13 @@
 
 Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). Deterministic layer denominators are in [COVERAGE_FUNNEL.txt](COVERAGE_FUNNEL.txt) and the compact [coverage tables/scripts archive](gitlab-layer-coverage.tar.gz). Primary memory-call candidates: **29,108 → 6,707 with native-registration graph paths → CE497 / EE504 frontend candidate sites**. These are graph-discovery counters, not accuracy or recall. The small [audit archive](gitlab-path-audit.tar.gz) is **1,164,037 bytes** and contains samples, per-hop verdicts/evidence, coverage reviews, methodology, schemas and reproducible scripts. Weighted estimates have very wide conservative uncertainty intervals; neither a precise runtime accuracy percentage nor global path recall is established.
 
-## Latest request-input evidence
+## Latest: YAML evidence with separate external-library assumptions
+
+The [YAML/Psych companion](gitlab-c-ext-yaml-psych.tar.gz) (**79,100 bytes**; [index](YAML_PSYCH_INDEX.txt)) records a CI-lint request-content prefix. Its primary path remains **partial** because the linked libyaml version is unpinned. A separate, explicitly auxiliary libyaml 0.2.5 source model conditionally traces a selected scalar's content and length into the existing Psych String-constructor site. It does not establish the deployed library or add primary gem coverage.
+
+The layered ledger has **14 main conditional records and two partials**, still **four main conditional sites/three mechanisms**, plus **one separately version-conditioned auxiliary flow/site**. The new partial and auxiliary continuation describe the same CI-lint request case. All earlier snapshots remain unchanged; the broad iteration6 graph is unchanged.
+
+## Reviewed JSON request-input evidence
 
 The [JSON request-flow companion](gitlab-c-ext-json-request-flow.tar.gz) (**91,776 bytes**; [index](JSON_REQUEST_FLOW_INDEX.txt)) extends the separate conditional input ledger to **14 terminal-flow records plus one partial**, covering **four native sites and three mechanisms**. The new Rails parsing phase reuses the existing passkeys route: it adds no external route. Under the reviewed source conditions, request string bytes determine a JSON parser's buffer-capacity argument and pre-escape prefix-copy length. Capacity is not exact heap consumption.
 
