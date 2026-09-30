@@ -72,3 +72,5 @@ python -m unittest discover -s frontend_gem_api_map/unauth_review -p test_review
 ```
 
 GitLab revision: `d75e5afaa21d45bc04139d4a538ea5954be1ef4f`. No application or gems were executed. Integrity checks and synthetic tests establish record consistency, not runtime precision or recall.
+
+A subsequent [limited defensive review](DEFENSIVE_REVIEW.txt) checks parser controls and selected documented native operations, corrects the normal adapter mode to Rails/compatibility dispatch, and records its explicit non-exhaustive scope in [machine-readable evidence](defensive_review.json). It does not certify native memory safety.

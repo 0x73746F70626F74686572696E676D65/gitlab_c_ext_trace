@@ -1,0 +1,195 @@
+{
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "entrypoint": "Oauth::DynamicRegistrationsController#create",
+  "route": "POST /oauth/register(.:format)",
+  "gem": {
+    "name": "oj",
+    "locked_version": "3.17.6"
+  },
+  "scope": "Limited manual defensive controls and documented-memory-operation review; not exhaustive native data-flow analysis",
+  "exhaustive": false,
+  "application_executed": false,
+  "extension_built_or_loaded": false,
+  "conclusion": {
+    "confirmed_memory_safety_vulnerability": null,
+    "meaning": "No memory-safety vulnerability established by this limited review; absence of a finding does not establish safety.",
+    "resource_control_concern": "Whole-body reads precede application body-size validation. Deployment ingress caps and concurrency controls are needed to bound pre-validation resource usage."
+  },
+  "native_inventory": {
+    "archive": "gitlab-native-results.tar.gz",
+    "registration_id": "reg_a98350c7a94e2feefce6a39f",
+    "terminal_site_records": 22,
+    "confidence": "possible_static_call_graph_path",
+    "route_reachable_site_count": null,
+    "coverage": "Representative shortest syntactic paths, without complete callback/branch/build/lifetime resolution"
+  },
+  "parser_mode_correction": {
+    "normal_adapter_mode": "rails",
+    "normal_native_dispatch": "oj_compat_parse",
+    "primitive_string_validator_mode": "strict",
+    "meaning": "The previously displayed strict-mode inventory path is a candidate, not proof that the normal route adapter uses strict mode."
+  },
+  "source_files": [
+    {
+      "repository": "gitlab",
+      "path": "app/controllers/oauth/dynamic_registrations_controller.rb",
+      "sha256": "7a90086e29333209d8767009475f0c923619b6b62796aa7ac8574cd97eaa1371",
+      "evidence_lines": [
+        6,
+        8,
+        9,
+        20,
+        21,
+        69,
+        108,
+        130
+      ]
+    },
+    {
+      "repository": "gitlab",
+      "path": "gems/gitlab-utils/lib/gitlab/json.rb",
+      "sha256": "58377559f57ea8123db49ce87212e1cd6f9aa23de6e6933d304ab86f7fc1b091",
+      "evidence_lines": [
+        19,
+        66,
+        138,
+        204
+      ]
+    },
+    {
+      "repository": "gitlab",
+      "path": "gems/gitlab-utils/lib/gitlab/json/stream_validator.rb",
+      "sha256": "2072f6afe0310aca91cd15d85f523d5f31032909408f8e834c4a6fd2e23520b4",
+      "evidence_lines": [
+        89,
+        110,
+        242,
+        248
+      ]
+    },
+    {
+      "repository": "gitlab",
+      "path": "lib/gitlab/middleware/json_validation.rb",
+      "sha256": "3f25f383b311d8b091200a3bcb775325380f3af52c70005eed445cb35fd2d8f2",
+      "evidence_lines": [
+        77,
+        269,
+        356,
+        364
+      ]
+    },
+    {
+      "repository": "gitlab",
+      "path": "config/application.rb",
+      "sha256": "3627c25af3ed5c96cfc0804a433f7684c3a08cc9ba11f7f03a4f2a0eb031f150",
+      "evidence_lines": [
+        524
+      ]
+    },
+    {
+      "repository": "gitlab",
+      "path": "lib/gitlab/application_rate_limiter/labkit_adapter/supported_rate_limits.rb",
+      "sha256": "708b0b95b20cc0cc2294b9ce0cc5eee3cbf56b8694298af59e44f7f4160cb935",
+      "evidence_lines": [
+        425
+      ]
+    },
+    {
+      "repository": "gitlab",
+      "path": "Gemfile.lock",
+      "sha256": "50f6a3526e62de32194407ef07fb8e4ba657131aa09614f897914606e2c31098",
+      "evidence_lines": [
+        1513
+      ]
+    },
+    {
+      "repository": "oj",
+      "path": "ext/oj/oj.c",
+      "source_url": "https://raw.githubusercontent.com/ohler55/oj/v3.17.6/ext/oj/oj.c",
+      "sha256": "ff0c40abe7cb6947885e97e06c4277263451d9892ccd140d741f004126f3ef3b",
+      "hash_matches_existing_native_inventory": true,
+      "reviewed_line_ranges": [
+        [
+          1462,
+          1507
+        ]
+      ]
+    },
+    {
+      "repository": "oj",
+      "path": "ext/oj/parse.c",
+      "source_url": "https://raw.githubusercontent.com/ohler55/oj/v3.17.6/ext/oj/parse.c",
+      "sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0",
+      "hash_matches_existing_native_inventory": true,
+      "reviewed_line_ranges": [
+        [
+          1084,
+          1143
+        ],
+        [
+          1326,
+          1373
+        ]
+      ]
+    },
+    {
+      "repository": "oj",
+      "path": "ext/oj/parse.h",
+      "source_url": "https://raw.githubusercontent.com/ohler55/oj/v3.17.6/ext/oj/parse.h",
+      "sha256": "00187714d307a3591964dba60eae76f810d62d0224c902b05ac5c8096a404dc0",
+      "hash_matches_existing_native_inventory": true,
+      "reviewed_line_ranges": [
+        [
+          92,
+          94
+        ]
+      ]
+    },
+    {
+      "repository": "oj",
+      "path": "ext/oj/val_stack.c",
+      "source_url": "https://raw.githubusercontent.com/ohler55/oj/v3.17.6/ext/oj/val_stack.c",
+      "sha256": "a820c6f827b290cb8bf1bcd8c624a155b4e5548bec0c4c72c76f9227519b2953",
+      "hash_matches_existing_native_inventory": true,
+      "reviewed_line_ranges": [
+        [
+          60,
+          84
+        ]
+      ]
+    },
+    {
+      "repository": "oj",
+      "path": "ext/oj/err.c",
+      "source_url": "https://raw.githubusercontent.com/ohler55/oj/v3.17.6/ext/oj/err.c",
+      "sha256": "e98f98765422762c876506cf53c66bc03731a934b478eb643138776f4d86bd59",
+      "hash_matches_existing_native_inventory": true,
+      "reviewed_line_ranges": [
+        [
+          8,
+          18
+        ]
+      ]
+    }
+  ],
+  "advisory_check": {
+    "source": "https://api.osv.dev/v1/query",
+    "package": {
+      "ecosystem": "RubyGems",
+      "name": "oj",
+      "version": "3.17.6"
+    },
+    "result": {},
+    "checked_at_utc": "2026-09-30T23:16:28.958318+00:00",
+    "meaning": "No entries returned for this exact version; not a proof of vulnerability absence."
+  },
+  "gaps": [
+    "Native callback/function-pointer and complete parser implementation coverage",
+    "All allocation arithmetic, buffer ownership, GC rooting, exceptions and cleanup paths",
+    "Deployed middleware modes, ingress caps, concurrency and runtime-loaded versions",
+    "All Ruby method precedence, dynamic configuration and CE/EE composition",
+    "Concrete branch feasibility and whether each documented sink executes from this route",
+    "Compiler/preprocessor/linker choices and Ruby/GMP/allocator implementation",
+    "Runtime behavior, sanitizer coverage and application-specific security testing"
+  ]
+}

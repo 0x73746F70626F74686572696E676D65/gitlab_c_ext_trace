@@ -1,0 +1,81 @@
+Limited defensive review of the listed Oj API mapping
+
+GitLab revision: d75e5afaa21d45bc04139d4a538ea5954be1ef4f
+Entrypoint: Oauth::DynamicRegistrationsController#create
+Registration: POST /oauth/register(.:format)
+Locked gem: oj 3.17.6
+
+Conclusion
+No memory-safety vulnerability was established by this limited review. This is
+not an exhaustive data-flow/sink audit, and it does not certify this route or Oj
+as secure. The previous qualified-API count remains a static mapping count.
+
+Manual evidence and controls
+- The action skips the ordinary login and CSRF filters, with dynamic registration
+  enabled-setting and production rate-limit callbacks. The source rate-limit
+  rule is ten registrations per IP per hour; deployment enforcement is untested.
+- safe_parse validates before its normal Oj.load call. Its local defaults include
+  depth 32, array/hash size 50,000, total elements 100,000 and body size 20 MiB.
+  Those figures constrain accepted input, not exact native heap consumption.
+- The validator checks input size and encoding before invoking native parsing.
+  It uses streaming parsing for structured values and strict Oj.load for its
+  primitive-string validation branch. Validation callbacks also construct Ruby
+  containers, so streaming validation is not a constant-memory guarantee.
+- The normal adapter forces mode :rails. Oj's load dispatcher directs RailsMode
+  to oj_compat_parse. The previous answer's strict-mode inventory path is not
+  proof of the normal adapter's effective branch. The inventory does not model
+  a route-specific, argument-sensitive native execution graph.
+- For the documented native operations manually inspected, parse-info memset
+  uses the struct size, error formatting uses sized formatting calls, and the
+  documented key-copy site has an explicit destination-capacity check. These
+  observations do not prove all source-length, ownership, pointer arithmetic or
+  lifetime invariants and do not establish an exploitable defect.
+- The inspected native error path includes Ruby String construction/appending;
+  deployment reviews should minimize returned/logged parser details. Exact error
+  contents and feasibility from this route have not been established here.
+- Native object wrapping and stack initialization were inspected for context;
+  all GC/ownership and unwind behavior was not audited.
+
+Resource-control concern
+The action reads the entire body before safe_parse can enforce its byte limit.
+The JSON middleware likewise reads before validation and precedes controller
+callbacks. Its generic body-size cap is disabled by default; middleware coverage
+and enforcement depend on media type and configuration. The application's
+20 MiB accepted-input cap therefore does not bound earlier body buffering or
+all concurrent resource use. Confirm a finite ingress limit before body buffering,
+enforced middleware limits and suitable concurrency/request-budget controls.
+This is a control-placement concern, not a demonstrated denial-of-service exploit.
+
+Existing native inventory and its limits
+The stored c_reachability/c_primitives tables in gitlab-native-results.tar.gz
+contain 22 terminal-site records for registration reg_a98350c7a94e2feefce6a39f.
+Their paths are labelled possible_static_call_graph_path. They include fixed
+initialization/writes, formatted writes, Ruby construction/append/wrapping,
+coercions and automatic arrays. They are not a complete denominator of operations
+reachable from the route. Shortest-path selection, unresolved callbacks/function
+pointers, argument-insensitive dispatch and unresolved build choices prevent
+using this set as proof of exhaustive security coverage.
+
+Advisories and provenance
+The OSV query for RubyGems oj 3.17.6 returned no vulnerability entries. That result
+is not evidence that unknown vulnerabilities do not exist or that deployment
+uses this version. Five upstream v3.17.6 C/header files were downloaded for the
+limited manual checks; each byte hash matches the existing native source manifest.
+Reviewed ranges, GitLab source hashes and the query are in defensive_review.json.
+No application, gem extension, build hook, endpoint or exploit was executed.
+The earlier mapping's no-C-source statement remains accurate for that earlier pass.
+
+Uncovered areas (explicitly not certified)
+- Complete native parser callbacks and every allocation/copy/free/cleanup path.
+- Integer/size arithmetic, all pointer provenance and lifetime/GC invariants.
+- External Ruby, allocator, GMP and platform/compiler/build behavior.
+- Concrete branch feasibility, runtime dispatch and all CE/EE modifications.
+- Deployed ingress caps, middleware modes, dependency versions and concurrency.
+- Runtime sanitizer coverage and application-specific security regression tests.
+
+Defensive follow-up
+Use enforced, finite body and structure budgets before expensive processing;
+confirm the deployed dependency/build, keep dependencies patched, minimize parser
+error exposure, and commission a native-code security audit with runtime memory
+instrumentation in an owned test environment. This review supplies no exhaustive
+sink count, coverage percentage, exploitation recipe or security certification.
