@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "candidates_reviewed": 191,
+  "original_sites_verified": 933,
+  "source_hashes_verified": 654,
+  "qualified_candidates": 8,
+  "checks": [
+    "baseline preserved",
+    "inventory unchanged",
+    "all candidates/sites covered",
+    "API ID partitions",
+    "source hashes and match locations",
+    "helper bounds",
+    "CSV agreement",
+    "aggregate counts",
+    "gap references"
+  ],
+  "limitation": "Integrity and synthetic tests do not prove runtime paths or anonymous admission."
+}

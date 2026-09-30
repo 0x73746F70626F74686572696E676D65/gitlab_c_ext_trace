@@ -1,5 +1,7 @@
 # Front-end inventory and map of listed gem APIs
 
+The [source review of the original 191 unauthenticated candidates](unauth_review/README.md) corrects callback/action counting and reviews receiver ownership and replacement authentication checks. It found eight qualified candidates: one retains an unauthenticated classification, and seven have unknown authentication. The counts below preserve the initial heuristic inventory.
+
 GitLab canonical default branch: `origin/master` at `d75e5afaa21d45bc04139d4a538ea5954be1ef4f`.
 
 Input: `../gem_api_groups_known_memory_effects.min.json`; SHA-256 `2eb65a1ee10f55bf6b609c7fc27713e0001992c794c59246066534834b83684c`. The original schema and file are unchanged.

@@ -1,0 +1,54 @@
+{
+  "api_inventory_sha256": "2eb65a1ee10f55bf6b609c7fc27713e0001992c794c59246066534834b83684c",
+  "api_status_counts": {
+    "original_matches_rejected": 70,
+    "supported": 8,
+    "unresolved": 113
+  },
+  "auth_helper_depth_cap": 4,
+  "baseline_candidates": 191,
+  "baseline_entrypoints_sha256": "eae32eb6813f08a6fd46dd9f8febaecb35142208d1450626fcc66ddd0beec827",
+  "baseline_qualified_candidates": 4,
+  "baseline_summary_sha256": "89cb242cc35fbc7c0db4cd7bfd6657196dab61a49e6fabcf446edb662adacfe1",
+  "body_cap_per_trace": 256,
+  "enriched_bodies": 2248,
+  "entrypoint_status_counts": {
+    "callback_block": 7,
+    "public_method_registration_unresolved": 42,
+    "registered_action": 142
+  },
+  "execution": "static Ruby parsing only; no application/gem execution; no C-extension source inspection",
+  "gap_counts": {
+    "HTTP_registration_unresolved": 42,
+    "baseline_site_not_rediscovered": 19,
+    "branch_and_call_order_unverified": 8,
+    "callback_miscounted_as_action": 7,
+    "conditional_callback_skip": 8,
+    "dynamic_callback_selector": 24,
+    "dynamic_dispatch": 43,
+    "helper_depth_cap": 1511,
+    "inventory_namespace_unknown": 67,
+    "super_dispatch": 112,
+    "unknown_receiver": 9153,
+    "unresolved_auth_callback": 1
+  },
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "helper_candidate_cap_per_call": 8,
+  "helper_depth_cap": 5,
+  "newly_qualified_candidates": 4,
+  "original_site_review_counts": {
+    "rejected": 568,
+    "supported": 6,
+    "unresolved": 359
+  },
+  "qualified_candidates": 8,
+  "registered_qualified_candidates": 8,
+  "registered_unauthenticated_qualified_candidates": 1,
+  "registered_unknown_auth_qualified_candidates": 7,
+  "return_inference_depth_cap": 2,
+  "reviewed_auth_counts": {
+    "unauthenticated": 27,
+    "unknown": 164
+  },
+  "source_files_opened_for_targeted_review": 654
+}
