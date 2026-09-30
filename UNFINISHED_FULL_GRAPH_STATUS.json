@@ -1,0 +1,36 @@
+{
+  "status": "UNFINISHED_ARCHIVAL_ONLY",
+  "archived_utc": "2026-09-30T20:59:05.620193+00:00",
+  "reason": "User requested stop of analysis after cybersecurity-risk stop and archival delivery only. No further analysis authorized in this checkpoint.",
+  "prior_published_commit": "23cf70b8a6dffc459699b00df0d76339e4b58f99",
+  "ruby_definition_files_processed": 158492,
+  "ruby_definition_files_expected": 158492,
+  "ruby_parser_error_files": 145,
+  "ruby_uncertain_methods": 359,
+  "native_last_logged_checkpoint": {
+    "phase": "parse",
+    "files": 9500,
+    "total": 37768,
+    "functions": 156898,
+    "calls": 845758,
+    "seconds": 536
+  },
+  "native_note": "Last logged count is a lower bound on interrupted parse, not completed graph counts. Process terminated before finalization; bulk streams may lack gzip trailers. Not published as usable graph.",
+  "unfinished_stages": [
+    "Remaining native parse",
+    "Native guard/linkage/additive finalization",
+    "Ruby full dispatch and final native joins",
+    "Graph composition and uncapped fixed point",
+    "Final coverage reconciliation",
+    "Production semantic sample and integrity validation"
+  ],
+  "known_review_caveat": "Additive-rule reports contain failures; no corpus promotion or completeness claim. Later report files are preserved as-is; no new evaluation performed for archival delivery.",
+  "sources": {
+    "ce": "8d0e57e5f49543c53614b299aef70f7e5bb916ac",
+    "ee_mirror": "27d0646f9b00468d5863549115dababa56334923",
+    "ruby_runtime": "1f2d15125a2dc701e1822ed2900eb17899500ec7"
+  },
+  "source_limits": "CE/EE mirrors are not verified latest canonical upstream; source release correspondence is not published-package equivalence. Baseline primary dependencies:820;742 sourced,78 blocked.",
+  "local_retained_root": "/workspace/gitlab_c_ext_full_graph",
+  "execution_warning": "Scripts are unfinished saved source, not certified runnable end-to-end. No request to execute them is implied."
+}

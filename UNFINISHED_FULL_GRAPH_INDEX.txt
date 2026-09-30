@@ -1,0 +1,12 @@
+UNFINISHED FULL-GRAPH CHECKPOINT — ARCHIVAL ONLY
+
+This preserves saved scripts, reports, schemas, and compact coverage/interface tables.
+It is NOT the requested complete Ruby-to-C-to-memory graph. Prior published results remain unchanged.
+Ruby definitions:158,492/158,492 files;145 parser-error files;359 uncertain methods.
+Native last logged checkpoint:9,500/37,768 files;156,898 function/macro records;845,758 calls. These are provisional discovery counts.
+Final bindings, graph reachability, and corpus semantic validation did not complete.
+See STATUS.json for source versions and missing stages, FILE_MANIFEST.json for every retained file and omitted intermediate hashes.
+Bulk native streams and definition state remain locally retained, not uploaded. Full sources are not included.
+Extract with: tar -xzf UNFINISHED_FULL_GRAPH_CHECKPOINT.tar.gz
+Verify extracted files: cd UNFINISHED_FULL_GRAPH && sha256sum -c SHA256SUMS
+No analysis was resumed to create this archive.
