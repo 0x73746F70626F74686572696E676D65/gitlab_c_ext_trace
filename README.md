@@ -6,7 +6,9 @@ Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). Deterministic layer denominators ar
 
 ## Start here: compact current input-flow evidence
 
-[CURRENT_INPUT_FLOWS.tar.gz](CURRENT_INPUT_FLOWS.tar.gz) (**931,416 bytes**; [index](CURRENT_INPUT_FLOWS_INDEX.txt)) contains source-case, mechanism and argument-control CSVs, all **29 reference records with full recipes**, selected source evidence, independent reviews and schemas. Inspect the current input-flow findings without downloading earlier analysis archives.
+[CURRENT_INPUT_FLOWS.tar.gz](CURRENT_INPUT_FLOWS.tar.gz) (**994,966 bytes**; [index](CURRENT_INPUT_FLOWS_INDEX.txt)) contains source-case, mechanism and argument-control CSVs, all **29 reference records with full recipes**, selected source evidence, independent reviews and schemas. Inspect the current input-flow findings without downloading earlier analysis archives.
+
+Read the [morning summary](MORNING_SUMMARY.txt) for the stopping-point assessment. Final source reinspection found no new material contradiction under the recorded conditions; reviewer/author overlap is disclosed, so this is not a fresh population-accuracy estimate. Main records identify **10 URL templates / 12 method-path combinations** after profile deduplication; two compressed-middleware records select no single route. The bundle includes additive exact-argument annotations and tested extraction instructions.
 
 The main scope has **26 conditional terminal-flow records, two partials, 13 native sites, six mechanisms and 11 source-case families**. A separate **one-flow libyaml-version-conditioned model** overlaps the CI-lint partial; it is not primary or deployed coverage. Records are not independent routes. The [middleware delta](gitlab-c-ext-json-validation.tar.gz) (**61,149 bytes**; [index](JSON_VALIDATION_INDEX.txt)) adds the CE/EE uncompressed JSON-validation phase on the existing collect-events route family, reusing the Oj site. Its selected **10 MiB check follows body reading and precedes native parsing**; generic zero disables that size check. No authentication-bypass, all-routes, runtime or vulnerability claim.
 

@@ -1,0 +1,24 @@
+MORNING SUMMARY — bounded static evidence, not runtime proof
+
+What improved
+The original broad path inventory was unreliable: independent source review of 80 frozen chains found 59 contradicted, 14 conditionally supported and 7 unresolved. Repairs now account for method overrides, incompatible arguments/branches and deferred execution; incomplete chains stay partial. The broad overlay still has 119 candidates, 24,070 partials and 14,310 conditional exclusions. Those counts are not an accuracy percentage, and the surviving candidates are not all verified routes.
+
+The useful current result is a separate, deliberately small collection of source-evidenced request-to-memory-argument recipes. It covers 26 main conditional terminal records at 13 physical native call sites through 6 mechanisms: Oj JSON keys, compressed input chunks, native JSON escaped values, BCrypt key freezing, CGI percent decoding and CGI percent encoding. The newest MLflow case traces the current normalized pathname folder/file to capacity 11 and append lengths 6/3/4. The 3-byte encoded append is source-fixed; its hex digits depend on input. This is not artifact-file content.
+
+Exact counts and deduplication
+There are 11 main source-case families. Of 26 main records, 24 map to 10 identified URL templates or 12 explicit method/path identities after CE/EE deduplication. The other 2 records describe one compressed-middleware predicate family and select no singleton route. Keeping source profiles separate gives 13 identified profile/path templates and 15 profile/method/path identities. These are selected source registrations, not an exhaustive or deployed route count; automatic HEAD/aliases are not added. The 26 records include CE 20 and EE 6 and repeat routes across phases and terminal sites.
+
+Two partial records remain separate. One auxiliary libyaml-version-conditioned record overlaps the CI-lint partial and is not primary coverage. Including that partial route adds one identified URL template/method-path identity; it does not add a supported main mechanism or site. A site named in an incomplete continuation is not treated as a reached terminal. Full CE and EE profiles remain different pinned source snapshots, not one deployment.
+
+What input control establishes
+Each recipe describes source bytes or values, transformations, branch conditions, and a particular native argument. Content influence is not control of arbitrary pointer addresses. Derived length or requested String capacity is not exact heap usage. Some append counts are constants; BCrypt takes one String argument with internally derived length. MEMCPY count is macro operand 4, not operand 3. No memory safety vulnerability follows merely from influence or reachability.
+
+Final checks
+The audit froze publication 1e62b3a441086d15b7b7094a8b70e47c01334cea and archive SHA256 7872f84260a14c03e27546fafcb5fdff485d3772d0f594f22a55bad3a7c0cf76. Reinspection of 11 families / 6 mechanisms and 13 main sites found no new material contradiction under their stated conditions. Earlier reviewer/author overlap is disclosed: this is not a blind population-precision estimate. Source registration, argument and semantic checks are separate from checksums/reference integrity. Historical recipes remain immutable; final annotations are additive.
+
+Limits and stopping point
+Authentication, permissions, callback/branch admission, normal dispatch, stable input/cache state, native loading and matching runtime/build remain explicit conditions. No application, extension or endpoint was executed. Canonical-upstream and exact package/deployment provenance remain unverified, and whole-program recall is unknown. The retained source inventory still has 78 blocked primary entries out of 820; 742 have version-associated sources.
+
+Implementation is stopping after final validation/publication. The cheapest additional distinct candidate ends in Ruby core Base64 code, outside the primary locked-extension sink scope. OAuth SHA256 needs default-gem and build/function-pointer proof; manifest upload needs multipart/tempfile/IO/libxml provenance; HMAC stops at an external OpenSSL boundary. These remain future work rather than inflated complete paths. No background implementation or runtime testing is planned.
+
+Read SOURCE_CASES.csv, MECHANISMS.csv, ARGUMENT_CONTROL.csv and the additive final argument/route audit tables, then current_input_flows.jsonl for full conditional evidence. The inspection archive is self-contained for its selected evidence; full source trees and full analyzer reproduction remain in the saved workspace.
