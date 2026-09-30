@@ -1,0 +1,148 @@
+DETERMINISTIC LAYER COVERAGE — FROZEN CANDIDATE GRAPH
+Dataset 97267dd258e01a46620e45d398eee914e53c46e431bae5b4ff5f1354bab1a849
+Audited datasets published in bfea850058b07d6a5fc6961054b8cafd8b1461ae.
+No graph/source changes were made to compute these counters.
+
+PRIMARY-BUNDLE SINK FUNNEL
+29,108 physical memory-call candidate sites
+ -> 6,707 connected to some native registration by a retained C graph path
+ -> CE497 / EE504 connected to frontend candidates.
+The other22,401 primary call-token sites have no retained registration path.
+All operation kinds:52,615 primary physical candidate sites ->7,179 with a
+registration graph path ->CE540 / EE549 frontend candidate sites.
+Arrays, C++ new/delete and macro aliases are not counted as call-token sites.
+Primary excludes auxiliary/fixture-only lock entries; vendor/test/example code
+inside a primary gem's source tree remains included, not certified runtime code.
+These are observed graph-connectivity ratios, NOT semantic success or recall.
+
+NATIVE BINDING AND CALL RESOLUTION
+Primary registrations:4,207 detected ->3,940 attached C targets ->2,988 with
+primitive graph paths.267 lack C targets;952 have targets but no primitive path.
+Ruby owner/name bound:4,063/4,207;144 unknown/ambiguous owner/alias bindings.
+Both Ruby owner/name and C target resolved:3,839/4,207;368 lack at least one side.
+
+Primary C call-evidence IDs:2,320,613.605,515 have an attached target,
+1,715,098 do not. Mutually exclusive resolution labels group as:
+  96,140 resolved_direct_syntactic
+  663,974 ambiguous definitions/includes
+  1,033,804 unresolved or shadowed identifier
+  17,320 known primitive external
+  509,375 other possible macro/cross-TU/header/C++/parse-error candidates.
+Target attachment is a separate overlapping metric; it is not semantic proof.
+These are unique evidence IDs, not fully physically deduplicated C expressions.
+Bare callee identifiers may be function pointers. In the ALL-retained corpus,
+1,740,138 records have bare identifiers;629,948 member/indirect/complex syntax;
+150,709 qualified identifiers. This is a syntax partition, not a proven direct/
+indirect target classification.179,563 records lack an enclosing function;
+macros/global initializers/prototype/parser artifacts are not cleanly separated.
+External Ruby/libc/library code is generally unavailable; callback, virtual,
+function-pointer, generated and preprocessor resolution remain incomplete.
+
+RUBY GRAPH LAYER (CE / EE)
+Bounded emitted frontend slice unique call IDs:47,656 /87,999.
+  Constructed dispatch:12,086 /22,499.
+  Candidate-only continuation:480 /781.
+  No supported/candidate continuation:35,090 /64,719.
+These three categories partition the slice, not the whole reachable program.
+Identifiable gem-API slice calls:1,373 /1,847; retained native suffix208 /190;
+without such suffix1,165 /1,657. Pure Ruby APIs legitimately have no native tail;
+unknown receivers cannot all be classified as gem APIs, so global API recall
+is not computable from these denominators.
+
+Whole active call-like syntax records:3,712,237 /3,927,569.
+  Constructed dispatch389,539 /434,611.
+  Name-only diagnostic matches1,261,924 /1,297,514.
+  Neither2,060,774 /2,195,444.
+Production GitLab subset mapped86,177/430,303 CE;136,540/679,727 EE.
+The active corpus also contains primary-gem-associated support/test source.
+EE's bare-identifier classifier does not reclassify every reused wrapper record;
+its whole-call denominator is syntactic call-like records, not all real calls.
+Parsed primary-gem-associated files45,968CE /45,601EE cover742/820 lock entries.
+
+FRONTEND LAYER (ENTRYPOINT RECORDS, NOT PATH COUNTS)
+                 Eligible   Bound  External API  Native registration  Sink
+CE                  5,814   3,056         1,280                  180   151
+EE                 11,264   5,446         2,459                  288   246
+Disconnected CE:2,758 unbound;1,776 bound without external boundary;
+1,100 boundary without native;29 native without sink.
+Disconnected EE:5,818;2,987;2,171;42 respectively.
+The API metric means a non-GitLab-prefix Ruby target or native target in this
+builder. Bundled path-gem Ruby targets can be treated as GitLab-prefix code and
+are excluded; it is not the total all-gem API count. Grape binds route bodies;
+other handlers bind method IDs. Declaration-backed does not prove public exposure.
+Per-controller/Grape/GraphQL/other counts and primitive kinds are in JSON.
+CE15,068 /EE23,431 path witnesses reuse those entries/sites; not independent flows.
+New exploration limits:depth8,256methods/entry.349CE /665EE entries hit bounds.
+Repeated methods collapse; reused suffixes can exceed the new-exploration depth.
+
+SOURCE/PARSER DENOMINATORS AND EXACT GAPS
+Each primary lock profile:742/820 accepted version-associated sources;78blocked.
+Unknown sources have unknown file/native-site counts, not zero.
+CE tracked source76,695/76,695 files; EE113,163/113,163; zero missing tracked paths.
+Independent production .rb filter:12,489/12,489CE;23,088/23,088EE manifests present.
+This filter excludes vendor/test/embedded/generated/extensionless source.
+Expanded Ruby81,237 files/92 error flags; EEcombined108,491/93. These include
+reused/off-profile metadata. Active profile and wrapper counts are separately
+scoped in layer_ruby_funnel.json. CE vendored Sidekiq cli.rb has a parser error.
+
+Observed native census36,714 physical eligible files:
+23,623 deeply analyzed;13,091 explicitly deferred, not missing files.
+The13,091 are grpc-tools compiler/executable repository sources. They were
+retained and classified during the user's earlier broad-acquisition priority;
+deep AST/callgraph work was deferred because Ruby extension membership was not
+established. This remains an analysis gap, not proof they cannot matter.13,095
+record rows collapse to13,091 physical paths. No native source was executed.
+
+Of23,623 analyzed physical files,10,877 have ERROR or missing AST nodes;
+12,746 have none.861,177 ERROR-or-missing nodes physically deduplicated.
+These flags are emitted by static tree-sitter parsing of unpreprocessed source
+with retained macro normalization. Macro/build fragments, headers and generated
+or vendor syntax can cause recovery. The exact root cause of every error-bearing
+file was NOT diagnosed. A flag is not proof the entire file failed; no flag is
+not proof of semantic completeness. No automatic100% parsing/tracing claim.
+
+23,628 native file RECORDS (five repeat/alias records) divide by role:
+extension4,265 (2,215 error-flagged); repository source4,462 (1,536);
+vendor9,703 (5,514); test3,708 (1,052); example1,490 (561).
+There are9,578 .h/.hpp/.hh header records, overlapping those roles. Templates,
+generated inputs and grammar fragments are included. These denominators are
+not all application or compiled Ruby-extension code; no build selection was run.
+
+Independent bounded native check:1,528 ext C/C++ files;2,755 lexical memory
+candidates vs2,699 line overlaps.56 differences are comments/strings.
+4,054 registration candidates vs4,029 overlaps:9comments and16unexpanded ffi
+alias macro templates. This scoped name/line comparison is not an exhaustive
+sink oracle, precision test, or global100% recall proof.
+
+ALL-RETAINED CONTEXT, NOT PRIMARY PRODUCTION COVERAGE
+70,061 physical candidate sites, including43,388call-token sites.
+12,918all-kind /12,062call-token sites connect to some registration.
+8,062 registrations ->7,566targets ->5,356with primitive paths.
+2,520,795Ccall evidence IDs ->684,872attached targets.
+These include auxiliary lock sources and cannot replace the primary counters.
+
+SOURCE IDENTITIES
+CE mirror gitlabhq/gitlabhq master8d0e57e5f49543c53614b299aef70f7e5bb916ac,
+retrieved2026-09-30T03:07:55Z; no EE tree.
+Full EE mirror aro-local-test-2/kg-size-gitlab-2 main
+27d0646f9b00468d5863549115dababa56334923, asserting upstream
+c8f4a898692aac83fbab0e1dcf90b398d3770db1. Coherent separate19.5.0-pre snapshot,
+not spliced into CE. Canonical latest upstream and published package equivalence
+remain unverified due access limitations. No network bypass or credential change.
+
+ACCURACY IS A DIFFERENT MEASURE
+Random source audit80paths:59contradicted,14conditionallysupported,7unresolved.
+Examples: forcedRails Oj mode traverses strict branch; HTML5 override skipped;
+knownHash takes JSONSchemer String branch; StringIO one-arg call reaches zero-arg
+primitive.39locally supported sampled graph records do not validate wholechains.
+See gitlab-path-audit.tar.gz for per-hop evidence and weighted uncertainty.
+Current path totals are investigation candidates, not counts of user-reachable
+memory operations. Global recall remains unknown despite these exact counters.
+
+REPAIR PRIORITIES (NEW REVISION REQUIRED)
+1. Correct method lookup/override precedence and backend activation.
+2. Preserve argument values, guards and deferred block/lambda invocation.
+3. Add callback, super and route-drawer namespace edges; improve dynamic dispatch.
+4. Separate installed/compiled extension scope from vendor/test/tool source;
+   address parser recovery and explicit deferred sources.
+5. Re-run deterministic denominators and a fresh source-audited holdout sample.
