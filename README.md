@@ -1,31 +1,40 @@
-# GitLab static native results
+# GitLab static native results and semantic audit
 
-Two results-only snapshots are retained here. No source trees, full AST dumps or credentials are committed.
+**The end-to-end path counts are candidates, not established user reachability.** A seeded source review of 80 frozen v2 chains found **59 contradicted, 14 conditionally supported, and 7 unresolved**. Errors include ignored Ruby overrides and argument/branch combinations that cannot follow the reported chain. No application, extension, endpoint or build hook was run.
 
-## Frontend entrypoint paths
+Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). The small [audit archive](gitlab-path-audit.tar.gz) is **1,164,037 bytes** and contains samples, per-hop verdicts/evidence, coverage reviews, methodology, schemas and reproducible scripts. Weighted estimates have very wide conservative uncertainty intervals; neither a precise runtime accuracy percentage nor global path recall is established.
 
-The new frontend archive is **120,340,756 bytes** compressed, split into three parts of at most 40MiB. It contains all retained 2,085,997 complete constructed path records and 423,720 partial records, normalized evidence hops, 29 structured tables, schemas, source manifests, reproducible scripts and coverage reports. No path records were omitted to reduce upload size.
+## Frozen datasets audited
 
-**Confidence matters:** 23,894 receiver-supported possible static witnesses cover 324 entrypoint candidates and 483 primitive records. Separately, 2,062,103 chains contain a speculative method-name-only hop. Neither class proves runtime execution or public endpoint exposure.
+Dataset identity: `97267dd258e01a46620e45d398eee914e53c46e431bae5b4ff5f1354bab1a849`.
+
+| Profile | Candidate paths | Distinct entrypoints with paths | Distinct candidate primitive sites |
+|---|---:|---:|---:|
+| CE | 15,068 | 151 / 5,814 examined | 540 |
+| Full EE mirror | 23,431 | 246 / 11,264 examined | 549 |
+
+These profiles are separate coherent source snapshots. The full frozen v2 results are **103,374,544 bytes compressed**, split into three parts (40 MiB, 40 MiB, 19,488,464 bytes). Every retained complete/partial/candidate path row is included, with normalized hops, selected support records, source manifests, schemas and scripts. Full source trees and full Ruby AST/call dumps remain local, not uploaded. The graph remains unchanged after sampling; semantic audit verdicts are an overlay. The generator label `complete_source_evidenced_static_witness` does not certify accuracy.
 
 ```sh
 git clone --depth 1 --branch results-20260930 https://github.com/0x73746F70626F74686572696E676D65/gitlab_c_ext_trace.git
 cd gitlab_c_ext_trace
 sha256sum -c SHA256SUMS
-cat gitlab-frontend-results.tar.xz.part01 gitlab-frontend-results.tar.xz.part02 gitlab-frontend-results.tar.xz.part03 > gitlab-frontend-results.tar.xz
-sha256sum -c FRONTEND_ARCHIVE_SHA256SUMS
-tar -xJf gitlab-frontend-results.tar.xz
-python frontend-results/scripts/expand_frontend_path.py --root frontend-results --sample
+tar -xzf gitlab-path-audit.tar.gz
+cat gitlab-frozen-v2-path-results.tar.xz.part01 gitlab-frozen-v2-path-results.tar.xz.part02 gitlab-frozen-v2-path-results.tar.xz.part03 > gitlab-frozen-v2-path-results.tar.xz
+sha256sum -c FROZEN_V2_ARCHIVE_SHA256SUMS
+tar -xJf gitlab-frozen-v2-path-results.tar.xz
 ```
 
-Start with `frontend-results/INDEX.txt`, `reports/frontend_validation.json` and `reports/frontend_breakdowns.json`. 10,184 declaration/handler records were examined; 5,482 have no discovered complete path. Counts distinguish route-mapped handlers from unexposed candidates. Search is bounded and retains one representative Ruby prefix per entrypoint/registration/evidence class, composed with retained native tails—not all execution walks.
+Start full results at `corrected-results/CORRECTED_INDEX.txt` and `corrected-results/audit/end_to_end_20260930/RESULTS.txt`. Profile counts and breakdowns are under `profiles/{ce,ee}/reports/frontend_counts_v2.json`. Files named “corrected” repair earlier exposure/dispatch bookkeeping; the subsequent audit still found semantic defects. They are not an accuracy-certified revision.
 
-Validation passed 20,783,302 checks with zero errors. The missing EE tree, 78 unresolved dependency sources, 579 accepted source roots absent from baseline Ruby parsing, dynamic dispatch, parser limitations and traversal limits remain explicit coverage gaps. YARD/RBI/loader evidence is inventoried, not treated as a resolved type system. Full sources and complete baseline tables remain local at `/workspace/gitlab_c_ext_trace`.
+## What coverage means
 
-Reproduction requires that retained local corpus and baseline tables. Run the included Rails/Grape/GraphQL extractors and dynamic/native-tail scripts, then `build_frontend_paths.py`, `frontend_appendix.py`, `frontend_support.py --confirm-frontend-frozen`, and validators. The archive's standalone path expander works without source trees. No application, endpoint, extension or target build hook was executed.
+742/820 primary locked entries have accepted version-associated sources; 78 have documented blockers. The independent production Ruby filter covers 12,489/12,489 CE and 23,088/23,088 EE tracked files, but excludes some vendored/generated/embedded source. File coverage is not call-graph recall. In 24 no-complete-path reviews, six omitted links were found, seven had no additional miss within the stated bounds, and eleven were unresolved. Callback, `super`, route namespace, dynamic dispatch, source, parser and traversal gaps remain.
 
-## Prior native/source inventory
+The analysis retains one shortest encountered Ruby witness per entrypoint/registration and representative C tails, not all paths. New Ruby exploration is capped at depth 8 and 256 methods per entrypoint; reused suffixes may be longer. CE349/EE665 entrypoints hit bounds. Repeated-method cycles collapse. Conditional allocation/conversion and stack arrays are included; a listed primitive need not allocate on every invocation. Runtime feasibility, authorization and user input control are unproven.
 
-`gitlab-native-results.tar.gz` remains unchanged: 34,453,906 bytes. Extract it with `tar -xzf gitlab-native-results.tar.gz`; start at `results/INDEX.txt`. 742/820 primary locked entries have accepted source-derived classifications; 78 remain unresolved with individual attempt/blocker evidence. No static native evidence does not prove a pure-Ruby published package.
+CE source: GitHub `gitlabhq/gitlabhq` master `8d0e57e5f49543c53614b299aef70f7e5bb916ac`, retrieved 2026-09-30 03:07:55 UTC. EE source: `aro-local-test-2/kg-size-gitlab-2` main `27d0646f9b00468d5863549115dababa56334923`, asserting upstream `c8f4a898692aac83fbab0e1dcf90b398d3770db1`. Neither is verified latest canonical upstream; published/platform package equivalence remains unverified. No network bypass was used. Full sources remain in `/workspace/gitlab_c_ext_trace` and the related local profile directories.
 
-Both snapshots use GitHub mirror master commit `8d0e57e5f49543c53614b299aef70f7e5bb916ac`, retrieved 2026-09-30 03:07:55 UTC. Canonical upstream and published/platform-package equivalence remain unverified. Previous result commits remain in Git history.
+## Preserved earlier outputs
+
+`gitlab-native-results.tar.gz` remains unchanged (34,453,906 bytes), containing the expanded native/source inventory. The older `gitlab-frontend-results.tar.xz.part*` snapshot remains available with `FRONTEND_ARCHIVE_SHA256SUMS`; its 23,894 receiver-supported and 2,062,103 name-only chains are superseded candidate counts and were not the population audited here. Its integrity checks never established semantic accuracy. All previous Git history is preserved.

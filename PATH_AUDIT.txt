@@ -1,0 +1,51 @@
+MEASURED ACCURACY AND COVERAGE — FROZEN V2 CANDIDATE PATHS
+
+The current end-to-end counts are NOT reliable counts of memory operations users can reach. The random source review found 59 contradicted chains, 14 conditionally supported, and 7 unresolved among 80 paths. No target code was run. Supported means no identified static contradiction within the documented review, not demonstrated execution, authorization, branch satisfiability or user input control.
+
+Dataset: 97267dd258e01a46620e45d398eee914e53c46e431bae5b4ff5f1354bab1a849
+Published predecessor d46b1fdd8c39556f781daeba9f0fa21fb521f517 is a different, older dataset. The old 23,894 receiver-supported count has no measured precision from this sample. The new frozen v2 is kept unchanged; audit findings are an overlay.
+
+PROBABILITY-SAMPLE RESULTS (40 paths per profile; 5 in each frontend/native-confidence stratum)
+CE: {'contradicted': 29, 'unresolved': 3, 'supported_static_chain': 8}
+  Weighted supported_static_chain: 13.9%; conservative simultaneous profile-wise 95% interval 0.1–83.3%.
+  Weighted contradicted: 72.2%; conservative simultaneous profile-wise 95% interval 12.7–98.2%.
+  Weighted unresolved: 13.9%; conservative simultaneous profile-wise 95% interval 0.4–81.7%.
+  Supported to supported+unresolved point-estimate bound: 13.9–27.8%; NOT a confidence interval or runtime accuracy.
+EE: {'contradicted': 30, 'unresolved': 4, 'supported_static_chain': 6}
+  Weighted supported_static_chain: 2.0%; conservative simultaneous profile-wise 95% interval 0.1–75.6%.
+  Weighted contradicted: 90.8%; conservative simultaneous profile-wise 95% interval 19.8–99.9%.
+  Weighted unresolved: 7.2%; conservative simultaneous profile-wise 95% interval 0.1–79.1%.
+  Supported to supported+unresolved point-estimate bound: 2.0–9.2%; NOT a confidence interval or runtime accuracy.
+
+These very wide exact intervals reflect only five observations per stratum. Point estimates should not be quoted as precise total accuracy. They are weighted frequencies of reviewer verdicts over retained candidate paths, conditional on the review being right. Raw 59/80 is not the weighted population estimate. Eight duplicate reviews agreed, but reviewers shared error-family findings; this is not blinded external validation.
+
+TOP SOURCE-PROVEN ERROR CAUSES
+- Argument-insensitive composition: fixed Hash reaches String-only JSONSchemer branch; fixed :rails mode reaches Oj strict-mode branch; one-argument/no-block constructors reach zero-argument/block-only primitives.
+- Ruby ancestor union ignores overriding definitions: HTML5 Document.parse incorrectly selected inherited HTML4.parse despite an own implementation.
+- Missing guard/activation semantics: absent :x5c or nil options reach guarded JWT/JSON internals; a deferred lambda body is traversed without showing invocation.
+- Unresolved evidence includes optional JSON backend activation and unproven internal C state/macro contracts.
+
+COUNTS ARE HEAVILY SHARED WITNESSES, NOT INDEPENDENT USER FLOWS
+CE: {"paths": 15068, "entrypoints": 151, "ruby_prefixes": 701, "native_tails": 1080, "registrations": 79, "gem_ids": 17, "terminal_sites": 540, "entry_site_pairs": 8895, "entry_registration_pairs": 701}; max 494 witnesses from one entrypoint.
+EE: {"paths": 23431, "entrypoints": 246, "ruby_prefixes": 1125, "native_tails": 1103, "registrations": 83, "gem_ids": 17, "terminal_sites": 549, "entry_site_pairs": 14134, "entry_registration_pairs": 1125}; max 580 witnesses from one entrypoint.
+The 80 sampled paths span 61 distinct profile-entrypoints, 73 Ruby prefixes, 70 native tails, 562 distinct profile-qualified hops, 11 of 17 represented gems, and lengths 5–20. Six represented gems were not sampled; no per-gem precision claim. Thirty-nine sampled unique graph records were locally source-supported, but six were annotations and only 33 were relations; no sampled Ruby-to-C boundary stratum. Local conditional edges can all exist while the chain is impossible. Primitive categories include conditional conversion and tiny stack arrays, not only actual heap allocation.
+
+DIRECTLY MEASURABLE COVERAGE
+- Accepted version-associated sources: 742/820 primary locked entries (90.5%); 78 have documented source blockers. Version-associated source is not verified published-package equivalence.
+- Independent tracked production Ruby filter: CE 12,489/12,489 and EE 23,088/23,088 files represented in parser manifests, source hashes agree. Filter is app/lib/config/gems/ee excluding test/spec/fixtures; it excludes embedded/generated/extensionless source and some vendored runtime code. CE vendored Sidekiq cli.rb has a parser error outside that filter; do not call the entire graph parse-perfect.
+- CE: 151/5,814 eligible declarations have a retained complete candidate witness (2.60%); 5,663 do not. 349 entrypoints hit bounds. EE: 246/11,264 (2.18%); 11,018 do not; 665 hit bounds. These are discovery rates, not recall.
+- Distinct candidate primitive sites represented: CE540, EE549, from a shared70,061-site inventory. Most inventory sites need not be frontend reachable; this ratio is not recall.
+- CE182,312 partials include176,096 unresolved-dispatch prefixes; only18 have one identified dispatch hole plus an otherwise supported hypothetical suffix (110 candidate continuations). EE360,208 partials include348,469 such unresolved prefixes;33 one-hole prefixes/137 continuations. All remain partial.
+- In24 seeded no-complete-path entrypoint reviews:6 concrete missing links,7 no additional miss within stated bounds,11 unresolved. Misses:4 callback seeds,1 bare super edge to Rails,1 route-drawer namespace binding. These show missed analysis, not six proven missing native paths.
+- Independent bounded native lexical baseline:2,755 memory candidates/2,699 line overlaps; all56 differences were comments/strings.4,054 registration candidates/4,029 overlaps;25 differences were9 commented registrations and16 unexpanded ffi alias macro templates. This restricted ext-source candidate comparison is not an exhaustive oracle or a 100% recall claim.
+- Three package missing method references remain in raw RuboCop/Grape false registration candidates outside EE parsing scope; not on complete paths. They are disclosed, not dropped.
+
+GLOBAL PATH RECALL: UNKNOWN
+An exhaustive true path denominator is unavailable. Loops, dynamic dispatch, callbacks, generated/native build variants, source blockers, conditional loading and solver bounds prevent a defensible single total coverage percentage. Enumeration keeps one shortest Ruby witness per entrypoint/registration and representative C tails; new Ruby traversal depth8/256methods, reused suffixes may be longer, repeated methods collapse. These are explicit coverage limits.
+
+DELIVERABLES AND CHECKS
+path_sample.jsonl and sampling_design.json preserve seed202609300607 and all inclusion probabilities; review_*.jsonl contain per-hop source judgments. audit_statistics.json has weights/intervals; audit_breakdowns.jsonl describes sampled frontend/gem/confidence/length groups. review_coverage.jsonl and independent_baselines describe gaps. population_structure.json separates path counts from distinct entrypoints/sites. METHODOLOGY.txt and SCHEMAS.json define claims and joins.
+88 reviews including8duplicates cover1,202hop occurrences; validation checked3,424source locations,2,059exact excerpts and8,083numbered source lines, zero mismatches.330citedsourcefiles have hashes. These are integrity checks, distinct from semantic correctness. Frozen dataset hashes are rechecked before publication.
+
+TRUST RECOMMENDATION
+Use this corpus to find and inspect candidate code, with audit verdicts and explicit gaps. Do not use the raw end-to-end totals as established user reachability or a security impact count. Fix method precedence, argument-sensitive branches, callback/super handling and backend activation in a new separately identified revision, then repeat the same audit plus a fresh holdout sample.
