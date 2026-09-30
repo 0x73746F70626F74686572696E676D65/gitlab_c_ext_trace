@@ -1,0 +1,115 @@
+{
+  "api_count": 1959,
+  "api_inventory_path": "/workspace/gitlab_c_ext_trace/gem_api_groups_known_memory_effects.min.json",
+  "api_inventory_repository_path": "gem_api_groups_known_memory_effects.min.json",
+  "api_inventory_sha256": "2eb65a1ee10f55bf6b609c7fc27713e0001992c794c59246066534834b83684c",
+  "apis_with_zero_entrypoint_matches": 1412,
+  "apis_with_zero_qualified_entrypoint_matches": 1929,
+  "by_entrypoint_type": {
+    "grape_endpoint": {
+      "authenticated": 827,
+      "entrypoints_examined": 1721,
+      "unknown": 894,
+      "with_match": 1465,
+      "with_qualified_match": 44
+    },
+    "graphql_field": {
+      "authenticated": 622,
+      "entrypoints_examined": 7063,
+      "unknown": 6441,
+      "with_match": 1101,
+      "with_qualified_match": 3
+    },
+    "graphql_mutation": {
+      "authenticated": 711,
+      "entrypoints_examined": 712,
+      "unknown": 1,
+      "with_match": 691,
+      "with_qualified_match": 0
+    },
+    "graphql_query": {
+      "entrypoints_examined": 175,
+      "unknown": 175,
+      "with_match": 140,
+      "with_qualified_match": 0
+    },
+    "graphql_resolver": {
+      "authenticated": 651,
+      "entrypoints_examined": 1117,
+      "unknown": 466,
+      "with_match": 1040,
+      "with_qualified_match": 0
+    },
+    "graphql_subscription": {
+      "entrypoints_examined": 48,
+      "unknown": 48,
+      "with_match": 0,
+      "with_qualified_match": 0
+    },
+    "http_registration": {
+      "entrypoints_examined": 420,
+      "unknown": 420,
+      "with_match": 5,
+      "with_qualified_match": 0
+    },
+    "rails_action": {
+      "authenticated": 590,
+      "entrypoints_examined": 2403,
+      "unauthenticated": 331,
+      "unknown": 1482,
+      "with_match": 1311,
+      "with_qualified_match": 13
+    },
+    "rails_route": {
+      "entrypoints_examined": 186,
+      "unknown": 186,
+      "with_match": 0,
+      "with_qualified_match": 0
+    }
+  },
+  "clone_directory": "/workspace/gitlab-frontend-source",
+  "counts": {
+    "authenticated_entrypoints": 3401,
+    "authenticated_with_match": 2461,
+    "authenticated_with_qualified_match": 37,
+    "direct_match_sites": 6,
+    "entrypoints_examined": 13845,
+    "entrypoints_without_qualified_matches": 13785,
+    "helper_match_sites": 65,
+    "match_sites": 35639,
+    "name-only_match_sites": 35568,
+    "unauthenticated_entrypoints": 331,
+    "unauthenticated_with_match": 191,
+    "unauthenticated_with_qualified_match": 4,
+    "unknown_entrypoints": 10113,
+    "unknown_with_match": 3101,
+    "unknown_with_qualified_match": 19,
+    "unmatched_entrypoints": 8092
+  },
+  "coverage_record_counts": {
+    "dynamic_dispatch": 166,
+    "dynamic_dispatch_definitions": 35,
+    "helper_depth_cutoff": 48503,
+    "helper_method_cutoff": 2,
+    "helper_name_collision": 179,
+    "indexed_dynamic_dispatch_sites": 987,
+    "missing_bodies": 6240,
+    "name_collisions": 125,
+    "resolver_factories": 27,
+    "skipped_files": 32219,
+    "super_dispatch": 1425,
+    "unknown_auth": 10113,
+    "unresolved_receiver": 117997,
+    "unresolved_registrations": 205
+  },
+  "default_branch": "origin/master",
+  "execution": "static parsing only; no application/gem loading; no C-extension source read",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "gitlab_remote": "https://gitlab.com/gitlab-org/gitlab.git",
+  "helper_candidates_cap_per_call": 8,
+  "helper_depth_cap": 2,
+  "helper_method_cap_per_entrypoint": 64,
+  "method_or_block_bodies": 113080,
+  "parsed_files": 23370,
+  "profile": "combined CE and EE declarations; conditional/static candidates, not a deployed route table"
+}

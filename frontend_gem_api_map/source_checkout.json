@@ -1,0 +1,20 @@
+{
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "clone_url": "https://gitlab.com/gitlab-org/gitlab.git",
+  "clone_options": [
+    "--depth",
+    "1",
+    "--single-branch"
+  ],
+  "default_branch": "master",
+  "remote_head_verification": [
+    "ref: refs/heads/master\tHEAD",
+    "d75e5afaa21d45bc04139d4a538ea5954be1ef4f\tHEAD"
+  ],
+  "remote_head_verified_at_utc": "2026-09-30T22:45:51.434622+00:00",
+  "analysis_branch": "work",
+  "inventory_location": "analysis repository: gem_api_groups_known_memory_effects.min.json",
+  "inventory_sha256": "2eb65a1ee10f55bf6b609c7fc27713e0001992c794c59246066534834b83684c",
+  "application_executed": false,
+  "c_extension_source_opened": false
+}

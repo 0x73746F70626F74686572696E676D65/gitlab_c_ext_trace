@@ -1,5 +1,7 @@
 # GitLab static native results and semantic audit
 
+The [bounded front-end gem API map](frontend_gem_api_map/README.md) inventories canonical `gitlab-org/gitlab` master at `d75e5afaa21d45bc04139d4a538ea5954be1ef4f` using the existing API JSON. It provides static entrypoint tables, authentication evidence, direct/helper/name-only matches and coverage appendices, with a two-hop helper limit. This pass does not load GitLab or read C-extension source.
+
 **The end-to-end path counts are candidates, not established user reachability.** The initial seeded source review of 80 frozen v2 chains found **59 contradicted, 14 conditionally supported, and 7 unresolved**. Errors include ignored Ruby overrides and argument/branch combinations that cannot follow the reported chain. No application, extension, endpoint or build hook was run.
 
 Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). Deterministic layer denominators are in [COVERAGE_FUNNEL.txt](COVERAGE_FUNNEL.txt) and the compact [coverage tables/scripts archive](gitlab-layer-coverage.tar.gz). Primary memory-call candidates: **29,108 → 6,707 with native-registration graph paths → CE497 / EE504 frontend candidate sites**. These are graph-discovery counters, not accuracy or recall. The small [audit archive](gitlab-path-audit.tar.gz) is **1,164,037 bytes** and contains samples, per-hop verdicts/evidence, coverage reviews, methodology, schemas and reproducible scripts. Weighted estimates have very wide conservative uncertainty intervals; neither a precise runtime accuracy percentage nor global path recall is established.

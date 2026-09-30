@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "entrypoints": 13845,
+  "parsed_source_hashes_verified": 23370,
+  "match_sites_verified": 35639,
+  "flattened_api_match_rows_verified": 506132,
+  "checks": [
+    "inventory unchanged",
+    "source revision/hashes",
+    "unique entrypoint IDs",
+    "API catalog/IDs",
+    "source line locations/method spelling",
+    "helper depth and paths",
+    "CSV/JSONL agreement",
+    "aggregate counts",
+    "zero-match sets",
+    "coverage referential integrity"
+  ],
+  "limitation": "Integrity and synthetic behavior checks do not establish semantic precision or recall."
+}

@@ -1,0 +1,35 @@
+test_dynamic_target_is_not_followed (test_mapper.MappingTests.test_dynamic_target_is_not_followed) ... Parsed 1 files; indexed 2 bodies
+Prepared bounded helper edges and API candidates
+ok
+test_grape_scoped_auth_and_graphql_resolver (test_mapper.MappingTests.test_grape_scoped_auth_and_graphql_resolver) ... Parsed 3 files; indexed 4 bodies
+Prepared bounded helper edges and API candidates
+ok
+test_helper_depth_and_alias_confidence (test_mapper.MappingTests.test_helper_depth_and_alias_confidence) ... Parsed 1 files; indexed 4 bodies
+Prepared bounded helper edges and API candidates
+ok
+test_mount_mutation_and_module_functions (test_mapper.MappingTests.test_mount_mutation_and_module_functions) ... Parsed 3 files; indexed 3 bodies
+Prepared bounded helper edges and API candidates
+ok
+test_multiline_call_location (test_mapper.MappingTests.test_multiline_call_location) ... Parsed 1 files; indexed 1 bodies
+Prepared bounded helper edges and API candidates
+ok
+test_rack_builder_registration_inside_method (test_mapper.MappingTests.test_rack_builder_registration_inside_method) ... Parsed 1 files; indexed 2 bodies
+Prepared bounded helper edges and API candidates
+ok
+test_rails_auth_selectors_and_visibility (test_mapper.MappingTests.test_rails_auth_selectors_and_visibility) ... Parsed 1 files; indexed 4 bodies
+Prepared bounded helper edges and API candidates
+ok
+test_resources_in_route_method_and_empty_only (test_mapper.MappingTests.test_resources_in_route_method_and_empty_only) ... Parsed 1 files; indexed 1 bodies
+Prepared bounded helper edges and API candidates
+ok
+test_route_auth_scope (test_mapper.MappingTests.test_route_auth_scope) ... Parsed 2 files; indexed 2 bodies
+Prepared bounded helper edges and API candidates
+ok
+test_unknown_namespace_is_not_qualified (test_mapper.MappingTests.test_unknown_namespace_is_not_qualified) ... Parsed 1 files; indexed 1 bodies
+Prepared bounded helper edges and API candidates
+ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.009s
+
+OK
