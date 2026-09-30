@@ -1,0 +1,18 @@
+EXISTING COMPUTED END-TO-END RESULTS — START HERE
+
+Newest interrupted full-graph run produced NO final joined end-to-end paths. Its complete saved raw data is separately published under FULL_SAVED_DATA_CHECKPOINT/. No new inference, reachability or filtering was performed for this export.
+
+1. CURRENT_INPUT_FLOWS.tar.gz (repository root): latest reviewed conditional request-to-specific-memory-argument recipes. Inside CURRENT_INPUT_FLOWS/current_input_flows.jsonl plus SOURCE_CASES.csv, MECHANISMS.csv, ARGUMENT_CONTROL_REVIEWED.csv and full recipes/evidence. Saved counts:26 main conditional terminal records,13 sites,6 mechanisms,11 source families;2 partials and1 auxiliary separately. These are conditional source evidence, not runtime proof.
+
+2. gitlab-frozen-v2-path-results.tar.xz.part01..03: ALL38,499 frozen CE/EE baseline candidate path records with supporting normalized hops/native evidence. Reconstruct with cat gitlab-frozen-v2-path-results.tar.xz.part* > gitlab-frozen-v2-path-results.tar.xz and verify FROZEN_V2_ARCHIVE_SHA256SUMS. These historical generator classifications are NOT certified valid.
+
+3. gitlab-c-ext-iteration5-6.tar.gz: latest complete decision overlays for all38,499 baseline paths. Root6 revision42cb404ae85e744a34cf4cc181678cc0978719013a2079baf44c165bc98b979a:119 candidates,24,070 partial,14,310 excluded. Saved audit breakdown:99 conditionally source-supported records and20 requiring additional unreviewed ICU contracts. Do NOT call all119 valid. Preserve guards/conditions; some operation calls do not allocate.
+
+4. gitlab-c-ext-census-and-flows.tar.gz: full151-record earlier candidate census and source-review evidence; apply later iteration5/6 overlays, not its earlier verdict alone. gitlab-c-ext-v3.tar.gz and gitlab-c-ext-iteration3.tar.gz retain prerequisite decisions/evidence. gitlab-native-results.tar.gz contains native registrations, sites, calls, functions and earlier Ruby-native relations. All other published delta archives preserve additional recipes/edges/partial boundaries and their reviews.
+
+5. gitlab-frontend-results.tar.xz.part01..03 is superseded broad discovery, including name-only guesses. It is retained history, not valid end-to-end results. gitlab-path-audit.tar.gz records contradictions/uncertainty.
+
+ALL_EXISTING_ARCHIVE_MEMBERS.jsonl.gz inventories every member of every existing published analysis archive (plus both locally retained reassembled archives), without dropping path rows or sampling. SAVED_COUNTS_AND_CATALOGS.json.gz copies existing small count/catalog metadata verbatim as JSON values; absent counts are unknown, not recomputed. Prior indexes explain profile/source versions and dependencies. No classifications were silently promoted. No duplicated result payloads are necessary: all named archives already exist in this same branch.
+
+To inspect primary recipes: tar -xzf CURRENT_INPUT_FLOWS.tar.gz
+To inspect full baseline and latest overlays: reconstruct/extract frozen v2, then extract gitlab-c-ext-v3.tar.gz, gitlab-c-ext-iteration3.tar.gz, gitlab-c-ext-census-and-flows.tar.gz, gitlab-c-ext-iteration5-6.tar.gz into one inspection directory; retain separate archive roots and use stable IDs.
