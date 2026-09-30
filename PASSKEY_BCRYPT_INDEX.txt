@@ -1,0 +1,15 @@
+BCrypt current-password callback — additive conditional source flow
+
+The new CE passkey current-password record reaches one BCrypt String constructor site under explicit source/runtime conditions. It adds one memory-influence mechanism and no external route. The latest layered reference index has 20 records: 17 main conditional terminal-flow records, two main partial records, and one separately counted auxiliary libyaml-version-conditioned record. Main conditional records cover five physical sites through four mechanisms. Profile/terminal records are not independent routes or cases.
+
+The selected flow requires admitted authenticated User lookup and before-action conditions, a valid stored $2a$ hash, blank pepper, matching BCrypt 3.1.22/CRuby 3.3.11 semantics, and an effective key that is unfrozen AND embedded or embeddable. The selected dummy input Example9x has length 9; the minimum-length constant is 8 and effective secret length is capped at 72. The constructor copy occurs before NUL validation and before password-match outcome. Request parameters alone do not prove the effective key storage flags. No exact heap-byte, system-malloc, successful-password-match, universal callback reachability or runtime execution claim follows.
+
+Use the corrected v2 native certificate and source supplement. The native v1 evidence span cited comments instead of predicate definitions; v2 supplies actual predicate/constant evidence. The included erratum retains this history, and independent native review passed 28 checks. The full source assembly passed 108 checks over 21 files. Generic callback model v2 includes actual around-Proc invocation and symbol/compiled-sequence identity; its independent review passed 37 checks including eight narrow evidence-completeness regressions. These regressions are not application runtime tests or population accuracy measurements. Application callback order, skips, predicates, receiver overrides and admission remain separate conditions.
+
+Immutable recipes and receipts may retain historical pending-review labels. The final additive index and independent reports record the newer reviewed state without changing old bytes. This companion includes required v2 contracts, evidence, review scripts and latest reference index; other index recipes remain in prior archives or the refreshed CURRENT_INPUT_FLOWS inspection bundle. The in-progress generic route-callback graph work is excluded.
+
+SHA256SUMS/table_catalog.json describe the included files. package_validation.json records hash/review gates; external archive_validation.json checks every archive member and preservation of earlier archives. These integrity checks are not runtime proofs. Source trees, broad graph ledgers and full manifests remain in /workspace/gitlab_c_ext_trace and /workspace/gitlab_c_ext_v3; prerequisites.json records earlier archive hashes. No source bulk or frozen graph rewrite is included.
+
+Reproduce in the saved environment:
+ python /workspace/gitlab_c_ext_v3/scripts/package_passkey_bcrypt.py
+No target application, extension, build hook or native runtime test is executed. This script does not publish externally.
