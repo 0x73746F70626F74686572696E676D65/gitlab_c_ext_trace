@@ -1,0 +1,42 @@
+GitLab C-extension analysis: V3 compact companion
+
+READ FIRST: surviving paths remain candidates and include known false positives. A source-supported conditional flow contract includes explicit semantic models and assumptions; it is not runtime execution proof. No GitLab, extension, build hook or extension runtime test was executed. Synthetic fixtures test rules, not production accuracy.
+
+This companion preserves the previous baseline and adds immutable decision overlays, independent review evidence and separate coverage additions. It does not replace or silently repair the baseline. The preserved baseline commit is 0f25e217a40b8f2654abbdb0f923f63c3cddda7f; frozen dataset identity is 97267dd258e01a46620e45d398eee914e53c46e431bae5b4ff5f1354bab1a849. Full sources and earlier bulk artifacts remain in the saved environment and prior repository history. No push or external publication is performed by the packing script.
+
+Profiles must remain separate. CE source SHA is 8d0e57e5f49543c53614b299aef70f7e5bb916ac. The coherent EE profile uses mirror SHA 27d0646f9b00468d5863549115dababa56334923 and an asserted upstream association c8f4a898692aac83fbab0e1dcf90b398d3770db1, not independently verified canonical provenance. Source association does not establish released gem package equivalence.
+
+What to read
+1. iterations/iteration1_1/summary.json and freeze_manifest.json: first corrected filtering overlay. candidate_not_disproved means incompletely filtered, not verified feasible. Partial paths retain unresolved conditions; rejected paths retain stable IDs and evidence.
+2. iterations/iteration2/summary.json and freeze_manifest.json: additive second overlay, if finalized in this package. Consult those exact manifests and reports for counts rather than combining iterations.
+3. audit/holdout_20260930: independent heldout baseline judgments, source dossiers, design, comparison and validation. The 40 novelty-selected paths plus 16 relational edges are not a probability sample. In iteration1_1, five independently contradicted paths still survived as candidate_not_disproved; two unresolved paths also survived. No global precision or recall is claimed. These disclosed examples cannot be reused as fresh holdout evidence for subsequent informed repairs.
+4. reports/native_iteration1_erratum.json: original native iteration1 was withdrawn after unsound scalar propagation involving compound assignment, loop writes and address escapes. Original iteration1 native results/engine are excluded here as valid outputs. Native1_1 and iteration2 are separately frozen. “No extracted contradiction” is not a proof that native guards permit execution.
+5. reports/ee_lookup_scope_errata_iteration2.json and tables/ee_lookup_scope_corrections_iteration2.jsonl: ten EE source-origin lookup corrections affect ZERO frozen frontend paths. Original lookup tables remain immutable; additive corrections are explicit.
+6. tables/request_memory_flows_iteration2.jsonl plus independent Ruby/native review reports: bounded selected request-to-memory contracts. Read each state, conditions, transformations, unknowns and model gaps. The Ruby Class#new bridge is an explicit retained-RBS semantic model, not inspected configured Ruby core C. Authorization and callback success are conditions; request content influence does not establish attacker control over allocation size or a vulnerability.
+
+Separate coverage additions, not integrated complete paths
+profiles/{ce,ee}/tables/route_scope_* follow literal draw/draw_all in caller namespaces. Direct route tuple bindings rise CE 785→1,092 and EE 1,095→1,451, not counts of newly proven paths. Resource inflection, dynamic DSL and edition activation remain qualified.
+controller_callback_* preserves scoped callbacks, literal action filters, candidate targets, skips and order/halting holes. Every callback demand is partial; action execution is not implied.
+ruby_deferred_regions and iteration2_region_invocation_* record closures/deferred regions and bounded invocation evidence. Region discovery alone is not execution.
+*_super_iteration2_* supplies bounded next-superclass and argument-forwarding evidence, with mixin/prepend/block ambiguity retained. These additions are not silently spliced into frozen paths.
+request_arg_candidates is a ranked automatic review queue (five profile-specific records, three distinct source sites), separate from reviewed memory-flow contracts. source_supported only describes local value-transfer holes; binding conditions and auth remain unresolved.
+
+Data and joins
+Stable baseline path_id joins overlay path decisions; profile disambiguates CE/EE. Ruby and native IDs refer to preserved source analysis catalogs. Tables contain source file/line and evidence references. scope_occurrence_id joins route/callback candidates, callback_id joins declarations/skips, and method IDs join the original profile Ruby method inventory. This compact companion intentionally omits bulk sources, full ASTs and full call tables, so some joins require the prior artifacts or saved workspace. Source paths resolve relative to /workspace/gitlab_c_ext_trace. Supporting excerpts in review dossiers are evidence, not full retained trees.
+
+Package integrity and reproduction
+The authoritative included-file catalog is table_catalog.json (bytes, SHA256, JSONL row counts). SHA256SUMS covers staged content except itself. package_validation.json records manifest checks; the external publication/archive_validation.json verifies archive membership and content bytes. Do not confuse archive hashes with table hashes or source provenance.
+
+Run from the saved /workspace/gitlab_c_ext_v3 environment:
+  python scripts/package_v3_publication.py
+The deterministic archive normalizes paths, timestamps, ownership and gzip metadata. Final packing requires iteration2/native freeze files and no pending EE states in the flow validation report. --provisional produces explicitly nonfinal staging. Analysis scripts require the retained sources, previous input tables and pinned parser tooling under /workspace/gitlab_c_ext_trace; the compact archive alone is not a standalone replacement for those inputs.
+
+No changes to frozen sources, prior overlays or baseline history are authorized by extraction or packing. Detailed scope limits and per-rule tests are retained in reports/, scripts/, tests/ and fixtures/.
+
+Frozen iteration2 identity: 4b457b39c7624b905b0f3282115be598e5a2e56a1878f5fb9413de3aae08b042. CE: 1,073 candidates, 8,171 partial, 5,824 rejected; EE: 1,060 candidates, 14,288 partial, 8,083 rejected. Counts describe filtering decisions, not semantic correctness.
+Reviewed request case series: four conditional records are two semantic flow types in two profiles, terminating at two shared retained physical primitive sites. A third physical site belongs only to the partial decompressed-output continuation. This purposive case series does not measure global coverage or accuracy.
+This snapshot includes the first heldout audit against iteration1_1; any later iteration2 holdout remains outside this snapshot unless explicitly cataloged.
+
+Iteration2 versus1_1: 5,201 new rejections all came from previously partial paths (CE1,895; EE3,306). Fifty previous candidates became partial; no previous candidates became rejected. Candidate sets still cover122 CE/119 EE physical sites and145 CE/164 EE entrypoints, with overlap across status sets. The Rails-mode refinement therefore must not be described as eliminating the remaining known candidate false positives. See reports/iteration2_overlay_comparison.json.
+
+Compact omission policy: raw callback demands, raw super demands, raw Ruby argument facts, and the intermediate iteration1_1 full path overlay are retained at exact local paths and hashes listed in omitted_local_artifacts.json. Their summaries/contracts, final iteration2 full per-path decisions and resolved/unresolved super outcomes are included. A freeze manifest may intentionally reference these omitted local files; its presence does not imply every referenced input is packaged.

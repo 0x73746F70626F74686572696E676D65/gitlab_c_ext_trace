@@ -4,6 +4,17 @@
 
 Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). Deterministic layer denominators are in [COVERAGE_FUNNEL.txt](COVERAGE_FUNNEL.txt) and the compact [coverage tables/scripts archive](gitlab-layer-coverage.tar.gz). Primary memory-call candidates: **29,108 → 6,707 with native-registration graph paths → CE497 / EE504 frontend candidate sites**. These are graph-discovery counters, not accuracy or recall. The small [audit archive](gitlab-path-audit.tar.gz) is **1,164,037 bytes** and contains samples, per-hop verdicts/evidence, coverage reviews, methodology, schemas and reproducible scripts. Weighted estimates have very wide conservative uncertainty intervals; neither a precise runtime accuracy percentage nor global path recall is established.
 
+## Iterative repairs and request argument traces
+
+The [V3 companion](gitlab-c-ext-v3.tar.gz) (21,842,757 bytes; see [index](V3_INDEX.txt)) adds conservative method-lookup, deferred-execution and argument/branch repairs. Across the two separate profiles, the overlay retains **2,133 candidates**, marks **22,459 partial**, and rejects **13,907** baseline paths. Surviving candidates still include known false positives; these are not verified routes. Original sources, datasets and history remain unchanged.
+
+Four independently reviewed conditional request-to-memory records cover two mechanisms in CE and EE: JSON key content/derived length and compressed input content/derived chunk length. They explicitly retain authentication, branch and external Ruby-core model assumptions. One decompression continuation remains partial. Input influence is not a vulnerability claim. Route/super/closure coverage additions remain separate from complete path counts. The archive includes evidence, scripts, tests, schemas and an independent heldout review; synthetic and integrity checks are not semantic accuracy estimates.
+
+```sh
+sha256sum -c SHA256SUMS
+tar -xzf gitlab-c-ext-v3.tar.gz
+```
+
 ## Frozen datasets audited
 
 Dataset identity: `97267dd258e01a46620e45d398eee914e53c46e431bae5b4ff5f1354bab1a849`.
