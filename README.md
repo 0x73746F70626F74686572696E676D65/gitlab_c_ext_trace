@@ -4,6 +4,14 @@
 
 Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). Deterministic layer denominators are in [COVERAGE_FUNNEL.txt](COVERAGE_FUNNEL.txt) and the compact [coverage tables/scripts archive](gitlab-layer-coverage.tar.gz). Primary memory-call candidates: **29,108 → 6,707 with native-registration graph paths → CE497 / EE504 frontend candidate sites**. These are graph-discovery counters, not accuracy or recall. The small [audit archive](gitlab-path-audit.tar.gz) is **1,164,037 bytes** and contains samples, per-hop verdicts/evidence, coverage reviews, methodology, schemas and reproducible scripts. Weighted estimates have very wide conservative uncertainty intervals; neither a precise runtime accuracy percentage nor global path recall is established.
 
+## Latest: iteration3
+
+[Iteration3 delta](gitlab-c-ext-iteration3.tar.gz) (**10,593,149 bytes**; [index](ITERATION3_INDEX.txt)) retains **151 candidates**, **24,074 partial paths**, and **14,274 rejected paths** across the separate CE/EE profiles. Of the previous candidates, 112 were rejected by new source-argument guards and 1,870 became partial because their guards/transfers remain unresolved. Withholding uncertain chains is not proof of improved coverage.
+
+The fresh 20-path holdout found one conditionally supported survivor, 18 partial paths, and one correct rejection; no supported sampled path was rejected. In the first holdout's five previously contradicted survivors, two now have detected contradictions and three remain partial. The two previously unresolved survivors also remain partial. H002 is rejected by an earlier absent-key guard, not by detection of its separate JWT issue. No population precision estimate follows from these novelty samples.
+
+The reference ledger now contains **nine conditional input-argument records** across five source-case families and **two native sites**, plus one partial decompression record. Ruby3.3.11 source supports narrow constructor/ASCII-conversion contracts; matching-runtime, authentication and branch conditions remain. No runtime execution, unconditional allocation or vulnerability claim. Extract this delta alongside the earlier V3 companion; earlier archives and frozen datasets remain unchanged.
+
 ## Iterative repairs and request argument traces
 
 The [V3 companion](gitlab-c-ext-v3.tar.gz) (21,842,757 bytes; see [index](V3_INDEX.txt)) adds conservative method-lookup, deferred-execution and argument/branch repairs. Across the two separate profiles, the overlay retains **2,133 candidates**, marks **22,459 partial**, and rejects **13,907** baseline paths. Surviving candidates still include known false positives; these are not verified routes. Original sources, datasets and history remain unchanged.

@@ -1,0 +1,39 @@
+GitLab C-extension analysis — iteration 3 delta
+
+Surviving paths are candidates, not verified feasible paths. Known false positives remain. Conditional request-flow contracts depend on explicit source models, guards, encoding and dispatch assumptions; they are not runtime execution or vulnerability proof. Synthetic tests measure rule behavior, not production accuracy.
+
+This delta requires the previously published gitlab-c-ext-v3.tar.gz companion and original source/analysis corpus for omitted joins. The earlier companion and baseline history remain unchanged. CE and EE are distinct pinned source profiles and must not be combined as one GitLab version. Full source trees, parser inputs and analysis state remain under /workspace/gitlab_c_ext_trace and /workspace/gitlab_c_ext_v3. No GitLab, extension, build hook or extension runtime test was executed.
+
+Read iterations/iteration3/summary.json and freeze_manifest.json for the complete final per-path overlay and immutable identity. The full final path ledger is included. This overlay adds bounded Ruby argument/guard reasoning to the previous decision evidence. It does not make retained candidates complete or automatically source-feasible. Exact changes and limitations appear in the Ruby iteration 3 reports and root comparison report.
+
+Native iteration 3 adds bounded argv-view syntax support but changes ZERO native path decisions and ZERO guard statuses in the frozen corpus. Its 42 synthetic tests do not establish a production coverage gain. Native 3 full duplicate ledgers remain local with hashes in omitted_local_artifacts.json; changed-decision tables and the final combined per-path ledger are included. No withdrawn original native iteration1 result is reinstated.
+
+Independent audit evidence
+- holdout2_20260930 is newly included: 24 balanced paths yielded 9 candidates, 13 partial, 2 rejected. Candidate composition was 5 source-supported conditional chains, 3 contradicted and 1 unresolved. No sampled supported path was rejected. This is not a probability sample or population precision estimate; shared error-locus overlap is explicit.
+- holdout3_20260930 contains the next frozen selection, dossiers, independent baseline judgments and iteration 3 comparison. Read its actual comparison/validation reports before assessing improvement. Disclosed holdouts are not reusable as fresh independent tests after repairs informed by their cases.
+
+Request-flow evidence
+Five new iteration 3 profile-bound flow records represent OAuth create CE/EE, EventForward forward CE/EE, and EE semantic-search update: three source-site families, one shared Oj physical primitive site. These are not five independent native operations. The latest reference index combines previous and new records: nine conditional records and one partial, terminating at two distinct conditional physical sites (three including the partial continuation). Encoding alternatives do not add flows. Original flow versions are preserved; the index points to current additive evidence.
+
+Ruby 3.3.11 core source was retained from ruby/ruby tag v3_3_11 at commit 1f2d15125a2dc701e1822ed2900eb17899500ec7. Core contracts now inspect Class#new allocation/initialize forwarding and the bounded ASCII binary-to-UTF8 conversion alternative, subject to exact runtime/dispatch applicability. Selected source-file hashes and local locations are included; the 12,236-file runtime source manifest and full source tree are intentionally omitted from this small delta. Deployment identity is not established merely by retaining matching-version source. Returned pointer identity and fresh allocation on every constructor/buffer call are not asserted.
+
+Registration evidence and discovery queues
+The additive InitializerConnections invocation models resolve one specific route-loader wrapper hole from retained source: Notifications.subscribed subscribes, directly yields, and ensure-unsubscribes. Requires selected retained methods and normal subscription. Route-body/cleanup exceptions and all other route/exposure conditions remain. The 2 models map 2,810 CE and 4,010 EE route occurrences; they do not add complete paths. Old baseline eligible flags are historical; current explicit route evidence and additive invocation models govern these conditional contracts.
+
+The separate Grape/GraphQL survey is a discovery queue only: Slack options/interactions, Conan upload URLs, internal env parsing, and GraphQL package cursors. Exact API registrations and source evidence do not complete native-memory flow proofs. Slack payload scalar type is a selected input condition, not a declared schema. Signed raw body and Grape merged parameter identity must not be equated. GraphQL retains batch invocation and cursor-decoder holes. Independent candidate reviews are packaged; future iteration4 Slack flow work is excluded.
+
+Integrity and reproduction
+- table_catalog.json lists included files, sizes, hashes and JSONL row counts.
+- SHA256SUMS covers included staged files except itself.
+- package_validation.json checks immutable manifests; the external archive_validation.json checks every archive member and content hash.
+- omitted_local_artifacts.json identifies full local ledgers omitted for size. Referenced source paths are relative to /workspace/gitlab_c_ext_trace.
+
+From the saved environment, run:
+  python /workspace/gitlab_c_ext_v3/scripts/package_iteration3_delta.py
+Final packing refuses to run before root iteration 3/native/Ruby freezes and the holdout3 comparison exist. Scripts require prior corpus/tooling; the delta alone is not a standalone analysis environment. Packing makes no external publication or source-data changes.
+
+Iteration 3 freeze: 5c88395340596b216070e4dcd52395a12ce9d27473b6bc60bf8719306865cdd2. CE 66 candidates/9,091 partial/5,911 rejected; EE 85 candidates/14,983 partial/8,363 rejected. The 367 net new rejections reflect 389 Ruby exclusions overlapping 22 existing rejections. Most candidate reduction instead reflects explicit unknown Ruby dispatch/argument conditions. Reclassification to partial is withholding a conclusion, not a demonstrated semantic accuracy or coverage gain.
+
+Transition detail: 112 previous candidates became rejected (CE 51/EE 61), 1,870 became partial (CE 956/EE 914), and 255 previous partial paths became rejected. Remaining candidates cover 49 CE/51 EE distinct physical sites and 21 CE/31 EE entrypoints. Status sets can overlap in sites and entrypoints. This differs from the previous native iteration2 refinement, which rejected no prior candidates. See iteration3_overlay_comparison.json and iteration3_overlay_integrity.json.
+
+Earlier 40-case survivor recheck: H002 and H027 are now rejected; H021/H031/H038 and unresolved H018/H033 are partial. H002 is rejected for an earlier EE closed-Hash missing messaging_callback_context guard, not because the new analyzer detected the independently known JWT verify=false issue. H027 reflects the dry_run:false guard. Prior independent contradictions and actual new detections are distinct fields in iteration3_prior_survivor_reconciliation.json. The earlier 40 cases are development evidence, not a fresh accuracy sample.
