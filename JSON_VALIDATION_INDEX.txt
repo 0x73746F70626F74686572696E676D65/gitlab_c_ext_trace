@@ -1,0 +1,17 @@
+JsonValidation middleware — conditional CE/EE request prefixes
+
+Two additional profile-specific terminal-flow records describe the selected POST /-/collect_events middleware phase. They reuse one existing Oj key String-constructor site and mechanism. They are not two new route families, mechanisms or physical memory operations. Existing application/controller recipes and the unresolved gzip/decompressed continuation remain unchanged.
+
+The prefix is Request#body.read → StreamValidator.new(limits).validate! → Oj.sc_parse(handler, body). It does NOT pass through Gitlab::Json.safe_parse. Its size rule is therefore not the safe_parse 20MiB limit. The selected collect_events configuration uses 10MiB; generic middleware 0 disables that size check rather than imposing a zero-byte cap. The selected bytesize check occurs before native parsing but AFTER reading the body into a String. It does not bound the initial IO read/allocation.
+
+Conditions include actual retained middleware installation/outer admission, recognized JSON MIME, global and selected-route mode not disabled, matching profile configuration and normal constructor/dispatch behavior. Selected requests have no gzip content encoding. Object parsing must reach the implemented handler callback, with preceding callbacks returning normally; depth, numeric and encoding conditions remain explicit. UTF8 or bounded ASCII-BINARY alternatives rely on the retained conditional source/core models, not original request-pointer identity.
+
+This is neither an all-routes closure nor an authentication-bypass finding. Validation precedes downstream @app under the reviewed middleware call, but earlier middleware/admission remain unknown. No runtime execution, target build, vulnerability, arbitrary allocation size or fresh allocation on every call is demonstrated.
+
+Original recipe generation passed 436 checks. Independent source/assembly review passed 434 checks across 20 source files. These are integrity/conditional semantic checks, not population accuracy estimates. The frozen pending-review annotation remains historical; the additive final index records independently reviewed status without overwriting earlier recipes.
+
+The companion includes complete two-profile recipes, independent review, reproduction scripts and the final layered reference index/count/schema/integrity ledger. Full sources and historical referenced recipes remain in the saved environment/prior archives. Source paths resolve relative to /workspace/gitlab_c_ext_trace; analysis data under /workspace/gitlab_c_ext_v3. No broad path ledger, AST or source tree is copied. Priors remain byte-identical.
+
+Reproduce packing with scripts/package_json_validation.py using publication/json-validation/package_inputs.json. table_catalog.json/SHA256SUMS describe included bytes; package_validation.json checks freezes/review gates, and the external archive_validation.json checks every member. No push or external publication occurs.
+
+Authoritative layered union: request_flow_index_json_validation_final.jsonl has 19 references. Main layer has 16 conditional terminal-flow records (CE 10/EE 6), 2 partial records, 4 conditional physical sites and 3 mechanisms. One auxiliary libyaml-conditioned record/site/mechanism remains separately counted. The addition represents one middleware phase on the existing EventForward route family, with two profile-bound entries and no new external routes/sites/mechanisms. Terminal-flow records are not distinct cases. The auxiliary CI case still overlaps its primary partial record.

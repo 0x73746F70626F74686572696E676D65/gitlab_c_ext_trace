@@ -1,0 +1,23 @@
+CURRENT INPUT FLOWS — compact inspection bundle
+
+Start with OVERVIEW.csv (19 rows), then current_input_flows.jsonl. Each JSONL row contains the current index entry and its full authoritative recipe. Original recipe files are also preserved byte-for-byte under tables/; record_reference identifies the exact original file/hash/line/ID. Readers do not need earlier archives simply to inspect these current flow records and their selected contracts/reviews.
+
+Counts are layered, not interchangeable:
+- Main:16 conditional profile-terminal-flow records and2 partial records.
+- Main conditional endpoints reach4 physical native sites through3 memory-influence mechanisms.
+- Auxiliary:1 explicitly external-version-conditioned libyaml flow/site/mechanism, overlapping a primary CI lint partial case.
+These19 records are not19 independent routes, cases or memory mechanisms. CE/EE and multiple terminals/phases may describe related cases. Read the authoritative latest count ledger for case/phase/profile distinctions. No deployed site union, runtime execution, broad graph completeness, global recall or vulnerability is established.
+
+The selected source contracts include ordinary Ruby constructor/encoding assumptions, parser modes, route/middleware/callback conditions, byte transformations and source pointer/length provenance. Requested capacity is not actual heap bytes; content influence is not arbitrary pointer/size control. The selected uncompressed middleware10MiB bound applies after body read; generic0 disables that check. JSON ParamsWrapper parsing can precede action auth/CSRF while outer admission remains conditional. No all-routes or universal unauthenticated claim follows. The primary Psych record remains unresolved at external libyaml; official0.2.5 source supports only the separately qualified auxiliary model.
+
+The latest index is authoritative for additive reviewed status and newer source-model applicability. Original pending-review labels or earlier model gaps inside immutable recipes remain as historical evidence. Exact same record bytes are retained rather than silently rewritten. Selected independent reports and contracts are included; their integrity/source-check PASS labels do not imply runtime proof.
+
+Scope is intentionally bounded. This bundle contains all8 full recipe files referenced by the latest19-row index, one explicit supporting-reference expansion plus a small manual review/contract/schema set, source-file hash metadata, and a reproducible packing script. It excludes the broad38,499-path ledgers, full Ruby/C call graphs, AST tables, complete source trees and full corpus manifests. No recursive/unbounded dependency copying occurs. external_support_references.json names/hash-locates supporting artifacts outside this inspection scope.
+
+To regenerate broad analysis, resolve other historical graph IDs, inspect omitted full source files, or rerun all original extraction scripts, use the saved /workspace/gitlab_c_ext_trace source corpus and /workspace/gitlab_c_ext_v3 analysis workspace plus prior immutable archives. This is an inspection bundle, not a standalone complete analysis environment. Original CE and coherent EE mirror profiles remain separate; source association is not gem-package equivalence or proof of canonical/deployed identity.
+
+selected_source_provenance.json describes only source files cited by current index/recipes and does not replace full source manifests. table_catalog.json and SHA256SUMS cover bundled content. validation.json checks all19 referenced record hashes, IDs and lines against exact original recipes. archive_validation.json outside the archive verifies each archive member. Packing does not alter prior archives or frozen recipes.
+
+Reproduce in the saved environment:
+ python /workspace/gitlab_c_ext_v3/scripts/package_current_input_flows.py
+No target application, native extension, build hook or runtime extension test was executed. No push or external publication is performed by this script.

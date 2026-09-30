@@ -4,7 +4,15 @@
 
 Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). Deterministic layer denominators are in [COVERAGE_FUNNEL.txt](COVERAGE_FUNNEL.txt) and the compact [coverage tables/scripts archive](gitlab-layer-coverage.tar.gz). Primary memory-call candidates: **29,108 → 6,707 with native-registration graph paths → CE497 / EE504 frontend candidate sites**. These are graph-discovery counters, not accuracy or recall. The small [audit archive](gitlab-path-audit.tar.gz) is **1,164,037 bytes** and contains samples, per-hop verdicts/evidence, coverage reviews, methodology, schemas and reproducible scripts. Weighted estimates have very wide conservative uncertainty intervals; neither a precise runtime accuracy percentage nor global path recall is established.
 
-## Latest: YAML evidence with separate external-library assumptions
+## Start here: compact current input-flow evidence
+
+[CURRENT_INPUT_FLOWS.tar.gz](CURRENT_INPUT_FLOWS.tar.gz) (**658,781 bytes**; [index](CURRENT_INPUT_FLOWS_INDEX.txt)) contains the current overview CSV, all **19 reference records with full recipes**, selected source evidence, independent reviews and schemas. Inspect the current input-flow findings without downloading earlier analysis archives.
+
+The main scope has **16 conditional terminal-flow records, two partials, four native sites and three mechanisms**. A separate **one-flow libyaml-version-conditioned model** overlaps the CI-lint partial; it is not primary or deployed coverage. Records are not independent routes. The [middleware delta](gitlab-c-ext-json-validation.tar.gz) (**61,149 bytes**; [index](JSON_VALIDATION_INDEX.txt)) adds the CE/EE uncompressed JSON-validation phase on the existing collect-events route family, reusing the Oj site. Its selected **10 MiB check follows body reading and precedes native parsing**; generic zero disables that size check. No authentication-bypass, all-routes, runtime or vulnerability claim.
+
+The broad graph remains iteration6: **119 candidates, 24,070 partials and 14,310 conditional exclusions**. Input-flow recipes are a separately reviewed, deliberately bounded subset. Sources remain local and prior history is preserved.
+
+## YAML evidence with separate external-library assumptions
 
 The [YAML/Psych companion](gitlab-c-ext-yaml-psych.tar.gz) (**79,100 bytes**; [index](YAML_PSYCH_INDEX.txt)) records a CI-lint request-content prefix. Its primary path remains **partial** because the linked libyaml version is unpinned. A separate, explicitly auxiliary libyaml 0.2.5 source model conditionally traces a selected scalar's content and length into the existing Psych String-constructor site. It does not establish the deployed library or add primary gem coverage.
 
