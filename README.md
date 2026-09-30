@@ -4,15 +4,23 @@
 
 Start with [PATH_AUDIT.txt](PATH_AUDIT.txt). Deterministic layer denominators are in [COVERAGE_FUNNEL.txt](COVERAGE_FUNNEL.txt) and the compact [coverage tables/scripts archive](gitlab-layer-coverage.tar.gz). Primary memory-call candidates: **29,108 → 6,707 with native-registration graph paths → CE497 / EE504 frontend candidate sites**. These are graph-discovery counters, not accuracy or recall. The small [audit archive](gitlab-path-audit.tar.gz) is **1,164,037 bytes** and contains samples, per-hop verdicts/evidence, coverage reviews, methodology, schemas and reproducible scripts. Weighted estimates have very wide conservative uncertainty intervals; neither a precise runtime accuracy percentage nor global path recall is established.
 
-## Latest complete candidate census and input flows
+## Latest: iterations 5/6
+
+The [new compact delta](gitlab-c-ext-iteration5-6.tar.gz) (**17,581,849 bytes**; [index](ITERATION5_6_INDEX.txt)) preserves all **38,499** baseline records while applying source-backed branch, registration-activation and deferred-callback constraints. The latest overlay has **119 candidates, 24,070 partial paths and 14,310 conditional exclusions**. No source trees are uploaded.
+
+Rechecking the earlier 151-record census now leaves **99 conditionally source-supported candidates plus 20 dependent on unreviewed ICU contracts**, covering **43 profile-specific entrypoints and 42 physical sites**. All six known census contradictions are excluded under explicit initialization/header contracts; 26 unresolved witnesses are partial. This is **development reuse of the census**, not fresh holdout accuracy. Candidate status does not establish runtime feasibility or input control. The separate request-flow ledger remains **12 conditional records, eight frontend cases, two native mechanisms/sites, plus one partial continuation**.
+
+The delta contains full per-path decisions, source evidence, tests, independent reviews and reproducible scripts. Earlier archives and history remain intact. Source versions, deployed initialization, backend activation, external contracts and unresolved calls remain material limitations.
+
+## Preserved iteration3 candidate census and input flows
 
 The [census and flow companion](gitlab-c-ext-census-and-flows.tar.gz) (**5,470,414 bytes**; [index](CENSUS_AND_FLOWS_INDEX.txt)) independently reviews every one of frozen iteration3's **151 surviving candidates**, covering **52 profile-specific entrypoints and 51 distinct physical sites**. Results are **99 conditionally source-supported**, **20 dependent on unreviewed ICU contracts**, **26 otherwise unresolved**, and **6 contradicted**. These are disjoint path counts; distinct entrypoint/site sets overlap. Reviewer judgments and uncertainty are retained, including one disagreement among eight blind duplicate reviews. There is no sampling uncertainty for this selected census, but it is not a runtime accuracy estimate or global recall measurement.
 
 The latest reference ledger has **12 conditional request-to-memory-argument records plus one partial**, covering eight frontend cases in CE/EE controllers, middleware, Grape and GraphQL. They still represent only **two native influence mechanisms and two physical sites**: JSON-key content/derived length and compressed-chunk content/derived length. Authentication, version, encoding, callback/cache and branch conditions remain explicit. A conversion-site call can also be nonallocating: seven census paths share one `LONG2NUM(sf)` site whose valid nanosecond argument fits an immediate integer. No site count implies fresh allocation, arbitrary input control or vulnerability.
 
-This archive preserves the audited iteration3 population and adds zero-path-classification-change iteration4 binding evidence. Further in-progress repairs are excluded. Extract beside the prior V3 and iteration3 companions; their archives and source versions remain unchanged.
+This archive preserves the audited iteration3 population and adds zero-path-classification-change iteration4 binding evidence. Later repairs are published separately below their own immutable revisions. Extract beside the prior V3 and iteration3 companions; their archives and source versions remain unchanged.
 
-## Latest: iteration3
+## Preserved iteration3
 
 [Iteration3 delta](gitlab-c-ext-iteration3.tar.gz) (**10,593,149 bytes**; [index](ITERATION3_INDEX.txt)) retains **151 candidates**, **24,074 partial paths**, and **14,274 rejected paths** across the separate CE/EE profiles. Of the previous candidates, 112 were rejected by new source-argument guards and 1,870 became partial because their guards/transfers remain unresolved. Withholding uncertain chains is not proof of improved coverage.
 

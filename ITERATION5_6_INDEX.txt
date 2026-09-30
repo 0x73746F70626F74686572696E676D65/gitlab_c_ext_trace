@@ -1,0 +1,34 @@
+GitLab C-extension analysis — iterations 5/6 delta
+
+This companion adds conditional source constraints and deferred-callback evidence to the preserved path corpus. It is not runtime verification. Candidate paths, partial paths, initialization assumptions, external contracts and deployment uncertainties remain explicit. Prior archives, the original graph and the frozen 151-record census are unchanged.
+
+Two complete root overlays are included, each retaining all 38,499 baseline path records. iteration5 incorporates Ruby initialization/getter assumptions, native preprocessor constraints and native-registration activation holes. iteration6 additionally classifies two stored BatchLoader block witnesses as partial. Exact immutable revisions, statuses and evidence references are in iterations/iteration5 and iterations/iteration6. These are additive decisions, not silent deletions from the baseline.
+
+Root6 revision: 42cb404ae85e744a34cf4cc181678cc0978719013a2079baf44c165bc98b979a.
+CE: 56 candidates,9,092 partial,5,920 rejected. EE: 63 candidates,14,978 partial,8,390 rejected. Total: 119 candidates, 24,070 partial,14,310 rejected. Candidate status means not excluded by these bounded checks, not verified feasible or free of false positives. Counts of paths, sites, source operations and memory mechanisms are different quantities.
+
+Ruby5: initialized getter contract
+Time.zone-based Date.current branch exclusions depend on explicit initialized runtime state and selected framework methods. The retained initialization/getter source, configuration and write/accessor inventory support that conditional contract; they do not prove universal runtime state. Mutable state, test-support writes, external callers and monkey patches remain limits. The alternative zone.today branch is unchanged. Additional exclusions are conditional on the contract attached to affected paths, not unconditional Ruby semantics. Fixed-file JSON attempts retain their unsupported-adapter/dispatch limits; no speculative Event Hash assumption tier is introduced.
+
+Native5: preprocessor/header constraints
+The retained selected Ruby3.3.11 header contract and local preprocessor directives exclude some C branches. This is static source/header evidence, not a reproduced compiler invocation or proof of deployed extension flags. Unknown includes, command-line overrides, unsupported macros and unresolved conditions remain explicit. The native preprocessor pass reports 22 contradicted path records across the profiles before overlap with other overlays; never add overlapping cause counts as distinct rejected paths. Source_branch_not_excluded is not runtime feasibility.
+
+Registration activation5
+Registration tables cover 8,062 records including fixture/auxiliary sources; 4,207 are primary-bundle-associated and 3,855 are not. They must not be described as 8,062 active application registrations. Activation witnesses, initializer holes, source search scope and Oj-specific review are retained. Missing activation evidence produces a partial condition, not a rejection or proof the API can never activate. Within the prior 151-record census, 24 records obtain this additional activation qualification. The 40k-file source search manifest is metadata supporting bounded negative-search scope, not full source contents or global absence proof.
+
+Deferred stored blocks6
+Source-backed BatchLoader 2.0.5 factory/GraphQL proxy storage is distinguished from eventual block invocation. The two frozen witnesses C035/C118 omit forcing and capture-identity evidence and become partial_requires_stored_callback_invocation. This does not prove the callback never runs. A separately reviewed CE GraphQL request-flow recipe has a different path identity and explicit forcing/decoder conditions; its evidence is neither borrowed into these witnesses nor invalidated by their missing edges. No stronger EE flow is promoted.
+
+Census development comparison
+The earlier census error families informed these repairs. Rechecking those 151 records is development evidence, not a fresh holdout or independent out-of-sample accuracy estimate. iteration5 rejects all six previously identified contradictions under the stated contracts, marks 24 activation cases partial, and leaves two deferred-block cases as candidates; iteration6 marks those two partial. The remaining 119 still include 20 cases requiring additional unreviewed ICU contracts. Preserve the earlier publication's primary disjoint classification and read the new comparison tables; do not relabel all 119 as fully reviewed executable chains.
+
+Evidence and reproduction
+Included: full root5/root6 per-path ledgers; Ruby5 changed-path outcomes, facts, bindings, initialization/write contracts; native preprocessor/header decisions and source metadata; activation witnesses/holes/search scope; deferred-block regions/contracts; independent reviews; reused-census comparisons; tests, fixtures, schemas and scripts. Frozen raw Ruby per-path trace ledgers are omitted as redundant bulk and listed with exact local paths, row counts and hashes; both complete combined overlays and their linked evidence remain included.
+
+Full source trees and earlier immutable inputs remain under /workspace/gitlab_c_ext_trace and /workspace/gitlab_c_ext_v3. No source tree or full AST/call corpus is copied here. prerequisites.json records hashes for the three prior companion archives. Source and ID joins may require those archives or the saved environment. table_catalog.json/SHA256SUMS describe actual included files; freeze manifests may explicitly reference omitted local inputs. Package hashes prove byte identity, not semantic validity.
+
+Reproduce from the saved environment:
+ python /workspace/gitlab_c_ext_v3/scripts/package_iteration5_6.py
+Packing waits for root6 freeze/integrity and the final development comparison. It verifies input freezes, all 38,499 IDs in each overlay, every archive member and preservation of previous archives. It performs no push or external publication. GitLab, extensions, gem build hooks and runtime tests remain unexecuted.
+
+Audited-population breakdown after root6: 119 candidate path records cover 43 profile-specific entrypoints and 42 physical sites. The 99 conditional source-supported records cover 32 sites/43 entrypoints; the 20 additional ICU-contract-dependent records cover 10 sites/2 entrypoints. These sets and profile counts are not interchangeable. Seven LONG2NUM path records share one physical site qualified as nonallocating under the selected contract; do not count them as seven allocations. reports/iteration6_audited_breakdowns.json and scripts/summarize_audited_overlay.py reproduce the join to the preserved 151-record census.
