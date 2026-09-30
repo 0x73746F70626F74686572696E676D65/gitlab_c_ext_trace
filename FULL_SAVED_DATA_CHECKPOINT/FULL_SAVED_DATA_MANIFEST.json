@@ -1,0 +1,996 @@
+{
+  "snapshot_utc": "2026-09-30T21:03:07.456005+00:00",
+  "root": "/workspace/gitlab_c_ext_full_graph",
+  "scope": "EVERY saved regular file in the latest full-graph working directory; no curated selection. Prior analysis snapshots remain in earlier repository history/artifacts. This is not a copy of unrelated workspace or downloaded source trees.",
+  "file_count": 123,
+  "original_file_bytes": 317395266,
+  "excluded_files": [],
+  "analysis_resumed": false,
+  "incompleteness": "Native process was interrupted. Native gzip streams may lack trailers or final buffered records; saved bytes are preserved without repair. Ruby definition state is included as opaque data, not executed. Final native resolution, Ruby dispatch/bindings, composition/reachability and production validation unfinished.",
+  "files": [
+    {
+      "path": "docs/REACHABILITY.txt",
+      "bytes": 5229,
+      "sha256": "27a12d92f8c2587b973827d446f02ac3779cbb9ffe543c5a2b37c1c258cbe08f",
+      "mtime_ns": 1790800976101750517,
+      "mtime_utc": "2026-09-30T20:42:56.101751+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/reports/native_graph_coverage.json",
+      "bytes": 1481,
+      "sha256": "cf7ff9c848ea129ce92dd1cc1c284c99027311aa5e61958867bccb7ce292569f",
+      "mtime_ns": 1790800526656750466,
+      "mtime_utc": "2026-09-30T20:35:26.656750+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_boundaries.jsonl.gz",
+      "bytes": 1451,
+      "sha256": "152a85cc03e2a7a9f57faf19110231bf4359e88fb43ef4c71ce432d18563e184",
+      "mtime_ns": 1790800526650762342,
+      "mtime_utc": "2026-09-30T20:35:26.650762+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_build_scopes.jsonl.gz",
+      "bytes": 427,
+      "sha256": "2af7c7e9935b0b7c39420294e3168d114225d5976d72cd0252922169ef4c2383",
+      "mtime_ns": 1790800526650762342,
+      "mtime_utc": "2026-09-30T20:35:26.650762+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_call_index.jsonl.gz",
+      "bytes": 3417,
+      "sha256": "6e27b51da3491605187762ea7df71e47b3f0c8da608d3f02c5336a98d80e2ae5",
+      "mtime_ns": 1790800525306741397,
+      "mtime_utc": "2026-09-30T20:35:25.306741+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_callback_assignments.jsonl.gz",
+      "bytes": 698,
+      "sha256": "a26276d17541337b04d6b9ae4ce14e1ba73142d040db112e86e05b061e1c4764",
+      "mtime_ns": 1790800526650762342,
+      "mtime_utc": "2026-09-30T20:35:26.650762+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_edges.jsonl.gz",
+      "bytes": 9368,
+      "sha256": "0dd58ea9dbe834725b6a67f2f55db59c250fecdae5681666051e322047104354",
+      "mtime_ns": 1790800526650762342,
+      "mtime_utc": "2026-09-30T20:35:26.650762+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_files.jsonl.gz",
+      "bytes": 780,
+      "sha256": "9ec201510c1c1cc910ca4396c378a13db761f111e372b82e164f75bdd40bab8c",
+      "mtime_ns": 1790800526650762342,
+      "mtime_utc": "2026-09-30T20:35:26.650762+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_includes.jsonl.gz",
+      "bytes": 383,
+      "sha256": "853c13e71c2e681396199c7fbbc9eb87ce9954f3554ebd00629a24416e5a8adb",
+      "mtime_ns": 1790800526650762342,
+      "mtime_utc": "2026-09-30T20:35:26.650762+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_namespaces.jsonl.gz",
+      "bytes": 371,
+      "sha256": "679e5c95361599be6ff2b6d288975f5a9729e46e9fac8ab2249bd7371ef916cb",
+      "mtime_ns": 1790800526650762342,
+      "mtime_utc": "2026-09-30T20:35:26.650762+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_nodes.jsonl.gz",
+      "bytes": 11681874,
+      "sha256": "077d84aee8909651bc9aecbba00dc234c5b14755690f3da9f88b4a563a82b2f4",
+      "mtime_ns": 1790800526650762342,
+      "mtime_utc": "2026-09-30T20:35:26.650762+00:00",
+      "archived": true
+    },
+    {
+      "path": "pilot/tables/native_registrations.jsonl.gz",
+      "bytes": 592,
+      "sha256": "058fcebd688c5a58c3f500d6ce671bf205ace30f97fc9fd91565b8d04ed5cb80",
+      "mtime_ns": 1790800525362742271,
+      "mtime_utc": "2026-09-30T20:35:25.362742+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/adversarial_review_plan.json",
+      "bytes": 2636,
+      "sha256": "a934c23088b39e47709f0c33910cc04c0038f9ececfb0946f77174a8e6d4a9a3",
+      "mtime_ns": 1790800060311436938,
+      "mtime_utc": "2026-09-30T20:27:40.311437+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/delivery_stage_cleanup.json",
+      "bytes": 799,
+      "sha256": "05ba979b9cbf30a22de6e3c3f1f830925abea5088587fd1e443ed5a486bead5f",
+      "mtime_ns": 1790800246993223507,
+      "mtime_utc": "2026-09-30T20:30:46.993223+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/edge_review_schema.json",
+      "bytes": 513,
+      "sha256": "424988e1f8a6daa4b6db8b97f61ae473951bc93f9bfe6c5980c554365e2a24f5",
+      "mtime_ns": 1790800060320948126,
+      "mtime_utc": "2026-09-30T20:27:40.320948+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/increment_backup_archive_verification.json",
+      "bytes": 4337,
+      "sha256": "de7d97ee67816bd77fc25f1ade1def5bab020dc0e97d995b7de09871193ec20d",
+      "mtime_ns": 1790801140000487819,
+      "mtime_utc": "2026-09-30T20:45:40.000488+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/increment_backup_cleanup.json",
+      "bytes": 639,
+      "sha256": "ddd0131a940f65e1814fdcf5cf5999db859c065e1b71ebd6df68faa30200e55f",
+      "mtime_ns": 1790801181916429280,
+      "mtime_utc": "2026-09-30T20:46:21.916429+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_additive_rules_2a603c926121.json",
+      "bytes": 12124,
+      "sha256": "42fe913fd984e5ae94ad299e3e5f6c46d2327965f8e76321abd4c1f69988a201",
+      "mtime_ns": 1790801658203654980,
+      "mtime_utc": "2026-09-30T20:54:18.203655+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_additive_rules_8b20c47e4e95.json",
+      "bytes": 10634,
+      "sha256": "1e2249409e5d4606082f18bf423fd027c9aca52a35c4a482b1f58df98091e3a8",
+      "mtime_ns": 1790801792581886968,
+      "mtime_utc": "2026-09-30T20:56:32.581887+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_additive_rules_9ce04b4b099e.json",
+      "bytes": 11481,
+      "sha256": "fa726b566236f38f365cce3f4559734d54b268979e31909834a7a176a3c53a9e",
+      "mtime_ns": 1790801812173349521,
+      "mtime_utc": "2026-09-30T20:56:52.173350+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_memory_gate_regressions_683983964a24.json",
+      "bytes": 2935,
+      "sha256": "395e4924d4dc3183bf8747ef7c1a0d12fe5ebcdf6d60da8083730cfd26a4a1d1",
+      "mtime_ns": 1790801574339892662,
+      "mtime_utc": "2026-09-30T20:52:54.339893+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_memory_gate_regressions_f92a145c34c1.json",
+      "bytes": 4509,
+      "sha256": "3d480932fa4779780f7c084fb1eddd45bc0074a67fb7454e590f5a3f3caee32d",
+      "mtime_ns": 1790800993172731937,
+      "mtime_utc": "2026-09-30T20:43:13.172732+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_native_regressions_18e92ea7316f.json",
+      "bytes": 11608,
+      "sha256": "eb5363a645d3c5dc5c3fbd8e1fefa53a8f633def7ddf9580c616a7761d90efd6",
+      "mtime_ns": 1790800656903403075,
+      "mtime_utc": "2026-09-30T20:37:36.903403+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_native_regressions_c3f4cd5bb966.json",
+      "bytes": 9762,
+      "sha256": "827ea7d69742ad2278a54525c786b7d96038e760048c7122c2bff4aa2338a702",
+      "mtime_ns": 1790800882929897487,
+      "mtime_utc": "2026-09-30T20:41:22.929898+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_native_regressions_c3f4cd5bb966_no_scaffold.json",
+      "bytes": 9519,
+      "sha256": "24debfd51aece84e7cd4ab35f19e27aaea29a9dc7f83f919bfc9fe27559cf75e",
+      "mtime_ns": 1790800897635277401,
+      "mtime_utc": "2026-09-30T20:41:37.635278+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_resolver_regression_checkpoint.json",
+      "bytes": 897,
+      "sha256": "680a5e98f7b0eac836203716a711f9604407d38f3ca91e9963400a74f5a8a8a7",
+      "mtime_ns": 1790800925691650195,
+      "mtime_utc": "2026-09-30T20:42:05.691650+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_ruby_regressions_1d12f7d77c86.json",
+      "bytes": 9352,
+      "sha256": "b1c61413e373099a6798b1e52cd1db02ae217fa737e98a39b2ba4fee73ad8230",
+      "mtime_ns": 1790800657004988224,
+      "mtime_utc": "2026-09-30T20:37:37.004988+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_ruby_regressions_1f708686e4dc.json",
+      "bytes": 10935,
+      "sha256": "c5be304cf15ec669306cf93f4e31a7e33c49203480a595131c244ee96616f2a8",
+      "mtime_ns": 1790800537013509749,
+      "mtime_utc": "2026-09-30T20:35:37.013510+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_ruby_regressions_4321c8bc4ed4.json",
+      "bytes": 10526,
+      "sha256": "62e951d3bac7e471b54254fa4ca6613c32e01b2c2d8985dc1e937e1961c643b4",
+      "mtime_ns": 1790801574440981443,
+      "mtime_utc": "2026-09-30T20:52:54.440981+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_ruby_regressions_9c5df599213d.json",
+      "bytes": 10309,
+      "sha256": "5c2c1f8687574fade155b7f7d9a418f5212c12f733eb483535f65206f9aac006",
+      "mtime_ns": 1790800703115541420,
+      "mtime_utc": "2026-09-30T20:38:23.115541+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/independent_ruby_regressions_cf5d570b112d.json",
+      "bytes": 10440,
+      "sha256": "82d767a73ad27f31a81679b563acbca78f5932f929bbce360a1451c5771a1bb6",
+      "mtime_ns": 1790800786702468862,
+      "mtime_utc": "2026-09-30T20:39:46.702469+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/native_build.log",
+      "bytes": 3918,
+      "sha256": "546bf3a7b77337c85a6128485b5e499ebe7376297303499fbb1e4bdc28be8394",
+      "mtime_ns": 1790801574847416235,
+      "mtime_utc": "2026-09-30T20:52:54.847416+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/native_graph_contract.json",
+      "bytes": 3838,
+      "sha256": "6601ea5eb11a994703e4c8a9b744527ca1dfca201d2e4160e7172522ad2e5ce7",
+      "mtime_ns": 1790801664840823145,
+      "mtime_utc": "2026-09-30T20:54:24.840823+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/native_owner_preview.log",
+      "bytes": 169,
+      "sha256": "31c62507a2e39e0fc61bb6e4df54915957ccd796f650c30fb1c2b8cffef75785",
+      "mtime_ns": 1790801551999058253,
+      "mtime_utc": "2026-09-30T20:52:31.999058+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/reachability_regression_tests.json",
+      "bytes": 1867,
+      "sha256": "06721b127f5b6099560ac44613f50246f8cd0bd1eac86d94577ce9b4f5424bbe",
+      "mtime_ns": 1790801370778464399,
+      "mtime_utc": "2026-09-30T20:49:30.778464+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/reachability_scalability_fixture.json",
+      "bytes": 302,
+      "sha256": "f71b9b5e39f9b38ccffe629212e4d132cacdc9d0caa94d50e744f4595b870576",
+      "mtime_ns": 1790801174635529397,
+      "mtime_utc": "2026-09-30T20:46:14.635529+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/retained_table_prefix_dedup_feasibility.json",
+      "bytes": 2252,
+      "sha256": "e0685d9ee21a8beb44667c0fa175bf610074cc1e78612fe9087683b4ee6ba48b",
+      "mtime_ns": 1790801051614663569,
+      "mtime_utc": "2026-09-30T20:44:11.614664+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/ruby_definitions_progress.log",
+      "bytes": 4954,
+      "sha256": "ce1d16c7699e2e5006a21b3516df60a8ea7a2004549644da7b69337cc5b7dd24",
+      "mtime_ns": 1790801160272866870,
+      "mtime_utc": "2026-09-30T20:46:00.272867+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/ruby_graph_coverage.json",
+      "bytes": 324,
+      "sha256": "796b86f56daa3644b85f1cb88fffcbdbeb39cea7a5a6b76eeda4f77d39cc1528",
+      "mtime_ns": 1790801170858798189,
+      "mtime_utc": "2026-09-30T20:46:10.858798+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/ruby_interface_coverage.json",
+      "bytes": 71,
+      "sha256": "f564227b4568489f8a9df3d5ec7ec762621b58131d0ebd8d2d3d4cedd14c985f",
+      "mtime_ns": 1790801255516909547,
+      "mtime_utc": "2026-09-30T20:47:35.516910+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/ruby_parse_recovery_preflight.json",
+      "bytes": 191,
+      "sha256": "e6eaf084e0f19836b41f5fa351515a36d2007f0d66899e92ebc69ceca6a886a7",
+      "mtime_ns": 1790801513313295220,
+      "mtime_utc": "2026-09-30T20:51:53.313295+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/ruby_preflight.log",
+      "bytes": 192,
+      "sha256": "559e408df63aecf6e3737299d36072abaf9eb103bea221d96cf582da3d61415f",
+      "mtime_ns": 1790801513313295220,
+      "mtime_utc": "2026-09-30T20:51:53.313295+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/ruby_recovery_batch_001.json",
+      "bytes": 230,
+      "sha256": "d05a33718badbbfbb04d73ea12647bc5683775eb6a43c4ee5d6460b72be6e2b2",
+      "mtime_ns": 1790800419677865673,
+      "mtime_utc": "2026-09-30T20:33:39.677866+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/ruby_resolution_methodology.json",
+      "bytes": 2699,
+      "sha256": "6c36016466348243e99c6f2403ed0e2f0bfd87f2ed4a7797d32e246345a369d7",
+      "mtime_ns": 1790801675962070690,
+      "mtime_utc": "2026-09-30T20:54:35.962071+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/sampler_selftest.json",
+      "bytes": 264,
+      "sha256": "d547245be7c54026c214ae3664fbb2abe8ff666319aa7df6d18b97b2051b6c89",
+      "mtime_ns": 1790800187797967138,
+      "mtime_utc": "2026-09-30T20:29:47.797967+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/source_alias_census.json",
+      "bytes": 267,
+      "sha256": "e674b78eda171a32473cf178624cbb42141dc27f14c2f4a393ed030b85a2cdbd",
+      "mtime_ns": 1790800395198982771,
+      "mtime_utc": "2026-09-30T20:33:15.198983+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/source_coverage_baseline_freeze.json",
+      "bytes": 3147,
+      "sha256": "3aede4fa784178089f4bd053b00590b89f2defc3209e140b863cad8cb1063aca",
+      "mtime_ns": 1790800700735160449,
+      "mtime_utc": "2026-09-30T20:38:20.735160+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/source_coverage_census.json",
+      "bytes": 2401,
+      "sha256": "ab0b3a505f6cdba9c7ccee46f1288f800136799024bf3eddf44dbf3b2b52f849",
+      "mtime_ns": 1790800474809954753,
+      "mtime_utc": "2026-09-30T20:34:34.809955+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/source_coverage_validation.json",
+      "bytes": 808,
+      "sha256": "710fa28f4f72f40a7c0359b298466fcf69fa89d93e4df6b0766f045c040abb5b",
+      "mtime_ns": 1790800647551505112,
+      "mtime_utc": "2026-09-30T20:37:27.551505+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/source_language_boundaries.json",
+      "bytes": 913,
+      "sha256": "20089231e815f4970bebdc36f0577c14a8302cda0562b51857bd6f8c6b9ee799",
+      "mtime_ns": 1790800553412259163,
+      "mtime_utc": "2026-09-30T20:35:53.412259+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/staging_cleanup.json",
+      "bytes": 5354,
+      "sha256": "ee1551facd8574477d3966d1a1319028799b3222a94868d38420b8e24b8a3469",
+      "mtime_ns": 1790799980797317359,
+      "mtime_utc": "2026-09-30T20:26:20.797317+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/staging_duplicate_link_verification.json",
+      "bytes": 1052,
+      "sha256": "365dca51647bcd87560b652deddb69163fcae1bc2451f78fbc0f5109d00b21e3",
+      "mtime_ns": 1790800179493432337,
+      "mtime_utc": "2026-09-30T20:29:39.493432+00:00",
+      "archived": true
+    },
+    {
+      "path": "reports/staging_duplicate_verification.json",
+      "bytes": 1504,
+      "sha256": "65889882785a61eb3e9c28fd0333c1c3adf1052dbb021171ad24baf9bc4e9385",
+      "mtime_ns": 1790800057542787126,
+      "mtime_utc": "2026-09-30T20:27:37.542787+00:00",
+      "archived": true
+    },
+    {
+      "path": "ruby_definition_state.pkl.gz",
+      "bytes": 52206444,
+      "sha256": "b6d994c5273e6f06db586b80299af87c09e4ade6249b2327521908b9c51f33b2",
+      "mtime_ns": 1790801170841039509,
+      "mtime_utc": "2026-09-30T20:46:10.841039+00:00",
+      "archived": true
+    },
+    {
+      "path": "schemas/reachability_api_sink_relations.schema.json",
+      "bytes": 541,
+      "sha256": "e4cc6899fb9297896dd2d2b704ae1d07c397bff69791d69ab032da640099df00",
+      "mtime_ns": 1790801037471855033,
+      "mtime_utc": "2026-09-30T20:43:57.471855+00:00",
+      "archived": true
+    },
+    {
+      "path": "schemas/reachability_components.schema.json",
+      "bytes": 599,
+      "sha256": "406eec62489f15294d47fe70e80d4a0cfbfe63cecfef3720ad744386eb4388c7",
+      "mtime_ns": 1790801037471360149,
+      "mtime_utc": "2026-09-30T20:43:57.471360+00:00",
+      "archived": true
+    },
+    {
+      "path": "schemas/reachability_condensation_edges.schema.json",
+      "bytes": 432,
+      "sha256": "fff37d015e2a8ff379d669a913d68aec3143e64e534872e9cc9bd9a00a978d95",
+      "mtime_ns": 1790801037471445467,
+      "mtime_utc": "2026-09-30T20:43:57.471446+00:00",
+      "archived": true
+    },
+    {
+      "path": "schemas/reachability_node_components.schema.json",
+      "bytes": 589,
+      "sha256": "8a137a2ad4d5aeb2aaceb4899cd2b2d3dff4180cc331aff7880d113a9a67b541",
+      "mtime_ns": 1790801037471264425,
+      "mtime_utc": "2026-09-30T20:43:57.471264+00:00",
+      "archived": true
+    },
+    {
+      "path": "schemas/reachability_sink_index.schema.json",
+      "bytes": 327,
+      "sha256": "98946c042b50fbf7d29637fa60c95a5cf263a38dd6b31ef38041d43b66817103",
+      "mtime_ns": 1790801037470938976,
+      "mtime_utc": "2026-09-30T20:43:57.470939+00:00",
+      "archived": true
+    },
+    {
+      "path": "schemas/reachability_sink_sets.schema.json",
+      "bytes": 460,
+      "sha256": "1b60892c1c61826675b09168679e2bcb8e46d34c45a68ddec508c20235d1a674",
+      "mtime_ns": 1790801037471135591,
+      "mtime_utc": "2026-09-30T20:43:57.471136+00:00",
+      "archived": true
+    },
+    {
+      "path": "schemas/source_coverage.json",
+      "bytes": 2552,
+      "sha256": "43e2875245157551dc356524cf79748d82fd65c49170c86736dd69f86ea14e86",
+      "mtime_ns": 1790800667412931998,
+      "mtime_utc": "2026-09-30T20:37:47.412932+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/__pycache__/build_native_graph.cpython-312.pyc",
+      "bytes": 66447,
+      "sha256": "f3aa865bc0e6fa5a4e14e686ab7f89890a2da43b796282e30acc7c456639bff7",
+      "mtime_ns": 1790801327984397087,
+      "mtime_utc": "2026-09-30T20:48:47.984397+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/__pycache__/c_registration_owners.cpython-312.pyc",
+      "bytes": 23305,
+      "sha256": "5d7c8ce167ef53ae8d8921359994cbc38d390db233b7b8559ab6d1c9611eae27",
+      "mtime_ns": 1790801583374065023,
+      "mtime_utc": "2026-09-30T20:53:03.374065+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/__pycache__/compose_graph.cpython-312.pyc",
+      "bytes": 21003,
+      "sha256": "d32eb57a8c3dc5c79a2dc5daf27fb38f876b28284719cc9ba6ad6f02114e7041",
+      "mtime_ns": 1790801345588379288,
+      "mtime_utc": "2026-09-30T20:49:05.588379+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/__pycache__/finalize_native_graph.cpython-312.pyc",
+      "bytes": 11082,
+      "sha256": "3bfb026f3e75d161657b85d9446b8fc7d829c105317a86f07c52c24a6db3d945",
+      "mtime_ns": 1790801764052040645,
+      "mtime_utc": "2026-09-30T20:56:04.052041+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/__pycache__/native_header_memory_models.cpython-312.pyc",
+      "bytes": 13485,
+      "sha256": "d6af1bc1f401f8cf4925b5e7e0bc198980232d7e030b6b9d1cbb54f5b38adc65",
+      "mtime_ns": 1790801764056705176,
+      "mtime_utc": "2026-09-30T20:56:04.056705+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/__pycache__/native_local_models.cpython-312.pyc",
+      "bytes": 16307,
+      "sha256": "52ee87ae7ae5530e1cf953fd753348c414de011956fbf446b34d6c855a6df7a4",
+      "mtime_ns": 1790801703598881320,
+      "mtime_utc": "2026-09-30T20:55:03.598881+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/__pycache__/ruby_full_graph.cpython-312.pyc",
+      "bytes": 65543,
+      "sha256": "f1cff1fe4e615990cb23b8b28c22087b75979d6c78e3601a44c4a099e5fa3b2d",
+      "mtime_ns": 1790801779273493342,
+      "mtime_utc": "2026-09-30T20:56:19.273493+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/__pycache__/ruby_parse_regions.cpython-312.pyc",
+      "bytes": 4255,
+      "sha256": "64997d06045b3007420fd4505464e469d67bc4f6dc1e335e1f8c8ea6cb4b12bb",
+      "mtime_ns": 1790801468484703046,
+      "mtime_utc": "2026-09-30T20:51:08.484703+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/__pycache__/sample_edge_audit.cpython-312.pyc",
+      "bytes": 9016,
+      "sha256": "91ac3537fb99ddc44aa616ad8e3626a1e3b50382e9aa63dad61c5ee32c976dbc",
+      "mtime_ns": 1790800122780066848,
+      "mtime_utc": "2026-09-30T20:28:42.780067+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/build_native_graph.py",
+      "bytes": 37123,
+      "sha256": "683983964a2410a48349d189871e569aac8c7a4f49d209a229b8dab3c405a32a",
+      "mtime_ns": 1790801047541339142,
+      "mtime_utc": "2026-09-30T20:44:07.541339+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/build_reachability.py",
+      "bytes": 6771,
+      "sha256": "19cc3576b818a8247e75e5621971a3722d1599b2f793666fa2861c4fd4e2fb26",
+      "mtime_ns": 1790801333928008425,
+      "mtime_utc": "2026-09-30T20:48:53.928008+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/c_registration_owners.py",
+      "bytes": 11729,
+      "sha256": "8249a3c844f933543eb4a5e612fae3bee9db23ea0f5acc728d423828a067b8c4",
+      "mtime_ns": 1790801583277227660,
+      "mtime_utc": "2026-09-30T20:53:03.277228+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/compose_graph.py",
+      "bytes": 8838,
+      "sha256": "f1df12a4a0b3a5246ecf731aa73f427d8e86d9aede9bf6ac14e71cf1cff94236",
+      "mtime_ns": 1790801345492337057,
+      "mtime_utc": "2026-09-30T20:49:05.492337+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/finalize_native_graph.py",
+      "bytes": 5698,
+      "sha256": "6653651609f4fe39f10e955d2d754b18f289ea045a3889f689c878c31f92c377",
+      "mtime_ns": 1790801763996207494,
+      "mtime_utc": "2026-09-30T20:56:03.996207+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/independent_additive_native_rules_review.py",
+      "bytes": 4680,
+      "sha256": "de1389cd77b94e0476b5e0d53503e19d1a579299898128eea66c1fd5300d31d9",
+      "mtime_ns": 1790801812077942263,
+      "mtime_utc": "2026-09-30T20:56:52.077942+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/independent_memory_gate_regressions.py",
+      "bytes": 2820,
+      "sha256": "e2a58e42876c45450055fd3bc5d5f18d78bd472e7c5b8678beea4b4e16393eb0",
+      "mtime_ns": 1790800991561997771,
+      "mtime_utc": "2026-09-30T20:43:11.561998+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/independent_native_resolver_regressions.py",
+      "bytes": 3594,
+      "sha256": "c724b62a932d057a333707cc50c7bcd0c8b46d81d5264da8daa8745f516effb9",
+      "mtime_ns": 1790800895805568350,
+      "mtime_utc": "2026-09-30T20:41:35.805568+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/independent_ruby_resolver_regressions.py",
+      "bytes": 6295,
+      "sha256": "47320c8d7464dbad035a95cd9f68a70706d1f9e11ae33cf5193ca84b22288252",
+      "mtime_ns": 1790800786619606592,
+      "mtime_utc": "2026-09-30T20:39:46.619606+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/native_header_memory_models.py",
+      "bytes": 6571,
+      "sha256": "1660c1a91d642fd1a83f900ca1cb92bad1dad1cf2e24592a51428a956ba1ff5c",
+      "mtime_ns": 1790801763995655213,
+      "mtime_utc": "2026-09-30T20:56:03.995655+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/native_local_models.py",
+      "bytes": 8326,
+      "sha256": "26b753ee72b4d6e5aad3db7db309950093faa4e28f5b050d0a79583d0d1a9e6e",
+      "mtime_ns": 1790801703561041467,
+      "mtime_utc": "2026-09-30T20:55:03.561041+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/parse_ruby_interfaces.py",
+      "bytes": 1195,
+      "sha256": "f7db4e97f2b71c8638488eb2f602fb294e7d0c590fab7ec73656d60d872c4e3a",
+      "mtime_ns": 1790801249478105474,
+      "mtime_utc": "2026-09-30T20:47:29.478106+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/preflight_ruby_regions.py",
+      "bytes": 840,
+      "sha256": "92d52e8a24e766ca8cdead22398a8bf0733a695cc00f91977ba3e14e7a9e67b4",
+      "mtime_ns": 1790801393017383470,
+      "mtime_utc": "2026-09-30T20:49:53.017384+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/query_graph.py",
+      "bytes": 5993,
+      "sha256": "c8feaaa61a4b6b3ee4afb2906360e14ec63b30083de1ea054cafcdc043a6be4a",
+      "mtime_ns": 1790801064137162102,
+      "mtime_utc": "2026-09-30T20:44:24.137162+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/ruby_full_graph.py",
+      "bytes": 36117,
+      "sha256": "cacf04b5b9ed57a35d4ca73a0261d8ae346d608e266de3eaa07c09dcc7fab292",
+      "mtime_ns": 1790801779147555280,
+      "mtime_utc": "2026-09-30T20:56:19.147555+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/ruby_parse_regions.py",
+      "bytes": 1720,
+      "sha256": "28bb7ac0ac98a9e1fc310c82b46e63d07ef404951888f41ea407584e82dedbef",
+      "mtime_ns": 1790801468448136093,
+      "mtime_utc": "2026-09-30T20:51:08.448136+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/sample_edge_audit.py",
+      "bytes": 4169,
+      "sha256": "78cef46860ee47bd87f32bc201456ef59a12edd5c6735f7aa8f300ccd3a9ba51",
+      "mtime_ns": 1790800748972201442,
+      "mtime_utc": "2026-09-30T20:39:08.972201+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/source_alias_census.py",
+      "bytes": 1602,
+      "sha256": "a2dffffc970591a716f38b5e477a681584ea1f8a73d13abaa7ad39ac04cb2409",
+      "mtime_ns": 1790800385741072028,
+      "mtime_utc": "2026-09-30T20:33:05.741072+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/source_coverage_census.py",
+      "bytes": 10851,
+      "sha256": "b6acee5d925cc4f94f7ced0444626982c093363daffa2b3aef7c8b6e2985b484",
+      "mtime_ns": 1790800320132376878,
+      "mtime_utc": "2026-09-30T20:32:00.132377+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/source_language_boundaries.py",
+      "bytes": 2064,
+      "sha256": "5f7ff9bc168c4ec884beaabd444653b73aaf04f28f93637628e51ea3a855ef51",
+      "mtime_ns": 1790800511910532600,
+      "mtime_utc": "2026-09-30T20:35:11.910533+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/validate_source_coverage.py",
+      "bytes": 3336,
+      "sha256": "99d37b3f1efa4510d036b3c5f1659e8f18e793442d6dda0ddaddc22fe804035a",
+      "mtime_ns": 1790800636176449660,
+      "mtime_utc": "2026-09-30T20:37:16.176450+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/verify_staging_duplicates.py",
+      "bytes": 1883,
+      "sha256": "acfaf3db8fe5a4db7b0cd0a0a6ca52088a1b705e29bf1d15d09eea8fd0d6d5df",
+      "mtime_ns": 1790800035940111774,
+      "mtime_utc": "2026-09-30T20:27:15.940112+00:00",
+      "archived": true
+    },
+    {
+      "path": "scripts/verify_staging_links.py",
+      "bytes": 1206,
+      "sha256": "9986080237b1b3fb0525266ba11732a859ce2420927a8429da4b93fbeba49972",
+      "mtime_ns": 1790800267155985508,
+      "mtime_utc": "2026-09-30T20:31:07.155986+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/adversarial_rule_recommendations.jsonl",
+      "bytes": 3738,
+      "sha256": "b784a932738e1a86450e2791fb76d541bc906677bae47bce25fa9b6d686902b0",
+      "mtime_ns": 1790800060315437001,
+      "mtime_utc": "2026-09-30T20:27:40.315437+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/adversarial_semantic_fixtures.jsonl",
+      "bytes": 3069,
+      "sha256": "9b17f6abc5ea4745a8b6d980d94eac4d474b989b10cfaadb9a0a37c27750a496",
+      "mtime_ns": 1790800170033192741,
+      "mtime_utc": "2026-09-30T20:29:30.033193+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/ast_sources_not_in_retained_census.jsonl.gz",
+      "bytes": 66,
+      "sha256": "becd1702a4310483fc06ade58e28e573d936543f56cc19be8f848646e7109973",
+      "mtime_ns": 1790800474797960217,
+      "mtime_utc": "2026-09-30T20:34:34.797960+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/gem_source_coverage.jsonl.gz",
+      "bytes": 322150,
+      "sha256": "19c05ae05fe72c9917b0e84ed71e381be4c392c2de602afea2d9b7e5c5f17c8a",
+      "mtime_ns": 1790800474741953693,
+      "mtime_utc": "2026-09-30T20:34:34.741954+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_boundaries.jsonl.gz",
+      "bytes": 250580,
+      "sha256": "48ce17df9d8ec7ed7ad1ceb9cedb1aef4e57f2167ac94de04e3547c62417db50",
+      "mtime_ns": 1790801603851870663,
+      "mtime_utc": "2026-09-30T20:53:23.851871+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_call_index.jsonl.gz",
+      "bytes": 48607907,
+      "sha256": "f753737ffe87d96749ed68f14bea607f9f41dffca6fd0f765245d8997e904412",
+      "mtime_ns": 1790801707213485751,
+      "mtime_utc": "2026-09-30T20:55:07.213486+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_callback_assignments.jsonl.gz",
+      "bytes": 2906866,
+      "sha256": "ef34f0e3249fa1b7d62e499504129893e1b7100924b29f316fe8760831d30490",
+      "mtime_ns": 1790801676024998434,
+      "mtime_utc": "2026-09-30T20:54:36.024998+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_composition_calls.jsonl.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime_ns": 1790801093471774360,
+      "mtime_utc": "2026-09-30T20:44:53.471774+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_edges.jsonl.gz",
+      "bytes": 56844338,
+      "sha256": "098f0177647a2704e174cb09c38b9859cdd994890ad3adfdfc17cde1958cf89b",
+      "mtime_ns": 1790801706881480609,
+      "mtime_utc": "2026-09-30T20:55:06.881481+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_files.jsonl.gz",
+      "bytes": 838571,
+      "sha256": "76168ab940303cb050be6d1b400a777646ff3e4bd73743a3eb64401a507dd032",
+      "mtime_ns": 1790801574851416298,
+      "mtime_utc": "2026-09-30T20:52:54.851416+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_namespaces.jsonl.gz",
+      "bytes": 28609,
+      "sha256": "7315e2da4d379937f21a60b7035ba9af84358ea26832d1c67e86741bfa5980ca",
+      "mtime_ns": 1790801163772923944,
+      "mtime_utc": "2026-09-30T20:46:03.772924+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_nodes.jsonl.gz",
+      "bytes": 72867891,
+      "sha256": "6fbabf9d516daa423bf09c392061f21609ac6da6755ea4ddaae9d56df0d1a64f",
+      "mtime_ns": 1790801706973482034,
+      "mtime_utc": "2026-09-30T20:55:06.973482+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_recovery_candidates.jsonl.gz",
+      "bytes": 1572075,
+      "sha256": "46928682199da1105c100a61c47528d5a31dd2e46ef5a57f211cd84987b818db",
+      "mtime_ns": 1790800474553950761,
+      "mtime_utc": "2026-09-30T20:34:34.553951+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/native_registrations.jsonl.gz",
+      "bytes": 251452,
+      "sha256": "1421ad1f1842ff6c34e6a817439825905a9d3004b7c1d57c8a0516ba277035f3",
+      "mtime_ns": 1790801210417665912,
+      "mtime_utc": "2026-09-30T20:46:50.417666+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/retained_source_coverage.jsonl.gz",
+      "bytes": 57344689,
+      "sha256": "422af0e7d428320539e7e92c71622c9251bf3e2959d97e3aee1343f0011e0f9b",
+      "mtime_ns": 1790800474553950761,
+      "mtime_utc": "2026-09-30T20:34:34.553951+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/ruby_interface_recovery_candidates.jsonl.gz",
+      "bytes": 35833,
+      "sha256": "8050538d60a84bac8f928acb6c82aeab6dbc6130e974faf5a093d55c33e19914",
+      "mtime_ns": 1790800553403177017,
+      "mtime_utc": "2026-09-30T20:35:53.403177+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/ruby_interfaces.jsonl.gz",
+      "bytes": 1599886,
+      "sha256": "481c8c2da13d85d68c7b7b521423d5d7a64f71b4e8f719acf6e01a9c1e2cd7ec",
+      "mtime_ns": 1790801255510393807,
+      "mtime_utc": "2026-09-30T20:47:35.510394+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/ruby_parse_recovery_regions.jsonl.gz",
+      "bytes": 4708,
+      "sha256": "e6c6a3e33238e44b93925610de49f3f9455a2e1f07fd1597d103e11220d9b106",
+      "mtime_ns": 1790801513238212806,
+      "mtime_utc": "2026-09-30T20:51:53.238213+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/ruby_recovery_batch_001.jsonl.gz",
+      "bytes": 4165871,
+      "sha256": "213d6523e161c499c9338146de92e7aee091303c8d8578cddba1b063f3e35e6b",
+      "mtime_ns": 1790800419673093422,
+      "mtime_utc": "2026-09-30T20:33:39.673093+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/ruby_recovery_candidates.jsonl.gz",
+      "bytes": 4394143,
+      "sha256": "2061e3af20df30d0b8a67af2db936ebd3bf5d2b2a2385113692a86a5026bbdf6",
+      "mtime_ns": 1790800474553950761,
+      "mtime_utc": "2026-09-30T20:34:34.553951+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/source_aliases.jsonl.gz",
+      "bytes": 3753,
+      "sha256": "5726bfb21fc580b63818caab7baea80cd94cf6f1104cc91d2e527e98061225fd",
+      "mtime_ns": 1790800395196712529,
+      "mtime_utc": "2026-09-30T20:33:15.196712+00:00",
+      "archived": true
+    },
+    {
+      "path": "tables/source_language_boundaries.jsonl.gz",
+      "bytes": 809464,
+      "sha256": "436c005be5704a5cef1f7f9d94aff3f3ff3c8f6d9c3ef59848f286cfe2e23d93",
+      "mtime_ns": 1790800553403177017,
+      "mtime_utc": "2026-09-30T20:35:53.403177+00:00",
+      "archived": true
+    },
+    {
+      "path": "tests/__pycache__/test_c_registration_owners.cpython-312.pyc",
+      "bytes": 5949,
+      "sha256": "e832db19c40675829abe8ef47a11ca648b220ba91617f96ff56c9ced56bcf174",
+      "mtime_ns": 1790801598792233056,
+      "mtime_utc": "2026-09-30T20:53:18.792233+00:00",
+      "archived": true
+    },
+    {
+      "path": "tests/__pycache__/test_compose_graph.cpython-312.pyc",
+      "bytes": 10356,
+      "sha256": "8bfa8357a622d501f7495523063d413aed04d3712c9cf83007e8f46e7c3adba6",
+      "mtime_ns": 1790800991217992329,
+      "mtime_utc": "2026-09-30T20:43:11.217992+00:00",
+      "archived": true
+    },
+    {
+      "path": "tests/__pycache__/test_reachability_pipeline.cpython-312.pyc",
+      "bytes": 6060,
+      "sha256": "da5ae1444edbe8600552982e9c4b251f44f0e177bd26b70306ee3611bc4b9fa8",
+      "mtime_ns": 1790800764969087027,
+      "mtime_utc": "2026-09-30T20:39:24.969087+00:00",
+      "archived": true
+    },
+    {
+      "path": "tests/__pycache__/test_ruby_full_graph.cpython-312.pyc",
+      "bytes": 12326,
+      "sha256": "642a2e9f57003b9335e66d646b634b4ef995b97eea0163ea27989723f5867f7c",
+      "mtime_ns": 1790801795808084134,
+      "mtime_utc": "2026-09-30T20:56:35.808084+00:00",
+      "archived": true
+    },
+    {
+      "path": "tests/test_c_registration_owners.py",
+      "bytes": 2201,
+      "sha256": "bf1e9d5f30112d99c30fa399b11b2f924f0228d5bdb92ccd8c4f93efc26ed804",
+      "mtime_ns": 1790801598694670432,
+      "mtime_utc": "2026-09-30T20:53:18.694670+00:00",
+      "archived": true
+    },
+    {
+      "path": "tests/test_compose_graph.py",
+      "bytes": 3587,
+      "sha256": "c1c97510de9ac6d00d799bc05f9e0263b80780e236ebe9749de29ece47486e5d",
+      "mtime_ns": 1790800991136834523,
+      "mtime_utc": "2026-09-30T20:43:11.136835+00:00",
+      "archived": true
+    },
+    {
+      "path": "tests/test_reachability_pipeline.py",
+      "bytes": 2300,
+      "sha256": "05b377623b3d526b1585c7fab6095f9633130ab69c9df60692195b457fac7908",
+      "mtime_ns": 1790800764597821577,
+      "mtime_utc": "2026-09-30T20:39:24.597821+00:00",
+      "archived": true
+    },
+    {
+      "path": "tests/test_ruby_full_graph.py",
+      "bytes": 4277,
+      "sha256": "7673f85f40ea7bdb6c769849a9ae689d0473e537f752b8205c63c65fb3c69db3",
+      "mtime_ns": 1790801795726830995,
+      "mtime_utc": "2026-09-30T20:56:35.726831+00:00",
+      "archived": true
+    }
+  ]
+}

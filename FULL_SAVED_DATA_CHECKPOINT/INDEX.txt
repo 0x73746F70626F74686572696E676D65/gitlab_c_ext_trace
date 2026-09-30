@@ -1,0 +1,15 @@
+FULL LATEST SAVED DATA — UNFINISHED, ARCHIVAL ONLY
+
+123/123 saved files from /workspace/gitlab_c_ext_full_graph, no exclusions.
+Original file bytes:317395266. Compressed archive bytes:314829581. Seven ordered parts.
+Includes ALL generated tables, partial native parser streams, Ruby definition state, logs, scripts, schemas, reports and caches in that directory. Original paths, sizes, SHA256 and nanosecond timestamps are in FULL_SAVED_DATA_MANIFEST.json.
+Prior published results remain in this branch and history; this archive captures the latest interrupted full-graph working directory, not unrelated workspace or downloaded source trees.
+Native streams may be truncated internally; they are preserved byte-for-byte, not repaired. No analysis was resumed. Final graph remains unfinished. Pickle state is opaque saved data; do not execute untrusted pickle files.
+
+From this directory after cloning:
+  sha256sum -c SHA256SUMS
+  cat FULL_SAVED_DATA_CHECKPOINT.tar.gz.part* > FULL_SAVED_DATA_CHECKPOINT.tar.gz
+  sha256sum -c ARCHIVE_SHA256SUMS
+  tar -xzf FULL_SAVED_DATA_CHECKPOINT.tar.gz
+
+Last native log:9500/37768 files,156898 function/macro records,845758 call records (provisional checkpoint). Ruby definitions:158492/158492 files,145 parser-error files. Final bindings/composition/reachability/production validation did not finish.
