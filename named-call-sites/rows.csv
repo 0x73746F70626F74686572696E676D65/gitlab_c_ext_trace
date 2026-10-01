@@ -15,3 +15,8 @@ gzip,app/services/import/offline/exports/write_metadata_service.rb,78,"         
 gzip,config/plugins/gzip_assets_plugin.js,47,"        const output = await gzip(input, { level: this.level });"
 gzip,lib/gitlab/ci/build/artifacts/adapters/gzip_stream.rb,23,                gzip(stream) do |gz|
 gzip,lib/gitlab/ci/build/artifacts/metadata.rb,35,            gzip do |gz|
+Nokogiri::XML,app/controllers/profiles/two_factor_auths_controller.rb,180,    doc = Nokogiri::XML(svg)
+Nokogiri::XML,app/controllers/profiles/two_factor_auths_controller.rb,182,"    title = Nokogiri::XML::Node.new('title', doc)"
+Nokogiri::XML,app/presenters/packages/nuget/v2/metadata_index_presenter.rb,8,          Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
+Nokogiri::XML,app/presenters/packages/nuget/v2/service_index_presenter.rb,19,          Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
+Nokogiri::XML,app/services/packages/maven/metadata/base_create_xml_service.rb,22,          Nokogiri::XML(@metadata_content) do |config|
