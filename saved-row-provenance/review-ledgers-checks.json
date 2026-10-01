@@ -1,0 +1,25 @@
+{
+  "base_commit": "10790e21deed328b9c592fd7442d3f28c40d80d2",
+  "existing_metadata_and_registration_regeneration": "passed",
+  "metadata_tests": 4,
+  "provenance_tests": 8,
+  "registration_tests": 6,
+  "review_ledger_deterministic_regeneration": "passed",
+  "root_checksums_passed": 48,
+  "semantic_gaps_reassessed": false,
+  "source_validator": {
+    "collision_alternatives_checked": 31,
+    "csv_jsonl_agreement": true,
+    "inventory_rows_checked": 353,
+    "parser_tests": 41,
+    "registrations_checked": 3655,
+    "requested_deduplication_key_verified": true,
+    "restored_locked_package_variants": 70,
+    "source_digests_verified": 5773,
+    "status": "passed",
+    "target_code_executed": false,
+    "unresolved_source_references_checked": 168263
+  },
+  "static_catalog_checksums_passed": 58,
+  "target_code_executed": false
+}

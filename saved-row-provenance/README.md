@@ -77,3 +77,39 @@ Batch base: verified remote `work` at
 `40290fcaef7350a7b745cd3dff269e8fcbcf8dbd`. The top-level README checksum is
 corrected separately in the existing root `SHA256SUMS`; every other historical
 checksum entry is retained.
+
+## Existing native-review ledgers: separate provenance batch
+
+`review-ledgers.csv` supplies direct file, line, catalog checksum and source
+checksum columns for all **615 existing unresolved-review rows**: 353 argument
+review rows and 262 registration review rows. These records are not joined to
+the anonymous filtered table. Each original evidence pointer is checked against
+its saved record hash before any reference is copied; registration identities
+are also checked when present. Catalog and ledger checksums hash their complete
+containing JSONL artifacts. Source-catalog checksums hash `files-scanned.csv`.
+
+The available native source cache permits fresh byte and line-range verification
+for all 615 references across **66 files**. `recorded_source_sha256` identifies
+the full source file; `verified_source_line_sha256` hashes the referenced source
+line excluding its line ending. No source text, new native location, argument
+transfer or binding conclusion is derived. Every source path and line comes from
+the originally cited record. These byte/range checks do not validate the meaning
+of the cited code, applicability of local checks, or correctness of call paths.
+All original semantic gaps and statuses remain unchanged. A missing manifest
+record, source file or valid line would retain an explicit unresolved status.
+
+Run `python saved-row-provenance/build_review_ledgers.py --check` to reproduce
+this separate batch. It reads only saved metadata and source bytes and requires
+the existing digest-matched source cache for the same verification outcome.
+`review-ledgers-validation.json` pins its exact inputs and reports coverage.
+`checks.json` remains the first batch's check receipt; the second batch's results
+are in `review-ledgers-checks.json`. The shared test command now runs eight tests.
+
+Second batch base: verified remote `work` at
+`10790e21deed328b9c592fd7442d3f28c40d80d2`.
+
+Remaining provenance limitation: the Ruby/GitLab references in the first batch
+remain manifest-only because the pinned GitLab checkout is unavailable. Source
+semantics, authentication, binding and local-check gaps remain outside these
+provenance passes. No further substantive provenance gap is identified within
+the requested saved-row populations using currently available evidence.
