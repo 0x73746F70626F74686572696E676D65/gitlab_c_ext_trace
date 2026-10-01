@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "input_rows_verified": 1712629,
+  "kept_rows_verified": 392,
+  "all_original_fields_preserved": true,
+  "auth_labels_unchanged": true,
+  "partition_and_reason_counts_verified": true,
+  "entrypoints_rewalked": false,
+  "target_code_executed": false
+}

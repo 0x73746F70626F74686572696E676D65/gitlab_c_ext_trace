@@ -1,0 +1,123 @@
+{
+  "analysis_base_sha": "ed3b8897982d4b040858cb8c74a9a9d0860d73b1",
+  "branch": "work",
+  "gitlab_tree": "/workspace/gitlab",
+  "gitlab_sha": "9cfc39017e700a28649858f6a902117f9d5e8edd",
+  "inputs": [
+    {
+      "path": "/workspace/gitlab_c_ext_trace/depth_limited_name_match/matches.csv.gz",
+      "repository_path": "depth_limited_name_match/matches.csv.gz",
+      "sha256": "5e6d81c2c362e925954c7808544c7f132d5efafaf32a8b6f2f8b230e5f74b847",
+      "repository_sha": "ed3b8897982d4b040858cb8c74a9a9d0860d73b1"
+    },
+    {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
+      "repository_path": "static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04",
+      "repository_sha": "ed3b8897982d4b040858cb8c74a9a9d0860d73b1"
+    },
+    {
+      "path": "/workspace/gitlab_c_ext_trace/frontend_gem_api_map/api_catalog.jsonl",
+      "repository_path": "frontend_gem_api_map/api_catalog.jsonl",
+      "sha256": "1ab0e37b64801eeb1504d240e20b5d31c45d76c2a14587326eda36f3dec5c8b3",
+      "repository_sha": "ed3b8897982d4b040858cb8c74a9a9d0860d73b1"
+    }
+  ],
+  "rows_in": 1712629,
+  "rows_kept": 392,
+  "dropped_for_receiver": 1712027,
+  "dropped_for_literal_argument": 210,
+  "anonymous_kept": 122,
+  "unknown_kept": 127,
+  "kept_by_auth": {
+    "authenticated": 143,
+    "unknown": 127,
+    "conditional_anonymous": 114,
+    "unauthenticated": 8
+  },
+  "drop_and_keep_reasons": [
+    {
+      "decision": "argument",
+      "reason": "empty_or_splat_obscured_argument",
+      "rows": 104
+    },
+    {
+      "decision": "argument",
+      "reason": "literal_argument",
+      "rows": 40
+    },
+    {
+      "decision": "argument",
+      "reason": "non_identifier_expression",
+      "rows": 66
+    },
+    {
+      "decision": "kept",
+      "reason": "gem_namespace",
+      "rows": 392
+    },
+    {
+      "decision": "receiver",
+      "reason": "ambiguous_saved_call_receiver",
+      "rows": 116146
+    },
+    {
+      "decision": "receiver",
+      "reason": "block_parameter_shadow",
+      "rows": 134
+    },
+    {
+      "decision": "receiver",
+      "reason": "conditional_variable_binding",
+      "rows": 66841
+    },
+    {
+      "decision": "receiver",
+      "reason": "constant_owner_unresolved",
+      "rows": 68692
+    },
+    {
+      "decision": "receiver",
+      "reason": "constructor_owner_unresolved",
+      "rows": 12
+    },
+    {
+      "decision": "receiver",
+      "reason": "gitlab_defined_constant",
+      "rows": 126327
+    },
+    {
+      "decision": "receiver",
+      "reason": "no_receiver",
+      "rows": 35453
+    },
+    {
+      "decision": "receiver",
+      "reason": "receiver_resolves_to_different_gem",
+      "rows": 636
+    },
+    {
+      "decision": "receiver",
+      "reason": "receiver_value_unresolved",
+      "rows": 334506
+    },
+    {
+      "decision": "receiver",
+      "reason": "self_not_gem",
+      "rows": 1346
+    },
+    {
+      "decision": "receiver",
+      "reason": "variable_binding_unresolved",
+      "rows": 961934
+    }
+  ],
+  "counting_rule": "Receiver first; argument drops include every remaining non-identifier expression, literal, size expression, and empty argument.",
+  "source_files_read": 4817,
+  "entrypoints_rewalked": false,
+  "target_code_executed": false,
+  "gem_or_c_sources_fetched": false,
+  "literal_argument_drops": 40,
+  "empty_argument_drops": 104,
+  "other_non_identifier_argument_drops": 66
+}
