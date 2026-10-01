@@ -75,3 +75,21 @@ The cached C file matches the exact package bytes and has SHA-256
 The package checksum matches the saved catalog source manifest. No nested
 helper or target code was executed or used to classify these flags.
 `summary.json` contains the per-site evidence and operand counts.
+
+The in-file caller review at input commit
+`7ba4e6c041c8351b9102383551c2f9f43fe0443f` checks all 20 unresolved rows.
+Counts for those rows remain **params 0, literal 0, local 0, unresolved 20**;
+**0 rows change**. Each records an absent argument at index 1. The three calls
+are the internal token endpoint's `Date.parse`, the metadata presenter's
+`Nokogiri::XML::Builder.new`, and `UsersController#calendar_activities`'s
+`Date.parse`. No in-file caller or block invocation supplies that indexed
+expression. The presenter's saved caller is in a different file and is outside
+this procedure.
+
+The block variable `xml`, route registration options and action selectors do
+not provide the missing second argument. No Ruby or C default is inferred.
+The CSV remains byte for byte unchanged, including its operand labels; the
+four `params` CSV rows were not returned, parsed or reviewed. All three source
+files match their recorded full-file hashes. `summary.json` records the
+per-site reasons under `unresolved_review`. No target code or repository
+scripts ran.

@@ -442,5 +442,125 @@
       "target_code_executed": false
     }
   },
+  "unresolved_review": {
+    "input_analysis_sha": "7ba4e6c041c8351b9102383551c2f9f43fe0443f",
+    "input_rows_sha256": "2e0cc2b868859fc73b54aefaf99b7c3deafb04fbe83626694b29d1e6bda4fb84",
+    "selection": "Only the 20 source=unresolved CSV records. The four params CSV rows were not returned, parsed or reviewed.",
+    "selected_csv_records": [
+      4,
+      5,
+      8,
+      9,
+      12,
+      13,
+      22,
+      23,
+      26,
+      27,
+      30,
+      31,
+      34,
+      35,
+      38,
+      39,
+      51,
+      52,
+      55,
+      56
+    ],
+    "rows_checked": 20,
+    "rows_changed": 0,
+    "rows_remaining_unresolved": 20,
+    "source_counts": {
+      "params": 0,
+      "literal": 0,
+      "local": 0,
+      "unresolved": 20
+    },
+    "checked_by_auth": {
+      "unauthenticated": 8,
+      "conditional_anonymous": 0,
+      "unknown": 12
+    },
+    "rule": "Read the recorded call and look for an in-file block or caller invoking its containing method. Classify a visible expression at the catalogued argument index. Keep unresolved when no such in-file caller supplies an expression; do not infer a missing Ruby/C default, change the index, or use an out-of-file caller.",
+    "findings": [
+      {
+        "file": "lib/api/internal/base.rb",
+        "line": 385,
+        "rows": 4,
+        "catalog_records": [
+          74,
+          75
+        ],
+        "argument_index": 1,
+        "call": "Date.parse(params[:expires_at])",
+        "containing_method": "API::Internal::Base#<endpoint>",
+        "registration_line": 353,
+        "registration": "post '/personal_access_token', feature_category: :system_access do",
+        "source": "unresolved",
+        "reason": "The gem call supplies one argument. The endpoint block has no formal argument at index 1 and no source-visible in-file dispatch supplying that position; the route registration options do not provide a second Date.parse argument."
+      },
+      {
+        "file": "app/presenters/packages/nuget/v2/metadata_index_presenter.rb",
+        "line": 8,
+        "rows": 8,
+        "catalog_records": [
+          273,
+          274
+        ],
+        "argument_index": 1,
+        "call": "Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|",
+        "containing_method": "Packages::Nuget::V2::MetadataIndexPresenter#xml",
+        "definition_line": 7,
+        "source": "unresolved",
+        "reason": "The constructor has only its recorded options argument and a block. The containing xml method takes no arguments and has no caller in this file. The saved caller is in another file, so it is not opened. The block's yielded xml object supplies no expression at catalogued argument index 1."
+      },
+      {
+        "file": "app/controllers/users_controller.rb",
+        "line": 192,
+        "rows": 8,
+        "catalog_records": [
+          74,
+          75
+        ],
+        "argument_index": 1,
+        "call": "Date.parse(permitted_params[:date])",
+        "containing_method": "UsersController#calendar_activities",
+        "definition_line": 190,
+        "source": "unresolved",
+        "reason": "The gem call supplies one argument. The action takes no formal arguments and has no invoking caller in this file. Callback selectors, render/template names and calendar_activities_limit/offset are not an invocation of this action or a second Date.parse argument."
+      }
+    ],
+    "source_files": [
+      {
+        "file": "lib/api/internal/base.rb",
+        "sha256": "01bd51535cc4399f124025dab425b0145a582ebd28d7ba7355536f598d7a1d24"
+      },
+      {
+        "file": "app/presenters/packages/nuget/v2/metadata_index_presenter.rb",
+        "sha256": "56bc6b8d91aaf7f5ce4d3a491b814d399a1327fe323a1763fe53516cfcbd49fa"
+      },
+      {
+        "file": "app/controllers/users_controller.rb",
+        "sha256": "b710007b202c90bb8312f947689df506e8c63b79e6bcaf9863efa1c5ced1c86d"
+      }
+    ],
+    "source_files_matching_recorded_sha256": 3,
+    "validation": {
+      "all_selected_argument_indices_are_1": true,
+      "all_selected_expression_fields_empty": true,
+      "all_selected_expression_kinds_not_visible": true,
+      "params_rows_read": false,
+      "params_rows_modified": false,
+      "all_csv_bytes_preserved": true,
+      "catalog_fields_preserved": true,
+      "operand_labels_preserved": true,
+      "cross_file_callers_opened": false,
+      "repo_wide_method_name_search": false,
+      "repository_scripts_executed": false,
+      "target_code_executed": false
+    },
+    "output_rows_sha256": "2e0cc2b868859fc73b54aefaf99b7c3deafb04fbe83626694b29d1e6bda4fb84"
+  },
   "limits": "Coverage inherits the recorded walk's unresolved root bindings, ordinary-call stops and conservative receiver lookup. Only retained sites and recorded callers were reread and checked against their full-file hashes; this is not a fresh exhaustive traversal of every source body. Saved auth labels do not prove deployed anonymous access, and gem/method joins do not prove native argument flow."
 }
