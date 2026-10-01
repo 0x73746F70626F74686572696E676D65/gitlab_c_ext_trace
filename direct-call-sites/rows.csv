@@ -1,37 +1,37 @@
-gem,method,receiver,file,line,in_inventory
-cgi,escapeHTML,CGI,app/helpers/labels_helper.rb,84,no
-cgi,escapeHTML,CGI,app/helpers/labels_helper.rb,87,no
-cgi,escapeHTML,CGI,app/helpers/labels_helper.rb,245,no
-date,iso8601,Date,app/graphql/types/date_type.rb,11,no
-date,iso8601,DateTime,app/models/container_repository.rb,262,no
-date,iso8601,Date,app/validators/iso8601_date_validator.rb,5,no
-date,parse,Date,app/controllers/concerns/cycle_analytics_params.rb,59,no
-date,parse,Date,app/controllers/users_controller.rb,192,yes
-date,parse,DateTime,app/finders/merge_requests_finder.rb,368,no
-date,rfc3339,DateTime,lib/container_registry/tag.rb,103,no
-date,rfc3339,DateTime,lib/gitlab/container_repository/tags/cache.rb,25,no
-date,rfc3339,DateTime,spec/lib/gitlab/container_repository/tags/cache_spec.rb,73,no
-date,strptime,Date,app/controllers/concerns/parse_commit_date.rb,7,no
-date,strptime,Date,app/finders/ci/daily_build_group_report_results_finder.rb,84,no
-date,strptime,Date,app/finders/ci/daily_build_group_report_results_finder.rb,94,no
-erb,html_escape,ERB::Util,app/controllers/concerns/confirm_email_warning.rb,42,no
-erb,html_escape,ERB::Util,app/controllers/projects/labels_controller.rb,159,yes
-erb,html_escape,ERB::Util,app/controllers/projects/milestones_controller.rb,137,yes
-ffi,open,FFI::DynamicLibrary,config/initializers/macos.rb,24,no
-ffi,open,FFI::DynamicLibrary,lib/gitlab/memory/jemalloc.rb,83,no
-nokogiri,new,Nokogiri::XML::Node,app/controllers/profiles/two_factor_auths_controller.rb,182,yes
-nokogiri,new,Nokogiri::XML::Builder,app/presenters/packages/nuget/v2/metadata_index_presenter.rb,8,no
-nokogiri,new,Nokogiri::XML::Builder,app/presenters/packages/nuget/v2/service_index_presenter.rb,19,no
-openssl,generate_key,OpenSSL::PKey,ee/spec/requests/gitlab_subscriptions/api/internal/auth_spec.rb,9,no
-openssl,generate_key,OpenSSL::PKey,ee/spec/requests/gitlab_subscriptions/api/internal/auth_spec.rb,10,no
-openssl,generate_key,OpenSSL::PKey,ee/spec/requests/gitlab_subscriptions/api/internal/auth_spec.rb,120,no
-openssl,sign,OpenSSL::PKCS7,lib/gitlab/email/smime/signer.rb,14,no
-zlib,deflate,Zlib::Deflate,ee/app/graphql/types/ai/duo_workflows/workflow_event_type.rb,97,yes
-zlib,deflate,Zlib::Deflate,ee/lib/api/ai/duo_workflows/workflows_internal.rb,63,yes
-zlib,deflate,Zlib::Deflate,ee/lib/tasks/gitlab/duo_workflow/duo_workflow.rake,215,no
-zlib,inflate,Zlib::Inflate,ee/lib/api/ai/duo_workflows/workflows_internal.rb,67,yes
-zlib,inflate,Zlib::Inflate,ee/lib/gitlab/duo_workflow/channel_values_reconstructor.rb,27,no
-zlib,inflate,Zlib::Inflate,ee/spec/requests/api/ai/duo_workflows/workflows_internal_spec.rb,594,no
-zlib,open,Zlib::GzipReader,app/services/packages/npm/process_package_file_service.rb,43,no
-zlib,open,Zlib::GzipReader,app/services/packages/terraform_module/process_package_file_service.rb,48,no
-zlib,open,Zlib::GzipWriter,gems/csv_builder/lib/csv_builder/gzip.rb,16,no
+gem,method,receiver,file,line,in_inventory,line_text
+cgi,escapeHTML,CGI,app/helpers/labels_helper.rb,84,no,
+cgi,escapeHTML,CGI,app/helpers/labels_helper.rb,87,no,
+cgi,escapeHTML,CGI,app/helpers/labels_helper.rb,245,no,
+date,iso8601,Date,app/graphql/types/date_type.rb,11,no,
+date,iso8601,DateTime,app/models/container_repository.rb,262,no,
+date,iso8601,Date,app/validators/iso8601_date_validator.rb,5,no,
+date,parse,Date,app/controllers/concerns/cycle_analytics_params.rb,59,no,
+date,parse,Date,app/controllers/users_controller.rb,192,yes,      Date.parse(permitted_params[:date])
+date,parse,DateTime,app/finders/merge_requests_finder.rb,368,no,
+date,rfc3339,DateTime,lib/container_registry/tag.rb,103,no,
+date,rfc3339,DateTime,lib/gitlab/container_repository/tags/cache.rb,25,no,
+date,rfc3339,DateTime,spec/lib/gitlab/container_repository/tags/cache_spec.rb,73,no,
+date,strptime,Date,app/controllers/concerns/parse_commit_date.rb,7,no,
+date,strptime,Date,app/finders/ci/daily_build_group_report_results_finder.rb,84,no,
+date,strptime,Date,app/finders/ci/daily_build_group_report_results_finder.rb,94,no,
+erb,html_escape,ERB::Util,app/controllers/concerns/confirm_email_warning.rb,42,no,
+erb,html_escape,ERB::Util,app/controllers/projects/labels_controller.rb,159,yes,"    view_context.safe_join([ERB::Util.html_escape(label.title), "" promoted to "", safe_link, "".""])"
+erb,html_escape,ERB::Util,app/controllers/projects/milestones_controller.rb,137,yes,"    view_context.safe_join([ERB::Util.html_escape(milestone.title), "" promoted to "", safe_link, "".""])"
+ffi,open,FFI::DynamicLibrary,config/initializers/macos.rb,24,no,
+ffi,open,FFI::DynamicLibrary,lib/gitlab/memory/jemalloc.rb,83,no,
+nokogiri,new,Nokogiri::XML::Node,app/controllers/profiles/two_factor_auths_controller.rb,182,yes,"    title = Nokogiri::XML::Node.new('title', doc)"
+nokogiri,new,Nokogiri::XML::Builder,app/presenters/packages/nuget/v2/metadata_index_presenter.rb,8,no,
+nokogiri,new,Nokogiri::XML::Builder,app/presenters/packages/nuget/v2/service_index_presenter.rb,19,no,
+openssl,generate_key,OpenSSL::PKey,ee/spec/requests/gitlab_subscriptions/api/internal/auth_spec.rb,9,no,
+openssl,generate_key,OpenSSL::PKey,ee/spec/requests/gitlab_subscriptions/api/internal/auth_spec.rb,10,no,
+openssl,generate_key,OpenSSL::PKey,ee/spec/requests/gitlab_subscriptions/api/internal/auth_spec.rb,120,no,
+openssl,sign,OpenSSL::PKCS7,lib/gitlab/email/smime/signer.rb,14,no,
+zlib,deflate,Zlib::Deflate,ee/app/graphql/types/ai/duo_workflows/workflow_event_type.rb,97,yes,"          Base64.strict_encode64(Zlib::Deflate.deflate(checkpoint.to_json, COMPRESS_LEVEL))"
+zlib,deflate,Zlib::Deflate,ee/lib/api/ai/duo_workflows/workflows_internal.rb,63,yes,"            Base64.strict_encode64(Zlib::Deflate.deflate(checkpoint_data.to_json, COMPRESS_LEVEL))"
+zlib,deflate,Zlib::Deflate,ee/lib/tasks/gitlab/duo_workflow/duo_workflow.rake,215,no,
+zlib,inflate,Zlib::Inflate,ee/lib/api/ai/duo_workflows/workflows_internal.rb,67,yes,            ::Gitlab::Json.parse(Zlib::Inflate.inflate(Base64.strict_decode64(compressed_data)))
+zlib,inflate,Zlib::Inflate,ee/lib/gitlab/duo_workflow/channel_values_reconstructor.rb,27,no,
+zlib,inflate,Zlib::Inflate,ee/spec/requests/api/ai/duo_workflows/workflows_internal_spec.rb,594,no,
+zlib,open,Zlib::GzipReader,app/services/packages/npm/process_package_file_service.rb,43,no,
+zlib,open,Zlib::GzipReader,app/services/packages/terraform_module/process_package_file_service.rb,48,no,
+zlib,open,Zlib::GzipWriter,gems/csv_builder/lib/csv_builder/gzip.rb,16,no,

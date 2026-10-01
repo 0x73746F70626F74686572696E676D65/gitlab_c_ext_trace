@@ -273,6 +273,7 @@
     "receiver",
     "file",
     "line",
-    "in_inventory"
+    "in_inventory",
+    "line_text"
   ]
 }
