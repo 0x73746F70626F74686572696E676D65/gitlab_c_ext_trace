@@ -26,6 +26,18 @@
     "caller_source_manifest": {
       "path": "/workspace/gitlab_c_ext_trace/depth_limited_name_match/files_read.jsonl",
       "sha256": "25d28fa9ae21b2c5e6249145cb4e85ba3a04160afb6b468026eebe5e15c80dbe"
+    },
+    "operand_joined_rows": {
+      "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
+      "sha256": "88d399ea69bea192a535a6580e11f65295578489626d526cad58abc00a286dd8"
+    },
+    "native_file_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/files-scanned.csv",
+      "sha256": "fe76976976e2a77c37581f7075f8f322d5207e396e52255257617abff0d99936"
+    },
+    "native_source_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/argument-inventory-sources.json",
+      "sha256": "4f48d7b7215a080550f3802524fb82e4f20803f17c386bcd475d0aba51726988"
     }
   },
   "gitlab_source": {
@@ -83,11 +95,22 @@
     "existing_resolved_rows_unchanged": 4,
     "maximum_caller_depth": 1,
     "no_repo_method_name_search": true,
-    "no_unrecorded_helper_traversal": true
+    "no_unrecorded_helper_traversal": true,
+    "params_catalog_references_checked": 72,
+    "direct_registered_function_rows": 72,
+    "native_source_files_verified": 1,
+    "existing_columns_unchanged": true,
+    "source_labels_unchanged": true,
+    "appended_columns": [
+      "same_value",
+      "replaced"
+    ],
+    "non_params_new_cells_blank": 50,
+    "params_new_cells_filled": 72
   },
   "output": {
     "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
-    "sha256": "88d399ea69bea192a535a6580e11f65295578489626d526cad58abc00a286dd8"
+    "sha256": "75cc501c46ea9a9e19324c0d6bfa037aff07bed46da9079587500c4cde978935"
   },
   "repository_scripts_executed": false,
   "target_code_executed": false,
@@ -195,5 +218,83 @@
       "reason": "Existing local label retained from 6012c88; the caller pass only selects previously unresolved rows. The original same-method evidence is text = ERB::Util.html_escape(text) at line 50."
     }
   ],
-  "caller_input_analysis_sha": "6012c88dafd8471452fc1d0312bbf0c294a4c5ab"
+  "caller_input_analysis_sha": "6012c88dafd8471452fc1d0312bbf0c294a4c5ab",
+  "operand_input_analysis_sha": "9289a98b823242e615d18e31eace977680024753",
+  "params_rows": 72,
+  "same_value_counts": {
+    "yes": 0,
+    "no": 72,
+    "nested": 0
+  },
+  "replaced_counts": {
+    "yes": 72,
+    "no": 0,
+    "nested": 0
+  },
+  "nested_counts": {
+    "rows": 0,
+    "same_value": 0,
+    "replaced": 0
+  },
+  "operand_rule": "Only source=params rows are annotated; both new cells are blank for other rows. If the recorded site is outside the registered function, both are nested. At a direct site, same_value is yes only when the mapped parameter itself is the selected length, size, index, format or destination operand; otherwise no. replaced is yes when a prior assignment or comparison in that registered function writes or bounds the mapped parameter; otherwise no. Conditional assignments are recorded by their presence before the site, without solving branch admission. No helper or macro implementation is followed.",
+  "native_source": {
+    "gem": "date",
+    "version": "3.5.1",
+    "source_url": "https://rubygems.org/downloads/date-3.5.1.gem",
+    "package_sha256": "750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0",
+    "package_hash_matches_recorded": true,
+    "source_directory": "/workspace/static-catalog-cache/sources/date-3.5.1",
+    "file": "ext/date/date_core.c",
+    "file_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5",
+    "file_hash_matches_recorded": true,
+    "acquisition": "Read the recorded package archive and extract only the recorded C file as text; no installation, gemspec evaluation, build or target execution."
+  },
+  "operand_review": [
+    {
+      "argument_catalog_record": 72,
+      "rows": 36,
+      "registered_function": "date_s_parse",
+      "registration_line": 9698,
+      "function_start_line": 4568,
+      "function_end_line": 4592,
+      "site_file": "ext/date/date_core.c",
+      "site_line": 4586,
+      "site_statement": "argv2[0] = str;",
+      "argument_index": 0,
+      "parameter_name": "str",
+      "positional_binding_line": 4572,
+      "slot": "index",
+      "slot_expression": "0",
+      "same_value": "no",
+      "same_value_reason": "str is the stored RHS value; the selected index operand is literal 0. str is neither the index nor the destination.",
+      "replaced": "yes",
+      "prior_assignment_line": 4576,
+      "prior_assignment": "str = rb_str_new2(JULIAN_EPOCH_DATE);",
+      "prior_assignment_condition": "case 0 of switch(argc)",
+      "nested": false
+    },
+    {
+      "argument_catalog_record": 73,
+      "rows": 36,
+      "registered_function": "datetime_s_parse",
+      "registration_line": 9993,
+      "function_start_line": 8423,
+      "function_end_line": 8448,
+      "site_file": "ext/date/date_core.c",
+      "site_line": 8441,
+      "site_statement": "argv2[0] = str;",
+      "argument_index": 0,
+      "parameter_name": "str",
+      "positional_binding_line": 8427,
+      "slot": "index",
+      "slot_expression": "0",
+      "same_value": "no",
+      "same_value_reason": "str is the stored RHS value; the selected index operand is literal 0. str is neither the index nor the destination.",
+      "replaced": "yes",
+      "prior_assignment_line": 8431,
+      "prior_assignment": "str = rb_str_new2(JULIAN_EPOCH_DATETIME);",
+      "prior_assignment_condition": "case 0 of switch(argc)",
+      "nested": false
+    }
+  ]
 }

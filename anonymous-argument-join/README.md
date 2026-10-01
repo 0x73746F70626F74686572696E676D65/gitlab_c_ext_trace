@@ -63,9 +63,40 @@ hashes and reasons are in `summary.json`.
 Rows in: **122**. Rows written: **122**. Source counts: **params 72, local 16,
 literal 0, unresolved 34**. Blank sources: **0**.
 
-Verification checked all 118 selected rows against their saved chain references,
-complete row coverage, order and multiplicity, unchanged non-source fields,
-the four retained resolved labels, input hashes and exact output read-back.
-Source files were read as text; no repository scripts or target code ran.
+The operand pass starts at `9289a98b823242e615d18e31eace977680024753` and adds
+`same_value` and `replaced` for the **72 `params` rows**. Other rows have blank
+new cells. A site outside its registered function gets `nested` in both cells;
+only a site within the registered function is reviewed directly.
+
+`same_value=yes` means the mapped parameter is the selected length, size,
+index, format or destination operand. `replaced=yes` records a preceding
+assignment or comparison in that function that writes or bounds the parameter.
+Conditional assignments count as static occurrences before the site; branch
+admission is not inferred.
+
+The 72 rows use two catalog records, 36 rows each. In `date_s_parse` at line
+4586 and `datetime_s_parse` at line 8441, the site is `argv2[0] = str;`.
+The selected index is literal `0`; `str` is the value being stored, so all
+72 get **`same_value=no`**.
+
+Both functions have a prior `str = rb_str_new2(...)` assignment, at lines
+4576/8431, in `case 0` of `switch(argc)`, so all 72 get **`replaced=yes`**.
+That condition supplies the default for zero arguments; this static label
+does not establish that a supplied argument is replaced. Both sites are within
+their registered functions, so **nested rows: 0**.
+
+Operand counts: **72 `params` rows**; `same_value`: **yes 0, no 72, nested 0**;
+`replaced`: **yes 72, no 0, nested 0**. The other **50 rows** have blank cells.
+
+The absent recorded C source was restored by downloading the exact `date`
+3.5.1 package and extracting only `ext/date/date_core.c` as text. Package and
+C-file SHA-256 hashes match their original manifests. No package was installed
+or built. `summary.json` records the source hashes, direct function spans,
+catalog references, operand expressions and conditional assignments.
+
+Verification checked the 72 catalog associations, function/site containment,
+operand and assignment evidence, preserved row order and multiplicity, unchanged
+existing columns and source labels, input hashes and exact output read-back.
+No repository scripts, target code or helper/macro implementations ran.
 
 From this directory, `sha256sum -c SHA256SUMS` verifies the output artifacts.
