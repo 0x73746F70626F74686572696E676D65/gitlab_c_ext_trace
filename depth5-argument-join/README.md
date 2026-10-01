@@ -58,4 +58,26 @@ Verification checked every copied catalog field, saved seed chain prefix,
 one-hop extension, preserved entrypoint/auth metadata and exact CSV read-back.
 These source matches retain the earlier runtime and dispatch limitations.
 
+The operand review at analysis commit
+`d7cc6c17b23b0733679196f4fda609dc02c01259` adds `same_value` and `replaced`
+only for the **six unknown `params` rows**. All six have `same_value=no` and
+`replaced=yes`; nested rows total **0**. The other 14 rows have blank flags.
+Authenticated row contents were not returned, parsed or reviewed. An opaque
+CSV transformation preserves every original field and row, verified byte for
+byte after removing the two appended columns.
+
+Catalog records 82 and 83 point directly into `date_s_strptime` at line 4443
+and `datetime_s_strptime` at line 8389 of date 3.5.1's `ext/date/date_core.c`.
+Both sites are `argv2[0] = str`: the index operand is literal `0`, and `str`
+is the stored value. Both functions assign a default to `str` before the site,
+at lines 4433 and 8379, in `case 0` of `switch (argc)`. `replaced=yes` records
+the source-visible assignment; it does not assert that the zero-argument branch
+executes for this two-argument Ruby call. No nested function was followed.
+
+The cached C file matches the exact package bytes and its SHA-256 is
+`c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5`.
+The package SHA-256 matches the saved catalog source manifest. No target code
+or repository scripts ran. `summary.json` contains the per-site evidence and
+operand counts.
+
 From this directory, `sha256sum -c SHA256SUMS` verifies the output artifacts.

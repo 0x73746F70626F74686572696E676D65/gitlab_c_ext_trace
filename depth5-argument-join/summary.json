@@ -215,7 +215,109 @@
   },
   "output": {
     "path": "/workspace/gitlab_c_ext_trace/depth5-argument-join/rows.csv",
-    "sha256": "fffc94a883248d6c0ba1be99158ae7fafe2437d119ed2c377866faf13763b186"
+    "sha256": "088ff05b173aec70e7d4f9f2fc0fbd93df77c72649894e97998b935b97646475"
   },
-  "limitations": "These are source-visible receiver and method matches with saved auth labels. Runtime overrides, prepend activation, deployed entrypoint reachability and native registration dispatch are not established."
+  "limitations": "These are source-visible receiver and method matches with saved auth labels. Runtime overrides, prepend activation, deployed entrypoint reachability and native registration dispatch are not established.",
+  "operand_review": {
+    "input_analysis_sha": "d7cc6c17b23b0733679196f4fda609dc02c01259",
+    "input_rows_sha256": "fffc94a883248d6c0ba1be99158ae7fafe2437d119ed2c377866faf13763b186",
+    "selection": "Only source=params and auth=unknown. CSV header and these six records were returned for review; authenticated row contents were not returned, parsed or reviewed.",
+    "selected_csv_records": [
+      2,
+      3,
+      10,
+      11,
+      18,
+      19
+    ],
+    "unknown_params_rows": 6,
+    "same_value_counts": {
+      "yes": 0,
+      "no": 6,
+      "nested": 0
+    },
+    "replaced_counts": {
+      "yes": 6,
+      "no": 0,
+      "nested": 0
+    },
+    "nested_rows": 0,
+    "out_of_scope_rows_with_blank_flags": 14,
+    "total_rows_preserved": 20,
+    "rule": "Direct registered-function site only. same_value is yes when the catalogued parameter itself is a length, size, index, format or destination operand. replaced is yes for a source-visible assignment or bounding comparison to that parameter before the site in that same function. Nested sites would get nested in both columns.",
+    "catalog": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04",
+      "records": [
+        82,
+        83
+      ],
+      "preserved_associations": true
+    },
+    "native_source": {
+      "gem": "date",
+      "version": "3.5.1",
+      "catalogued_file": "ext/date/date_core.c",
+      "local_path": "/workspace/static-catalog-cache/sources/date-3.5.1/ext/date/date_core.c",
+      "sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5",
+      "package_path": "/workspace/scratch/date-3.5.1.gem",
+      "package_sha256": "750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0",
+      "package_matches_stored_manifest": true,
+      "c_file_matches_package_bytes": true
+    },
+    "site_review": [
+      {
+        "catalog_record": 82,
+        "rows": 3,
+        "registered_function": "date_s_strptime",
+        "function_start_line": 4425,
+        "function_end_line": 4448,
+        "registration_line": 9696,
+        "site_line": 4443,
+        "site": "argv2[0] = str;",
+        "argument_index": 0,
+        "parameter": "str",
+        "slot": "index",
+        "operand": "0",
+        "same_value": "no",
+        "replaced": "yes",
+        "prior_assignment_line": 4433,
+        "prior_assignment": "str = rb_str_new2(JULIAN_EPOCH_DATE);",
+        "assignment_condition": "case 0 of switch(argc)",
+        "direct": true
+      },
+      {
+        "catalog_record": 83,
+        "rows": 3,
+        "registered_function": "datetime_s_strptime",
+        "function_start_line": 8371,
+        "function_end_line": 8394,
+        "registration_line": 9991,
+        "site_line": 8389,
+        "site": "argv2[0] = str;",
+        "argument_index": 0,
+        "parameter": "str",
+        "slot": "index",
+        "operand": "0",
+        "same_value": "no",
+        "replaced": "yes",
+        "prior_assignment_line": 8379,
+        "prior_assignment": "str = rb_str_new2(JULIAN_EPOCH_DATETIME);",
+        "assignment_condition": "case 0 of switch(argc)",
+        "direct": true
+      }
+    ],
+    "interpretation": "At each saved indexed-store site, the index is the literal 0 and the destination is argv2; str is the stored value. The prior str assignment is a zero-argument default. replaced=yes records its presence before the site, not its execution for the recorded two-argument Ruby call. Catalog associations are preserved without narrowing gem/method matches to a particular native registration.",
+    "validation": {
+      "selected_catalog_fields_checked": 6,
+      "registered_functions_and_sites_read": 2,
+      "all_original_csv_fields_byte_preserved": true,
+      "unselected_flags_blank": true,
+      "authenticated_row_contents_read": false,
+      "authenticated_row_contents_reviewed": false,
+      "rows_added": 0,
+      "repository_scripts_executed": false,
+      "target_code_executed": false
+    }
+  }
 }
