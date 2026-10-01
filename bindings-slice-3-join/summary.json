@@ -1,0 +1,68 @@
+{
+  "analysis_branch": "work",
+  "analysis_base_commit": "42b1d5183b8325111315b0ef3bda365e5215c7bd",
+  "selection": {
+    "ledger": "unmatched-depth2-join/entrypoints-considered.jsonl.gz",
+    "status": "unresolved_root",
+    "excluded_id_files": [
+      "bindings-slice-join/bindings-considered.jsonl",
+      "bindings-slice-2-join/bindings-considered.jsonl"
+    ],
+    "excluded_unique_ids": 400,
+    "prior_considered_files_used_for_ids_only": true,
+    "ordering": "Existing ledger order, stopping after the next 200 eligible records.",
+    "binding_ordinal_start": 401,
+    "binding_ordinal_end": 600,
+    "selected_records": 200,
+    "selected_unique_ids": 200,
+    "first_selected_ledger_record": 929,
+    "last_selected_ledger_record": 1195
+  },
+  "source": {
+    "repository": "https://gitlab.com/gitlab-org/gitlab.git",
+    "commit": "90f38934040c4790f79b9aada22b50c1597f42dc",
+    "commit_basis": "Source commit recorded in bindings-slice-2-join/summary.json.",
+    "recorded_declaration_basis": "unauthenticated_entrypoints/entrypoints.json registration.file",
+    "unique_declaration_files": 34,
+    "files_opened": 34,
+    "lines_read": 3790,
+    "missing_files": []
+  },
+  "procedure": "Scan each full recorded declaration file in first-seen order and copy its first call whose explicit receiver namespace belongs to a gem in the call-argument catalog. Keep one row per matching file. Only gem membership is required; method membership is not required.",
+  "receiver_namespace_count": 30,
+  "catalog_gem_count": 27,
+  "files_with_a_call": 0,
+  "files_without_a_call": 34,
+  "rows_written": 0,
+  "kept_lines": [],
+  "inputs": [
+    {
+      "path": "unmatched-depth2-join/entrypoints-considered.jsonl.gz",
+      "sha256": "6878cef0d7f65fda5c68e2df7b335cbfaf4581086bfca5b8d4a861038d067fdd"
+    },
+    {
+      "path": "bindings-slice-join/bindings-considered.jsonl",
+      "sha256": "eea4622094822edade319d55861f61aba231671aeed9db3eab9b0179be23f396"
+    },
+    {
+      "path": "bindings-slice-2-join/bindings-considered.jsonl",
+      "sha256": "51ccf1d270036518b74f330c230fea8d9f865b4132eba10daf13947e61b48cbf"
+    },
+    {
+      "path": "unauthenticated_entrypoints/entrypoints.json",
+      "sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5"
+    },
+    {
+      "path": "static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+    },
+    {
+      "path": "direct-call-sites/namespace-prefixes.json",
+      "sha256": "ba90b72b8e28645b3586e02fd88200e9df6f07e95c1e7538513b2c5b05ec5743"
+    },
+    {
+      "path": "gem_receiver_identifier_filter/receiver_namespace_manifest.json",
+      "sha256": "dab373deaeb2fdf56497ac28b10d40ce49e21a4cd53e8f067ecb002454664cb7"
+    }
+  ]
+}
