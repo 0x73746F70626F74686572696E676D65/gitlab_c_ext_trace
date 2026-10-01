@@ -38,6 +38,25 @@ class RegistrationEvidence(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 generate()
 
+    def test_missing_argument_gap_row_is_rejected(self):
+        original_read = Path.read_bytes
+        target = CATALOG / 'review-metadata/unresolved-rows.jsonl'
+        def omit_row(path):
+            data = original_read(path)
+            return b'\n'.join(data.splitlines()[1:]) + b'\n' if path == target else data
+        with patch.object(Path, 'read_bytes', omit_row):
+            with self.assertRaises(AssertionError):
+                generate()
+
+    def test_coverage_uses_actual_row_ids_not_saved_summary(self):
+        coverage = json.loads(generate()['coverage-accounting.json'])
+        self.assertEqual(coverage['registrations_with_argument_rows'], 197)
+        self.assertEqual(coverage['registrations_without_argument_rows'], 3458)
+        self.assertEqual(coverage['argument_rows'], 353)
+        self.assertEqual(coverage['candidate_registration_ids_including_alternatives'], 207)
+        self.assertEqual(coverage['registrations_only_in_alternatives'], 10)
+        self.assertEqual(coverage['candidate_rows_including_alternatives'], 384)
+
 
 if __name__ == '__main__':
     unittest.main()

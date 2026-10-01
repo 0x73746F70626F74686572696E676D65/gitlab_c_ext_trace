@@ -1,0 +1,42 @@
+{
+  "absent_row_interpretation": "no_selected_saved_row_not_absence_of_behavior_or_safety",
+  "argument_rows": 353,
+  "argument_unresolved_ledger_rows_verified": 353,
+  "binding_status_cross_tab": [
+    {
+      "binding_status": "resolved",
+      "with_argument_rows": 197,
+      "without_argument_rows": 3197
+    },
+    {
+      "binding_status": "unresolved",
+      "with_argument_rows": 0,
+      "without_argument_rows": 259
+    },
+    {
+      "binding_status": "unresolved_signature",
+      "with_argument_rows": 0,
+      "without_argument_rows": 2
+    }
+  ],
+  "candidate_registration_ids_including_alternatives": 207,
+  "candidate_rows_including_alternatives": 384,
+  "collision_alternative_rows": 31,
+  "denominators": "registrations and selected argument rows are distinct populations",
+  "new_paths_or_semantic_claims": false,
+  "registration_unresolved_ledger_rows_verified": 262,
+  "registrations": 3655,
+  "registrations_only_in_alternatives": 10,
+  "registrations_with_argument_rows": 197,
+  "registrations_without_argument_rows": 3458,
+  "summary_denominator_distinctions": [
+    {
+      "cause": "summary_counts_inventory.rows_before_representative_deduplication",
+      "computed_representative_rows": 197,
+      "evidence": "../scripts/call_argument_inventory.py:480-519",
+      "field": "summary.json:roots_with_rows",
+      "recorded_pre_deduplication": 207,
+      "status": "explained_denominator_difference"
+    }
+  ]
+}

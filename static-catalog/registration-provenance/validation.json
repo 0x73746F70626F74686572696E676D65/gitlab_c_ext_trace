@@ -1,4 +1,5 @@
 {
+  "argument_ledger_completeness_verified": true,
   "binding_semantics_revalidated": false,
   "call_or_argument_traces_added": false,
   "counts": {
@@ -18,12 +19,19 @@
     }
   },
   "exact_entry_root_joins": true,
+  "explained_summary_denominator_distinctions": 1,
   "input_sha256": {
+    "argument-inventory-dedup-collisions.jsonl": "cbda04913b02dc294885d6fbdf77d4c4d8a9518a8691920741cfe3e11a5085b4",
     "argument-inventory-roots.jsonl": "77ab3512fc5bc771fdefa93c0751ab519e9885868520a5f45a1550c96dd865f5",
+    "entry-argument-sites.jsonl": "5c393012cb9096ead5f70d93abb6d214d4058a2704963c6c7c80c4ddb5ef9fd1",
     "entry-points.csv": "39888cdbefe1bf56d8ef63bcac87249def4c8a06261539d5ec8afcec89d0bf71",
     "fetch-manifest.json": "a173b6f7c5a46d659d2424173dfe3ae31e32c26cb796304b89846953510e7911",
     "files-scanned.csv": "fe76976976e2a77c37581f7075f8f322d5207e396e52255257617abff0d99936",
-    "review-metadata/source-validation.json": "3c3724fbcc1bdc8291ba89ede6d309352781eb00b323d89057e5f44d88856161"
+    "review-metadata/source-validation.json": "3c3724fbcc1bdc8291ba89ede6d309352781eb00b323d89057e5f44d88856161",
+    "review-metadata/unresolved-rows.jsonl": "4bcc2bc7ddc2b38a2b593896f43802e7b1485c9f949439118cd7d5d7fd264c57",
+    "scripts/call_argument_inventory.py": "d861daed7d8b89fa29b6ec7c0453bf4f469154eb6cd7134a8767e6817f385135",
+    "scripts/entry_catalog.py": "35319be03ab0eda61ebe20acf056e4540c0cb0247c9fe3336291446e1fcab729",
+    "summary.json": "50009a75fe191112610e76c04ac31d3489457d355f980dfd0c13bd0830375aa9"
   },
   "overlapping_gap_counts": {
     "function_binding_unresolved": 259,

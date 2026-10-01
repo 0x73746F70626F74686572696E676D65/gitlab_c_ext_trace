@@ -11,7 +11,11 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 CATALOG = HERE.parent
 INPUTS = ('argument-inventory-roots.jsonl', 'entry-points.csv', 'files-scanned.csv',
-          'fetch-manifest.json', 'review-metadata/source-validation.json')
+          'fetch-manifest.json', 'review-metadata/source-validation.json',
+          'entry-argument-sites.jsonl', 'summary.json',
+          'argument-inventory-dedup-collisions.jsonl',
+          'review-metadata/unresolved-rows.jsonl',
+          'scripts/entry_catalog.py', 'scripts/call_argument_inventory.py')
 
 
 def sha(blob):
@@ -36,7 +40,9 @@ def generate(catalog=CATALOG):
     blobs = {name: (catalog / name).read_bytes() for name in INPUTS}
     receipt = json.loads(blobs['review-metadata/source-validation.json'])
     assert receipt['result']['status'] == 'passed'
-    for name in INPUTS[:-1]:
+    for name in INPUTS:
+        if name not in receipt['input_sha256']:
+            continue
         assert sha(blobs[name]) == receipt['input_sha256'][name], name
     roots_raw = blobs['argument-inventory-roots.jsonl'].splitlines()
     entries = {r['entry_id']: r for r in csv.DictReader(io.StringIO(blobs['entry-points.csv'].decode()))}
@@ -89,6 +95,63 @@ def generate(catalog=CATALOG):
                                    root_row_sha256=row['root_row_sha256'], gaps=gaps,
                                    status='open_evidence_gap', interpretation='documentation_gap_not_vulnerability'))
     assert len(rows) == len(entries) == len({r['entry_id'] for r in rows})
+    roots_by_id = {json.loads(raw)['entry_id']: json.loads(raw) for raw in roots_raw}
+    argument_raw = blobs['entry-argument-sites.jsonl'].splitlines()
+    argument_rows = [json.loads(raw) for raw in argument_raw]
+    argument_ids = {r['entry_id'] for r in argument_rows}
+    assert argument_ids <= entries.keys()
+    argument_gaps = [json.loads(raw) for raw in blobs['review-metadata/unresolved-rows.jsonl'].splitlines()]
+    assert len(argument_gaps) == len(argument_rows)
+    for number, (row, raw, gap) in enumerate(zip(argument_rows, argument_raw, argument_gaps), 1):
+        assert gap['inventory_line'] == number and gap['inventory_row_sha256'] == sha(raw)
+        assert gap['status'] == 'open_evidence_gap'
+        expected = {'local_checks_not_assessed', 'value_preservation_not_established',
+                    'source_reinspection_not_performed'}
+        root = roots_by_id[row['entry_id']]
+        index = row['argument_index']
+        names = root['parameter_names']
+        fixed = (int(root['arity']) >= 0 and index < int(root['arity']) and
+                 index + 1 < len(names) and names[index + 1] == row['parameter_name'])
+        if not fixed:
+            expected.add('exact_positional_extraction_not_serialized')
+        if row['hop_count']:
+            expected.add('per_hop_formal_identity_not_serialized')
+        assert set(gap['gaps']) == expected and len(gap['gaps']) == len(expected)
+    summary = json.loads(blobs['summary.json'])
+    collisions = [json.loads(raw) for raw in blobs['argument-inventory-dedup-collisions.jsonl'].splitlines()]
+    alternatives = [row for collision in collisions for row in collision['alternatives']]
+    candidate_ids = argument_ids | {r['entry_id'] for r in alternatives}
+    assert candidate_ids <= entries.keys()
+    assert len(argument_rows) + len(alternatives) == summary['candidate_argument_slot_rows']
+    assert len(candidate_ids) == summary['roots_with_rows']
+    assert len(collisions) == summary['dedup_keys_with_distinct_alternatives']
+    cross_tab = [dict(binding_status=status,
+                      with_argument_rows=sum(r['inventory_status'] == status and r['entry_id'] in argument_ids
+                                             for r in roots_by_id.values()),
+                      without_argument_rows=sum(r['inventory_status'] == status and r['entry_id'] not in argument_ids
+                                                for r in roots_by_id.values()))
+                 for status in sorted({r['inventory_status'] for r in roots_by_id.values()})]
+    distinctions = []
+    if summary['roots_with_rows'] != len(argument_ids):
+        distinctions.append(dict(field='summary.json:roots_with_rows',
+                                  recorded_pre_deduplication=summary['roots_with_rows'],
+                                  computed_representative_rows=len(argument_ids),
+                                  status='explained_denominator_difference',
+                                  cause='summary_counts_inventory.rows_before_representative_deduplication',
+                                  evidence='../scripts/call_argument_inventory.py:480-519'))
+    coverage = dict(registrations=len(rows), argument_rows=len(argument_rows),
+                    registrations_with_argument_rows=len(argument_ids),
+                    registrations_without_argument_rows=len(rows) - len(argument_ids),
+                    binding_status_cross_tab=cross_tab, summary_denominator_distinctions=distinctions,
+                    collision_alternative_rows=len(alternatives),
+                    candidate_registration_ids_including_alternatives=len(candidate_ids),
+                    registrations_only_in_alternatives=len(candidate_ids - argument_ids),
+                    candidate_rows_including_alternatives=len(argument_rows) + len(alternatives),
+                    argument_unresolved_ledger_rows_verified=len(argument_gaps),
+                    registration_unresolved_ledger_rows_verified=len(unresolved),
+                    denominators='registrations and selected argument rows are distinct populations',
+                    absent_row_interpretation='no_selected_saved_row_not_absence_of_behavior_or_safety',
+                    new_paths_or_semantic_claims=False)
     output = io.StringIO(newline='')
     writer = csv.DictWriter(output, fieldnames=list(rows[0]), lineterminator='\n')
     writer.writeheader()
@@ -100,10 +163,13 @@ def generate(catalog=CATALOG):
                   overlapping_gap_counts=dict(sorted(collections.Counter(g for r in unresolved for g in r['gaps']).items())),
                   input_sha256={k: sha(v) for k, v in blobs.items()},
                   target_code_executed=False, call_or_argument_traces_added=False,
+                  argument_ledger_completeness_verified=True,
+                  explained_summary_denominator_distinctions=len(distinctions),
                   binding_semantics_revalidated=False)
     return {'rows.jsonl': ''.join(json.dumps(r, sort_keys=True) + '\n' for r in rows),
             'rows.csv': output.getvalue(),
             'unresolved-rows.jsonl': ''.join(json.dumps(r, sort_keys=True) + '\n' for r in unresolved),
+            'coverage-accounting.json': json.dumps(coverage, indent=2, sort_keys=True) + '\n',
             'validation.json': json.dumps(report, indent=2, sort_keys=True) + '\n'}
 
 

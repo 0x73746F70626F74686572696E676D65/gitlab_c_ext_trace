@@ -5,6 +5,11 @@ those without an argument-site row. It adds no registrations or call/argument
 traces. Its purpose is to make source identity and unresolved binding status
 reviewable independently of selected operation-site coverage.
 
+Read [CONSISTENCY_REVIEW.md](CONSISTENCY_REVIEW.md) for verified coverage
+denominators: 353 representative argument rows cover 197 registration IDs;
+including 31 preserved alternatives covers 207. `coverage-accounting.json`
+reconciles the summary and validates unresolved-ledger completeness.
+
 The original argument-site schema includes call/store names, selected operands,
 parameter names and helper paths for native copy, allocation, formatting and
 indexed-store operations. Those are syntactic occurrences, not attacker-control
