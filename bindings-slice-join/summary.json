@@ -1,0 +1,224 @@
+{
+  "analysis_repository": "/workspace/gitlab_c_ext_trace",
+  "branch": "work",
+  "input_analysis_sha": "e6730954a11dd9baed91fb9e779055d06b6d0b15",
+  "inputs": {
+    "unmatched-depth2-join/summary.json": {
+      "path": "/workspace/gitlab_c_ext_trace/unmatched-depth2-join/summary.json",
+      "sha256": "6d8eaffe97ad4ea8669a44af07ce4c0c2612b9d6429723856b72f2aa2faf999f"
+    },
+    "unmatched-depth2-join/entrypoints-considered.jsonl.gz": {
+      "path": "/workspace/gitlab_c_ext_trace/unmatched-depth2-join/entrypoints-considered.jsonl.gz",
+      "sha256": "6878cef0d7f65fda5c68e2df7b335cbfaf4581086bfca5b8d4a861038d067fdd"
+    },
+    "unauthenticated_entrypoints/entrypoints.json": {
+      "path": "/workspace/gitlab_c_ext_trace/unauthenticated_entrypoints/entrypoints.json",
+      "sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5"
+    },
+    "static-catalog/entry-argument-sites.csv": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+    },
+    "gem_receiver_identifier_filter/receiver_namespace_manifest.json": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/receiver_namespace_manifest.json",
+      "sha256": "dab373deaeb2fdf56497ac28b10d40ce49e21a4cd53e8f067ecb002454664cb7"
+    }
+  },
+  "selection": {
+    "ledger": "unmatched-depth2-join/entrypoints-considered.jsonl.gz",
+    "status": "unresolved_root",
+    "ordering": "Existing JSONL order, without sorting or deduplicating bindings.",
+    "limit": 200,
+    "bindings_selected": 200,
+    "first_ledger_record": 14,
+    "last_ledger_record": 590,
+    "first_entrypoint": "ep_b59b26f54ec8c0fd4a4283eb",
+    "last_entrypoint": "ep_42231e72cc5ea5ebc3858dda",
+    "corrected_selection_stopped_at_200th_match": true,
+    "additional_bindings_selected": 0
+  },
+  "file_availability": {
+    "bindings_with_handler_file_in_binding_ledger": 0,
+    "bindings_with_recorded_declaration_file_in_inventory": 200,
+    "bindings_with_existing_recorded_declaration_file": 200,
+    "bindings_without_existing_recorded_declaration_file": 0,
+    "distinct_recorded_declaration_files": 53,
+    "recorded_declaration_files_opened": 53,
+    "rule": "The binding ledger has null root_file/root_line for all selected records. Retrieve the recorded declaration file/line only for these selected entrypoint IDs from the inventory; check and open those files."
+  },
+  "bindings_by_recorded_reason": {
+    "grape_registration_revision_drift": 92,
+    "graphql_method_not_resolved": 108
+  },
+  "bindings_by_auth": {
+    "unknown": 127,
+    "conditional_anonymous": 43,
+    "unauthenticated": 30
+  },
+  "handler_review": {
+    "grape_endpoint_blocks": 92,
+    "explicit_graphql_resolver_declarations": 5,
+    "local_graphql_methods": 5,
+    "implicit_graphql_fields_without_local_body": 98,
+    "named_call_chains_followed": 87,
+    "max_named_calls_per_binding": 1,
+    "max_repository_helper_hops_per_output_chain": 1,
+    "work_items_line_adjustments": [
+      {
+        "binding_ordinal": 49,
+        "recorded_line": 98,
+        "current_get_line": 101,
+        "current_end_line": 105
+      },
+      {
+        "binding_ordinal": 55,
+        "recorded_line": 37,
+        "current_get_line": 40,
+        "current_end_line": 44
+      },
+      {
+        "binding_ordinal": 60,
+        "recorded_line": 69,
+        "current_get_line": 72,
+        "current_end_line": 76
+      }
+    ],
+    "rule": "Open each selected declaration. Read the local handler or explicitly declared resolver where available. Follow one source-bound named repository call per selected handler at most, and stop at that method body. Skip send, method_missing and other dynamic dispatch; do not expand implicit framework/object dispatch or follow another helper."
+  },
+  "rows_written": 8,
+  "entrypoints_with_rows": 2,
+  "physical_gem_call_sites": 1,
+  "source_counts": {
+    "params": 0,
+    "literal": 4,
+    "local": 0,
+    "unresolved": 4
+  },
+  "counts_by_auth_and_source": {
+    "unauthenticated": {
+      "params": 0,
+      "literal": 4,
+      "local": 0,
+      "unresolved": 4
+    },
+    "conditional_anonymous": {
+      "params": 0,
+      "literal": 0,
+      "local": 0,
+      "unresolved": 0
+    },
+    "unknown": {
+      "params": 0,
+      "literal": 0,
+      "local": 0,
+      "unresolved": 0
+    }
+  },
+  "blank_sources": 0,
+  "match_evidence": {
+    "selected_binding_ordinals": [
+      91,
+      92
+    ],
+    "binding_ledger_records": [
+      441,
+      442
+    ],
+    "entrypoint_ids": [
+      "ep_63ca7aa6f83397096b057a05",
+      "ep_fd135f834abf107e6a126f6c"
+    ],
+    "caller_file": "lib/api/concerns/packages/nuget/public_endpoints.rb",
+    "registration_line": 110,
+    "caller_lines": [
+      122,
+      124
+    ],
+    "caller_expression": "Packages::Nuget::V2::ServiceIndexPresenter.new(project_or_group_without_auth).xml",
+    "callee_file": "app/presenters/packages/nuget/v2/service_index_presenter.rb",
+    "callee_method": "Packages::Nuget::V2::ServiceIndexPresenter#xml",
+    "callee_definition_line": 18,
+    "gem_call_line": 19,
+    "gem_call": "Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|",
+    "receiver": "Nokogiri::XML::Builder",
+    "gem": "nokogiri",
+    "catalogued_method": "new",
+    "catalog_records": [
+      271,
+      272,
+      273,
+      274
+    ],
+    "source_evidence": [
+      {
+        "argument_index": 0,
+        "expression": "encoding: 'UTF-8'",
+        "source": "literal",
+        "rows": 4
+      },
+      {
+        "argument_index": 1,
+        "expression": null,
+        "source": "unresolved",
+        "rows": 4,
+        "reason": "No expression at this position in the visible gem call. The block variable xml is not a second constructor argument; no defaults are inferred."
+      }
+    ]
+  },
+  "catalog_copy_fields": {
+    "gem": "gem",
+    "version": "version",
+    "method": "ruby_method_name",
+    "argument_index": "argument_index",
+    "stored_label": "argument_label",
+    "slot": "slot",
+    "call_depth": "hop_count"
+  },
+  "source_checkout": {
+    "path": "/workspace/gitlab",
+    "sha": "90f38934040c4790f79b9aada22b50c1597f42dc",
+    "inventory_revision": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+    "files_hashed": 82,
+    "selected_registration_files": 53,
+    "one_helper_file_opened_in_error": "app/services/gravatar_service.rb"
+  },
+  "scope_exceptions": [
+    {
+      "kind": "initial_ledger_filter_overread",
+      "description": "The initial metadata-only filter incorrectly searched for recorded_root_status=unresolved rather than unresolved_root, traversing the ledger and returning zero records. The corrected selection stopped at its 200th match, ledger record 590. No additional binding records were selected."
+    },
+    {
+      "kind": "unselected_helper_file_opened",
+      "file": "app/services/gravatar_service.rb",
+      "description": "This helper was opened in error while reading the unselected author_gravatar method in a shared selected GraphQL type file. It is excluded from the binding review and join and contributes zero rows."
+    }
+  ],
+  "validation": {
+    "selected_bindings": 200,
+    "unique_selected_entrypoints": 200,
+    "all_selected_recorded_files_opened": true,
+    "output_rows_outside_selected_bindings": 0,
+    "output_rows_unique_by_binding_call_and_catalog_record": true,
+    "stored_catalog_fields_preserved": true,
+    "max_named_calls_per_binding": 1,
+    "existing_tables_modified": false,
+    "project_scripts_executed": false,
+    "target_code_executed": false,
+    "tests_executed": false
+  },
+  "outputs": {
+    "rows.csv": {
+      "path": "/workspace/gitlab_c_ext_trace/bindings-slice-join/rows.csv",
+      "sha256": "3c54bd5b4cd7eae544facd8f25e3fd9260f4697a3a2765425efbecea0e0191b5"
+    },
+    "bindings-considered.jsonl": {
+      "path": "/workspace/gitlab_c_ext_trace/bindings-slice-join/bindings-considered.jsonl",
+      "sha256": "eea4622094822edade319d55861f61aba231671aeed9db3eab9b0179be23f396"
+    },
+    "source-files.jsonl": {
+      "path": "/workspace/gitlab_c_ext_trace/bindings-slice-join/source-files.jsonl",
+      "sha256": "8477f76224cc2939ca2feaad53d7234e7cf7e72e6186fdad8c028e0bc2dc7a10"
+    }
+  },
+  "limits": "This is a bounded review of the first 200 recorded unresolved handler bindings, with at most one selected named repository call per handler. No later bindings are joined. Implicit GraphQL/framework dispatch, unresolved object receivers, dynamic calls and second helper hops are not expanded. Gem/namespace and method joins preserve stored native catalog associations, including generic new registrations; they do not establish dispatch to a specific native registration."
+}
