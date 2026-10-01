@@ -1,0 +1,47 @@
+{
+  "analysis_branch": "work",
+  "analysis_base_commit": "1bf74ad",
+  "source_repository": "https://gitlab.com/gitlab-org/gitlab.git",
+  "source_commit": "90f38934040c4790f79b9aada22b50c1597f42dc",
+  "searched_directories": [
+    "app/controllers",
+    "app/graphql"
+  ],
+  "files_searched": {
+    "app/controllers": 562,
+    "app/graphql": 1498
+  },
+  "search": "Literal case-sensitive prefix search; paths sorted, then source line order.",
+  "limit_per_prefix": 5,
+  "matching_lines_by_prefix": {
+    "Oj.": 0,
+    "Nokogiri::": 2,
+    "Rugged::": 0,
+    "OpenSSL::": 5,
+    "Zlib::": 0
+  },
+  "kept_lines_by_prefix": {
+    "Oj.": 0,
+    "Nokogiri::": 2,
+    "Rugged::": 0,
+    "OpenSSL::": 5,
+    "Zlib::": 0
+  },
+  "total_rows": 7,
+  "unique_files_with_kept_lines": 4,
+  "c_files_opened": 0,
+  "source_file_sha256": {
+    "app/controllers/jwks_controller.rb": "79a6126f3a90a4afa990a3a2668ffc336c80aaf9e6c74614856d1585e349d3e0",
+    "app/controllers/mailgun/webhooks_controller.rb": "ea7e04c526a76ed98811863a05aa97336a862d1622b20939237db97b61c47f77",
+    "app/controllers/profiles/two_factor_auths_controller.rb": "dcbd9426c651a9a650846bc61fd616695c0fe37edcd9dec8e607cd1b5b93be0b",
+    "app/controllers/projects/attestations_controller.rb": "07904d7eaae7954bd23787c1640bc62a93787641e1d62137a36f47cca6e725ac"
+  },
+  "source_archive_sha256": {
+    "app/controllers": "a60e6f80976d83985078db86ee9560a360f3874a708ba17d2211d9e451e827f2",
+    "app/graphql": "86a7e2854015ce9a23fbacab457d7f322748786cd3bf53ce74deb54030db829d"
+  },
+  "kept_lines_by_directory": {
+    "app/controllers": 7,
+    "app/graphql": 0
+  }
+}

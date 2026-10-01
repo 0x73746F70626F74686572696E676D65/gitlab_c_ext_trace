@@ -1,0 +1,8 @@
+prefix,file,line,line_text
+Nokogiri::,app/controllers/profiles/two_factor_auths_controller.rb,180,    doc = Nokogiri::XML(svg)
+Nokogiri::,app/controllers/profiles/two_factor_auths_controller.rb,182,"    title = Nokogiri::XML::Node.new('title', doc)"
+OpenSSL::,app/controllers/jwks_controller.rb,58,    OpenSSL::PKey::RSA.new(key_data)
+OpenSSL::,app/controllers/mailgun/webhooks_controller.rb,42,      digest = OpenSSL::Digest.new('SHA256')
+OpenSSL::,app/controllers/mailgun/webhooks_controller.rb,45,"      hmac_digest = OpenSSL::HMAC.hexdigest(digest, Gitlab::CurrentSettings.mailgun_signing_key, data)"
+OpenSSL::,app/controllers/projects/attestations_controller.rb,130,      OpenSSL::X509::Certificate.new(decoded_certificate)
+OpenSSL::,app/controllers/projects/attestations_controller.rb,132,    rescue OpenSSL::X509::CertificateError => e
