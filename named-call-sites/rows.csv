@@ -1,1 +1,17 @@
 method,file,line,line_text
+from_io,app/uploaders/content_type_whitelist.rb,46,          ::Gitlab::Utils::MimeType.from_io(file) || 'invalid/invalid'
+serialize,app/assets/javascripts/behaviors/markdown/copy_as_gfm.js,221,        return markdownSerializer.default.serialize(
+serialize,app/assets/javascripts/commits.js,91,    const params = new URLSearchParams(form.serialize());
+serialize,app/assets/javascripts/content_editor/components/wrappers/paragraph.vue,44,      const content = this.contentEditor.serializer.serialize({ doc: this.node.content }) || '';
+serialize,app/assets/javascripts/content_editor/extensions/copy_paste.js,352,      let gfmContent = this.options.serializer.serialize({ doc: slice.content });
+serialize,app/assets/javascripts/content_editor/extensions/reference.js,90,            const text = serializer.serialize({ doc: slice.content });
+decrypt,app/uploaders/ci/pipeline_artifact_uploader.rb,30,"        lockbox_notify(""decrypt_file"") { lockbox.decrypt(stored_data) }"
+decrypt,app/uploaders/terraform/state_uploader.rb,38,"        lockbox_notify(""decrypt_file"") { lockbox.decrypt(stored_data) }"
+decrypt,ee/lib/gitlab/geo/oauth/logout_state.rb,28,          decrypt.update(encrypted) + decrypt.final
+decrypt,ee/lib/gitlab/geo/oauth/logout_state.rb,62,            with_cipher(tag) { |cipher| cipher.decrypt }
+decrypt,lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb,27,          cipher.decrypt
+gzip,app/services/concerns/import/bulk_imports/export_uploadable.rb,26,"        gzip(dir: export_path, filename: exported_filename)"
+gzip,app/services/import/offline/exports/write_metadata_service.rb,78,"          gzip(dir: tmpdir_path, filename: filename_with_extension)"
+gzip,config/plugins/gzip_assets_plugin.js,47,"        const output = await gzip(input, { level: this.level });"
+gzip,lib/gitlab/ci/build/artifacts/adapters/gzip_stream.rb,23,                gzip(stream) do |gz|
+gzip,lib/gitlab/ci/build/artifacts/metadata.rb,35,            gzip do |gz|
