@@ -1,0 +1,2 @@
+file,line,line_text
+lib/api/helpers/commits_body_uploader_helper.rb,60,"          Oj.load_file(file_path, symbol_keys: true)"
