@@ -1,0 +1,38 @@
+{
+  "counts": {
+    "argument_origin": {
+      "fixed_arity_root_formal": 187,
+      "positional_binding_exact_extraction_not_serialized": 166
+    },
+    "call_depth": {
+      "0": 169,
+      "1": 98,
+      "2": 53,
+      "3": 8,
+      "4": 23,
+      "5": 2
+    },
+    "local_checks": {
+      "not_assessed_by_saved_inventory": 353
+    },
+    "nested_parameter_identity": {
+      "no_helper_hops": 169,
+      "per_hop_formal_bindings_not_serialized": 184
+    }
+  },
+  "csv_jsonl_agreement": true,
+  "depth_and_endpoint_checks": 353,
+  "full_source_validator": "blocked: source cache and tree_sitter dependency absent",
+  "input_sha256": {
+    "argument-inventory-roots.jsonl": "77ab3512fc5bc771fdefa93c0751ab519e9885868520a5f45a1550c96dd865f5",
+    "entry-argument-sites.csv": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04",
+    "entry-argument-sites.jsonl": "5c393012cb9096ead5f70d93abb6d214d4058a2704963c6c7c80c4ddb5ef9fd1",
+    "scripts/call_argument_inventory.py": "d861daed7d8b89fa29b6ec7c0453bf4f469154eb6cd7134a8767e6817f385135",
+    "summary.json": "50009a75fe191112610e76c04ac31d3489457d355f980dfd0c13bd0830375aa9"
+  },
+  "root_joins_checked": 353,
+  "rows": 353,
+  "source_reinspection": false,
+  "status": "passed_saved_metadata_checks",
+  "target_code_executed": false
+}
