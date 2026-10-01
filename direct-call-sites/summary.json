@@ -23,6 +23,13 @@
         "accepted_prefixes[].gem",
         "accepted_prefixes[].prefix"
       ]
+    },
+    {
+      "path": "unauthenticated_entrypoints/entrypoints.json",
+      "sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+      "fields_used": [
+        "file"
+      ]
     }
   ],
   "counts": {
@@ -33,7 +40,8 @@
     "rows_written": 36,
     "maximum_sites_per_gem_method_pair": 3,
     "skipped_send_pairs": 0,
-    "extensionless_ruby_files_searched": 95
+    "extensionless_ruby_files_searched": 95,
+    "in_inventory_yes": 7
   },
   "counts_by_gem": {
     "amatch": {
@@ -264,6 +272,7 @@
     "method",
     "receiver",
     "file",
-    "line"
+    "line",
+    "in_inventory"
   ]
 }
