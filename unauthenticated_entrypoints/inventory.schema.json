@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GitLab anonymous entrypoint inventory",
+  "type": "object",
+  "required": ["metadata", "entrypoints"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["schema_version", "gitlab_commit_sha", "runtime_verified", "complete", "counts"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "gitlab_commit_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "runtime_verified": {"const": false},
+        "complete": {"const": false}
+      }
+    },
+    "count": {"type": "integer", "minimum": 0},
+    "entrypoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "edition", "path", "http_methods", "registration", "registration_status", "auth", "conditions", "anonymous_access", "gitlab_commit_sha", "baseline_ids"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^ep_[0-9a-f]{24}$"},
+          "type": {"type": "string"},
+          "edition": {"enum": ["ce", "ee", "shared"]},
+          "path": {"type": ["string", "null"]},
+          "http_methods": {"type": "array", "minItems": 1, "items": {"enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS", "ANY", "ALL", "UNKNOWN"]}},
+          "registration": {"type": "object", "required": ["file", "line"], "properties": {"file": {"type": "string"}, "line": {"type": "integer", "minimum": 1}}},
+          "registration_status": {"type": "string"},
+          "auth": {
+            "type": "object",
+            "required": ["classification", "confidence", "evidence_ids", "gap_ids", "runtime_verified"],
+            "properties": {
+              "classification": {"enum": ["unauthenticated", "conditional_anonymous", "authenticated", "unknown"]},
+              "confidence": {"enum": ["source_supported", "source_inferred", "unresolved"]},
+              "evidence_ids": {"type": "array", "items": {"type": "string"}},
+              "gap_ids": {"type": "array", "items": {"type": "string"}},
+              "callback_pipeline_id": {"type": "string"},
+              "runtime_verified": {"const": false}
+            }
+          },
+          "conditions": {"type": "array", "items": {"type": "object", "required": ["kind"]}},
+          "anonymous_access": {"type": "boolean"},
+          "gitlab_commit_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+          "baseline_ids": {"type": "array", "items": {"type": "string"}},
+          "graphql": {"type": "object", "required": ["operation", "type", "field", "schema_path", "resolver_class", "resolver_method"], "properties": {"operation": {"enum": ["query", "mutation", "subscription"]}, "schema_path": {"type": "array", "minItems": 1, "items": {"type": "string"}}}}
+        }
+      }
+    }
+  }
+}

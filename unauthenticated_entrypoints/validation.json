@@ -1,0 +1,57 @@
+{
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "passed": true,
+  "checks": [
+    "JSON schema",
+    "unique IDs",
+    "partition equality and disjointness",
+    "auth/evidence/callback/transport references",
+    "public list excludes unknown/dynamic/error-only records",
+    "all committed snapshot templates accounted for",
+    "aggregate counts",
+    "pinned source route smoke checks"
+  ],
+  "records_validated": 50424,
+  "source_files_hash_verified": 23372,
+  "route_smoke_checks": [
+    {
+      "edition": "ce",
+      "path": "/users/sign_in",
+      "method": "GET",
+      "expected_auth": "unauthenticated",
+      "passed": true
+    },
+    {
+      "edition": "ce",
+      "path": "/api/graphql",
+      "method": "POST",
+      "expected_auth": "unauthenticated",
+      "passed": true
+    },
+    {
+      "edition": "ce",
+      "path": "/api/v4/projects",
+      "method": "POST",
+      "expected_auth": "authenticated",
+      "passed": true
+    },
+    {
+      "edition": "ce",
+      "path": "/api/v4/projects/:id",
+      "method": "GET",
+      "expected_auth": "conditional_anonymous",
+      "passed": true
+    },
+    {
+      "edition": "ce",
+      "path": "/api/v4/version",
+      "method": "GET",
+      "expected_auth": "authenticated",
+      "passed": true
+    }
+  ],
+  "unit_tests_result_file": "test_results.json",
+  "generator_sha256": "326fe7d9ce10f3969dd152a3d593c4ea557315b8b902d622d99b9212b429b44c",
+  "runtime_requests_or_application_execution": false,
+  "auth_completeness_proven": false
+}

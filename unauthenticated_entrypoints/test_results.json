@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "tests_run": 15,
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "unauthenticated_entrypoints",
+    "-p",
+    "test_inventory.py",
+    "-v"
+  ],
+  "output": "test_action_selector_does_not_apply_create_auth_to_new (test_inventory.InventoryTests.test_action_selector_does_not_apply_create_auth_to_new) ... ok\ntest_anonymous_read_role_does_not_authorize_writes (test_inventory.InventoryTests.test_anonymous_read_role_does_not_authorize_writes) ... ok\ntest_around_filter_cannot_be_skipped_as_non_auth (test_inventory.InventoryTests.test_around_filter_cannot_be_skipped_as_non_auth) ... ok\ntest_conditional_skip_stays_unresolved (test_inventory.InventoryTests.test_conditional_skip_stays_unresolved) ... ok\ntest_draw_aliases_and_controller_resolution (test_inventory.InventoryTests.test_draw_aliases_and_controller_resolution) ... ok\ntest_grape_segments_and_route_params_are_in_paths_and_hook_scopes (test_inventory.InventoryTests.test_grape_segments_and_route_params_are_in_paths_and_hook_scopes) ... ok\ntest_graphql_connection_path_and_orphan_field (test_inventory.InventoryTests.test_graphql_connection_path_and_orphan_field) ... ok\ntest_guest_guarded_callback_is_optional (test_inventory.InventoryTests.test_guest_guarded_callback_is_optional) ... ok\ntest_inherited_method_dispatch_uses_actual_controller (test_inventory.InventoryTests.test_inherited_method_dispatch_uses_actual_controller) ... ok\ntest_mount_version_precedes_namespace_and_auth_inherits (test_inventory.InventoryTests.test_mount_version_precedes_namespace_and_auth_inherits) ... ok\ntest_resources_nested_member_collection_and_only (test_inventory.InventoryTests.test_resources_nested_member_collection_and_only) ... ok\ntest_skip_does_not_hide_replacement_login (test_inventory.InventoryTests.test_skip_does_not_hide_replacement_login) ... ok\ntest_static_loop_interpolation (test_inventory.InventoryTests.test_static_loop_interpolation) ... ok\ntest_super_and_dynamic_auth_dispatch_are_not_ignored (test_inventory.InventoryTests.test_super_and_dynamic_auth_dispatch_are_not_ignored) ... ok\ntest_with_options_condition_is_inherited_by_callbacks (test_inventory.InventoryTests.test_with_options_condition_is_inherited_by_callbacks) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.781s\n\nOK\n",
+  "source_sha256": {
+    "build_inventory.py": "326fe7d9ce10f3969dd152a3d593c4ea557315b8b902d622d99b9212b429b44c",
+    "test_inventory.py": "0c7f5aec72c67ba263b830054708141b0600fea3928d0e1da7c975102d619485"
+  },
+  "application_or_gem_execution": false
+}

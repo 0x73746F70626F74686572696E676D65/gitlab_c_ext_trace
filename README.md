@@ -1,5 +1,7 @@
 # GitLab static native results and semantic audit
 
+The separate [anonymous HTTP and GraphQL inventory](unauthenticated_entrypoints/README.md) reuses the existing source discovery and GitLab's committed route snapshot. Its [HTTP JSON](unauthenticated_entrypoints/http_unauthenticated.json), [GraphQL JSON](unauthenticated_entrypoints/graphql_unauthenticated.json), and [unknown JSON](unauthenticated_entrypoints/unknown.json) contain route/authentication records for CI comparison, without API or memory-operation tracing. Source classifications and remaining coverage gaps are explicit; authentication completeness is not claimed.
+
 The [bounded front-end gem API map](frontend_gem_api_map/README.md) inventories canonical `gitlab-org/gitlab` master at `d75e5afaa21d45bc04139d4a538ea5954be1ef4f` using the existing API JSON. Its [follow-up source review](frontend_gem_api_map/unauth_review/README.md) revisits all 191 initial unauthenticated candidates: eight have qualified API references, one retains unauthenticated classification, and seven have unknown authentication. Both passes provide tables, source evidence and coverage gaps without loading GitLab or reading C-extension source.
 
 **The end-to-end path counts are candidates, not established user reachability.** The initial seeded source review of 80 frozen v2 chains found **59 contradicted, 14 conditionally supported, and 7 unresolved**. Errors include ignored Ruby overrides and argument/branch combinations that cannot follow the reported chain. No application, extension, endpoint or build hook was run.
