@@ -25,19 +25,32 @@ latest default-branch commit,
 recorded full-file SHA-256 hashes from revision
 `9cfc39017e700a28649858f6a902117f9d5e8edd`; the recorded lines still match.
 
-Source labels use only a visible preceding explicit assignment of the argument
-in its scope. A method formal or block parameter alone leaves the cell blank.
-The five recorded argument names are `value`, `field`, `date`, `rich_line`
-and `text`; none has such an assignment. At `char_diff.rb:50`, the assignment
-receives the call result after the argument is evaluated. It does not supply
-the argument to that same call. No origin was propagated through other calls.
+Source annotations were filled from this same 122-row CSV at
+`d486bce53c7e4908c6f6c3367a0ad982c1576dbc`. The recorded calls and zero-based
+argument expressions were parsed by reading source text. A literal expression
+gets `literal`. For an identifier, the last assignment to its exact name in
+the same method gets `params` if its RHS is `params`, `request` or a route
+parameter, and `local` otherwise. An identifier with no body assignment in
+that method gets `unresolved`. No file boundary is crossed.
 
-Rows in: **122**. Rows written: **122**. Source counts: **params 0, local 0,
-literal 0, unresolved 0**. Blank sources: **122**.
+All 122 argument expressions are identifiers. The 118 rows using `value`,
+`field`, `date` or `rich_line` have no assignment to that exact name in the
+enclosing method and get `unresolved`. Method and block parameter declarations
+are not body assignments; `@rich_line` is a different name from `rich_line`.
+
+The four `text` rows get `local`: `CharDiff#to_html` assigns
+`text = ERB::Util.html_escape(text)` on recorded line 50. The revised
+same-method rule includes this assignment on the call's line. This records the
+assignment's presence; the RHS argument is evaluated before its result is
+assigned. Per-location evidence is in `summary.json`.
+
+Rows in: **122**. Rows written: **122**. Source counts: **params 0, local 4,
+literal 0, unresolved 118**. Blank sources: **0**.
 
 Verification checked complete anonymous coverage, every recorded catalog
 association, copied field equality, row order, retained multiplicity, unchanged
-input hashes and exact output read-back. Source files were read as text; no
+input hashes and exact output read-back. Every non-source CSV field is unchanged.
+Source files were read as text; no
 repository analysis scripts or target code were run.
 
 From this directory, `sha256sum -c SHA256SUMS` verifies the output artifacts.

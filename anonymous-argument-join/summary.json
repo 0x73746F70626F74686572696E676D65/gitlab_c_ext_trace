@@ -14,6 +14,10 @@
     "call_argument_catalog": {
       "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
       "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+    },
+    "joined_rows": {
+      "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
+      "sha256": "f5820ebca77c9f89d71249f998e7073a61fb1dd623bb9e89ed4eed6d631add41"
     }
   },
   "gitlab_source": {
@@ -38,17 +42,16 @@
     "call_depth": "hop_count"
   },
   "filtered_depth_field": "call_chain_depth is copied separately from filtered_matches.csv.",
-  "source_rule": "Read the recorded file and line. Label the last preceding explicit assignment of the argument as params, local, literal or unresolved; leave source blank when none is visible. Do not propagate origins through other calls. Formal and block-parameter bindings do not establish an explicit assignment.",
+  "source_rule": "Read and manually parse the recorded call and zero-based argument expression. A literal expression is literal. For an identifier, find the last assignment to its exact name in the same method: params, request or a route-parameter RHS is params; no assignment is unresolved; any other assignment is local. Do not cross files. Method/block parameter declarations are not body assignments. The rule includes an assignment on the recorded call's line.",
   "rows_in": 122,
   "rows_written": 122,
   "source_counts": {
     "params": 0,
-    "local": 0,
+    "local": 4,
     "literal": 0,
-    "unresolved": 0
+    "unresolved": 118
   },
-  "blank_sources": 122,
-  "blank_source_reason": "All five argument names are method or block parameters without a preceding explicit assignment in their scope. The assignment at CharDiff line 50 is the result of the recorded call, after its argument is evaluated.",
+  "blank_sources": 0,
   "validation": {
     "anonymous_selection_coverage": 122,
     "recorded_catalog_references_checked": 122,
@@ -58,12 +61,74 @@
     "duplicate_matches_preserved": true,
     "additional_rows": 0,
     "output_read_back_matches": true,
-    "input_hashes_rechecked": true
+    "input_hashes_rechecked": true,
+    "source_expressions_checked": 122,
+    "same_method_assignments_checked": 122,
+    "non_source_fields_unchanged": true,
+    "blank_sources": 0
   },
   "output": {
     "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
-    "sha256": "f5820ebca77c9f89d71249f998e7073a61fb1dd623bb9e89ed4eed6d631add41"
+    "sha256": "e9c03a42ff25029d0907d1df684a97b382a3f04adf32812dab8895682f65b4de"
   },
   "repository_scripts_executed": false,
-  "target_code_executed": false
+  "target_code_executed": false,
+  "source_input_analysis_sha": "d486bce53c7e4908c6f6c3367a0ad982c1576dbc",
+  "source_review": [
+    {
+      "file": "app/helpers/safe_format_helper.rb",
+      "line": "29",
+      "argument_index": "0",
+      "expression": "value",
+      "method": "SafeFormatHelper#safe_format",
+      "source": "unresolved",
+      "rows": 34,
+      "assignment_line": null,
+      "reason": "value is a block parameter with no assignment to that name in safe_format."
+    },
+    {
+      "file": "app/controllers/concerns/cycle_analytics_params.rb",
+      "line": "59",
+      "argument_index": "0",
+      "expression": "field",
+      "method": "CycleAnalyticsParams#to_utc_time",
+      "source": "unresolved",
+      "rows": 72,
+      "assignment_line": null,
+      "reason": "field is a method parameter with no assignment to that name in to_utc_time."
+    },
+    {
+      "file": "app/controllers/concerns/parse_commit_date.rb",
+      "line": "7",
+      "argument_index": "0",
+      "expression": "date",
+      "method": "ParseCommitDate#convert_date_to_epoch",
+      "source": "unresolved",
+      "rows": 8,
+      "assignment_line": null,
+      "reason": "date is a method parameter with no assignment to that name in convert_date_to_epoch."
+    },
+    {
+      "file": "lib/gitlab/string_range_marker.rb",
+      "line": "20",
+      "argument_index": "0",
+      "expression": "rich_line",
+      "method": "Gitlab::StringRangeMarker#initialize",
+      "source": "unresolved",
+      "rows": 4,
+      "assignment_line": null,
+      "reason": "rich_line is a method parameter with no body assignment; @rich_line is a different name."
+    },
+    {
+      "file": "lib/gitlab/diff/char_diff.rb",
+      "line": "50",
+      "argument_index": "0",
+      "expression": "text",
+      "method": "Gitlab::Diff::CharDiff#to_html",
+      "source": "local",
+      "rows": 4,
+      "assignment_line": 50,
+      "reason": "The method assigns text = ERB::Util.html_escape(text) at the recorded line. The same-method rule counts this assignment; its RHS is not params, request or a route parameter."
+    }
+  ]
 }
