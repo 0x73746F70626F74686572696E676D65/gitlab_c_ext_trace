@@ -1,0 +1,341 @@
+{
+  "analysis_repository": "/workspace/gitlab_c_ext_trace",
+  "branch": "work",
+  "input_analysis_sha": "fbfc8d619d083daf4668867c6c63dbfec98466c9",
+  "inputs": {
+    "entrypoint_inventory": {
+      "path": "/workspace/gitlab_c_ext_trace/unauthenticated_entrypoints/entrypoints.json",
+      "sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5"
+    },
+    "filtered_table": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/filtered_matches.csv",
+      "sha256": "10bd54ab1a5bc3fc8f1ca2cf44ea8617631f44f0b70b0c2df5bdcf708769210c"
+    },
+    "depth5_table": {
+      "path": "/workspace/gitlab_c_ext_trace/depth5-argument-join/rows.csv",
+      "sha256": "088ff05b173aec70e7d4f9f2fc0fbd93df77c72649894e97998b935b97646475"
+    },
+    "depth6_table": {
+      "path": "/workspace/gitlab_c_ext_trace/depth6-argument-join/rows.csv",
+      "sha256": "108692f5ab40d27b299a30f5f78b3880c51ac79944a493c6e342f1448de44875"
+    },
+    "call_argument_catalog": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+    },
+    "saved_name_matches": {
+      "path": "/workspace/gitlab_c_ext_trace/depth_limited_name_match/matches.csv.gz",
+      "sha256": "5e6d81c2c362e925954c7808544c7f132d5efafaf32a8b6f2f8b230e5f74b847"
+    },
+    "saved_receiver_decisions": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/decisions.csv.gz",
+      "sha256": "642ba50bed417b49139810fd0f926f6505ae6e430b04bedfb858f7a63ab805a0"
+    },
+    "saved_entrypoint_walk_status": {
+      "path": "/workspace/gitlab_c_ext_trace/depth_limited_name_match/entrypoints_walked.jsonl.gz",
+      "sha256": "8493d2efbbe11d8695e4a39f68303228f3289f022df16c0c24b1c466b0b3b498"
+    },
+    "receiver_namespace_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/receiver_namespace_manifest.json",
+      "sha256": "dab373deaeb2fdf56497ac28b10d40ce49e21a4cd53e8f067ecb002454664cb7"
+    },
+    "source_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/source_files_read.jsonl",
+      "sha256": "f137407feaf11e8c65dd1b37c1a08ce02858d23632ba759f1da3c8b9c3d0e166"
+    },
+    "walk_source_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/depth_limited_name_match/files_read.jsonl",
+      "sha256": "25d28fa9ae21b2c5e6249145cb4e85ba3a04160afb6b468026eebe5e15c80dbe"
+    }
+  },
+  "selection": "Select inventory auth labels unauthenticated, conditional_anonymous or unknown. Exclude the union of entrypoint IDs in the filtered, depth-5 and depth-6 CSVs. Auth and anonymous_access remain stored inventory facts.",
+  "inventory_entrypoints": 50424,
+  "anonymous_or_unknown_inventory_entries": 25109,
+  "excluded_existing_entrypoint_ids": 312,
+  "excluded_by_auth": {
+    "authenticated": 131,
+    "conditional_anonymous": 74,
+    "unauthenticated": 8,
+    "unknown": 99
+  },
+  "eligible_entrypoints": 24928,
+  "eligible_by_auth": {
+    "unauthenticated": 1302,
+    "conditional_anonymous": 4054,
+    "unknown": 19572
+  },
+  "recorded_root_status": {
+    "bound": 9775,
+    "unresolved": 15153
+  },
+  "recorded_root_status_by_auth": {
+    "walked": {
+      "unauthenticated": 919,
+      "conditional_anonymous": 2703,
+      "unknown": 6153
+    },
+    "unresolved_root": {
+      "unauthenticated": 383,
+      "conditional_anonymous": 1351,
+      "unknown": 13419
+    }
+  },
+  "unresolved_root_reasons": [
+    {
+      "reason": "controller_action_not_resolved",
+      "count": 646
+    },
+    {
+      "reason": "grape_registration_revision_drift",
+      "count": 214
+    },
+    {
+      "reason": "graphql_method_not_resolved",
+      "count": 13420
+    },
+    {
+      "reason": "registration_has_no_ordinary_ruby_handler_binding",
+      "count": 873
+    }
+  ],
+  "depth_limit": 2,
+  "workflow": "Reuse the saved source-defined named-call witness paths and receiver decisions, selecting only eligible entrypoints and frontend depths 0 through 2. Read retained Ruby sites and immediate recorded callers as text. No new walker, parser, application or repository script is run, and no earlier table is regenerated.",
+  "depth_rule": "Entrypoint body is depth 0. A followed same-repository method adds one hop; the terminal gem invocation does not add a helper hop.",
+  "receiver_rule": "Use the saved accepted gem namespace/alias decisions and validate the recorded calls against matching source bytes. Keep gem/method pairs present in the call-argument catalog. These are namespace/method associations, without proving a particular native registration.",
+  "saved_csv_records_considered": 1712629,
+  "saved_receiver_qualified_argument_drops_considered": 210,
+  "candidate_rows_in": 55,
+  "rows_written": 55,
+  "entrypoints_with_rows": 25,
+  "physical_ruby_sites": 7,
+  "source_files_read": 8,
+  "matches_by_auth": {
+    "unauthenticated": 16,
+    "conditional_anonymous": 2,
+    "unknown": 37,
+    "authenticated": 0
+  },
+  "source_counts": {
+    "params": 4,
+    "literal": 8,
+    "local": 23,
+    "unresolved": 20
+  },
+  "counts_by_auth_and_source": {
+    "unauthenticated": {
+      "params": 0,
+      "literal": 8,
+      "local": 0,
+      "unresolved": 8
+    },
+    "conditional_anonymous": {
+      "params": 0,
+      "literal": 0,
+      "local": 2,
+      "unresolved": 0
+    },
+    "unknown": {
+      "params": 4,
+      "literal": 0,
+      "local": 21,
+      "unresolved": 12
+    },
+    "authenticated": {
+      "params": 0,
+      "literal": 0,
+      "local": 0,
+      "unresolved": 0
+    }
+  },
+  "blank_sources": 0,
+  "matches_by_frontend_depth": {
+    "0": 31,
+    "1": 24,
+    "2": 0
+  },
+  "visible_argument_rows": 35,
+  "absent_argument_positions": 20,
+  "source_rule": "Direct params/request/route expressions and visible assignments from them in the call's method or its one recorded caller are params. Fixed literal expressions are literal. Other identifier-backed local/object/helper expressions are local. Missing argument positions or method formals whose corresponding caller is unrecorded are unresolved. No additional helper body, earlier caller, framework-generated method or native default is used for source origin.",
+  "source_review": [
+    {
+      "file": "lib/api/internal/base.rb",
+      "line": 385,
+      "method": "parse",
+      "argument_index": 0,
+      "receiver": "Date",
+      "expression": "params[:expires_at]",
+      "expression_kind": "expression",
+      "rows": 4,
+      "source": "params",
+      "reason": "The indexed argument is directly params[:expires_at]."
+    },
+    {
+      "file": "lib/api/internal/base.rb",
+      "line": 385,
+      "method": "parse",
+      "argument_index": 1,
+      "receiver": "Date",
+      "expression": "",
+      "expression_kind": "not_visible",
+      "rows": 4,
+      "source": "unresolved",
+      "reason": "The catalogued position is absent from the visible argument list; no Ruby or C default is inferred."
+    },
+    {
+      "file": "app/presenters/packages/nuget/v2/metadata_index_presenter.rb",
+      "line": 8,
+      "method": "new",
+      "argument_index": 0,
+      "receiver": "Nokogiri::XML::Builder",
+      "expression": "encoding: 'UTF-8'",
+      "expression_kind": "expression",
+      "rows": 8,
+      "source": "literal",
+      "reason": "The recorded argument is a fixed keyword-options hash containing the UTF-8 literal."
+    },
+    {
+      "file": "app/presenters/packages/nuget/v2/metadata_index_presenter.rb",
+      "line": 8,
+      "method": "new",
+      "argument_index": 1,
+      "receiver": "Nokogiri::XML::Builder",
+      "expression": "",
+      "expression_kind": "not_visible",
+      "rows": 8,
+      "source": "unresolved",
+      "reason": "The catalogued position is absent from the visible argument list; no Ruby or C default is inferred."
+    },
+    {
+      "file": "app/graphql/types/notes/diff_line_type.rb",
+      "line": 31,
+      "method": "html_escape",
+      "argument_index": 0,
+      "receiver": "ERB::Util",
+      "expression": "object.rich_text || object.text",
+      "expression_kind": "expression",
+      "rows": 4,
+      "source": "local",
+      "reason": "The argument reads object.rich_text or object.text; neither is a direct params/request expression or fixed literal."
+    },
+    {
+      "file": "app/controllers/projects/labels_controller.rb",
+      "line": 159,
+      "method": "html_escape",
+      "argument_index": 0,
+      "receiver": "ERB::Util",
+      "expression": "label.title",
+      "expression_kind": "expression",
+      "rows": 4,
+      "source": "local",
+      "reason": "The argument reads label.title. The one recorded caller promote passes @label at line 133; no params/request assignment is established in that caller."
+    },
+    {
+      "file": "app/controllers/projects/milestones_controller.rb",
+      "line": 137,
+      "method": "html_escape",
+      "argument_index": 0,
+      "receiver": "ERB::Util",
+      "expression": "milestone.title",
+      "expression_kind": "expression",
+      "rows": 4,
+      "source": "local",
+      "reason": "The argument reads milestone.title. The one caller passes promoted_milestone at line 121, assigned from a service result at line 120; no additional origin is traced."
+    },
+    {
+      "file": "app/controllers/users_controller.rb",
+      "line": 192,
+      "method": "parse",
+      "argument_index": 0,
+      "receiver": "Date",
+      "expression": "permitted_params[:date]",
+      "expression_kind": "expression",
+      "rows": 8,
+      "source": "local",
+      "reason": "permitted_params[:date] is an identifier-backed helper result. No params/request assignment to that name occurs in calendar_activities; another helper body is not followed for source origin."
+    },
+    {
+      "file": "app/controllers/users_controller.rb",
+      "line": 192,
+      "method": "parse",
+      "argument_index": 1,
+      "receiver": "Date",
+      "expression": "",
+      "expression_kind": "not_visible",
+      "rows": 8,
+      "source": "unresolved",
+      "reason": "The catalogued position is absent from the visible argument list; no Ruby or C default is inferred."
+    },
+    {
+      "file": "ee/app/graphql/types/ai/duo_workflows/workflow_event_type.rb",
+      "line": 97,
+      "method": "deflate",
+      "argument_index": 0,
+      "receiver": "Zlib::Deflate",
+      "expression": "checkpoint.to_json",
+      "expression_kind": "expression",
+      "rows": 3,
+      "source": "local",
+      "reason": "The argument is checkpoint.to_json; checkpoint is assigned from object.checkpoint at line 94."
+    }
+  ],
+  "catalog_fields": {
+    "gem": "gem",
+    "method": "ruby_method_name",
+    "argument_index": "argument_index",
+    "stored_label": "argument_label",
+    "slot": "slot",
+    "call_depth": "hop_count"
+  },
+  "source_versions": {
+    "gitlab_path": "/workspace/gitlab",
+    "checkout_sha": "90f38934040c4790f79b9aada22b50c1597f42dc",
+    "saved_walk_revision": "9cfc39017e700a28649858f6a902117f9d5e8edd",
+    "inventory_revision": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+    "retained_source_files_matching_saved_sha256": 8
+  },
+  "source_file_sha256": {
+    "app/controllers/projects/labels_controller.rb": "c4485f6f26faed625f945d0b47b37f3c08bc7addb7b96274688e3a7bc53d093b",
+    "app/controllers/projects/milestones_controller.rb": "2d2e38a56d0b443d3a14e18d17405e4b29e93f80f583ea9a58309db94d549df0",
+    "app/controllers/users_controller.rb": "b710007b202c90bb8312f947689df506e8c63b79e6bcaf9863efa1c5ced1c86d",
+    "app/graphql/types/notes/diff_line_type.rb": "353ef4ad982b7f323a2240ddbe6e4c40ab6fb544c3198c563e65e58d338e3992",
+    "app/presenters/packages/nuget/v2/metadata_index_presenter.rb": "56bc6b8d91aaf7f5ce4d3a491b814d399a1327fe323a1763fe53516cfcbd49fa",
+    "ee/app/graphql/types/ai/duo_workflows/workflow_event_type.rb": "4db6953885384a9dfd64bbe2f15128dc1820e9f51616d113dae5a19b5c7477ef",
+    "lib/api/concerns/packages/nuget/public_endpoints.rb": "360c9c5a56064fad870a7e22a4edcfe262b261e0f6fd2fe164be625226b2f992",
+    "lib/api/internal/base.rb": "01bd51535cc4399f124025dab425b0145a582ebd28d7ba7355536f598d7a1d24"
+  },
+  "validation": {
+    "eligible_inventory_ids_accounted": 24928,
+    "ledger_unique_entrypoints": 24928,
+    "ledger_rows_sum": 55,
+    "entrypoints_with_rows": 25,
+    "output_order_matches_saved_match_order": true,
+    "output_readback_matches": true,
+    "catalog_references_checked": 55,
+    "copied_catalog_fields_checked": 55,
+    "inventory_identity_fields_checked": 55,
+    "chain_depth_and_length_checked": 55,
+    "existing_entrypoint_overlap": 0,
+    "end_date_chains_extended": 0,
+    "dynamic_dispatch_followed": false,
+    "earlier_tables_rebuilt": false,
+    "earlier_tables_modified": false,
+    "repo_method_name_search": false,
+    "repository_scripts_executed": false,
+    "target_code_executed": false
+  },
+  "outputs": {
+    "rows": {
+      "path": "/workspace/gitlab_c_ext_trace/unmatched-depth2-join/rows.csv",
+      "sha256": "3ad2edb4577401ff3f700b41978d1395f18a8614d422846b9bb5108576a258ee"
+    },
+    "entrypoint_ledger": {
+      "path": "/workspace/gitlab_c_ext_trace/unmatched-depth2-join/entrypoints-considered.jsonl.gz",
+      "sha256": "6878cef0d7f65fda5c68e2df7b335cbfaf4581086bfca5b8d4a861038d067fdd"
+    },
+    "source_files": {
+      "path": "/workspace/gitlab_c_ext_trace/unmatched-depth2-join/source-files.jsonl",
+      "sha256": "396c27ae03a4bc1a0c5fb362e3f9e843a5a183c9a5bd816082302b342567e4da"
+    }
+  },
+  "limits": "Coverage inherits the recorded walk's unresolved root bindings, ordinary-call stops and conservative receiver lookup. Only retained sites and recorded callers were reread and checked against their full-file hashes; this is not a fresh exhaustive traversal of every source body. Saved auth labels do not prove deployed anonymous access, and gem/method joins do not prove native argument flow."
+}
