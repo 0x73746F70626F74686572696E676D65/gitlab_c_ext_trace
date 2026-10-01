@@ -1,0 +1,93 @@
+{
+  "base_branch": "work",
+  "base_commit": "b345aa73b97628aeda052b89e169472fe22a2712",
+  "source_checkout": {
+    "repository": "https://gitlab.com/gitlab-org/gitlab.git",
+    "path": "/workspace/gitlab",
+    "commit": "90f38934040c4790f79b9aada22b50c1597f42dc"
+  },
+  "inputs": [
+    {
+      "path": "unmatched-depth2-join/entrypoints-considered.jsonl.gz",
+      "sha256": "6878cef0d7f65fda5c68e2df7b335cbfaf4581086bfca5b8d4a861038d067fdd"
+    },
+    {
+      "path": "unmatched-depth2-join/summary.json",
+      "sha256": "6d8eaffe97ad4ea8669a44af07ce4c0c2612b9d6429723856b72f2aa2faf999f"
+    },
+    {
+      "path": "unauthenticated_entrypoints/entrypoints.json",
+      "sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5"
+    },
+    {
+      "path": "static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+    },
+    {
+      "path": "gem_receiver_identifier_filter/receiver_namespace_manifest.json",
+      "sha256": "dab373deaeb2fdf56497ac28b10d40ce49e21a4cd53e8f067ecb002454664cb7"
+    },
+    {
+      "path": "bindings-slice-join/summary.json",
+      "sha256": "8a9b6331bf82630d9e8b263ba63221ab0d5a3a9289651c571484a62e0c6ab2d4",
+      "purpose": "Prior slice end cursor only; no first-slice binding records or source review reused."
+    }
+  ],
+  "selection": {
+    "ledger": "unmatched-depth2-join/entrypoints-considered.jsonl.gz",
+    "status": "unresolved_root",
+    "binding_ordinal_start": 201,
+    "binding_ordinal_end": 400,
+    "binding_count": 200,
+    "prior_slice_last_ledger_record": 590,
+    "first_selected_ledger_record": 591,
+    "last_selected_ledger_record": 928,
+    "selection_stopped_at_last_selected_binding": true,
+    "first_200_bindings_reviewed": false,
+    "later_bindings_reviewed": false
+  },
+  "bindings_in": 200,
+  "bindings_with_declaration_file": 200,
+  "bindings_without_declaration_file": 0,
+  "unique_declaration_files": 22,
+  "explicit_resolver_bindings": 18,
+  "declared_resolver_files_read": 14,
+  "unique_source_files_read": 36,
+  "auth_counts_for_selected_bindings": {
+    "conditional_anonymous": 56,
+    "unknown": 133,
+    "unauthenticated": 11
+  },
+  "review_status_counts": {
+    "declared_local_resolver_body_read": 9,
+    "implicit_field_without_local_method": 182,
+    "resolver_factory_without_local_definition": 4,
+    "declared_resolver_without_local_resolve": 4,
+    "local_resolver_factory_read": 1
+  },
+  "rows_written": 0,
+  "source_counts": {
+    "params": 0,
+    "literal": 0,
+    "local": 0,
+    "unresolved": 0
+  },
+  "scope": {
+    "handler_file_fields_blank": true,
+    "used_recorded_declaration_files": true,
+    "max_named_calls_followed_per_binding": 1,
+    "repo_wide_method_name_search": false,
+    "send_followed": false,
+    "method_missing_followed": false,
+    "inherited_or_implicit_dispatch_followed": false,
+    "application_code_executed": false,
+    "first_slice_outputs_modified": false
+  },
+  "result_note": "No qualifying catalogued gem receiver and method appears in the bounded declaration and declared resolver scopes. Empty output does not establish absence through implicit fields, inherited resolvers, returned resolver classes, or deeper helper calls.",
+  "output_csv": {
+    "path": "bindings-slice-2-join/rows.csv",
+    "columns": 34,
+    "data_rows": 0,
+    "header_only": true
+  }
+}
