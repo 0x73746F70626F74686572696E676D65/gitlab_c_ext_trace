@@ -1,0 +1,38 @@
+{
+  "binding_semantics_revalidated": false,
+  "call_or_argument_traces_added": false,
+  "counts": {
+    "current_binding_status": {
+      "resolved": 3394,
+      "unresolved": 259,
+      "unresolved_signature": 2
+    },
+    "definition_reference_status": {
+      "digest_and_line_range_verified": 3396,
+      "not_recorded": 259
+    },
+    "historical_binding_status": {
+      "resolved": 3393,
+      "unresolved_arity_or_callback_signature": 3,
+      "unresolved_function_binding": 259
+    }
+  },
+  "exact_entry_root_joins": true,
+  "input_sha256": {
+    "argument-inventory-roots.jsonl": "77ab3512fc5bc771fdefa93c0751ab519e9885868520a5f45a1550c96dd865f5",
+    "entry-points.csv": "39888cdbefe1bf56d8ef63bcac87249def4c8a06261539d5ec8afcec89d0bf71",
+    "fetch-manifest.json": "a173b6f7c5a46d659d2424173dfe3ae31e32c26cb796304b89846953510e7911",
+    "files-scanned.csv": "fe76976976e2a77c37581f7075f8f322d5207e396e52255257617abff0d99936",
+    "review-metadata/source-validation.json": "3c3724fbcc1bdc8291ba89ede6d309352781eb00b323d89057e5f44d88856161"
+  },
+  "overlapping_gap_counts": {
+    "function_binding_unresolved": 259,
+    "historical_and_current_status_differ": 1,
+    "parameter_signature_unresolved": 2
+  },
+  "registrations": 3655,
+  "source_files_verified": 274,
+  "status": "passed",
+  "target_code_executed": false,
+  "unresolved_registration_rows": 262
+}

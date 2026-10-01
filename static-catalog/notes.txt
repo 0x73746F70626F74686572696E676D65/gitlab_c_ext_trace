@@ -4,6 +4,9 @@ Additive saved-row review columns are in review-metadata/README.md and
 review-metadata/rows.{csv,jsonl}. They record argument-origin evidence limits,
 existing call depth, missing nested formal identity, and unassessed local checks.
 This companion leaves the original inventory and historical validation intact.
+Full registration source identity and binding-status completeness are recorded
+separately in registration-provenance/README.md, with 3,655 registration rows
+and an explicit unresolved registration-evidence ledger.
 
 entry-argument-sites.csv is the requested call-argument table. Its JSONL
 companion contains the same rows, with argument_labels, slot_labels and
