@@ -18,6 +18,14 @@
     "joined_rows": {
       "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
       "sha256": "f5820ebca77c9f89d71249f998e7073a61fb1dd623bb9e89ed4eed6d631add41"
+    },
+    "caller_joined_rows": {
+      "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
+      "sha256": "e9c03a42ff25029d0907d1df684a97b382a3f04adf32812dab8895682f65b4de"
+    },
+    "caller_source_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/depth_limited_name_match/files_read.jsonl",
+      "sha256": "25d28fa9ae21b2c5e6249145cb4e85ba3a04160afb6b468026eebe5e15c80dbe"
     }
   },
   "gitlab_source": {
@@ -29,7 +37,9 @@
     "acquisition": "shallow_clone_at_latest_default_branch_commit",
     "referenced_files": 5,
     "referenced_files_matching_recorded_sha256": 5,
-    "recorded_locations_matching": 5
+    "recorded_locations_matching": 5,
+    "caller_files": 3,
+    "caller_files_matching_recorded_sha256": 3
   },
   "selection": "The 122 records already listed in saved-row-provenance/anonymous-filtered.csv.gz; saved auth is unauthenticated or conditional_anonymous.",
   "join": "Dereference each existing catalog_record and argument_catalog_record (header is record 1); require matching gem, method, argument index and slot. Preserve anonymous input order and multiplicity.",
@@ -42,14 +52,14 @@
     "call_depth": "hop_count"
   },
   "filtered_depth_field": "call_chain_depth is copied separately from filtered_matches.csv.",
-  "source_rule": "Read and manually parse the recorded call and zero-based argument expression. A literal expression is literal. For an identifier, find the last assignment to its exact name in the same method: params, request or a route-parameter RHS is params; no assignment is unresolved; any other assignment is local. Do not cross files. Method/block parameter declarations are not body assignments. The rule includes an assignment on the recorded call's line.",
+  "source_rule": "Preserve existing resolved labels. For each unresolved identifier with no assignment in its enclosing method, require a named method parameter and inspect only the immediately preceding frame in its saved call_chain. Use that formal parameter's positional index to read the actual caller argument. params, request or a route parameter is params; a literal is literal; an identifier assigned in the caller from params or request is params; otherwise local. An absent corresponding caller, including an unrecorded block invocation, remains unresolved. No repo search by method name or further caller/helper traversal.",
   "rows_in": 122,
   "rows_written": 122,
   "source_counts": {
-    "params": 0,
-    "local": 4,
+    "params": 72,
+    "local": 16,
     "literal": 0,
-    "unresolved": 118
+    "unresolved": 34
   },
   "blank_sources": 0,
   "validation": {
@@ -65,11 +75,19 @@
     "source_expressions_checked": 122,
     "same_method_assignments_checked": 122,
     "non_source_fields_unchanged": true,
-    "blank_sources": 0
+    "blank_sources": 0,
+    "caller_unresolved_rows_checked": 118,
+    "caller_method_parameter_rows": 84,
+    "caller_rows_relabelled": 84,
+    "caller_rows_remaining_unresolved": 34,
+    "existing_resolved_rows_unchanged": 4,
+    "maximum_caller_depth": 1,
+    "no_repo_method_name_search": true,
+    "no_unrecorded_helper_traversal": true
   },
   "output": {
     "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
-    "sha256": "e9c03a42ff25029d0907d1df684a97b382a3f04adf32812dab8895682f65b4de"
+    "sha256": "88d399ea69bea192a535a6580e11f65295578489626d526cad58abc00a286dd8"
   },
   "repository_scripts_executed": false,
   "target_code_executed": false,
@@ -84,7 +102,7 @@
       "source": "unresolved",
       "rows": 34,
       "assignment_line": null,
-      "reason": "value is a block parameter with no assignment to that name in safe_format."
+      "reason": "value is a transform_values block parameter, not a safe_format method formal. The block invocation is absent from the recorded chain, so its source remains unresolved."
     },
     {
       "file": "app/controllers/concerns/cycle_analytics_params.rb",
@@ -92,10 +110,26 @@
       "argument_index": "0",
       "expression": "field",
       "method": "CycleAnalyticsParams#to_utc_time",
-      "source": "unresolved",
+      "source": "params",
       "rows": 72,
       "assignment_line": null,
-      "reason": "field is a method parameter with no assignment to that name in to_utc_time."
+      "reason": "The recorded immediate caller passes params entries to field. Both compatible invocations agree on params; the saved chain does not distinguish their call sites.",
+      "method_parameter_index": 0,
+      "caller": {
+        "file": "app/controllers/concerns/cycle_analytics_params.rb",
+        "line": 51,
+        "method": "CycleAnalyticsParams#date_range",
+        "sha256": "bdde49685576e5919e3f2c0b8a4e75a2fc181e14adbdc21b8ed29be280581d6d",
+        "argument_index": 0,
+        "compatible_call_lines": [
+          53,
+          54
+        ],
+        "argument_expressions": [
+          "params[:created_after]",
+          "params[:created_before]"
+        ]
+      }
     },
     {
       "file": "app/controllers/concerns/parse_commit_date.rb",
@@ -103,10 +137,26 @@
       "argument_index": "0",
       "expression": "date",
       "method": "ParseCommitDate#convert_date_to_epoch",
-      "source": "unresolved",
+      "source": "local",
       "rows": 8,
       "assignment_line": null,
-      "reason": "date is a method parameter with no assignment to that name in convert_date_to_epoch."
+      "reason": "The immediate caller passes indexed helper-return expressions, with no params/request assignment to that name in this caller method. Both expressions use the otherwise-local rule. The context_commits_params helper is not followed.",
+      "method_parameter_index": 0,
+      "caller": {
+        "file": "app/controllers/projects/merge_requests_controller.rb",
+        "line": 188,
+        "method": "Projects::MergeRequestsController#context_commits",
+        "sha256": "bb2d06daf199907f22af8d8e8522c3dc6e7edd127f12594569536e9423f544b3",
+        "argument_index": 0,
+        "compatible_call_lines": [
+          194,
+          195
+        ],
+        "argument_expressions": [
+          "context_commits_params[:committed_before]",
+          "context_commits_params[:committed_after]"
+        ]
+      }
     },
     {
       "file": "lib/gitlab/string_range_marker.rb",
@@ -114,10 +164,24 @@
       "argument_index": "0",
       "expression": "rich_line",
       "method": "Gitlab::StringRangeMarker#initialize",
-      "source": "unresolved",
+      "source": "local",
       "rows": 4,
       "assignment_line": null,
-      "reason": "rich_line is a method parameter with no body assignment; @rich_line is a different name."
+      "reason": "rich_line is the enclosing initialize method's second formal. The recorded caller passes rich_line || line as super's second argument, which uses the otherwise-local rule. The CSV argument index remains the original native call argument index 0.",
+      "method_parameter_index": 1,
+      "caller": {
+        "file": "lib/gitlab/diff/inline_diff_marker.rb",
+        "line": 6,
+        "method": "Gitlab::Diff::InlineDiffMarker#initialize",
+        "sha256": "5a1b9c1e916d30b609441a906077dd7878641f44fb57851112aa2230df3e0dbf",
+        "argument_index": 1,
+        "compatible_call_lines": [
+          7
+        ],
+        "argument_expressions": [
+          "rich_line || line"
+        ]
+      }
     },
     {
       "file": "lib/gitlab/diff/char_diff.rb",
@@ -128,7 +192,8 @@
       "source": "local",
       "rows": 4,
       "assignment_line": 50,
-      "reason": "The method assigns text = ERB::Util.html_escape(text) at the recorded line. The same-method rule counts this assignment; its RHS is not params, request or a route parameter."
+      "reason": "Existing local label retained from 6012c88; the caller pass only selects previously unresolved rows. The original same-method evidence is text = ERB::Util.html_escape(text) at line 50."
     }
-  ]
+  ],
+  "caller_input_analysis_sha": "6012c88dafd8471452fc1d0312bbf0c294a4c5ab"
 }

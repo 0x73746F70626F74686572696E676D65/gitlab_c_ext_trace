@@ -25,32 +25,47 @@ latest default-branch commit,
 recorded full-file SHA-256 hashes from revision
 `9cfc39017e700a28649858f6a902117f9d5e8edd`; the recorded lines still match.
 
-Source annotations were filled from this same 122-row CSV at
-`d486bce53c7e4908c6f6c3367a0ad982c1576dbc`. The recorded calls and zero-based
-argument expressions were parsed by reading source text. A literal expression
-gets `literal`. For an identifier, the last assignment to its exact name in
-the same method gets `params` if its RHS is `params`, `request` or a route
-parameter, and `local` otherwise. An identifier with no body assignment in
-that method gets `unresolved`. No file boundary is crossed.
+The caller pass starts from this same CSV at
+`6012c88dafd8471452fc1d0312bbf0c294a4c5ab` and selects its **118 unresolved
+rows**. The four existing `local` rows are retained. For a method parameter,
+only the immediately preceding caller in the saved filtered row's `call_chain`
+is read. The formal's position identifies the corresponding caller argument;
+the catalog's native `argument_index` remains unchanged.
 
-All 122 argument expressions are identifiers. The 118 rows using `value`,
-`field`, `date` or `rich_line` have no assignment to that exact name in the
-enclosing method and get `unresolved`. Method and block parameter declarations
-are not body assignments; `@rich_line` is a different name from `rich_line`.
+Caller arguments from `params`, `request` or a route parameter get `params`.
+Literals get `literal`. A caller identifier assigned from `params` or
+`request` gets `params`; other caller expressions get `local`. A missing
+corresponding caller remains `unresolved`. No repository search by method name
+or further caller/helper traversal is used.
 
-The four `text` rows get `local`: `CharDiff#to_html` assigns
-`text = ERB::Util.html_escape(text)` on recorded line 50. The revised
-same-method rule includes this assignment on the call's line. This records the
-assignment's presence; the RHS argument is evaluated before its result is
-assigned. Per-location evidence is in `summary.json`.
+The caller review changes **84 rows**:
 
-Rows in: **122**. Rows written: **122**. Source counts: **params 0, local 4,
-literal 0, unresolved 118**. Blank sources: **0**.
+- **72 `field` rows become `params`**. The recorded `date_range` caller passes
+  `params[:created_after]` or `params[:created_before]` at lines 53/54.
+- **8 `date` rows become `local`**. The recorded `context_commits` caller passes
+  `context_commits_params[:committed_before]` or
+  `context_commits_params[:committed_after]` at lines 194/195. The helper that
+  returns `context_commits_params` is outside the one-caller scope.
+- **4 `rich_line` rows become `local`**. The recorded `InlineDiffMarker` caller
+  passes `rich_line || line` to `super` at line 7. `rich_line` is formal index 1
+  of the enclosing initializer, while the saved native argument index is 0.
 
-Verification checked complete anonymous coverage, every recorded catalog
-association, copied field equality, row order, retained multiplicity, unchanged
-input hashes and exact output read-back. Every non-source CSV field is unchanged.
-Source files were read as text; no
-repository analysis scripts or target code were run.
+The chain records method starts rather than exact invocation positions. Both
+compatible date invocations in each caller agree on their source category;
+the review retains both expressions without choosing an unsupported call site.
+
+**34 `value` rows remain unresolved**. `value` is a `transform_values` block
+parameter rather than a `safe_format` method formal. The block invocation is
+absent from the saved chain. The three inspected caller files match their
+original source-manifest hashes. Per-location expressions, indices, source
+hashes and reasons are in `summary.json`.
+
+Rows in: **122**. Rows written: **122**. Source counts: **params 72, local 16,
+literal 0, unresolved 34**. Blank sources: **0**.
+
+Verification checked all 118 selected rows against their saved chain references,
+complete row coverage, order and multiplicity, unchanged non-source fields,
+the four retained resolved labels, input hashes and exact output read-back.
+Source files were read as text; no repository scripts or target code ran.
 
 From this directory, `sha256sum -c SHA256SUMS` verifies the output artifacts.
