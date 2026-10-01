@@ -1,0 +1,6 @@
+{
+  "gitlab_url": "https://gitlab.com/gitlab-org/gitlab.git",
+  "gitlab_sha": "96f2351e807432d5551132ff5455b981fcb9c25c",
+  "default_branch": "master",
+  "lock_sha256": "50f6a3526e62de32194407ef07fb8e4ba657131aa09614f897914606e2c31098"
+}

@@ -1,0 +1,462 @@
+gem,file,line,reason
+amatch,ext/amatch_ext.c,222,site without a parsed enclosing function
+amatch,ext/amatch_ext.c,232,site without a parsed enclosing function
+amatch,ext/amatch_ext.c,340,site without a parsed enclosing function
+amatch,ext/amatch_ext.c,355,site without a parsed enclosing function
+amatch,ext/amatch_ext.c,470,site without a parsed enclosing function
+amatch,ext/amatch_ext.c,481,site without a parsed enclosing function
+bigdecimal,ext/bigdecimal/missing/dtoa.c,1383,site without a parsed enclosing function
+bigdecimal,ext/bigdecimal/missing/dtoa.c,1398,site without a parsed enclosing function
+bigdecimal,ext/bigdecimal/missing/dtoa.c,1402,site without a parsed enclosing function
+cbor,ext/cbor/packer.h,273,site without a parsed enclosing function
+cbor,ext/cbor/packer.h,292,site without a parsed enclosing function
+cbor,ext/cbor/packer.h,325,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/mips/ffi.c,220,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/mips/ffi.c,230,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/mips/ffi.c,237,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/mips/ffi.c,247,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/mips/ffi.c,252,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/mips/ffi.c,255,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,551,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,553,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,630,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,632,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,640,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,642,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,684,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,686,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,740,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,741,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,754,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,887,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,917,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,925,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,933,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,941,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,987,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,996,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,998,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1051,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1054,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1066,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1068,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1076,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1088,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1104,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1108,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1121,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1127,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/powerpc/ffi_linux64.c,1129,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/x86/ffiw64.c,320,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/x86/ffiw64.c,331,site without a parsed enclosing function
+ffi,ext/ffi_c/libffi/src/x86/ffiw64.c,353,site without a parsed enclosing function
+grpc,src/core/resolver/dns/c_ares/grpc_ares_wrapper.cc,873,site without a parsed enclosing function
+grpc,src/core/resolver/dns/c_ares/grpc_ares_wrapper.cc,882,site without a parsed enclosing function
+grpc,src/core/tsi/ssl_transport_security.cc,433,site without a parsed enclosing function
+grpc,src/core/util/uri.cc,385,site without a parsed enclosing function
+grpc,third_party/abseil-cpp/absl/flags/internal/flag.h,616,site without a parsed enclosing function
+grpc,third_party/abseil-cpp/absl/strings/cord.cc,405,site without a parsed enclosing function
+grpc,third_party/abseil-cpp/absl/synchronization/mutex.cc,155,site without a parsed enclosing function
+grpc,third_party/abseil-cpp/absl/synchronization/mutex.cc,156,site without a parsed enclosing function
+grpc,third_party/abseil-cpp/absl/synchronization/mutex.cc,162,site without a parsed enclosing function
+grpc,third_party/abseil-cpp/absl/synchronization/mutex.cc,163,site without a parsed enclosing function
+grpc,third_party/boringssl-with-bazel/crypto/x509/v3_alt.cc,134,site without a parsed enclosing function
+grpc,third_party/boringssl-with-bazel/crypto/x509/v3_alt.cc,136,site without a parsed enclosing function
+grpc,third_party/boringssl-with-bazel/crypto/x509/v3_alt.cc,139,site without a parsed enclosing function
+grpc,third_party/boringssl-with-bazel/crypto/x509/v3_crld.cc,457,site without a parsed enclosing function
+grpc,third_party/boringssl-with-bazel/crypto/x509/v3_info.cc,104,site without a parsed enclosing function
+grpc,third_party/boringssl-with-bazel/crypto/x509/v3_utl.cc,332,site without a parsed enclosing function
+grpc,third_party/boringssl-with-bazel/crypto/x509/v3_utl.cc,348,site without a parsed enclosing function
+grpc,third_party/boringssl-with-bazel/crypto/x509/v3_utl.cc,364,site without a parsed enclosing function
+grpc,third_party/boringssl-with-bazel/crypto/x509/v3_utl.cc,374,site without a parsed enclosing function
+grpc,third_party/xxhash/xxhash.h,4805,site without a parsed enclosing function
+grpc,third_party/xxhash/xxhash.h,4894,site without a parsed enclosing function
+grpc,third_party/zlib/inflate.c,758,site without a parsed enclosing function
+grpc,third_party/zlib/inflate.c,780,site without a parsed enclosing function
+grpc,third_party/zlib/inflate.c,920,site without a parsed enclosing function
+grpc,third_party/zlib/inflate.c,924,site without a parsed enclosing function
+grpc,third_party/zlib/inflate.c,948,site without a parsed enclosing function
+grpc,third_party/zlib/inflate.c,983,site without a parsed enclosing function
+grpc,third_party/zlib/inflate.c,1394,site without a parsed enclosing function
+grpc,third_party/zlib/inflate.c,1452,site without a parsed enclosing function
+grpc,third_party/zlib/inflate.c,1457,site without a parsed enclosing function
+msgpack,ext/msgpack/unpacker_class.c,171,site without a parsed enclosing function
+msgpack,ext/msgpack/unpacker_class.c,174,site without a parsed enclosing function
+msgpack,ext/msgpack/unpacker_class.c,177,site without a parsed enclosing function
+msgpack,ext/msgpack/unpacker_class.c,180,site without a parsed enclosing function
+msgpack,ext/msgpack/unpacker_class.c,183,site without a parsed enclosing function
+msgpack,ext/msgpack/unpacker_class.c,189,site without a parsed enclosing function
+nio4r,ext/libev/ev_select.c,124,site without a parsed enclosing function
+nio4r,ext/libev/ev_select.c,125,site without a parsed enclosing function
+oj,ext/oj/dump.c,231,site without a parsed enclosing function
+openssl,ext/openssl/ossl_bn.c,885,site without a parsed enclosing function
+openssl,ext/openssl/ossl_pkey.c,826,site without a parsed enclosing function
+openssl,ext/openssl/ossl_pkey.c,851,site without a parsed enclosing function
+pg,ext/pg_connection.c,3928,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/lib/stringinfo.h,172,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/lib/stringinfo.h,183,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/port.h,212,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/port.h,213,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/port.h,214,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/port.h,215,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/port.h,216,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/port.h,217,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/port.h,218,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/port.h,219,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,179,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,180,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,183,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,183,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,185,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,186,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,188,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,192,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,192,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,195,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,195,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,197,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,200,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,200,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,214,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,303,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,538,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/elog.h,539,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/palloc.h,148,site without a parsed enclosing function
+pg_query,ext/pg_query/include/postgres/utils/palloc.h,149,site without a parsed enclosing function
+pg_query,ext/pg_query/src_pl_plpgsql_src_pl_gram.c,2705,site without a parsed enclosing function
+pg_query,ext/pg_query/src_pl_plpgsql_src_pl_gram.c,2706,site without a parsed enclosing function
+pg_query,ext/pg_query/src_pl_plpgsql_src_pl_gram.c,3100,site without a parsed enclosing function
+pg_query,ext/pg_query/src_pl_plpgsql_src_pl_gram.c,3102,site without a parsed enclosing function
+pg_query,ext/pg_query/src_pl_plpgsql_src_pl_gram.c,4871,site without a parsed enclosing function
+pg_query,ext/pg_query/src_pl_plpgsql_src_pl_gram.c,4908,site without a parsed enclosing function
+pg_query,ext/pg_query/src_pl_plpgsql_src_pl_gram.c,4942,site without a parsed enclosing function
+pg_query,ext/pg_query/src_pl_plpgsql_src_pl_gram.c,4955,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,472,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,478,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,482,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,499,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,508,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,514,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,519,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,523,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,557,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,576,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,595,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,596,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,603,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,612,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,659,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,748,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,751,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,752,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,758,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,766,site without a parsed enclosing function
+racc,ext/racc/cparse/cparse.c,777,site without a parsed enclosing function
+rbtrace,ext/rbtrace.c,433,site without a parsed enclosing function
+rbtrace,ext/rbtrace.c,435,site without a parsed enclosing function
+rbtrace,ext/rbtrace.c,499,site without a parsed enclosing function
+rbtrace,ext/rbtrace.c,509,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/ntlmclient/utf8.h,695,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/ntlmclient/utf8.h,714,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,1140,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,1175,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,1185,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,10473,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,10681,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,10686,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,10691,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,10696,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,10697,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,10791,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,10800,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,10803,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_compile.c,11069,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_context.c,237,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_context.c,249,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_context.c,261,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_context.c,273,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_maketables.c,77,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,7217,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,7438,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,7443,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,7448,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,7453,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,7454,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,7964,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,7971,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,8186,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,8217,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/pcre2/pcre2_match.c,8218,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/zlib/inflate.c,758,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/zlib/inflate.c,780,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/zlib/inflate.c,920,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/zlib/inflate.c,924,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/zlib/inflate.c,948,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/zlib/inflate.c,983,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/zlib/inflate.c,1394,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/zlib/inflate.c,1452,site without a parsed enclosing function
+rugged,vendor/libgit2/deps/zlib/inflate.c,1457,site without a parsed enclosing function
+rugged,vendor/libgit2/src/libgit2/transports/winhttp.c,1377,site without a parsed enclosing function
+rugged,vendor/libgit2/src/util/hashmap.h,216,site without a parsed enclosing function
+rugged,vendor/libgit2/src/util/hashmap.h,221,site without a parsed enclosing function
+rugged,vendor/libgit2/src/util/hashmap.h,228,site without a parsed enclosing function
+rugged,vendor/libgit2/src/util/hashmap.h,230,site without a parsed enclosing function
+amatch,ext/amatch_ext.c,1782,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1784,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1785,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1793,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1795,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1796,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1804,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1806,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1807,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1808,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1809,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1810,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1811,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1812,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1813,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1821,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1823,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1824,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1831,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1833,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1834,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1841,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1843,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1844,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1851,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1853,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1854,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1861,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1863,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1864,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1865,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1866,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1873,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1875,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1876,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1877,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1878,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1879,"registration function is an unexpanded macro, missing, or ambiguous"
+amatch,ext/amatch_ext.c,1880,"registration function is an unexpanded macro, missing, or ambiguous"
+debug,ext/debug/debug.c,210,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,870,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,878,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,891,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,901,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,910,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,919,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,930,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,941,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,952,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,960,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,973,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,983,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,992,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1001,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1012,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1023,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1034,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1042,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1053,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1063,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1072,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1081,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1092,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/AbstractMemory.c,1103,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/Function.c,532,"registration function is an unexpanded macro, missing, or ambiguous"
+ffi,ext/ffi_c/Function.c,536,"registration function is an unexpanded macro, missing, or ambiguous"
+gpgme,ext/gpgme/gpgme_n.c,3077,"registration function is an unexpanded macro, missing, or ambiguous"
+gpgme,ext/gpgme/gpgme_n.c,3079,"registration function is an unexpanded macro, missing, or ambiguous"
+gpgme,ext/gpgme/gpgme_n.c,3081,"registration function is an unexpanded macro, missing, or ambiguous"
+gpgme,ext/gpgme/gpgme_n.c,3083,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1223,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1224,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1228,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1229,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1236,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1237,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1238,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1239,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1240,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1241,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1244,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1245,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1246,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1247,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1248,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1249,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1250,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1251,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1259,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1261,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1264,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1266,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1267,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1269,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1270,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1278,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1279,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1283,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1287,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1288,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1289,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1290,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1291,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1292,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1293,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1294,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_bn.c,1340,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_pkey_dh.c,446,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_pkey_dh.c,447,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_pkey_dsa.c,399,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_pkey_dsa.c,400,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_pkey_rsa.c,618,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_pkey_rsa.c,619,"registration function is an unexpanded macro, missing, or ambiguous"
+openssl,ext/openssl/ossl_pkey_rsa.c,620,"registration function is an unexpanded macro, missing, or ambiguous"
+pg,ext/pg_connection.c,4867,"registration function is an unexpanded macro, missing, or ambiguous"
+pg,ext/pg_connection.c,4869,"registration function is an unexpanded macro, missing, or ambiguous"
+pg,ext/pg_connection.c,4885,"registration function is an unexpanded macro, missing, or ambiguous"
+pg,ext/pg_connection.c,4887,"registration function is an unexpanded macro, missing, or ambiguous"
+pg,ext/pg_connection.c,4889,"registration function is an unexpanded macro, missing, or ambiguous"
+pg,ext/pg_connection.c,4891,"registration function is an unexpanded macro, missing, or ambiguous"
+puma,ext/puma_http11/mini_ssl.c,850,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2775,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2777,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2779,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2781,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2784,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2786,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2788,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2790,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2792,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2794,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2796,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2798,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2800,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2802,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2804,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2806,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2808,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2810,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2812,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2814,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2816,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2818,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2820,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2822,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2824,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2827,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2829,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2831,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2833,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2835,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2837,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2840,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2842,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2844,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2846,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2847,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2849,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2851,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2853,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2855,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2857,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2859,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2861,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2863,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2865,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2867,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2869,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2870,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2871,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2873,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2875,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2876,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2878,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2880,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2882,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2884,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2886,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2888,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2890,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2892,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2894,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2896,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2898,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2900,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2902,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2904,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2906,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2908,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2911,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2913,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2915,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2917,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2919,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2920,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2921,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2922,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2923,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2925,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2927,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2929,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2931,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2933,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2935,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2937,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2939,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2941,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2943,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2947,"registration function is an unexpanded macro, missing, or ambiguous"
+re2,ext/re2/re2.cc,2950,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1645,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1646,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1648,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1649,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1651,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1653,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1655,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1656,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1658,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1659,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1660,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1662,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1664,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1665,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1667,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1668,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1670,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1671,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1672,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1676,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1677,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1678,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1682,"registration function is an unexpanded macro, missing, or ambiguous"
+ruby-magic,ext/magic/ruby-magic.c,1683,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2030,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2032,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2034,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2041,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2042,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2067,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2068,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2071,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2074,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2100,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2101,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2102,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2103,"registration function is an unexpanded macro, missing, or ambiguous"
+stringio,ext/stringio/stringio.c,2104,"registration function is an unexpanded macro, missing, or ambiguous"
+vmstat,ext/vmstat/vmstat.c,23,"registration function is an unexpanded macro, missing, or ambiguous"
+vmstat,ext/vmstat/vmstat.c,28,"registration function is an unexpanded macro, missing, or ambiguous"
+vmstat,ext/vmstat/vmstat.c,33,"registration function is an unexpanded macro, missing, or ambiguous"
+zlib,ext/zlib/zlib.c,4949,"registration function is an unexpanded macro, missing, or ambiguous"
+zlib,ext/zlib/zlib.c,4950,"registration function is an unexpanded macro, missing, or ambiguous"
+zlib,ext/zlib/zlib.c,4951,"registration function is an unexpanded macro, missing, or ambiguous"
+zlib,ext/zlib/zlib.c,4952,"registration function is an unexpanded macro, missing, or ambiguous"
+zstd-ruby,ext/zstdruby/streaming_compress.c,233,"registration function is an unexpanded macro, missing, or ambiguous"
+zstd-ruby,ext/zstdruby/streaming_compress.c,234,"registration function is an unexpanded macro, missing, or ambiguous"
+zstd-ruby,ext/zstdruby/streaming_compress.c,235,"registration function is an unexpanded macro, missing, or ambiguous"
+zstd-ruby,ext/zstdruby/streaming_compress.c,236,"registration function is an unexpanded macro, missing, or ambiguous"
