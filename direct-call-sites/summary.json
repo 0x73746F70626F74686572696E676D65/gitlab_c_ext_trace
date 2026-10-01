@@ -275,5 +275,14 @@
     "line",
     "in_inventory",
     "line_text"
+  ],
+  "inventory_row_source_lines": [
+    "      Date.parse(permitted_params[:date])",
+    "    view_context.safe_join([ERB::Util.html_escape(label.title), \" promoted to \", safe_link, \".\"])",
+    "    view_context.safe_join([ERB::Util.html_escape(milestone.title), \" promoted to \", safe_link, \".\"])",
+    "    title = Nokogiri::XML::Node.new('title', doc)",
+    "          Base64.strict_encode64(Zlib::Deflate.deflate(checkpoint.to_json, COMPRESS_LEVEL))",
+    "            Base64.strict_encode64(Zlib::Deflate.deflate(checkpoint_data.to_json, COMPRESS_LEVEL))",
+    "            ::Gitlab::Json.parse(Zlib::Inflate.inflate(Base64.strict_decode64(compressed_data)))"
   ]
 }
