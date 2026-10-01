@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "matches_verified": 1712629,
+  "inventory_records_verified": 50424,
+  "unresolved_stops_verified": 895714,
+  "matches_by_depth": {
+    "0": 198336,
+    "1": 324997,
+    "2": 365748,
+    "3": 395196,
+    "4": 428352
+  },
+  "target_code_executed": false
+}
