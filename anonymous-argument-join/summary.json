@@ -1,0 +1,69 @@
+{
+  "analysis_repository": "/workspace/gitlab_c_ext_trace",
+  "branch": "work",
+  "input_analysis_sha": "ec0048aeb13302abb0d7a11b761d2fbba002028a",
+  "inputs": {
+    "anonymous_filtered": {
+      "path": "/workspace/gitlab_c_ext_trace/saved-row-provenance/anonymous-filtered.csv.gz",
+      "sha256": "61c210a97ba02a8c70075bcb5a913186f1d87e4957cbcd3af5ac1287025f55b0"
+    },
+    "filtered_matches": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/filtered_matches.csv",
+      "sha256": "10bd54ab1a5bc3fc8f1ca2cf44ea8617631f44f0b70b0c2df5bdcf708769210c"
+    },
+    "call_argument_catalog": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+    }
+  },
+  "gitlab_source": {
+    "path": "/workspace/gitlab",
+    "remote": "https://gitlab.com/gitlab-org/gitlab.git",
+    "default_branch": "master",
+    "checkout_sha": "90f38934040c4790f79b9aada22b50c1597f42dc",
+    "recorded_source_revision": "9cfc39017e700a28649858f6a902117f9d5e8edd",
+    "acquisition": "shallow_clone_at_latest_default_branch_commit",
+    "referenced_files": 5,
+    "referenced_files_matching_recorded_sha256": 5,
+    "recorded_locations_matching": 5
+  },
+  "selection": "The 122 records already listed in saved-row-provenance/anonymous-filtered.csv.gz; saved auth is unauthenticated or conditional_anonymous.",
+  "join": "Dereference each existing catalog_record and argument_catalog_record (header is record 1); require matching gem, method, argument index and slot. Preserve anonymous input order and multiplicity.",
+  "catalog_fields": {
+    "gem": "gem",
+    "method": "ruby_method_name",
+    "argument_index": "argument_index",
+    "stored_label": "argument_label",
+    "slot": "slot",
+    "call_depth": "hop_count"
+  },
+  "filtered_depth_field": "call_chain_depth is copied separately from filtered_matches.csv.",
+  "source_rule": "Read the recorded file and line. Label the last preceding explicit assignment of the argument as params, local, literal or unresolved; leave source blank when none is visible. Do not propagate origins through other calls. Formal and block-parameter bindings do not establish an explicit assignment.",
+  "rows_in": 122,
+  "rows_written": 122,
+  "source_counts": {
+    "params": 0,
+    "local": 0,
+    "literal": 0,
+    "unresolved": 0
+  },
+  "blank_sources": 122,
+  "blank_source_reason": "All five argument names are method or block parameters without a preceding explicit assignment in their scope. The assignment at CharDiff line 50 is the result of the recorded call, after its argument is evaluated.",
+  "validation": {
+    "anonymous_selection_coverage": 122,
+    "recorded_catalog_references_checked": 122,
+    "matching_gem_method_argument_and_slot": 122,
+    "copied_fields_checked": 122,
+    "input_order_preserved": true,
+    "duplicate_matches_preserved": true,
+    "additional_rows": 0,
+    "output_read_back_matches": true,
+    "input_hashes_rechecked": true
+  },
+  "output": {
+    "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
+    "sha256": "f5820ebca77c9f89d71249f998e7073a61fb1dd623bb9e89ed4eed6d631add41"
+  },
+  "repository_scripts_executed": false,
+  "target_code_executed": false
+}
