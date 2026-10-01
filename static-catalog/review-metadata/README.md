@@ -36,6 +36,32 @@ Column meanings:
   native source cache. These annotations are supported by saved metadata and
   analyzer semantics, not a new independent source review.
 
+`unresolved-rows.jsonl` is an explicit open-evidence ledger for all 353 rows,
+joined by original line and row hash. Gap counts overlap: local-check assessment,
+value preservation and fresh source reinspection are open for all rows; exact
+positional extraction is open for 166; per-hop formal identity is open for 184.
+These are documentation gaps, not vulnerability findings. No row is silently
+promoted to a proven flow when one gap closes. Historical unresolved-hop records
+remain separate and unchanged (168,263 records, a different denominator).
+
+Evidence needed to close a gap:
+
+- Local checks: pin the matching source digest, cite the enclosing function and
+  check locations, and document what was checked and what remains unknown about
+  applicability. A syntactically nearby check alone does not establish admission.
+- Value preservation: review assignments and transformations in the bounded
+  source context; retain uncertainty for aliases, returns and missing bodies.
+- Exact positional extraction: cite the extraction expression and position with
+  its source identity; do not infer it from a binding name alone.
+- Per-hop formal identity: cite each helper declaration and corresponding actual
+  expression, keeping original Ruby position separate from local formal names.
+- Source reinspection: recover digest-matched source files and record the scope
+  and outcome of the static review. Saved checksums alone do not close this gap.
+
+This ledger was added as a second bounded batch after verifying remote `work`
+at 3d70354f44a92c0b9c9b47799773610b44e72f96. It adds no registrations, sites,
+routes, runtime claims, or resolved-source claims.
+
 Run from the repository root:
 
 ```sh

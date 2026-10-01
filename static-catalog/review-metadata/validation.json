@@ -30,9 +30,17 @@
     "scripts/call_argument_inventory.py": "d861daed7d8b89fa29b6ec7c0453bf4f469154eb6cd7134a8767e6817f385135",
     "summary.json": "50009a75fe191112610e76c04ac31d3489457d355f980dfd0c13bd0830375aa9"
   },
+  "overlapping_gap_counts": {
+    "exact_positional_extraction_not_serialized": 166,
+    "local_checks_not_assessed": 353,
+    "per_hop_formal_identity_not_serialized": 184,
+    "source_reinspection_not_performed": 353,
+    "value_preservation_not_established": 353
+  },
   "root_joins_checked": 353,
   "rows": 353,
   "source_reinspection": false,
   "status": "passed_saved_metadata_checks",
-  "target_code_executed": false
+  "target_code_executed": false,
+  "unresolved_rows": 353
 }

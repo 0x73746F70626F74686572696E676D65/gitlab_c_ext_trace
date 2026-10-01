@@ -78,7 +78,24 @@ def generate(catalog=CATALOG):
                           for key in ('argument_origin', 'call_depth', 'nested_parameter_identity', 'local_checks')},
                   source_reinspection=False, target_code_executed=False,
                   full_source_validator='blocked: source cache and tree_sitter dependency absent')
+    unresolved = []
+    for row in result:
+        gaps = ['local_checks_not_assessed', 'value_preservation_not_established',
+                'source_reinspection_not_performed']
+        if row['argument_origin'] != 'fixed_arity_root_formal':
+            gaps.append('exact_positional_extraction_not_serialized')
+        if row['call_depth']:
+            gaps.append('per_hop_formal_identity_not_serialized')
+        unresolved.append(dict(inventory_line=row['inventory_line'],
+                               inventory_row_sha256=row['inventory_row_sha256'],
+                               inventory_evidence=row['inventory_evidence'],
+                               status='open_evidence_gap', gaps=gaps,
+                               assessment='unknown_not_absent_or_unsafe'))
+    report['unresolved_rows'] = len(unresolved)
+    report['overlapping_gap_counts'] = dict(sorted(collections.Counter(
+        gap for row in unresolved for gap in row['gaps']).items()))
     return {'rows.jsonl': jsonl, 'rows.csv': output.getvalue(),
+            'unresolved-rows.jsonl': ''.join(json.dumps(r, sort_keys=True) + '\n' for r in unresolved),
             'validation.json': json.dumps(report, indent=2, sort_keys=True) + '\n'}
 
 

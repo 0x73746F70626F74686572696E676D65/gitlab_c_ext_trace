@@ -1,6 +1,7 @@
 import copy
+import json
 import unittest
-from build import annotate
+from build import annotate, generate
 
 
 class EvidenceLimits(unittest.TestCase):
@@ -27,6 +28,18 @@ class EvidenceLimits(unittest.TestCase):
             row.update(change)
             with self.assertRaises(AssertionError):
                 annotate(row, self.root, 1, 1, b'fixture')
+
+    def test_every_saved_row_has_an_explicit_open_gap_record(self):
+        outputs = generate()
+        rows = [json.loads(line) for line in outputs['rows.jsonl'].splitlines()]
+        gaps = [json.loads(line) for line in outputs['unresolved-rows.jsonl'].splitlines()]
+        self.assertEqual(len(rows), len(gaps))
+        for row, gap in zip(rows, gaps):
+            self.assertEqual(row['inventory_row_sha256'], gap['inventory_row_sha256'])
+            self.assertEqual(row['inventory_line'], gap['inventory_line'])
+            self.assertEqual(gap['status'], 'open_evidence_gap')
+            self.assertIn('local_checks_not_assessed', gap['gaps'])
+            self.assertEqual('per_hop_formal_identity_not_serialized' in gap['gaps'], row['call_depth'] > 0)
 
 
 if __name__ == '__main__':
