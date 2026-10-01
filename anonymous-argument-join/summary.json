@@ -38,6 +38,10 @@
     "native_source_manifest": {
       "path": "/workspace/gitlab_c_ext_trace/static-catalog/argument-inventory-sources.json",
       "sha256": "4f48d7b7215a080550f3802524fb82e4f20803f17c386bcd475d0aba51726988"
+    },
+    "block_joined_rows": {
+      "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
+      "sha256": "75cc501c46ea9a9e19324c0d6bfa037aff07bed46da9079587500c4cde978935"
     }
   },
   "gitlab_source": {
@@ -64,14 +68,14 @@
     "call_depth": "hop_count"
   },
   "filtered_depth_field": "call_chain_depth is copied separately from filtered_matches.csv.",
-  "source_rule": "Preserve existing resolved labels. For each unresolved identifier with no assignment in its enclosing method, require a named method parameter and inspect only the immediately preceding frame in its saved call_chain. Use that formal parameter's positional index to read the actual caller argument. params, request or a route parameter is params; a literal is literal; an identifier assigned in the caller from params or request is params; otherwise local. An absent corresponding caller, including an unrecorded block invocation, remains unresolved. No repo search by method name or further caller/helper traversal.",
+  "source_rule": "Preserve prior resolved labels. For each remaining unresolved row, read only the recorded file and line and identify the inline block or yield containing the gem call. At the catalogued argument index, params, request, a route parameter or an identifier assigned from them in the enclosing method is params; a literal is literal; another identifier is local. If the block invocation is absent from that file, retain unresolved. No repo method-name search or external helper traversal.",
   "rows_in": 122,
   "rows_written": 122,
   "source_counts": {
     "params": 72,
-    "local": 16,
+    "local": 50,
     "literal": 0,
-    "unresolved": 34
+    "unresolved": 0
   },
   "blank_sources": 0,
   "validation": {
@@ -99,18 +103,27 @@
     "params_catalog_references_checked": 72,
     "direct_registered_function_rows": 72,
     "native_source_files_verified": 1,
-    "existing_columns_unchanged": true,
-    "source_labels_unchanged": true,
     "appended_columns": [
       "same_value",
       "replaced"
     ],
     "non_params_new_cells_blank": 50,
-    "params_new_cells_filled": 72
+    "params_new_cells_filled": 72,
+    "operand_existing_columns_unchanged": true,
+    "operand_source_labels_unchanged": true,
+    "block_rows_checked": 34,
+    "block_rows_relabelled": 34,
+    "block_rows_remaining_unresolved": 0,
+    "block_non_source_fields_unchanged": true,
+    "block_previously_resolved_rows_unchanged": 88,
+    "block_recorded_files_read": 1,
+    "block_source_file_hash_matches_recorded": true,
+    "block_no_repo_method_name_search": true,
+    "block_operand_annotations_unchanged": true
   },
   "output": {
     "path": "/workspace/gitlab_c_ext_trace/anonymous-argument-join/rows.csv",
-    "sha256": "75cc501c46ea9a9e19324c0d6bfa037aff07bed46da9079587500c4cde978935"
+    "sha256": "0a12109a12c00c4090b7465b1c7e44b6d0e3ed2ade6984eeb038f2a3722c1792"
   },
   "repository_scripts_executed": false,
   "target_code_executed": false,
@@ -122,10 +135,28 @@
       "argument_index": "0",
       "expression": "value",
       "method": "SafeFormatHelper#safe_format",
-      "source": "unresolved",
+      "source": "local",
       "rows": 34,
       "assignment_line": null,
-      "reason": "value is a transform_values block parameter, not a safe_format method formal. The block invocation is absent from the recorded chain, so its source remains unresolved."
+      "reason": "At the recorded line, args.transform_values has an inline block with parameter value. The block's ERB::Util.html_escape call explicitly passes value at catalogued argument index 0. value is an identifier with no params/request/route-parameter assignment in safe_format, so the file-local block rule labels it local.",
+      "block_review": {
+        "file": "app/helpers/safe_format_helper.rb",
+        "line": 29,
+        "source_sha256": "9b9bb532eb64dff3746b1fdc8312725630f4c2800aecc127f423f68862f71a68",
+        "enclosing_method": "SafeFormatHelper#safe_format",
+        "enclosing_method_start_line": 23,
+        "enclosing_method_end_line": 31,
+        "inline_block_call": "args.transform_values { |value| ERB::Util.html_escape(value) }",
+        "block_parameter": "value",
+        "block_parameter_index": 0,
+        "gem_call": "ERB::Util.html_escape(value)",
+        "argument_index": 0,
+        "argument_expression": "value",
+        "assignment_from_params_request_or_route_parameter": false,
+        "source": "local",
+        "rows": 34,
+        "scope": "The label classifies the visible block-local identifier passed to the gem call. No upstream origin of the hash values or runtime contents is inferred."
+      }
     },
     {
       "file": "app/controllers/concerns/cycle_analytics_params.rb",
@@ -296,5 +327,13 @@
       "prior_assignment_condition": "case 0 of switch(argc)",
       "nested": false
     }
-  ]
+  ],
+  "block_input_analysis_sha": "a3cf3349866a49fa0ba9828c6a7c771c273d200d",
+  "block_rows": 34,
+  "block_source_counts": {
+    "params": 0,
+    "local": 34,
+    "literal": 0,
+    "unresolved": 0
+  }
 }

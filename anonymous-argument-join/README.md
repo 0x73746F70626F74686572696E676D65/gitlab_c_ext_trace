@@ -54,14 +54,33 @@ The chain records method starts rather than exact invocation positions. Both
 compatible date invocations in each caller agree on their source category;
 the review retains both expressions without choosing an unsupported call site.
 
-**34 `value` rows remain unresolved**. `value` is a `transform_values` block
-parameter rather than a `safe_format` method formal. The block invocation is
-absent from the saved chain. The three inspected caller files match their
-original source-manifest hashes. Per-location expressions, indices, source
-hashes and reasons are in `summary.json`.
+After that recorded-chain pass, **34 `value` rows remained unresolved**:
+`value` is a block parameter rather than a `safe_format` method formal, and
+the block invocation was absent from the saved chain. The three inspected
+caller files match their original source-manifest hashes.
 
-Rows in: **122**. Rows written: **122**. Source counts: **params 72, local 16,
-literal 0, unresolved 34**. Blank sources: **0**.
+The file-local block pass starts at
+`a3cf3349866a49fa0ba9828c6a7c771c273d200d` and relabels those **34 rows as
+`local`**. Their recorded file contains the inline invocation at line 29:
+
+```ruby
+args.transform_values { |value| ERB::Util.html_escape(value) }
+```
+
+The gem call passes `value` at catalogued argument index 0. It is a block-local
+identifier, with no assignment from `params`, `request` or a route parameter
+in `safe_format`. The block and gem call are visible in this same file, so the
+new rule's identifier case applies. No upstream origin of the hash values or
+runtime contents is inferred. The file still matches its recorded source hash;
+no repository search by method name or external helper traversal was used.
+
+Counts for the **34 selected rows**: **params 0, local 34, literal 0,
+unresolved 0**. The other **88 source labels** and every other CSV field,
+including `same_value` and `replaced`, are unchanged. Per-location expressions,
+indices, source hashes and reasons are in `summary.json`.
+
+Rows in: **122**. Rows written: **122**. Overall source counts: **params 72,
+local 50, literal 0, unresolved 0**. Blank sources: **0**.
 
 The operand pass starts at `9289a98b823242e615d18e31eace977680024753` and adds
 `same_value` and `replaced` for the **72 `params` rows**. Other rows have blank
@@ -97,6 +116,8 @@ catalog references, operand expressions and conditional assignments.
 Verification checked the 72 catalog associations, function/site containment,
 operand and assignment evidence, preserved row order and multiplicity, unchanged
 existing columns and source labels, input hashes and exact output read-back.
-No repository scripts, target code or helper/macro implementations ran.
+The later block pass verified exactly 34 source-cell changes, retained all 122
+rows and checked all other fields against its input. No repository scripts,
+target code or helper/macro implementations ran.
 
 From this directory, `sha256sum -c SHA256SUMS` verifies the output artifacts.
