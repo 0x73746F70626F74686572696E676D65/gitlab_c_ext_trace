@@ -1,0 +1,32 @@
+{
+  "deterministic_regeneration": "passed",
+  "existing_metadata_tests": 4,
+  "existing_registration_tests": 6,
+  "filter_integrity": {
+    "all_original_fields_preserved": true,
+    "auth_labels_unchanged": true,
+    "entrypoints_rewalked": false,
+    "input_rows_verified": 1712629,
+    "kept_rows_verified": 392,
+    "partition_and_reason_counts_verified": true,
+    "status": "passed",
+    "target_code_executed": false
+  },
+  "provenance_tests": 4,
+  "root_checksums": "48 passed",
+  "target_code_executed": false,
+  "walk_integrity": {
+    "inventory_records_verified": 50424,
+    "matches_by_depth": {
+      "0": 198336,
+      "1": 324997,
+      "2": 365748,
+      "3": 395196,
+      "4": 428352
+    },
+    "matches_verified": 1712629,
+    "status": "passed",
+    "target_code_executed": false,
+    "unresolved_stops_verified": 895714
+  }
+}

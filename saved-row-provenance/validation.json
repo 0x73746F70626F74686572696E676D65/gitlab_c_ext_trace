@@ -1,0 +1,32 @@
+{
+  "input_sha256": {
+    "depth_limited_name_match/files_read.jsonl": "25d28fa9ae21b2c5e6249145cb4e85ba3a04160afb6b468026eebe5e15c80dbe",
+    "depth_limited_name_match/summary.json": "6564c83c2fe585f73f21f5adfb1cf5e8122322d68aced730748579418fb7df2e",
+    "depth_limited_name_match/unresolved_stops.jsonl.gz": "79687a4ead9ef1fd83222b815bc4e86100dbaeb7c13f4bd84cda319dbe06fdbd",
+    "gem_receiver_identifier_filter/filtered_matches.csv": "10bd54ab1a5bc3fc8f1ca2cf44ea8617631f44f0b70b0c2df5bdcf708769210c",
+    "gem_receiver_identifier_filter/source_files_read.jsonl": "f137407feaf11e8c65dd1b37c1a08ce02858d23632ba759f1da3c8b9c3d0e166",
+    "gem_receiver_identifier_filter/summary.json": "2fd244a1b0ed7d4a0be419322b2a799eef647ec7971b14500d9272811e9f517f",
+    "static-catalog/entry-argument-sites.csv": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+  },
+  "new_call_paths_or_native_source_links": false,
+  "outputs": {
+    "anonymous-filtered.csv.gz": {
+      "rows": 122,
+      "sha256": "fe552681c8dde3dc5eeb4bd455aefef487965622ea7f44e20d9e17673e46a738",
+      "statuses": {
+        "recorded_reference_and_manifest_hash": 122
+      }
+    },
+    "unresolved-stops.csv.gz": {
+      "rows": 895714,
+      "sha256": "8679389a89688082c5dc7c97d19f854607887f28a03fd419af58281db07c247a",
+      "statuses": {
+        "recorded_reference_and_manifest_hash": 895714
+      }
+    }
+  },
+  "source_bytes_reverified": false,
+  "source_line_ranges_reverified": false,
+  "status": "passed_artifact_and_recorded_manifest_checks",
+  "target_code_executed": false
+}
