@@ -20,6 +20,7 @@ FIELDS = ['catalog_file', 'catalog_record', 'catalog_record_sha256', 'catalog_sh
           'argument_catalog_file', 'argument_catalog_record', 'argument_catalog_sha256',
           'argument_catalog_reference_status',
           'file', 'line', 'recorded_source_sha256', 'source_catalog', 'source_catalog_sha256',
+          'verified_source_sha256', 'source_verification_receipt', 'source_verification_receipt_sha256',
           'recorded_source_revision', 'provenance_status', 'source_verification', 'unresolved_reason']
 
 
@@ -50,6 +51,21 @@ def reference(row, number, row_hash, catalog, metadata, manifest):
         gaps.append('positive_source_line_not_recorded')
     if not source_hash:
         gaps.append('source_hash_not_in_recorded_manifest')
+    status = 'unresolved' if gaps else 'recorded_reference_and_manifest_hash'
+    verification = 'manifest_only_source_checkout_unavailable'
+    verified_hash = ''
+    if 'verified_sources' in metadata:
+        proof = metadata['verified_sources'].get(file)
+        if (proof and not gaps and proof['status'] == 'source_bytes_and_line_range_verified'
+                and proof['actual_source_sha256'] == source_hash
+                and int(line) <= proof['source_line_count']):
+            status = 'source_bytes_and_line_range_verified'
+            verification = 'verified_at_exact_revision_see_receipt'
+            verified_hash = proof['actual_source_sha256']
+        else:
+            status = 'unresolved'
+            verification = 'source_verification_receipt_does_not_support_reference'
+            gaps.append('source_bytes_or_line_range_not_verified')
     return dict(catalog_file=catalog, catalog_record=number, catalog_record_sha256=row_hash,
                 catalog_sha256=metadata['catalog_sha256'],
                 argument_catalog_file=metadata.get('argument_catalog_file', ''),
@@ -60,14 +76,29 @@ def reference(row, number, row_hash, catalog, metadata, manifest):
                 file=file,
                 line=int(line) if valid_line else '', recorded_source_sha256=source_hash,
                 source_catalog=SOURCES[catalog], source_catalog_sha256=metadata['source_catalog_sha256'],
+                verified_source_sha256=verified_hash,
+                source_verification_receipt=metadata.get('source_verification_receipt', ''),
+                source_verification_receipt_sha256=metadata.get('source_verification_receipt_sha256', ''),
                 recorded_source_revision=metadata['revision'],
-                provenance_status='unresolved' if gaps else 'recorded_reference_and_manifest_hash',
-                source_verification='manifest_only_source_checkout_unavailable',
+                provenance_status=status,
+                source_verification=verification,
                 unresolved_reason=';'.join(gaps))
 
 
 def generate(destination, root=ROOT):
     counts, inputs = {}, {}
+    receipt_path = root / 'saved-row-provenance/ruby-source-verification.json'
+    verification = None
+    if receipt_path.is_file():
+        verification = json.loads(receipt_path.read_text())
+        file_report = root / 'saved-row-provenance/ruby-source-files.jsonl'
+        assert digest(file_report) == verification['file_report_sha256']
+        verified_sources = {row['file']: row for row in map(json.loads, file_report.read_text().splitlines())}
+        assert len(verified_sources) == verification['files']
+        for name, expected_hash in verification['input_sha256'].items():
+            assert digest(root / name) == expected_hash, name
+        for path in (receipt_path, file_report):
+            inputs[str(path.relative_to(root))] = digest(path)
     for catalog, source_manifest in SOURCES.items():
         directory = (root / catalog).parent
         expected = {name: hash_ for hash_, name in
@@ -78,6 +109,11 @@ def generate(destination, root=ROOT):
         summary = json.loads((directory / 'summary.json').read_text())
         metadata = dict(catalog_sha256=inputs[catalog], source_catalog_sha256=inputs[source_manifest],
                         revision=summary['gitlab_sha'])
+        if verification:
+            assert verification['revision'] == metadata['revision']
+            metadata.update(verified_sources=verified_sources,
+                            source_verification_receipt=str(receipt_path.relative_to(root)),
+                            source_verification_receipt_sha256=digest(receipt_path))
         if catalog == FILTER:
             argument_input = next(item for item in summary['inputs']
                                   if item['repository_path'] == 'static-catalog/entry-argument-sites.csv')
@@ -116,9 +152,11 @@ def generate(destination, root=ROOT):
         assert sum(counter.values()) == expected_rows
         counts[output.name] = dict(rows=sum(counter.values()), statuses=dict(counter),
                                    sha256=digest(output))
-    result = dict(status='passed_artifact_and_recorded_manifest_checks', outputs=counts,
-                  input_sha256=inputs, source_bytes_reverified=False,
-                  source_line_ranges_reverified=False, target_code_executed=False,
+    all_verified = all(set(c['statuses']) == {'source_bytes_and_line_range_verified'} for c in counts.values())
+    result = dict(status=('passed_artifact_and_source_receipt_checks' if verification else
+                          'passed_artifact_and_recorded_manifest_checks'), outputs=counts,
+                  input_sha256=inputs, source_bytes_reverified=all_verified,
+                  source_line_ranges_reverified=all_verified, target_code_executed=False,
                   new_call_paths_or_native_source_links=False)
     (destination / 'validation.json').write_text(json.dumps(result, sort_keys=True, indent=2) + '\n')
     return result

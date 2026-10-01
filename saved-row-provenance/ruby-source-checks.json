@@ -1,0 +1,54 @@
+{
+  "base_commit": "72fcc25daf9f30206722322f953a747afe89d005",
+  "deterministic_regeneration": "passed_all_current_provenance_builders_and_source_receipt",
+  "filter_validator": {
+    "all_original_fields_preserved": true,
+    "auth_labels_unchanged": true,
+    "entrypoints_rewalked": false,
+    "input_rows_verified": 1712629,
+    "kept_rows_verified": 392,
+    "partition_and_reason_counts_verified": true,
+    "status": "passed",
+    "target_code_executed": false
+  },
+  "native_source_validator": {
+    "collision_alternatives_checked": 31,
+    "csv_jsonl_agreement": true,
+    "inventory_rows_checked": 353,
+    "parser_tests": 41,
+    "registrations_checked": 3655,
+    "requested_deduplication_key_verified": true,
+    "restored_locked_package_variants": 70,
+    "source_digests_verified": 5773,
+    "status": "passed",
+    "target_code_executed": false,
+    "unresolved_source_references_checked": 168263
+  },
+  "root_checksums_passed": 48,
+  "ruby_files_verified": 4661,
+  "ruby_references_verified": 895836,
+  "ruby_source_verification": "passed_exact_revision_digest_and_line_ranges",
+  "source_semantics_reviewed": false,
+  "static_catalog_checksums_passed": 58,
+  "target_code_executed": false,
+  "tests": {
+    "metadata": 4,
+    "native_parser": 41,
+    "registration_provenance": 6,
+    "saved_row_provenance": 12
+  },
+  "walk_validator": {
+    "inventory_records_verified": 50424,
+    "matches_by_depth": {
+      "0": 198336,
+      "1": 324997,
+      "2": 365748,
+      "3": 395196,
+      "4": 428352
+    },
+    "matches_verified": 1712629,
+    "status": "passed",
+    "target_code_executed": false,
+    "unresolved_stops_verified": 895714
+  }
+}

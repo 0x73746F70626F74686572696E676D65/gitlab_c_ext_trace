@@ -48,15 +48,18 @@ interchangeable. No row is joined by method name or inferred source identity.
 `source_catalog` and `source_catalog_sha256` identify and pin that manifest.
 The native argument catalog is not dereferenced to add new operation locations.
 
-The pinned GitLab source checkout is absent in this environment. Consequently,
-all source verification statuses are
-`manifest_only_source_checkout_unavailable`: source bytes and source-line ranges
-were **not freshly verified**. `recorded_reference_and_manifest_hash` means
-that existing references and a recorded digest were available, not that the
-source, path feasibility, authentication, dispatch or argument values were
-revalidated. Missing files, positive line numbers or recorded hashes would be
-left blank with explicit `unresolved` status and a reason; no replacement is
-guessed. All current records have a recorded file, positive line and hash.
+The first batch had no pinned GitLab checkout and reported manifest-only
+evidence. The subsequent exact-revision source verification now covers all
+122 filtered rows and 895,714 stops: every referenced file digest matches its
+recorded manifest and every recorded line is within the file's line range.
+`verified_source_sha256` records the verified full-file hash, separately from
+the recorded hash and catalog artifact hash. `source_verification_receipt` and
+its checksum pin the verification receipt. The status
+`source_bytes_and_line_range_verified` does not establish path feasibility,
+authentication, dispatch, argument values or code semantics. Missing references
+or unsupported verification would retain explicit unresolved status; nothing is
+guessed. Regeneration without the optional receipt falls back to manifest-only
+evidence and cannot produce the verified current output.
 
 ## Reproduction
 
@@ -70,7 +73,8 @@ python -m unittest discover -s saved-row-provenance -p 'test_*.py'
 Omit `--check` to regenerate. Gzip outputs have fixed timestamps and no stored
 filename. Check mode regenerates in a temporary directory and compares file
 digests. `validation.json` records complete input hashes, row counts and output
-hashes. `SHA256SUMS` covers this companion. Only saved artifacts are read; no
+hashes. `SHA256SUMS` covers this companion. The row builder reads saved artifacts
+and verification receipts; the source verifier below reads source bytes. No
 target code, parser, application, endpoint or build hook is executed.
 
 Batch base: verified remote `work` at
@@ -108,8 +112,37 @@ are in `review-ledgers-checks.json`. The shared test command now runs eight test
 Second batch base: verified remote `work` at
 `10790e21deed328b9c592fd7442d3f28c40d80d2`.
 
-Remaining provenance limitation: the Ruby/GitLab references in the first batch
-remain manifest-only because the pinned GitLab checkout is unavailable. Source
-semantics, authentication, binding and local-check gaps remain outside these
-provenance passes. No further substantive provenance gap is identified within
-the requested saved-row populations using currently available evidence.
+## Exact-revision GitLab source verification
+
+The third batch obtained commit `9cfc39017e700a28649858f6a902117f9d5e8edd`
+directly from the recorded official remote
+`https://gitlab.com/gitlab-org/gitlab.git`. A depth-one, blob-filtered fetch and
+sparse checkout selected only the already-recorded source files. The source
+checkout is `/workspace/gitlab-provenance-9cfc390`; its HEAD equals the pinned
+revision and its tracked worktree is clean. No different revision or mirror was
+substituted.
+
+`ruby-source-files.jsonl` records expected and actual hashes, line counts,
+maximum recorded line, reference counts and status for **4,661 files** covering
+**895,836 references**. All passed. `ruby-source-verification.json` pins the
+input artifacts, source repository, commit and file-report checksum. This is a
+byte/range check only; no source was parsed and no argument semantics were read
+or derived. The filtered and stop outputs now cite this receipt.
+
+To repeat the byte/range checks against that checkout:
+
+```sh
+python saved-row-provenance/verify_ruby_sources.py --source /workspace/gitlab-provenance-9cfc390 --check
+python saved-row-provenance/build.py --check
+```
+
+The verifier rejects another HEAD, another origin or a modified tracked
+worktree. It checks input hashes and file digests before supporting a verified
+status; missing files, digest mismatches and out-of-range references remain
+explicitly unresolved. The shared test command now runs twelve tests.
+`ruby-source-checks.json` records this batch's validation; earlier check receipts
+remain historical. Third batch base: `72fcc25daf9f30206722322f953a747afe89d005`.
+
+Source semantics, authentication, binding and local-check gaps remain outside
+these provenance passes. No further substantive provenance gap is identified
+within the requested saved-row populations using currently available evidence.

@@ -1,0 +1,21 @@
+{
+  "file_report_sha256": "e79166bb8d78eea2f38864cdb064b34fbc6225d700f3f7e3393ba02f0d20e198",
+  "files": 4661,
+  "git_worktree_clean": true,
+  "input_sha256": {
+    "depth_limited_name_match/files_read.jsonl": "25d28fa9ae21b2c5e6249145cb4e85ba3a04160afb6b468026eebe5e15c80dbe",
+    "depth_limited_name_match/unresolved_stops.jsonl.gz": "79687a4ead9ef1fd83222b815bc4e86100dbaeb7c13f4bd84cda319dbe06fdbd",
+    "gem_receiver_identifier_filter/filtered_matches.csv": "10bd54ab1a5bc3fc8f1ca2cf44ea8617631f44f0b70b0c2df5bdcf708769210c",
+    "gem_receiver_identifier_filter/source_files_read.jsonl": "f137407feaf11e8c65dd1b37c1a08ce02858d23632ba759f1da3c8b9c3d0e166"
+  },
+  "recorded_references": 895836,
+  "revision": "9cfc39017e700a28649858f6a902117f9d5e8edd",
+  "source_acquisition": "exact_commit_fetch_and_sparse_checkout_of_recorded_files",
+  "source_code_parsed": false,
+  "source_repository": "https://gitlab.com/gitlab-org/gitlab.git",
+  "source_semantics_reviewed": false,
+  "status_counts": {
+    "source_bytes_and_line_range_verified": 4661
+  },
+  "target_code_executed": false
+}
