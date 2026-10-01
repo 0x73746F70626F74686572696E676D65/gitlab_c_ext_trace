@@ -12,7 +12,7 @@ HERE = Path(__file__).resolve().parent
 CATALOG = HERE.parent
 INPUTS = ('entry-argument-sites.jsonl', 'entry-argument-sites.csv',
           'argument-inventory-roots.jsonl', 'summary.json',
-          'scripts/call_argument_inventory.py')
+          'scripts/call_argument_inventory.py', 'review-metadata/source-validation.json')
 
 
 def digest(blob):
@@ -44,12 +44,19 @@ def annotate(row, root, line, root_line, raw):
         value_preservation='not_established',
         local_checks='not_assessed_by_saved_inventory',
         local_checks_evidence='../scripts/call_argument_inventory.py:345-398',
-        source_reinspection='not_performed_source_cache_absent',
+        source_reinspection='semantic_review_not_performed',
+        source_integrity='digest_and_saved_site_syntax_validated',
+        source_validation_evidence='source-validation.json',
     )
 
 
 def generate(catalog=CATALOG):
     blobs = {name: (catalog / name).read_bytes() for name in INPUTS}
+    source_validation = json.loads(blobs['review-metadata/source-validation.json'])
+    assert source_validation['result']['status'] == 'passed'
+    assert source_validation['result']['target_code_executed'] is False
+    for name, expected in source_validation['input_sha256'].items():
+        assert digest((catalog / name).read_bytes()) == expected, name
     roots = {r['entry_id']: (line, r)
              for line, raw in enumerate(blobs['argument-inventory-roots.jsonl'].splitlines(), 1)
              for r in [json.loads(raw)]}
@@ -77,7 +84,7 @@ def generate(catalog=CATALOG):
                   counts={key: dict(sorted(collections.Counter(str(r[key]) for r in result).items()))
                           for key in ('argument_origin', 'call_depth', 'nested_parameter_identity', 'local_checks')},
                   source_reinspection=False, target_code_executed=False,
-                  full_source_validator='blocked: source cache and tree_sitter dependency absent')
+                  full_source_validator='passed_digest_and_syntax_checks_see_source-validation.json')
     unresolved = []
     for row in result:
         gaps = ['local_checks_not_assessed', 'value_preservation_not_established',

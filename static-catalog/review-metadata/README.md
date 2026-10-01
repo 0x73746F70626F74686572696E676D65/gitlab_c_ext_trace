@@ -32,9 +32,10 @@ Column meanings:
   and `../notes.txt` document that scope. This status never means guards are
   absent, ineffective, or bypassable. Fresh check review requires source bodies
   and branch context, not merely a nearby comparison.
-- `source_reinspection`: none in this batch. The restored workspace has no
-  native source cache. These annotations are supported by saved metadata and
-  analyzer semantics, not a new independent source review.
+- `source_reinspection`: semantic review remains pending. `source_integrity`
+  records the subsequent successful digest and saved-site syntax validation;
+  `source_validation_evidence` links its versioned receipt. Those automated
+  checks are not a new independent semantic source review.
 
 `unresolved-rows.jsonl` is an explicit open-evidence ledger for all 353 rows,
 joined by original line and row hash. Gap counts overlap: local-check assessment,
@@ -55,8 +56,9 @@ Evidence needed to close a gap:
   its source identity; do not infer it from a binding name alone.
 - Per-hop formal identity: cite each helper declaration and corresponding actual
   expression, keeping original Ruby position separate from local formal names.
-- Source reinspection: recover digest-matched source files and record the scope
-  and outcome of the static review. Saved checksums alone do not close this gap.
+- Source reinspection: independently review the bounded semantic claim against
+  the recovered digest-matched source and record the scope and outcome. The
+  completed automated digest/syntax checks alone do not close this gap.
 
 This ledger was added as a second bounded batch after verifying remote `work`
 at 3d70354f44a92c0b9c9b47799773610b44e72f96. It adds no registrations, sites,
@@ -70,11 +72,39 @@ python -m unittest discover -s static-catalog/review-metadata -p 'test_*.py'
 ```
 
 Omit `--check` to regenerate this companion. The script uses only the Python
-standard library and never runs target code. Full original source validation
-with `scripts/validate_call_argument_inventory.py` is blocked in this restored
-environment by missing `tree_sitter` and the native source cache. Historical
-`../validation.json` is preserved; it is not a fresh run. Checksum and saved-row
-consistency checks provide no runtime or semantic-accuracy guarantee.
+standard library and never runs target code. It also checks the input digests
+pinned by the fresh source-validation receipt. Historical `../validation.json`
+is preserved; the fresh run is recorded in `source-validation.json`. Checksum,
+source-syntax and saved-row consistency checks provide no runtime or
+semantic-accuracy guarantee.
+
+## Source-validation follow-up
+
+The third batch resolved the missing-cache/parser blockers reported by the first
+two batches. All 70 needed locked package variants were restored with the
+documented `scripts/restore_inventory_sources.py`, after checking each manifest
+digest against Gemfile.lock and verifying official HTTPS RubyGems URLs. The
+restorer reads archive members without running Ruby or build hooks. The pinned
+three parser versions were installed from binary PyPI wheels in
+`/workspace/inventory-validation-venv`. The receipt records package provenance,
+dependency versions, wheel URLs/digests and the exact validator input hashes.
+
+The validator ran in `/workspace/inventory-validation-20261001/static-catalog`,
+a copy of the catalog, so historical reports remained unchanged. Its 41 inert
+parser tests passed. It verified 5,773 source digests, 3,655 registrations,
+353 rows, 31 collision alternatives and 168,263 unresolved source references.
+Reference validity does not resolve those unresolved hops. The prior metadata
+columns and open semantic gaps remain; no new argument transfers or check
+effectiveness claims were inferred.
+
+Reproduce in a fresh disposable copy of `static-catalog` (the original validator
+writes `validation.json` and `SHA256SUMS`): create a Python venv, install
+`scripts/requirements.txt` using `--only-binary=:all:` and the PyPI index, run
+`scripts/restore_inventory_sources.py`, then run
+`scripts/validate_call_argument_inventory.py` with that venv's Python. Source
+restoration uses the manifest's absolute `/workspace/static-catalog-cache` paths.
+No application or extension execution is needed. Full generation of new graph
+or argument traces is outside this validation step.
 
 Repository inspection found a clean local `work` at 7675bfa, matching the saved
 results branch. It was fast-forwarded to remote `work` at
