@@ -1,0 +1,221 @@
+{
+  "analysis_repository": "/workspace/gitlab_c_ext_trace",
+  "branch": "work",
+  "input_analysis_sha": "b8bb8ba75bf07ba743d634ae43fcbfae39d93898",
+  "inputs": {
+    "filtered_matches": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/filtered_matches.csv",
+      "sha256": "10bd54ab1a5bc3fc8f1ca2cf44ea8617631f44f0b70b0c2df5bdcf708769210c"
+    },
+    "call_argument_catalog": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+    },
+    "receiver_namespace_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/receiver_namespace_manifest.json",
+      "sha256": "dab373deaeb2fdf56497ac28b10d40ce49e21a4cd53e8f067ecb002454664cb7"
+    },
+    "source_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/source_files_read.jsonl",
+      "sha256": "f137407feaf11e8c65dd1b37c1a08ce02858d23632ba759f1da3c8b9c3d0e166"
+    },
+    "walk_source_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/depth_limited_name_match/files_read.jsonl",
+      "sha256": "25d28fa9ae21b2c5e6249145cb4e85ba3a04160afb6b468026eebe5e15c80dbe"
+    }
+  },
+  "gitlab_source": {
+    "path": "/workspace/gitlab",
+    "remote": "https://gitlab.com/gitlab-org/gitlab.git",
+    "checkout_sha": "90f38934040c4790f79b9aada22b50c1597f42dc",
+    "recorded_source_revision": "9cfc39017e700a28649858f6a902117f9d5e8edd",
+    "source_files_read": 4,
+    "files_matching_recorded_sha256": 4
+  },
+  "depth_rule": "Use the existing table's depth convention: the entrypoint body is depth 0; a followed repository method adds one hop; the terminal catalogued gem call does not add a repository helper hop. Only saved chains with call_chain_depth 4 are extended to 5.",
+  "scope": "Manual static read of the five recorded frontier method bodies. Follow source-visible, named repository calls by same-owner lookup or explicit constant paths; no repository search by method name. Do not regenerate entrypoint bindings or depth-4 tables. Skip send, public_send, __send__, method_missing and interpolated dispatch.",
+  "counting_rule": "Collapse repeated seed catalog associations to one entrypoint/call-chain frontier, retain all seed_filtered_records (header is record 1), and write one row per extended chain and matching gem/method catalog record. Keep distinct depth-5 chains even when their final body or site also has a shorter depth-4 witness. The depth-4 identifier-only argument restriction is not applied to this extension.",
+  "filtered_rows_in": 392,
+  "depth4_seed_rows": 98,
+  "earlier_depth_rows_not_extended": 294,
+  "distinct_depth4_frontier_chains": 56,
+  "distinct_depth4_frontier_methods": 5,
+  "extended_repository_call_sites": 1,
+  "extended_depth5_chains": 5,
+  "frontier_chains_without_an_additional_resolved_repository_call": 51,
+  "rows_written": 20,
+  "matches_by_auth": {
+    "authenticated": 8,
+    "unknown": 12,
+    "conditional_anonymous": 0,
+    "unauthenticated": 0
+  },
+  "source_counts": {
+    "params": 10,
+    "literal": 10,
+    "local": 0,
+    "unresolved": 0
+  },
+  "counts_by_auth_and_source": {
+    "unknown": {
+      "params": 6,
+      "literal": 6,
+      "local": 0,
+      "unresolved": 0
+    },
+    "authenticated": {
+      "params": 4,
+      "literal": 4,
+      "local": 0,
+      "unresolved": 0
+    }
+  },
+  "blank_sources": 0,
+  "catalog_fields": {
+    "gem": "gem",
+    "method": "ruby_method_name",
+    "argument_index": "argument_index",
+    "stored_label": "argument_label",
+    "slot": "slot",
+    "call_depth": "hop_count"
+  },
+  "call_depth_note": "call_depth is stored native catalog metadata (0 in this output); call_chain_depth is the frontend repository helper depth (5).",
+  "frontier_review": [
+    {
+      "body": {
+        "file": "app/helpers/safe_format_helper.rb",
+        "line": 23,
+        "method": "SafeFormatHelper#safe_format"
+      },
+      "input_rows": 10,
+      "distinct_chains": 10,
+      "extra_repository_calls": 0,
+      "decision": "The named receivers in the recorded body are Kernel, ERB::Util, args and call results. No source-defined repository method target is established for an extra hop; the existing ERB calls stay at depth 4."
+    },
+    {
+      "body": {
+        "file": "app/controllers/concerns/cycle_analytics_params.rb",
+        "line": 58,
+        "method": "CycleAnalyticsParams#to_utc_time"
+      },
+      "input_rows": 64,
+      "distinct_chains": 32,
+      "extra_repository_calls": 0,
+      "decision": "The body calls is_a?, Date.parse, to_time and utc. No additional source-defined repository method target is established for these receivers."
+    },
+    {
+      "body": {
+        "file": "lib/gitlab/string_range_marker.rb",
+        "line": 14,
+        "method": "Gitlab::StringRangeMarker#initialize"
+      },
+      "input_rows": 4,
+      "distinct_chains": 4,
+      "extra_repository_calls": 0,
+      "decision": "The body calls dup, nil? and ERB::Util.html_escape. No additional source-defined repository method target is established."
+    },
+    {
+      "body": {
+        "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+        "line": 82,
+        "method": "Ci::DailyBuildGroupReportResultsFinder#start_date"
+      },
+      "input_rows": 10,
+      "distinct_chains": 5,
+      "extra_repository_calls": 1,
+      "decision": "The bare end_date occurrence at line 90 resolves to the same class's source-defined end_date at line 93. Follow only this one additional repository call."
+    },
+    {
+      "body": {
+        "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+        "line": 93,
+        "method": "Ci::DailyBuildGroupReportResultsFinder#end_date"
+      },
+      "input_rows": 10,
+      "distinct_chains": 5,
+      "extra_repository_calls": 0,
+      "decision": "Date.strptime and Date.current are external namespace calls. The params accessor is generated by attr_reader, with no source-defined ordinary method body to follow."
+    }
+  ],
+  "followed_call": {
+    "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+    "caller_method": "Ci::DailyBuildGroupReportResultsFinder#start_date",
+    "caller_definition_line": 82,
+    "call_line": 90,
+    "call_expression": "end_date",
+    "callee_method": "Ci::DailyBuildGroupReportResultsFinder#end_date",
+    "callee_definition_line": 93,
+    "callee_call_line": 94,
+    "callee_call_expression": "Date.strptime(params[:end_date], DATE_FORMAT_ALLOWED)",
+    "receiver": "Date",
+    "resolved_gem": "date",
+    "catalog_method": "strptime",
+    "catalog_records": [
+      82,
+      83,
+      84,
+      85
+    ],
+    "receiver_evidence": "The saved accepted-prefix manifest assigns Date to date. No Date alias or declaration appears in this source file, and no corresponding Date source file was found in the conventional finder/lib namespaces inspected.",
+    "other_gem_calls": [
+      {
+        "line": 96,
+        "expression": "Date.current",
+        "decision": "current is absent from the date call-argument catalog; no row."
+      }
+    ]
+  },
+  "source_review": [
+    {
+      "argument_index": 0,
+      "expression": "params[:end_date]",
+      "source": "params",
+      "rows": 10,
+      "evidence_line": 94,
+      "reason": "The catalogued position contains a direct params expression. No additional caller or helper tracing is needed."
+    },
+    {
+      "argument_index": 1,
+      "expression": "DATE_FORMAT_ALLOWED",
+      "source": "literal",
+      "rows": 10,
+      "evidence_line": 25,
+      "evidence": "DATE_FORMAT_ALLOWED = '%Y-%m-%d'",
+      "reason": "Fixed literal definition in the recorded file; not the params expression at index 0."
+    }
+  ],
+  "source_file_sha256": {
+    "app/helpers/safe_format_helper.rb": "9b9bb532eb64dff3746b1fdc8312725630f4c2800aecc127f423f68862f71a68",
+    "app/controllers/concerns/cycle_analytics_params.rb": "bdde49685576e5919e3f2c0b8a4e75a2fc181e14adbdc21b8ed29be280581d6d",
+    "lib/gitlab/string_range_marker.rb": "dd1a65cf50d9d6d7a97078a4fc3ea5e10b720811348c100706e9eb9b344a1ee5",
+    "app/finders/ci/daily_build_group_report_results_finder.rb": "7d2536c0bf55b43fef04dde61446aa536d4f171fafbea56ea1eec33466ee5c24"
+  },
+  "overlap": {
+    "physical_ruby_call_sites": 1,
+    "new_physical_ruby_call_sites": 0,
+    "rows_with_same_entrypoint_site_catalog_association_in_depth4_filtered_table": 10,
+    "reason": "The format-argument associations already exist at depth 4 through by_dates -> end_date. These rows record the extra by_dates -> start_date -> end_date chain at depth 5. The 10 params argument associations did not survive the depth-4 identifier-only filter."
+  },
+  "validation": {
+    "catalog_fields_checked": 20,
+    "seed_prefixes_checked": 20,
+    "depth5_chains_checked": 20,
+    "rows_overlapping_depth4_filtered_associations": 10,
+    "output_readback_matches": true,
+    "catalog_records_per_extended_chain": 4,
+    "distinct_output_rows": 20,
+    "one_extra_repository_hop": true,
+    "auth_and_entrypoint_fields_copied": true,
+    "input_order_preserved": true,
+    "depth4_tables_rebuilt": false,
+    "depth4_tables_modified": false,
+    "no_repo_method_name_search": true,
+    "target_code_executed": false,
+    "repository_scripts_executed": false
+  },
+  "output": {
+    "path": "/workspace/gitlab_c_ext_trace/depth5-argument-join/rows.csv",
+    "sha256": "fffc94a883248d6c0ba1be99158ae7fafe2437d119ed2c377866faf13763b186"
+  },
+  "limitations": "These are source-visible receiver and method matches with saved auth labels. Runtime overrides, prepend activation, deployed entrypoint reachability and native registration dispatch are not established."
+}
