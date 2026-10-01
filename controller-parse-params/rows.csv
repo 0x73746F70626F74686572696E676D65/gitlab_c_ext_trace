@@ -1,0 +1,2 @@
+file,line,line_text
+app/controllers/users_controller.rb,192,      Date.parse(permitted_params[:date])
