@@ -1,0 +1,269 @@
+{
+  "base_branch": "work",
+  "base_commit": "2d38da7e6a9cb589db54d2091dcb7bcb5a9bc738",
+  "gitlab_tree": {
+    "repository": "https://gitlab.com/gitlab-org/gitlab.git",
+    "path": "/workspace/gitlab",
+    "commit": "90f38934040c4790f79b9aada22b50c1597f42dc",
+    "working_tree_clean": true
+  },
+  "inputs": [
+    {
+      "path": "static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04",
+      "fields_used": [
+        "gem",
+        "ruby_method_name"
+      ]
+    },
+    {
+      "path": "gem_receiver_identifier_filter/receiver_namespace_manifest.json",
+      "sha256": "dab373deaeb2fdf56497ac28b10d40ce49e21a4cd53e8f067ecb002454664cb7",
+      "fields_used": [
+        "accepted_prefixes[].gem",
+        "accepted_prefixes[].prefix"
+      ]
+    }
+  ],
+  "counts": {
+    "catalog_gems": 27,
+    "catalog_gem_method_pairs": 172,
+    "gem_method_pairs_with_site": 13,
+    "gem_method_pairs_without_site": 159,
+    "rows_written": 36,
+    "maximum_sites_per_gem_method_pair": 3,
+    "skipped_send_pairs": 0,
+    "extensionless_ruby_files_searched": 95
+  },
+  "counts_by_gem": {
+    "amatch": {
+      "catalog_method_pairs": 1,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 1,
+      "rows_written": 0
+    },
+    "bigdecimal": {
+      "catalog_method_pairs": 27,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 27,
+      "rows_written": 0
+    },
+    "cbor": {
+      "catalog_method_pairs": 1,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 1,
+      "rows_written": 0
+    },
+    "cgi": {
+      "catalog_method_pairs": 1,
+      "method_pairs_with_site": 1,
+      "method_pairs_without_site": 0,
+      "rows_written": 3
+    },
+    "date": {
+      "catalog_method_pairs": 24,
+      "method_pairs_with_site": 4,
+      "method_pairs_without_site": 20,
+      "rows_written": 12
+    },
+    "ed25519": {
+      "catalog_method_pairs": 2,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 2,
+      "rows_written": 0
+    },
+    "erb": {
+      "catalog_method_pairs": 1,
+      "method_pairs_with_site": 1,
+      "method_pairs_without_site": 0,
+      "rows_written": 3
+    },
+    "ffi": {
+      "catalog_method_pairs": 10,
+      "method_pairs_with_site": 1,
+      "method_pairs_without_site": 9,
+      "rows_written": 2
+    },
+    "google-protobuf": {
+      "catalog_method_pairs": 8,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 8,
+      "rows_written": 0
+    },
+    "gpgme": {
+      "catalog_method_pairs": 8,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 8,
+      "rows_written": 0
+    },
+    "grpc": {
+      "catalog_method_pairs": 9,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 9,
+      "rows_written": 0
+    },
+    "io-console": {
+      "catalog_method_pairs": 5,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 5,
+      "rows_written": 0
+    },
+    "msgpack": {
+      "catalog_method_pairs": 3,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 3,
+      "rows_written": 0
+    },
+    "nio4r": {
+      "catalog_method_pairs": 1,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 1,
+      "rows_written": 0
+    },
+    "nokogiri": {
+      "catalog_method_pairs": 16,
+      "method_pairs_with_site": 1,
+      "method_pairs_without_site": 15,
+      "rows_written": 3
+    },
+    "oj": {
+      "catalog_method_pairs": 5,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 5,
+      "rows_written": 0
+    },
+    "openssl": {
+      "catalog_method_pairs": 9,
+      "method_pairs_with_site": 2,
+      "method_pairs_without_site": 7,
+      "rows_written": 4
+    },
+    "pg": {
+      "catalog_method_pairs": 5,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 5,
+      "rows_written": 0
+    },
+    "pg_query": {
+      "catalog_method_pairs": 1,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 1,
+      "rows_written": 0
+    },
+    "prism": {
+      "catalog_method_pairs": 11,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 11,
+      "rows_written": 0
+    },
+    "psych": {
+      "catalog_method_pairs": 1,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 1,
+      "rows_written": 0
+    },
+    "rbs": {
+      "catalog_method_pairs": 2,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 2,
+      "rows_written": 0
+    },
+    "rugged": {
+      "catalog_method_pairs": 9,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 9,
+      "rows_written": 0
+    },
+    "stringio": {
+      "catalog_method_pairs": 3,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 3,
+      "rows_written": 0
+    },
+    "thrift": {
+      "catalog_method_pairs": 1,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 1,
+      "rows_written": 0
+    },
+    "yajl-ruby": {
+      "catalog_method_pairs": 1,
+      "method_pairs_with_site": 0,
+      "method_pairs_without_site": 1,
+      "rows_written": 0
+    },
+    "zlib": {
+      "catalog_method_pairs": 7,
+      "method_pairs_with_site": 3,
+      "method_pairs_without_site": 4,
+      "rows_written": 9
+    }
+  },
+  "search": {
+    "ruby_source_and_template_globs": [
+      "*.rb",
+      "*.rbw",
+      "*.rake",
+      "*.gemspec",
+      "*.erb",
+      "*.haml",
+      "*.builder",
+      "*.jbuilder",
+      "*.rabl",
+      ".irbrc",
+      "Gemfile",
+      "Rakefile",
+      "*.ru"
+    ],
+    "extensionless_file_discovery": "Tracked extensionless files with a Ruby shebang; file contents searched statically.",
+    "explicit_receiver_form": "A mapped Ruby constant namespace, optional nested constants, then .method or ::method on the same line. Whitespace around separators and setter equals is allowed.",
+    "namespace_mapping_file": "direct-call-sites/namespace-prefixes.json",
+    "supplemental_namespace_mappings": {
+      "google-protobuf": [
+        "Google::Protobuf"
+      ],
+      "prism": [
+        "Prism"
+      ],
+      "rbs": [
+        "RBS"
+      ]
+    },
+    "ambiguous_json_namespace_included": false,
+    "comment_only_lines_excluded": true,
+    "retained_locations_verified": true,
+    "retained_string_interpolation_calls_included": true,
+    "deduplication_key": [
+      "gem",
+      "method",
+      "file",
+      "line"
+    ],
+    "retention_order": [
+      "file_lexicographic",
+      "line_numeric",
+      "receiver_lexicographic"
+    ],
+    "max_sites_per_gem_method_pair": 3,
+    "no_site_interpretation": "No explicit namespace name match in the searched Ruby files and templates; this does not establish absence of instance, alias, dynamic, or multiline calls.",
+    "binding_ledger_read": false,
+    "entrypoints_walked": false,
+    "c_files_read": false,
+    "argument_origins_classified": false,
+    "application_code_executed": false,
+    "dispatch_or_native_binding_inferred": false
+  },
+  "output_files": {
+    "rows": "direct-call-sites/rows.csv",
+    "methods_with_no_site": "direct-call-sites/methods-with-no-site.csv",
+    "patterns": "direct-call-sites/search-patterns.txt",
+    "namespaces": "direct-call-sites/namespace-prefixes.json"
+  },
+  "row_fields": [
+    "gem",
+    "method",
+    "receiver",
+    "file",
+    "line"
+  ]
+}

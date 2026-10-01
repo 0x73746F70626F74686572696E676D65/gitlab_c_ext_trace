@@ -1,0 +1,86 @@
+{
+  "amatch": [
+    "Amatch"
+  ],
+  "bigdecimal": [
+    "BigDecimal",
+    "BigMath"
+  ],
+  "cbor": [
+    "CBOR"
+  ],
+  "cgi": [
+    "CGI"
+  ],
+  "date": [
+    "Date",
+    "DateTime"
+  ],
+  "erb": [
+    "ERB"
+  ],
+  "ed25519": [
+    "Ed25519"
+  ],
+  "ffi": [
+    "FFI"
+  ],
+  "gpgme": [
+    "GPGME"
+  ],
+  "grpc": [
+    "GRPC"
+  ],
+  "io-console": [
+    "IO::Console::Mode",
+    "IO::ConsoleMode"
+  ],
+  "msgpack": [
+    "MessagePack"
+  ],
+  "nio4r": [
+    "NIO"
+  ],
+  "nokogiri": [
+    "Nokogiri"
+  ],
+  "oj": [
+    "Oj"
+  ],
+  "openssl": [
+    "OpenSSL"
+  ],
+  "pg": [
+    "PG"
+  ],
+  "pg_query": [
+    "PgQuery"
+  ],
+  "psych": [
+    "Psych"
+  ],
+  "rugged": [
+    "Rugged"
+  ],
+  "stringio": [
+    "StringIO"
+  ],
+  "thrift": [
+    "Thrift"
+  ],
+  "yajl-ruby": [
+    "Yajl"
+  ],
+  "zlib": [
+    "Zlib"
+  ],
+  "google-protobuf": [
+    "Google::Protobuf"
+  ],
+  "prism": [
+    "Prism"
+  ],
+  "rbs": [
+    "RBS"
+  ]
+}
