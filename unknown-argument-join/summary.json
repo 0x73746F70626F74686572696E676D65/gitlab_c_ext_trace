@@ -1,0 +1,208 @@
+{
+  "analysis_repository": "/workspace/gitlab_c_ext_trace",
+  "branch": "work",
+  "input_analysis_sha": "493faa0db0fa338040de7d7fde434a0d9723840e",
+  "inputs": {
+    "filtered_matches": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/filtered_matches.csv",
+      "sha256": "10bd54ab1a5bc3fc8f1ca2cf44ea8617631f44f0b70b0c2df5bdcf708769210c"
+    },
+    "call_argument_catalog": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+    },
+    "source_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/source_files_read.jsonl",
+      "sha256": "f137407feaf11e8c65dd1b37c1a08ce02858d23632ba759f1da3c8b9c3d0e166"
+    },
+    "chain_source_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/depth_limited_name_match/files_read.jsonl",
+      "sha256": "25d28fa9ae21b2c5e6249145cb4e85ba3a04160afb6b468026eebe5e15c80dbe"
+    }
+  },
+  "selection": "Only the 127 records whose stored auth is unknown in gem_receiver_identifier_filter/filtered_matches.csv. Matching records were selected before their contents were read for review; original record numbers include header as record 1.",
+  "join": "Dereference each existing argument_table_line; require matching gem, method, argument index and slot. Copy one referenced catalog row for each unknown filtered record, preserving order and repeated matches.",
+  "catalog_fields": {
+    "gem": "gem",
+    "method": "ruby_method_name",
+    "argument_index": "argument_index",
+    "stored_label": "argument_label",
+    "slot": "slot",
+    "call_depth": "hop_count"
+  },
+  "filtered_depth_field": "call_chain_depth is copied separately from the filtered match table.",
+  "source_rule": "Read the recorded indexed call argument. Direct params/request/route expressions or an identifier visibly assigned from them in the bounded method are params. A fixed literal or a constant with a fixed literal definition in the recorded file is literal. Other identifiers and identifier-backed local/object expressions are local. For an unassigned named method parameter, inspect only the immediately preceding recorded caller and corresponding formal position; do not trace that caller's upstream caller or other helper bodies. A missing corresponding caller is unresolved. Visible inline-block identifiers are classified locally. No repo search by method name.",
+  "gitlab_source": {
+    "path": "/workspace/gitlab",
+    "remote": "https://gitlab.com/gitlab-org/gitlab.git",
+    "checkout_sha": "90f38934040c4790f79b9aada22b50c1597f42dc",
+    "recorded_source_revision": "9cfc39017e700a28649858f6a902117f9d5e8edd",
+    "recorded_call_files": 7,
+    "source_files_read": 8,
+    "files_matching_recorded_sha256": 8
+  },
+  "rows_in": 127,
+  "rows_written": 127,
+  "source_counts": {
+    "params": 0,
+    "literal": 12,
+    "local": 115,
+    "unresolved": 0
+  },
+  "blank_sources": 0,
+  "source_review": [
+    {
+      "file": "app/helpers/safe_format_helper.rb",
+      "line": 29,
+      "argument_index": 0,
+      "expression": "value",
+      "source": "local",
+      "rows": 71,
+      "source_method": "SafeFormatHelper#safe_format",
+      "evidence_line": 29,
+      "evidence": "args.transform_values { |value| ERB::Util.html_escape(value) }",
+      "reason": "The indexed argument is the visible inline block's local identifier. No params/request assignment to value occurs in safe_format. No hash-value origin is propagated."
+    },
+    {
+      "file": "lib/google_api/cloud_platform/client.rb",
+      "line": 174,
+      "argument_index": 0,
+      "expression": "expires_at",
+      "source": "local",
+      "rows": 8,
+      "source_method": "GoogleApi::CloudPlatform::Client#token_life_time",
+      "method_parameter_index": 0,
+      "caller": {
+        "file": "lib/google_api/cloud_platform/client.rb",
+        "line": 45,
+        "method": "GoogleApi::CloudPlatform::Client#validate_token",
+        "call_line": 50,
+        "argument_index": 0,
+        "expression": "expires_at"
+      },
+      "reason": "The single recorded caller passes the identifier expires_at, with no assignment from params/request in validate_token. Its upstream caller is not followed."
+    },
+    {
+      "file": "app/controllers/profiles/two_factor_auths_controller.rb",
+      "line": 182,
+      "argument_index": 1,
+      "expression": "doc",
+      "source": "local",
+      "rows": 24,
+      "source_method": "Profiles::TwoFactorAuthsController#build_qr_code",
+      "evidence_line": 180,
+      "evidence": "doc = Nokogiri::XML(svg)",
+      "reason": "The indexed argument doc is a local assigned by an XML construction call in the same method; no params/request source is established at this bound."
+    },
+    {
+      "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+      "line": 84,
+      "argument_index": 1,
+      "expression": "DATE_FORMAT_ALLOWED",
+      "source": "literal",
+      "rows": 6,
+      "source_method": "Ci::DailyBuildGroupReportResultsFinder#start_date",
+      "evidence_line": 25,
+      "evidence": "DATE_FORMAT_ALLOWED = '%Y-%m-%d'",
+      "reason": "The indexed argument is the format constant with a fixed string definition in the recorded file. The params expression is argument 0 and is not the catalogued argument for this row."
+    },
+    {
+      "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+      "line": 94,
+      "argument_index": 1,
+      "expression": "DATE_FORMAT_ALLOWED",
+      "source": "literal",
+      "rows": 6,
+      "source_method": "Ci::DailyBuildGroupReportResultsFinder#end_date",
+      "evidence_line": 25,
+      "evidence": "DATE_FORMAT_ALLOWED = '%Y-%m-%d'",
+      "reason": "The indexed argument is the format constant with a fixed string definition in the recorded file. The params expression is argument 0 and is not the catalogued argument for this row."
+    },
+    {
+      "file": "lib/gitlab/diff/char_diff.rb",
+      "line": 50,
+      "argument_index": 0,
+      "expression": "text",
+      "source": "local",
+      "rows": 6,
+      "source_method": "Gitlab::Diff::CharDiff#to_html",
+      "evidence_line": 49,
+      "evidence": "@changes.map do |op, text|",
+      "reason": "The gem call passes the visible block-local identifier text. No params/request assignment to that name is present in to_html."
+    },
+    {
+      "file": "ee/lib/artifact_registry/time_coercion.rb",
+      "line": 12,
+      "argument_index": 0,
+      "expression": "value",
+      "source": "local",
+      "rows": 2,
+      "source_method": "ArtifactRegistry::TimeCoercion#parse_time",
+      "method_parameter_index": 0,
+      "caller": {
+        "file": "ee/app/graphql/types/artifact_registry/remote_settings_type.rb",
+        "line": 66,
+        "method": "Types::ArtifactRegistry::RemoteSettingsType#last_health_checked_at",
+        "call_line": 67,
+        "argument_index": 0,
+        "expression": "object['last_health_checked_at']"
+      },
+      "reason": "The one recorded caller passes an indexed read of object; its value is not a fixed literal or a params/request expression. It is classified local without tracing object."
+    },
+    {
+      "file": "ee/app/controllers/groups/contribution_analytics_controller.rb",
+      "line": 64,
+      "argument_index": 0,
+      "expression": "value",
+      "source": "local",
+      "rows": 4,
+      "source_method": "Groups::ContributionAnalyticsController#from_date",
+      "method_parameter_index": 0,
+      "caller": {
+        "file": "ee/app/controllers/groups/contribution_analytics_controller.rb",
+        "line": 42,
+        "method": "Groups::ContributionAnalyticsController#data_collector",
+        "call_line": 44,
+        "argument_index": 0,
+        "expression": "start_date_param"
+      },
+      "reason": "The recorded caller passes start_date_param, an identifier with no params/request assignment in data_collector. No further helper body is followed."
+    }
+  ],
+  "source_file_sha256": {
+    "app/controllers/profiles/two_factor_auths_controller.rb": "dcbd9426c651a9a650846bc61fd616695c0fe37edcd9dec8e607cd1b5b93be0b",
+    "app/finders/ci/daily_build_group_report_results_finder.rb": "7d2536c0bf55b43fef04dde61446aa536d4f171fafbea56ea1eec33466ee5c24",
+    "app/helpers/safe_format_helper.rb": "9b9bb532eb64dff3746b1fdc8312725630f4c2800aecc127f423f68862f71a68",
+    "ee/app/controllers/groups/contribution_analytics_controller.rb": "a22febeba177645f248c23cbd1cd70c7fe7c855a7b4a602ec7d7fcc4bfbedd62",
+    "ee/app/graphql/types/artifact_registry/remote_settings_type.rb": "a9a2492ac8208fe069a3002e99d990b037927b1aab6bd3f2bde7b586bf86a637",
+    "ee/lib/artifact_registry/time_coercion.rb": "e6b461207a4e3db6d8d5b30495903e3b5c70bfb2e9822f446d1b4c3e9fe247e9",
+    "lib/gitlab/diff/char_diff.rb": "e7bd62c519b9ee42297201ac38dcbcb3d1ff6af6f45165aeb69751e5ceea812c",
+    "lib/google_api/cloud_platform/client.rb": "c3b98f68f1ff68800992f5361f9d4097c9b83a084cb6a8697961808d568ad80a"
+  },
+  "validation": {
+    "unknown_selection_coverage": 127,
+    "recorded_catalog_references_checked": 127,
+    "matching_gem_method_argument_and_slot": 127,
+    "copied_catalog_fields_checked": 127,
+    "recorded_argument_expressions_checked": 127,
+    "source_sites_reviewed": 8,
+    "method_parameter_rows_with_one_recorded_caller": 14,
+    "maximum_caller_depth": 1,
+    "input_order_preserved": true,
+    "duplicate_matches_preserved": true,
+    "additional_rows": 0,
+    "unknown_auth_labels_preserved": true,
+    "output_read_back_matches": true,
+    "input_hashes_rechecked": true,
+    "no_repo_method_name_search": true,
+    "no_unrecorded_helper_traversal": true,
+    "anonymous_join_read": false,
+    "anonymous_rows_reviewed": false
+  },
+  "output": {
+    "path": "/workspace/gitlab_c_ext_trace/unknown-argument-join/rows.csv",
+    "sha256": "7034e79bd985933d4e1616cc945c33039f50d101dbbccb72ad396baef0baf75f"
+  },
+  "repository_scripts_executed": false,
+  "target_code_executed": false
+}
