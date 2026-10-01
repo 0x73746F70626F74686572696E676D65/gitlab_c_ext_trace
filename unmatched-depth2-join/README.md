@@ -54,3 +54,24 @@ the header as record 1. A gem namespace/method association, including a generic
 source evidence, counts and validation. Auth labels remain inventory facts.
 No target code or repository scripts ran. From this directory,
 `sha256sum -c SHA256SUMS` verifies the output artifacts.
+
+The operand review at input commit
+`bd27cdc2a4eea4ec6a79fff7e2a97348a1934c7c` adds `same_value` and `replaced`
+for the four eligible `params` rows, all labeled `unknown`. Counts are
+**same_value: no 4, yes 0, nested 0** and
+**replaced: yes 4, no 0, nested 0**. Nested rows total **0**. The other 51 rows
+have blank flags. Every original CSV field and all 55 rows are preserved.
+
+Catalog records 72 and 73 point directly into `date_s_parse` at line 4586 and
+`datetime_s_parse` at line 8441 of date 3.5.1's `ext/date/date_core.c`. Both
+sites are `argv2[0] = str`: their index is literal `0`, their destination is
+`argv2`, and `str` is the stored value. Both functions assign a default to
+`str` before the site, at lines 4576 and 8431, in `case 0` of `switch (argc)`.
+`replaced=yes` records that source-visible assignment; it does not assert that
+the zero-argument branch runs for the recorded one-argument Ruby call.
+
+The cached C file matches the exact package bytes and has SHA-256
+`c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5`.
+The package checksum matches the saved catalog source manifest. No nested
+helper or target code was executed or used to classify these flags.
+`summary.json` contains the per-site evidence and operand counts.

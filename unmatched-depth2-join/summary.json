@@ -326,7 +326,7 @@
   "outputs": {
     "rows": {
       "path": "/workspace/gitlab_c_ext_trace/unmatched-depth2-join/rows.csv",
-      "sha256": "3ad2edb4577401ff3f700b41978d1395f18a8614d422846b9bb5108576a258ee"
+      "sha256": "2e0cc2b868859fc73b54aefaf99b7c3deafb04fbe83626694b29d1e6bda4fb84"
     },
     "entrypoint_ledger": {
       "path": "/workspace/gitlab_c_ext_trace/unmatched-depth2-join/entrypoints-considered.jsonl.gz",
@@ -335,6 +335,111 @@
     "source_files": {
       "path": "/workspace/gitlab_c_ext_trace/unmatched-depth2-join/source-files.jsonl",
       "sha256": "396c27ae03a4bc1a0c5fb362e3f9e843a5a183c9a5bd816082302b342567e4da"
+    }
+  },
+  "operand_review": {
+    "input_analysis_sha": "bd27cdc2a4eea4ec6a79fff7e2a97348a1934c7c",
+    "input_rows_sha256": "3ad2edb4577401ff3f700b41978d1395f18a8614d422846b9bb5108576a258ee",
+    "selection": "source=params with auth unauthenticated, conditional_anonymous or unknown",
+    "selected_csv_records": [
+      2,
+      3,
+      28,
+      29
+    ],
+    "rows_checked": 4,
+    "checked_by_auth": {
+      "unauthenticated": 0,
+      "conditional_anonymous": 0,
+      "unknown": 4
+    },
+    "same_value_counts": {
+      "yes": 0,
+      "no": 4,
+      "nested": 0
+    },
+    "replaced_counts": {
+      "yes": 4,
+      "no": 0,
+      "nested": 0
+    },
+    "nested_rows": 0,
+    "out_of_scope_rows_with_blank_flags": 51,
+    "total_rows_preserved": 55,
+    "rule": "Use only the registered function containing the catalogued site. same_value is yes when the catalogued parameter itself is a length, size, index, format or destination operand. replaced is yes for a preceding source-visible assignment or bounding comparison to that parameter in that function. A site outside its registered function gets nested in both columns.",
+    "catalog": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04",
+      "records": [
+        72,
+        73
+      ],
+      "preserved_associations": true
+    },
+    "native_source": {
+      "gem": "date",
+      "version": "3.5.1",
+      "catalogued_file": "ext/date/date_core.c",
+      "local_path": "/workspace/static-catalog-cache/sources/date-3.5.1/ext/date/date_core.c",
+      "sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5",
+      "package_path": "/workspace/scratch/date-3.5.1.gem",
+      "package_sha256": "750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0",
+      "package_matches_stored_manifest": true,
+      "c_file_matches_package_bytes": true
+    },
+    "site_review": [
+      {
+        "catalog_record": 72,
+        "rows": 2,
+        "registered_function": "date_s_parse",
+        "function_start_line": 4568,
+        "function_end_line": 4592,
+        "registration_line": 9698,
+        "site_line": 4586,
+        "site": "argv2[0] = str;",
+        "argument_index": 0,
+        "parameter": "str",
+        "slot": "index",
+        "operand": "0",
+        "same_value": "no",
+        "replaced": "yes",
+        "prior_assignment_line": 4576,
+        "prior_assignment": "str = rb_str_new2(JULIAN_EPOCH_DATE);",
+        "assignment_condition": "case 0 of switch(argc)",
+        "direct": true
+      },
+      {
+        "catalog_record": 73,
+        "rows": 2,
+        "registered_function": "datetime_s_parse",
+        "function_start_line": 8423,
+        "function_end_line": 8448,
+        "registration_line": 9993,
+        "site_line": 8441,
+        "site": "argv2[0] = str;",
+        "argument_index": 0,
+        "parameter": "str",
+        "slot": "index",
+        "operand": "0",
+        "same_value": "no",
+        "replaced": "yes",
+        "prior_assignment_line": 8431,
+        "prior_assignment": "str = rb_str_new2(JULIAN_EPOCH_DATETIME);",
+        "assignment_condition": "case 0 of switch(argc)",
+        "direct": true
+      }
+    ],
+    "interpretation": "The indexed-store operand is literal 0, and the destination is argv2; the catalogued parameter str is the stored value. replaced=yes records the preceding zero-argument default assignment's presence, not execution for the recorded one-argument Ruby call. No nested helper is inspected or inferred. Gem/method catalog associations are preserved without proving a specific native registration.",
+    "validation": {
+      "selected_catalog_fields_checked": 4,
+      "direct_registered_functions_and_sites_read": 2,
+      "all_original_csv_fields_byte_preserved": true,
+      "out_of_scope_flags_blank": true,
+      "rows_added": 0,
+      "source_labels_preserved": true,
+      "auth_labels_preserved": true,
+      "repository_scripts_executed": false,
+      "target_code_executed": false
     }
   },
   "limits": "Coverage inherits the recorded walk's unresolved root bindings, ordinary-call stops and conservative receiver lookup. Only retained sites and recorded callers were reread and checked against their full-file hashes; this is not a fresh exhaustive traversal of every source body. Saved auth labels do not prove deployed anonymous access, and gem/method joins do not prove native argument flow."
