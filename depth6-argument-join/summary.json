@@ -1,0 +1,267 @@
+{
+  "analysis_repository": "/workspace/gitlab_c_ext_trace",
+  "branch": "work",
+  "input_analysis_sha": "67b3b1b190fcbc29fae98615927535638c5adb46",
+  "inputs": {
+    "depth5_rows": {
+      "path": "/workspace/gitlab_c_ext_trace/depth5-argument-join/rows.csv",
+      "sha256": "088ff05b173aec70e7d4f9f2fc0fbd93df77c72649894e97998b935b97646475"
+    },
+    "depth5_summary": {
+      "path": "/workspace/gitlab_c_ext_trace/depth5-argument-join/summary.json",
+      "sha256": "d41fab2f7db5e0965335cbf6f9465314087494f1bc3aba746a28a6163e8f4a7a"
+    },
+    "call_argument_catalog": {
+      "path": "/workspace/gitlab_c_ext_trace/static-catalog/entry-argument-sites.csv",
+      "sha256": "cba32cec1c2dfa53c40e2696a57babb16d4c3f3780adb56d2c22c23e81d3fe04"
+    },
+    "receiver_namespace_manifest": {
+      "path": "/workspace/gitlab_c_ext_trace/gem_receiver_identifier_filter/receiver_namespace_manifest.json",
+      "sha256": "dab373deaeb2fdf56497ac28b10d40ce49e21a4cd53e8f067ecb002454664cb7"
+    }
+  },
+  "gitlab_source": {
+    "path": "/workspace/gitlab",
+    "remote": "https://gitlab.com/gitlab-org/gitlab.git",
+    "checkout_sha": "90f38934040c4790f79b9aada22b50c1597f42dc",
+    "recorded_source_revision": "9cfc39017e700a28649858f6a902117f9d5e8edd",
+    "source_file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+    "sha256": "7d2536c0bf55b43fef04dde61446aa536d4f171fafbea56ea1eec33466ee5c24",
+    "matches_recorded_sha256": true
+  },
+  "depth_rule": "Preserve the existing convention: entrypoint body depth 0; each followed repository method adds one hop; a terminal gem invocation does not add a repository helper hop. Extend only the existing depth-5 chain frontier by one source-defined named repository call.",
+  "selection": "Read the 20 existing depth-5 records and collapse catalog repetitions into five distinct entrypoint/call-chain frontiers. No earlier entrypoints or tables are rewalked or rebuilt.",
+  "rows_in": 20,
+  "input_rows_by_auth": {
+    "authenticated": 8,
+    "unknown": 12,
+    "conditional_anonymous": 0,
+    "unauthenticated": 0
+  },
+  "distinct_seed_chains": 5,
+  "distinct_frontier_methods": 1,
+  "additional_named_repository_call_sites": 0,
+  "extended_depth6_chains": 0,
+  "rows_written": 0,
+  "matches_by_auth": {
+    "authenticated": 0,
+    "unknown": 0,
+    "conditional_anonymous": 0,
+    "unauthenticated": 0
+  },
+  "source_counts": {
+    "params": 0,
+    "literal": 0,
+    "local": 0,
+    "unresolved": 0
+  },
+  "counts_by_auth_and_source": {
+    "authenticated": {
+      "params": 0,
+      "literal": 0,
+      "local": 0,
+      "unresolved": 0
+    },
+    "unknown": {
+      "params": 0,
+      "literal": 0,
+      "local": 0,
+      "unresolved": 0
+    },
+    "conditional_anonymous": {
+      "params": 0,
+      "literal": 0,
+      "local": 0,
+      "unresolved": 0
+    },
+    "unauthenticated": {
+      "params": 0,
+      "literal": 0,
+      "local": 0,
+      "unresolved": 0
+    }
+  },
+  "blank_sources": 0,
+  "seed_chains": [
+    {
+      "entrypoint": "ep_7560f8946a7c4fc8e4f0e62f",
+      "auth": "unknown",
+      "depth5_records": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "frontier": {
+        "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+        "line": 93,
+        "method": "Ci::DailyBuildGroupReportResultsFinder#end_date"
+      }
+    },
+    {
+      "entrypoint": "ep_3ecdf947ee1a4868e04ff77a",
+      "auth": "authenticated",
+      "depth5_records": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "frontier": {
+        "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+        "line": 93,
+        "method": "Ci::DailyBuildGroupReportResultsFinder#end_date"
+      }
+    },
+    {
+      "entrypoint": "ep_c4fb141f0b5e5d20f22885d1",
+      "auth": "unknown",
+      "depth5_records": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "frontier": {
+        "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+        "line": 93,
+        "method": "Ci::DailyBuildGroupReportResultsFinder#end_date"
+      }
+    },
+    {
+      "entrypoint": "ep_ae166421ba6e285fe43b9b9f",
+      "auth": "authenticated",
+      "depth5_records": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "frontier": {
+        "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+        "line": 93,
+        "method": "Ci::DailyBuildGroupReportResultsFinder#end_date"
+      }
+    },
+    {
+      "entrypoint": "ep_7486efa654d081168c8185a8",
+      "auth": "unknown",
+      "depth5_records": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "frontier": {
+        "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+        "line": 93,
+        "method": "Ci::DailyBuildGroupReportResultsFinder#end_date"
+      }
+    }
+  ],
+  "frontier_review": {
+    "file": "app/finders/ci/daily_build_group_report_results_finder.rb",
+    "method": "Ci::DailyBuildGroupReportResultsFinder#end_date",
+    "definition_line": 93,
+    "last_line": 97,
+    "calls": [
+      {
+        "line": 94,
+        "expression": "Date.strptime(params[:end_date], DATE_FORMAT_ALLOWED)",
+        "receiver": "Date",
+        "gem": "date",
+        "catalog_records": [
+          82,
+          83,
+          84,
+          85
+        ],
+        "decision": "Existing terminal gem call inside the depth-5 body. Its external implementation supplies no additional same-repository helper hop."
+      },
+      {
+        "line": 94,
+        "expression": "params",
+        "declaration_line": 27,
+        "declaration": "attr_reader :params, :current_user",
+        "decision": "Generated attribute reader; no ordinary source-defined repository method body to extend. No framework activation or dynamic implementation is inferred."
+      },
+      {
+        "line": 94,
+        "expression": "params[:end_date]",
+        "decision": "The index receiver is the accessor result; no gem receiver or source-defined repository [] implementation is established."
+      },
+      {
+        "line": 96,
+        "expression": "Date.current",
+        "receiver": "Date",
+        "gem": "date",
+        "decision": "External namespace call; current is absent from the date call-argument catalog. No same-repository helper body is established."
+      }
+    ],
+    "result": "No qualifying depth-6 match. Record a header-only CSV; unresolved frontier stops do not become match rows."
+  },
+  "source_rule": "For retained rows, classify the recorded catalog-indexed argument using only the call and its one caller as params, literal, local or unresolved. No rows qualify, so no source classifications are written.",
+  "schema": {
+    "fields": [
+      "entrypoint",
+      "auth",
+      "edition",
+      "entrypoint_type",
+      "entrypoint_path",
+      "anonymous_access",
+      "file",
+      "line",
+      "receiver",
+      "expression",
+      "gem",
+      "method",
+      "argument_index",
+      "stored_label",
+      "slot",
+      "call_depth",
+      "call_chain_depth",
+      "argument_catalog_record",
+      "seed_depth5_records",
+      "seed_filtered_records",
+      "caller_file",
+      "caller_method",
+      "caller_line",
+      "caller_call_line",
+      "method_entry_line",
+      "call_chain",
+      "recorded_source_revision",
+      "recorded_source_sha256",
+      "source"
+    ],
+    "catalog_fields": {
+      "gem": "gem",
+      "method": "ruby_method_name",
+      "argument_index": "argument_index",
+      "stored_label": "argument_label",
+      "slot": "slot",
+      "call_depth": "hop_count"
+    },
+    "depth_field": "call_chain_depth",
+    "seed_record_fields": "seed_depth5_records identifies immediate input records; seed_filtered_records retains original filtered-table provenance."
+  },
+  "validation": {
+    "seed_rows_checked": 20,
+    "seed_depth_checked": 5,
+    "seed_chain_lengths_checked": 6,
+    "distinct_frontier_bodies_read": 1,
+    "output_header_matches_schema": true,
+    "output_data_rows": 0,
+    "no_rows_added_without_a_qualifying_call": true,
+    "no_repo_method_name_search": true,
+    "dynamic_dispatch_followed": false,
+    "earlier_tables_rebuilt": false,
+    "earlier_tables_modified": false,
+    "repository_scripts_executed": false,
+    "target_code_executed": false
+  },
+  "output": {
+    "path": "/workspace/gitlab_c_ext_trace/depth6-argument-join/rows.csv",
+    "sha256": "108692f5ab40d27b299a30f5f78b3880c51ac79944a493c6e342f1448de44875"
+  },
+  "limits": "This is bounded extension of the saved chains only. No runtime dispatch, prepend activation or gem implementation is executed or inferred."
+}
