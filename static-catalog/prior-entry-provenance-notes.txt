@@ -1,0 +1,142 @@
+Scope and interpretation
+
+This delivery follows the updated Ruby-entry argument-provenance objective,
+including the user's clarification to include pointer-only flows. The earlier
+A-E working-set table is superseded. entry-argument-sites.csv is the requested
+table; its JSONL companion has the same rows. A header-only table means zero
+accepted pairs under the recorded conservative transfer rules.
+
+Setup
+
+The GitLab clone is shallow and sparse, pinned at the default-branch HEAD observed
+at the start of this task. Gemfile.lock is copied without evaluating Ruby.
+All 781 RubyGems packages matched their Gemfile.lock SHA256 checksums; 40 PATH gems
+were read from the pinned GitLab checkout. Packages were unpacked with Python
+archive readers. Gem installation, gemspec evaluation, extension builds, dynamic
+loading, and application execution were not performed.
+
+Source scope
+
+files-scanned.csv identifies the gem, version, path, source SHA256, platform
+variants, and scope reason. Identical source bytes at the same gem/version/path
+are deduplicated across platform packages. gems with no in-scope C files appear
+in gem-extension-inventory.csv. C/CC/CPP/H files are scanned under ext/, gRPC's
+src/ruby/ext/, and native source directories explicitly associated with these
+extensions by their build configuration. Associated roots include gRPC's
+src/include/third_party, rugged's vendor/libgit2, prism and rbs src/include, and
+Nokogiri's gumbo-parser/src. This is a source superset, not a determination of
+which platform-specific files a runtime build links. Separate extconf.rb build
+roots within a gem restrict helper resolution; common native files are shared.
+
+Nested source archives are not expanded. This limits native-library coverage for
+gpgme, Nokogiri, rbtrace, re2, and ruby-magic. Their archive paths are recorded in
+files-skipped.csv. Ruby fixture ZIPs, tests/examples outside extension trees,
+symlink members, absent generated sources, and files outside the selected native
+roots are excluded. No source is fetched by executing extconf.rb recipes.
+
+Entries
+
+The six rb_define_* registration families requested by the user are indexed.
+Each registration retains receiver expression, Ruby name, C function expression,
+arity, definition location, platform provenance, and binding status. A receiver
+expression is not resolved to a Ruby constant or application class.
+Unexpanded registration macros, ambiguous/missing C definitions, and unsupported
+callback signatures remain inventory records and do not become proven roots.
+Macros that hide the registration call itself are not expanded into registrations.
+
+For nonnegative arity, C parameter zero is self and C parameter i+1 corresponds
+to Ruby argument i. For arity -1, argc is metadata and argv is an argument-vector
+marker; constant argv[i] and fixed outputs of literal rb_scan_args formats map
+to Ruby argument i. For arity -2, the second C parameter is the argument array;
+constant rb_ary_entry indices are modeled as positional argument extraction.
+Self, allocator callbacks, argc, keywords, blocks, rest arguments without a fixed
+index, and arbitrary dynamic argv indices do not seed a positional argument.
+
+Transfers and slots
+
+The tracer preserves argument origins through local aliases, casts, arithmetic,
+direct intra-extension helper arguments/returns, and simple scalar output
+parameters. It follows arbitrary acyclic helper depth, rather than stopping at
+one helper. The note records direct/via one helper/via N helpers and the path.
+Recursion is unresolved. File-local static definitions take precedence; ambiguous
+cross-file definitions are unresolved. It does not follow libc or Ruby-runtime
+implementations, and does not infer the return value of an external call from its
+input. This includes Ruby conversion APIs whose implementation is not present.
+
+Literal assignments, sizeof, and recognized object-length operations terminate
+the corresponding argument origin. In particular, string/array-length macros
+are treated as rewrites to a local length, not as unchanged entry values. Struct
+or object length/size field extraction also terminates an origin. General
+heap/field aliases, indirect reads, member dispatch, and function-pointer calls
+are unresolved; they are never used to justify a kept row. Explicit scalar
+output parameters are the limited exception to indirect-assignment exclusion.
+
+Only simple, unambiguous local scalar macro expressions are substituted. Complex
+macros, macros containing calls or statements, token pasting, stringification,
+configuration-dependent definitions, and Ruby macros from headers outside the
+extension source corpus are unresolved. The allocation macros specifically
+requested as sites are recognized by their signature without expansion.
+
+Copy count slots are explicit lengths in memcpy/memmove/strncpy/strncat. Bounded
+format destination bounds are count slots, while the format itself is a separate
+format slot. Literal formats exclude that format slot, not an unrelated count or
+pointer slot. Unrecognized *printf/*scanf signatures are inventoried as sites
+but have no inferred format position. Recognized Ruby format equivalents are
+listed in scripts/catalog.py. Unbounded strcpy/strcat expose pointer slots.
+Source and destination pointer slots, format destinations, and realloc's input
+pointer are included according to the user's pointer clarification.
+
+Allocator size slots require the specified arithmetic/narrowing and later-copy
+relationship in the same C function. The copy destination must match the assigned
+allocation pointer and the copy count must match a pre-arithmetic operand.
+Intervening assignments to that pointer break the relationship. Narrowing uses
+declared local integer ranks/fixed-width type names; ABI widths are not proven.
+A standalone sizeof is excluded; input arithmetic containing a sizeof operand
+can still be unbound. No allocator/copy overflow or impact is asserted.
+
+Indexed assignments include subscript assignments and *(p + i) =. The index rule
+checks the store's physical line or a condition ending on the immediately
+preceding physical line. It recognizes conventional length/count/size/capacity
+names, n, numeric bounds, and sizeof. This is a lexical comparison rule, not a
+proof of a valid index or buffer capacity. Compound assignments are outside scope.
+
+Limits and counts
+
+This is a conservative static provenance catalog. It does not solve path
+conditions, runtime type checks, alias graphs, C++ overloads, or preprocessing.
+Unconditional returns stop a block; conditional branch environments are merged.
+Loops are modeled as one symbolic iteration with the incoming state retained;
+transfers needing multiple iterations may be missed. Switch, goto, and conditional
+compilation are recorded as unresolved where reached. Functions with parser
+recovery are not used to justify kept paths. Parser diagnostics include generated
+headers and initializer fragments that are not standalone translation units.
+Unparsed lexical call candidates and macro replacement tokens are counted
+separately; they are not claimed to be proven calls. No exploitability, external
+input exposure, application reachability, or absence of defects is inferred.
+
+entry_points counts registration sites, including unresolved bindings. sites
+counts parsed selected calls/indexed assignments with a parsed enclosing function.
+kept_pairs counts distinct registration/site pairs; kept_rows also distinguishes
+Ruby argument index, slot kind, and source/destination slot. unresolved_hops is
+argument-specific and can include multiple arguments at the same call. It is
+separate from unresolved registration/index issues. extensions_scanned counts
+C-extension gems; extension_build_roots counts their native build roots.
+inventory-summary.json and files-scanned.csv retain a broader intermediate syntax
+inventory used by the slot predicates; final site counts are in summary.json and
+sites.csv. The updated table contains none of the former A-E labels.
+
+Reproduction (analysis tooling only)
+
+Use the SHA in provenance.json, not a moving default branch, for a repeat run.
+Install scripts/requirements.txt in an analysis Python environment. With the
+pinned sparse GitLab clone at GITLAB_SOURCE and a download cache at SOURCE_CACHE:
+
+  python scripts/fetch_sources.py --gitlab GITLAB_SOURCE --cache SOURCE_CACHE --out OUTPUT_DIR
+  python scripts/catalog.py --out OUTPUT_DIR
+  python scripts/entry_catalog.py --out OUTPUT_DIR
+  python scripts/finish_delivery.py
+
+finish_delivery.py operates on its parent catalog directory. All tests parse inert
+C snippets and verify static transfers; they do not compile or execute the snippets.
+The source cache used for this run is /workspace/static-catalog-cache and is not
+committed. fetch-manifest.json records exact package URLs and package checksums.

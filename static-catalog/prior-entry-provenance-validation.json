@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "parser_transfer_tests": 27,
+  "registration_source_references_checked": 3655,
+  "site_source_references_checked": 15908,
+  "unresolved_source_references_checked": 7450,
+  "kept_rows_checked": 0,
+  "source_digests_verified": 5773,
+  "rubygems_packages_matching_lock_sha256": 781,
+  "extension_or_application_code_executed": false
+}

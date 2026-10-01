@@ -1,42 +1,9 @@
-Ruby-callable C-extension argument-provenance catalog
-GitLab default branch: master
-GitLab SHA: 96f2351e807432d5551132ff5455b981fcb9c25c
-Gemfile.lock SHA256: 50f6a3526e62de32194407ef07fb8e4ba657131aa09614f897914606e2c31098
-Locked gems: 770 names; 821 version/platform entries
-Fetched locked entries: 821; fetch failures: 0
-C-extension gems scanned: 69; native build roots: 97
-Distinct native source files scanned: 5773
-Ruby registrations: 3655; resolved bindings/signatures: 3393
-Resolved roots with Ruby-passed arguments: 1855
-Selected sites with parsed enclosing functions: 15908
-Kept entry/site pairs: 0; argument/slot rows: 0
-Unresolved argument-provenance hops: 7450
-Dropped local-length rewrites: 499
-Parser diagnostic records: 49174 in 2011 files
-Unparsed lexical candidates: 191; skipped files/archives: 23
-
-No pairs passed the conservative unchanged-argument rule. This is not a finding that all paths are bound.
-Unresolved macros, external calls, indirect operations, callback bindings, and parser recovery block paths.
-See unresolved-hops.csv, index-issues.csv, parser-diagnostics.csv, and files-skipped.csv for coverage limits.
-
-Unresolved reasons (argument-specific records):
-  Ruby argument extraction has a nonliteral or unsupported signature: 10
-  argument vector does not identify one Ruby-passed argument: 2
-  conditional compilation or switch control flow is not resolved: 523
-  external call has no in-extension definition: 3225
-  field read requires object/alias resolution: 92
-  field/indirect assignment requires alias resolution: 201
-  function body contains parser recovery: 325
-  function-pointer or member dispatch: 19
-  goto control flow is not resolved: 309
-  indirect read or dynamic Ruby argument index: 16
-  indirect read requires alias resolution: 99
-  recursive argument flow not resolved: 12
-  rest/keyword/block argument extraction is not mapped to positional indices: 121
-  unexpanded macro: 2496
-
-Scanned C-extension gems:
-  RedCloth, aliyun-sdk, amatch, bcrypt, bigdecimal, bootsnap, byebug, cbor, cgi, character_set, charlock_holmes, commonmarker, date, debug, debug_inspector, digest-crc, ed25519, erb, escape_utils, fast_blank, ffi, ffi-yajl, google-protobuf, gpgme, grpc, gvltools, hamlit, io-console, io-event, jaro_winkler, json, libyajl2, llhttp-ffi, msgpack, nio4r, nkf, nokogiri, oj, oj-introspect, openssl, pg, pg_query, prism, psych, puma, racc, rb-fsevent, rbs, rbtrace, re2, redcarpet, regexp_property_values, resolv, rinku, ruby-magic, rugged, stackprof, stringio, strscan, thrift, timfel-krb5-auth, unf_ext, unicode, version_sorter, vmstat, websocket-driver, yajl-ruby, zlib, zstd-ruby
-
-Validation passed: 27 inert-snippet parser/transfer tests and all exported source references.
-GitLab, Ruby wrappers, gem extension binaries, build scripts, and application code were not executed.
+Static extension call-argument inventory
+Starting work SHA: c582e4ca17c5252bd8be357c37428efc2d571e53
+Roots: 3655 (3394 resolved; 261 unresolved)
+Rows: 353
+Unresolved hops: 168263
+Source files: 5773; extension gems: 69
+Dedup keys with distinct alternatives: 18
+See notes.txt for index conventions, slot signatures and coverage limits.
+Only archive readers and static analysis tooling ran; target code was not executed.
