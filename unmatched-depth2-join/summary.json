@@ -562,5 +562,127 @@
     },
     "output_rows_sha256": "2e0cc2b868859fc73b54aefaf99b7c3deafb04fbe83626694b29d1e6bda4fb84"
   },
+  "out_of_file_caller_review": {
+    "input_analysis_sha": "c8235aa6d2021f9e7a8d5147c7ce1858727ff760",
+    "input_rows_sha256": "2e0cc2b868859fc73b54aefaf99b7c3deafb04fbe83626694b29d1e6bda4fb84",
+    "selection": "Only the 20 source=unresolved CSV records. The four params CSV rows were not returned, parsed or reviewed.",
+    "selected_csv_records": [
+      4,
+      5,
+      8,
+      9,
+      12,
+      13,
+      22,
+      23,
+      26,
+      27,
+      30,
+      31,
+      34,
+      35,
+      38,
+      39,
+      51,
+      52,
+      55,
+      56
+    ],
+    "rows_checked": 20,
+    "rows_changed": 0,
+    "rows_remaining_unresolved": 20,
+    "source_counts": {
+      "params": 0,
+      "literal": 0,
+      "local": 0,
+      "unresolved": 20
+    },
+    "containing_methods": 3,
+    "direct_callers_found": 1,
+    "rows_with_direct_caller": 8,
+    "rows_without_direct_caller": 12,
+    "rows_with_expression_at_catalogued_index": 0,
+    "rule": "Search the same repository for one direct call to each containing method. Open only that caller file, inspect the expression at the catalogued argument index, and do not follow a second file. Keep unresolved when no direct caller or no indexed expression is present.",
+    "findings": [
+      {
+        "containing_method": "API::Internal::Base#<endpoint>",
+        "selected_csv_records": [
+          4,
+          5,
+          30,
+          31
+        ],
+        "rows": 4,
+        "argument_index": 1,
+        "direct_caller_found": false,
+        "source": "unresolved",
+        "reason": "<endpoint> is the stored synthetic label of an anonymous endpoint block, not a named Ruby method with a direct call. The literal label has no Ruby source match. No direct named caller was found; framework dispatch and route registration are not an expression passed to that method at index 1."
+      },
+      {
+        "containing_method": "Packages::Nuget::V2::MetadataIndexPresenter#xml",
+        "selected_csv_records": [
+          8,
+          9,
+          12,
+          13,
+          34,
+          35,
+          38,
+          39
+        ],
+        "rows": 8,
+        "argument_index": 1,
+        "direct_caller_found": true,
+        "caller_file": "lib/api/concerns/packages/nuget/public_endpoints.rb",
+        "caller_line": 142,
+        "caller_expression": "present ::Packages::Nuget::V2::MetadataIndexPresenter.new.xml",
+        "caller_argument_count": 0,
+        "expression_at_catalogued_index": null,
+        "source": "unresolved",
+        "reason": "The direct call to xml passes no arguments. There is no expression at catalogued argument index 1 to classify, so all eight rows remain unresolved. The caller file was opened; no second file was followed."
+      },
+      {
+        "containing_method": "UsersController#calendar_activities",
+        "selected_csv_records": [
+          22,
+          23,
+          26,
+          27,
+          51,
+          52,
+          55,
+          56
+        ],
+        "rows": 8,
+        "argument_index": 1,
+        "direct_caller_found": false,
+        "source": "unresolved",
+        "reason": "The repository search found the definition, action selectors, route symbols/strings, templates, generated URL paths and request-test references, but no direct invocation of calendar_activities. get :calendar_activities registers a route; it does not call the action with an indexed argument. No caller file was opened."
+      }
+    ],
+    "caller_files_opened": [
+      {
+        "file": "lib/api/concerns/packages/nuget/public_endpoints.rb",
+        "lines_read": [
+          128,
+          146
+        ],
+        "sha256": "360c9c5a56064fad870a7e22a4edcfe262b261e0f6fd2fe164be625226b2f992",
+        "matches_recorded_sha256": true
+      }
+    ],
+    "validation": {
+      "all_selected_argument_indices_are_1": true,
+      "params_rows_read": false,
+      "params_rows_modified": false,
+      "all_csv_bytes_preserved": true,
+      "catalog_fields_preserved": true,
+      "operand_labels_preserved": true,
+      "second_file_followed": false,
+      "repository_scripts_executed": false,
+      "target_code_executed": false
+    },
+    "output_rows_sha256": "2e0cc2b868859fc73b54aefaf99b7c3deafb04fbe83626694b29d1e6bda4fb84"
+  },
   "limits": "Coverage inherits the recorded walk's unresolved root bindings, ordinary-call stops and conservative receiver lookup. Only retained sites and recorded callers were reread and checked against their full-file hashes; this is not a fresh exhaustive traversal of every source body. Saved auth labels do not prove deployed anonymous access, and gem/method joins do not prove native argument flow."
 }

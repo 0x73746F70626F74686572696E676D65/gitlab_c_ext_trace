@@ -93,3 +93,22 @@ four `params` CSV rows were not returned, parsed or reviewed. All three source
 files match their recorded full-file hashes. `summary.json` records the
 per-site reasons under `unresolved_review`. No target code or repository
 scripts ran.
+
+The out-of-file caller review at input commit
+`c8235aa6d2021f9e7a8d5147c7ce1858727ff760` checks the same 20 unresolved rows.
+**One distinct direct caller is found, covering eight rows**:
+`lib/api/concerns/packages/nuget/public_endpoints.rb:142` calls
+`Packages::Nuget::V2::MetadataIndexPresenter.new.xml`. That call passes no
+arguments, so it has no expression at catalogued index 1. The other twelve
+rows have no direct named caller: four belong to an anonymous endpoint block
+with a synthetic method label, and eight belong to a controller action whose
+references are routing, selectors, templates and request tests.
+
+Counts for those 20 rows remain **params 0, literal 0, local 0, unresolved 20**;
+**0 rows change**. Only the found caller file was opened, and its hash matches
+the recorded source hash. No second file was followed. Route registrations
+and framework dispatch do not supply an indexed caller expression.
+The CSV remains byte for byte unchanged, and the four `params` rows were not
+returned, parsed or reviewed. `summary.json` records the caller count and
+per-method findings under `out_of_file_caller_review`. No target code or
+repository scripts ran.
