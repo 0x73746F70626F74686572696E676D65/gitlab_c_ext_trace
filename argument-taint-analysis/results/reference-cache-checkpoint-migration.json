@@ -1,0 +1,27 @@
+{
+  "checkpoints": [
+    {
+      "changed_identity_files": [
+        "/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/trace.py"
+      ],
+      "checkpoint": "abi-hash1",
+      "evaluations": 156584,
+      "generation": "state-156584",
+      "new_metadata_sha256": "db4002d0a1a61234035784c2a3a5d37295061b1a8ab4f9ede7feb5bce770c4a9",
+      "original_metadata_sha256": "06472a90aeafb285c551ee1412cf192af7d1e8658069943c424a761d2e016614",
+      "queued": 38491
+    },
+    {
+      "changed_identity_files": [
+        "/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/trace.py"
+      ],
+      "checkpoint": "abi-hash317",
+      "evaluations": 148413,
+      "generation": "state-148413",
+      "new_metadata_sha256": "b82ccf78eaae05ee347d0cf9a04140557780b34aab31a4f03e0e6d6001a390ad",
+      "original_metadata_sha256": "1ead91604c691d8a37885047eaa21d664c0bc63c134550af8cab56be55a7b6e8",
+      "queued": 39557
+    }
+  ],
+  "reason": "Memoization only; AST changes confined to Context.apply and Context.substitute; 80 old/new values equivalent and 35 semantic fixtures pass"
+}

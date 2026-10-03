@@ -1,0 +1,56 @@
+{
+  "gem-api-memory-flows": {
+    "concatenated_sha256": "197cd615e7d1172e98588fd43a1acaafacfa9cd17e5f8b4acbcc1bcdc8f9b140",
+    "parts": [
+      {
+        "bytes": 33552880,
+        "path": "gem-api-memory-flows/part-0001.jsonl",
+        "records": 14807,
+        "sha256": "4b9e3d0d3ed6913d6725c9698c2bdb4adfef34ca9fce07fe96c987810b25638b"
+      },
+      {
+        "bytes": 33553960,
+        "path": "gem-api-memory-flows/part-0002.jsonl",
+        "records": 16464,
+        "sha256": "6a3945abf4ceecbfc249f5efa81922585d761eaa6d7ca97e280c937e67993794"
+      },
+      {
+        "bytes": 33553025,
+        "path": "gem-api-memory-flows/part-0003.jsonl",
+        "records": 17122,
+        "sha256": "2e71b4fdc69aed39a1085c777179b6d54d12a8d8d0e48ac105418ca092b02ce8"
+      },
+      {
+        "bytes": 30232340,
+        "path": "gem-api-memory-flows/part-0004.jsonl",
+        "records": 14683,
+        "sha256": "8785df25a94a896221638be354389cb851df1e41b51c29441cab855fdda3a2af"
+      }
+    ],
+    "records": 63076
+  },
+  "gem-api-native-memory-flows": {
+    "concatenated_sha256": "63adb16d7f7d0e18ad8d73800674e3ea8be64d524d34569c233f7cbfdfadecd6",
+    "parts": [
+      {
+        "bytes": 33551745,
+        "path": "gem-api-native-memory-flows/part-0001.jsonl",
+        "records": 14609,
+        "sha256": "55ccd3980e088ded4a8576523a310dae7f3cfc7b657a414c2af27351a57ae7f1"
+      },
+      {
+        "bytes": 33552146,
+        "path": "gem-api-native-memory-flows/part-0002.jsonl",
+        "records": 14584,
+        "sha256": "823994dc8418c9136b0490de417df40d2eb40860b0ef6a01d2e6d0e9bac3d135"
+      },
+      {
+        "bytes": 8240642,
+        "path": "gem-api-native-memory-flows/part-0003.jsonl",
+        "records": 3887,
+        "sha256": "22d89eaf6a0842738dd1565b33db9cccb0fcf32a11f544a685d45e1288bb59aa"
+      }
+    ],
+    "records": 33080
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "call_depth_limit": null,
+  "checkpoint": "state-177418",
+  "checkpoint_identity": {
+    "files": {
+      "/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/checkpoint.py": "eaff3f20cce3b70906af73f4d9562d43290a816f2d1a4bbc7674cf157b24ed3d",
+      "/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/includes.py": "8da6df3c3aff8fd1d480da7a310f01158f0e49d4d4ce02e924bfcc6eaaf8fb99",
+      "/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/requirements.txt": "bd29d571280058be5754d253bb49eb656ae3c7df38e82e019c1e67c76a712b11",
+      "/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/trace.py": "36d7240fcb14a2273c2d909222e80e5d1f9566d94d11476291dc21a041e7b24f",
+      "/workspace/scratch/gem-argument-memory-audit/all-sources-index.json": "a6603c557b3d1a673f75a0f69cdf7e0ce1e3d8871a0790f666c585ad3ae69bb0",
+      "argument-taint-analysis/results/source-manifest.json": "89889081627841538362827a76d4c40b17453a85260e93a5050b3ec691068ae3"
+    },
+    "roots_sha256": "9eb7a374e323c0430674ff29c2e0b913f7b7d4b0a155210a93033ae686b6e270"
+  },
+  "definition": "Every explicit API argument memory-operand witness saved in the intact checkpoint; ordinary field stores excluded. Static may-taint facts; solver had not closed.",
+  "distinct_apis_ignoring_version": 1719,
+  "distinct_versioned_apis": 3352,
+  "event_join": "event_chain IDs join gem-api-memory-flow-events.jsonl; argument_index and call_site_parameters.index are zero-based; * means a variadic explicit argument.",
+  "events": 61476,
+  "fixed_point_reached": false,
+  "flow_records": 63076,
+  "function_evaluations": 177418,
+  "max_saved_witness_call_depth": 78,
+  "native_distinct_apis_ignoring_version": 1012,
+  "native_distinct_versioned_apis": 2062,
+  "native_flow_records": 33080,
+  "pending_functions": 19653,
+  "registered_roots": 15920,
+  "status": "interrupted_checkpoint_snapshot",
+  "witnessed_gems": 65,
+  "work_commit": "2b0bc9e9229755b1f7a9233c8cd67f75d1f83af5"
+}

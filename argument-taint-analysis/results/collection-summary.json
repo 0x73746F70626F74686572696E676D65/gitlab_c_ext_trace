@@ -1,0 +1,29 @@
+{
+  "gem_names": 81,
+  "native_source_files": 44792,
+  "pinned_gitlinks": 84,
+  "published_packages": 136,
+  "recorded_repositories": 146,
+  "recorded_vendor_checkouts": 6,
+  "saved_source_verification": {
+    "missing_by_gem": {
+      "actionpack": 1,
+      "mail": 21,
+      "nokogiri": 3,
+      "parser": 19,
+      "rails": 1,
+      "regexp_parser": 3,
+      "rubocop-ast": 1
+    },
+    "saved_files": 23628,
+    "statuses": {
+      "exact_bytes_restored": 23579,
+      "saved_bytes_not_restored": 49
+    }
+  },
+  "scavenged_files": 2397,
+  "scavenged_native_datasets": 284,
+  "scavenged_registration_ids": 8110,
+  "source_bytes": 721747736,
+  "source_variants": 282
+}

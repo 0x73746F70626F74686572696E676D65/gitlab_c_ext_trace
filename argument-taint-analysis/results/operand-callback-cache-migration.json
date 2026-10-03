@@ -1,0 +1,7 @@
+{
+  "after_sha256": "36d7240fcb14a2273c2d909222e80e5d1f9566d94d11476291dc21a041e7b24f",
+  "before_sha256": "54aac3eea87c52f403b14c3b7241ef68addc4deb763d6b53aa757d9c37114300",
+  "callback_scanner_and_used_helpers_ast_identical": true,
+  "reference_helper_not_used_by_scanner": "implicit_selector",
+  "status": "passed"
+}

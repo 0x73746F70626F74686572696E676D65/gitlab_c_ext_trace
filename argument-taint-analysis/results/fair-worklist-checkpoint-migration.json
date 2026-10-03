@@ -1,0 +1,30 @@
+{
+  "changed_ast_methods": [
+    "Index.event",
+    "Solver.solve"
+  ],
+  "checkpoints": [
+    {
+      "checkpoint": "abi-hash1",
+      "evaluations": 156584,
+      "events": 1022928,
+      "functions": 55246,
+      "new_generation": "fair-state-156584",
+      "old_generation": "state-156584",
+      "queued": 38491
+    },
+    {
+      "checkpoint": "abi-hash317",
+      "evaluations": 164346,
+      "events": 1028446,
+      "functions": 55246,
+      "new_generation": "fair-state-164346",
+      "old_generation": "state-164346",
+      "queued": 37756
+    }
+  ],
+  "current_sha256": "e31f3d81a09f3d9600d1145848c05aeffc3176242b30d14c6c30d59cf7071e11",
+  "model_and_callback_scanner_unchanged": true,
+  "original_sha256": "4112aa57313110aa5d66a0a06ebfeff9aff389de2e7232fdb5e562851b391101",
+  "status": "passed"
+}

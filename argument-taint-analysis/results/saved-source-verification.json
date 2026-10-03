@@ -1,0 +1,16 @@
+{
+  "missing_by_gem": {
+    "actionpack": 1,
+    "mail": 21,
+    "nokogiri": 3,
+    "parser": 19,
+    "rails": 1,
+    "regexp_parser": 3,
+    "rubocop-ast": 1
+  },
+  "saved_files": 23628,
+  "statuses": {
+    "exact_bytes_restored": 23579,
+    "saved_bytes_not_restored": 49
+  }
+}

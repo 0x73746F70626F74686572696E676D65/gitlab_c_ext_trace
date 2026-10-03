@@ -1,0 +1,21 @@
+{
+  "after_sha256": "e31f3d81a09f3d9600d1145848c05aeffc3176242b30d14c6c30d59cf7071e11",
+  "before_sha256": "4112aa57313110aa5d66a0a06ebfeff9aff389de2e7232fdb5e562851b391101",
+  "event_identity": "SHA256 of function, location, operation and binding; independent of scheduling",
+  "recursive_fixture_functions": 24,
+  "runs": [
+    {
+      "changes": 301,
+      "evaluations": 2348,
+      "scheduler": "original",
+      "seconds": 1.980804860999342
+    },
+    {
+      "changes": 49,
+      "evaluations": 72,
+      "scheduler": "fair",
+      "seconds": 0.07978251899839961
+    }
+  ],
+  "summary_and_event_equivalence": true
+}

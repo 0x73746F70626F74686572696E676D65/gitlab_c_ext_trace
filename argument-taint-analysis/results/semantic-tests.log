@@ -1,0 +1,114 @@
+Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 4 reachable functions
+FIXED POINT: 4 evaluations; 4 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 5 reachable functions
+FIXED POINT: 8 evaluations; 5 functions; queue empty
+Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 6 evaluations; 3 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 3 reachable functions
+FIXED POINT: 3 evaluations; 3 functions; queue empty
+Worklist starts: 3 reachable functions
+Checkpoint saved: 1 evaluations; 2 queued
+Checkpoint saved: 2 evaluations; 1 queued
+/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/checkpoint.py:82: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpdgmtyo5w/checkpoint/state-2/events.jsonl' mode='r' encoding='UTF-8'>
+  for line in (generation/'events.jsonl').open():
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/checkpoint.py:89: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpdgmtyo5w/checkpoint/state-2/functions.jsonl' mode='r' encoding='UTF-8'>
+  for line in (generation/'functions.jsonl').open():
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Checkpoint resumed: 2 evaluations
+FIXED POINT: 3 evaluations; 3 functions; queue empty
+.Worklist starts: 3 reachable functions
+FIXED POINT: 5 evaluations; 3 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 3 reachable functions
+FIXED POINT: 5 evaluations; 3 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 3 evaluations; 3 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 3 reachable functions
+FIXED POINT: 4 evaluations; 3 functions; queue empty
+Worklist starts: 3 reachable functions
+FIXED POINT: 5 evaluations; 3 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+..Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 122 reachable functions
+FIXED POINT: 122 evaluations; 122 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 3 reachable functions
+FIXED POINT: 4 evaluations; 3 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 5 evaluations; 2 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/trace.py:569: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpdhhhs3m1/native/gems.jsonl' mode='r' encoding='UTF-8'>
+  return {r[key]:r for l in (native_data/name).open() if (r:=json.loads(l))}
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/trace.py:569: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpdhhhs3m1/native/c_files.jsonl' mode='r' encoding='UTF-8'>
+  return {r[key]:r for l in (native_data/name).open() if (r:=json.loads(l))}
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/trace.py:569: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpdhhhs3m1/native/c_functions.jsonl' mode='r' encoding='UTF-8'>
+  return {r[key]:r for l in (native_data/name).open() if (r:=json.loads(l))}
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/trace.py:569: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpdhhhs3m1/native/ruby_native_registrations.jsonl' mode='r' encoding='UTF-8'>
+  return {r[key]:r for l in (native_data/name).open() if (r:=json.loads(l))}
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/trace.py:578: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpdhhhs3m1/native/c_registrations.jsonl' mode='r' encoding='UTF-8'>
+  for l in (native_data/'c_registrations.jsonl').open():
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/gitlab_c_ext_trace-work/argument-taint-analysis/scripts/trace.py:611: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpdhhhs3m1/static-catalog/argument-inventory-roots.jsonl' mode='r' encoding='UTF-8'>
+  for l in (repo/'static-catalog/argument-inventory-roots.jsonl').open():
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 2 reachable functions
+FIXED POINT: 2 evaluations; 2 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 4 reachable functions
+FIXED POINT: 4 evaluations; 4 functions; queue empty
+.Worklist starts: 3 reachable functions
+FIXED POINT: 3 evaluations; 3 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 1 reachable functions
+FIXED POINT: 1 evaluations; 1 functions; queue empty
+.Worklist starts: 5 reachable functions
+FIXED POINT: 5 evaluations; 5 functions; queue empty
+.
+----------------------------------------------------------------------
+Ran 39 tests in 0.091s
+
+OK
