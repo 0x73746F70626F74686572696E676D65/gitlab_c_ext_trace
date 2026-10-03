@@ -1,0 +1,285 @@
+GitLab anonymous HTTP entrypoints documented in the saved repository
+
+This is research on saved results only. No GitLab application, endpoint,
+extension, analysis generator, or vulnerability test was run. The exports copy
+existing entrypoint fields and group existing records; they do not establish new
+authentication conclusions.
+
+Repository: work at 2b0bc9e9229755b1f7a9233c8cd67f75d1f83af5.
+Remote work was checked and the local clean branch fast-forwarded to that commit.
+It is 45 commits ahead of results-20260930, with no commits behind that branch.
+The principal anonymous-access inventory describes GitLab source revision
+d75e5afaa21d45bc04139d4a538ea5954be1ef4f. Older archives and downstream joins also
+describe other revisions; their conditions are preserved separately.
+
+WHAT THE PRINCIPAL SAVED INVENTORY SAYS
+
+The most comprehensive saved authentication-specific inventory is
+unauthenticated_entrypoints/http_unauthenticated.json. It contains 2,420 HTTP
+registration records marked anonymous_access=true:
+
+  688 have the saved classification unauthenticated.
+  1,732 have the saved classification conditional_anonymous.
+  1,076 are CE records and 1,344 are EE records.
+  They contain 1,196 distinct literal path-template strings and 1,295 distinct
+  method/path pairs when editions, handlers, and duplicate registrations are
+  collapsed. This is a count of the saved declarations, not deployed URLs.
+  There are 245 handler families.
+
+By registration type:
+  1,695 Rails action records
+    621 Grape/API endpoint records
+     96 other HTTP registrations, including redirects and inline responses
+      4 dedicated health-listener records
+      2 health middleware records
+      2 WebSocket transport registrations
+
+CE/EE repetitions and organization-prefixed aliases account for many repeated
+records. /o/:organization_path/... is a separately recorded alias. Main-listener
+paths also need the installation's configured relative_url_root. ANY and ALL
+are saved wildcard declarations; UNKNOWN is an unresolved method declaration.
+No implicit HEAD/OPTIONS expansion was added during this research.
+
+The full authentication partitions additionally contain 12 anonymous-labeled
+error-only HTTP records that the saved public/application lists intentionally
+exclude. They are also preserved here, in error-only-http-records.csv: ANY
+/api/v3/*path and /api/v4/*path, GET /-/jira_connect, POST /jwt/auth, and the
+organization aliases for the latter two, across CE/EE. They document handlers
+that return errors, not admission to a useful application operation. Thus 2,432
+HTTP records have anonymous auth labels when these 12 error handlers are included.
+
+The saved inventory explicitly says complete=false and runtime_verified=false.
+Its labels describe source-supported, bounded review. They do not prove that
+every listed operation is admitted from an arbitrary anonymous request. An
+ordinary helper/service, resource policy, credential check, deployment setting,
+middleware, feature flag, or route precedence can affect admission. Records such
+as profile operations, runner/internal APIs, uploads, token exchange, and
+admin-named fields must therefore be read as saved classifications, not as
+newly confirmed unrestricted access. This qualification comes from the saved
+inventory's own README, metadata, and coverage data.
+
+DOCUMENTED HTTP FAMILIES
+
+The complete records, methods, handlers, source locations, saved conditions,
+and evidence IDs are in http-records.csv. Every one of the 2,420 records is
+retained. http-method-paths.csv gives all 1,295 distinct method/path pairs.
+http-handler-families.csv lists every handler and its recorded actions.
+
+1. Sign-in, registration, recovery, confirmation and identity-verification
+   entrypoints. The saved list includes GET /users/sign_in, GET /users/sign_up,
+   password new/edit/update routes, confirmation and unlock routes, passkey
+   sign-in initiation, email-OTP fallback and verification-related actions.
+   Authentication-form access and successful credential submission are separate
+   records; this summary does not promote every submission to anonymous success.
+   Devise-generated routes and organization aliases are retained.
+
+2. OAuth/OIDC and discovery. Recorded families include dynamic registration
+   POST /oauth/register(.:format), OAuth token/introspection/revocation handlers,
+   token-info and Geo-auth handlers, JWKS, /.well-known/openid-configuration,
+   /.well-known/oauth-authorization-server, /.well-known/webfinger,
+   /.well-known/oauth-protected-resource, and their recorded MCP/Orbit variants.
+   Related metadata includes /.well-known/security.txt,
+   /.well-known/terraform.json and /.well-known/change-password.
+   Form/session independence does not remove any separately required token,
+   client credential, certificate, or callback verification.
+
+3. Public project browsing and collaboration. Conditional records cover project
+   overview/activity, repository tree/blob/raw/blame/find-file views, commits,
+   branches, tags, comparisons and diffs, issues and notes/discussions, merge
+   requests and their related views, labels, milestones, snippets, wikis,
+   releases, badges, forks/starrers, selected project membership/autocomplete,
+   analytics and environment/deployment views. Public resource visibility and
+   the recorded read abilities/settings are conditions. Representative templates
+   include /*namespace_id/:id, /*namespace_id/:project_id/-/branches,
+   /*namespace_id/:project_id/-/blob/*id and their aliases.
+
+4. CI/build information. The list includes selected pipeline/job/build, test,
+   artifact, schedule and metrics handlers, plus Grape pipeline/runner/trigger
+   registrations. These retain their saved labels, which do not establish that
+   job tokens, runner credentials or private-project authorization are absent.
+   GET /api/v4/projects/:id/ci/lint is recorded as conditional public-resource
+   access. The older POST CI-lint input-flow recipe is a different record and
+   is not automatically an anonymous operation.
+
+5. REST public-resource families. The Grape inventory includes selected projects,
+   groups, users, avatars, topics, templates, repositories, branches/tags,
+   commits/files, releases/release links, issues/merge requests, snippets,
+   events, work-item and analytics registrations. Conditions and exact verbs
+   vary by record. The exported handler table also retains less intuitive
+   source-labeled families such as internal, integration, SCIM, compliance,
+   security and remote-development registrations without certifying access.
+
+6. Package and registry reads. Saved records cover Cargo, Composer, Conan v1/v2,
+   Debian project/group packages and distributions, Generic packages, Go proxy,
+   Helm, Maven, npm project/group/instance endpoints and dist-tags, NuGet
+   project/group endpoints, PyPI, RPM, RubyGems and Terraform modules.
+   Container repository/tag views, dependency proxies and virtual-registry
+   handlers also appear. Anonymous package reads depend on public visibility,
+   package features and the recorded package-read policy. Upload/write and
+   token-bearing operations are not inferred public from a family name.
+
+7. Git HTTP, LFS and downloads. Repository discovery/transport declarations,
+   LFS API/storage/locks, project/snippet artifacts and upload-serving handlers
+   appear with recorded methods and constraints. Upload paths containing secret
+   placeholders are preserved as templates; they do not establish permission
+   for an arbitrary file or imply that no secret is required.
+
+8. ActivityPub. The saved list includes project release index/outbox and POST
+   /*namespace_id/:project_id/-/releases/inbox. The older independently reviewed
+   inbox record specifically requires enabled ActivityPub/project flags, a
+   public nondeleting project, read_project permission, normal routing/content
+   negotiation and admitted callbacks/middleware. The recorded login-filter
+   skip is not a universal access statement.
+
+9. Information pages, exploration and small public services. Saved families
+   include help/documentation/instance configuration, project-topic and group
+   exploration, the CI catalog and snippets, sitemap, countries/states,
+   WhatsNew, ACME challenge, Cloud Connector keys, redirects, unsubscribe and
+   invitation handlers, sandbox renderers, diagram proxies, subscription/trial
+   pages and selected Jira Connect descriptors/keys/callback routes.
+   Some are informational pages or redirects; a saved classification does not
+   establish admission to every related callback or integration operation.
+
+10. Event ingestion and request infrastructure. POST /-/collect_events is
+    recorded, alongside other explicit HTTP redirects/inline responses and
+    router/cache registrations. Saved compression/body-validation records
+    describe middleware phases and do not each supply a new external route.
+
+11. Health and monitoring. GET /-/liveness and /-/readiness are recorded on the
+    main listener; /liveness and /readiness also have separate dedicated-listener
+    registrations. /-/health has a recorded client-IP allowlist condition.
+    /-/metrics and /-/metrics/system appear with the source inventory's labels.
+    Enabled listeners, network access and monitoring settings remain material.
+
+12. GraphQL and WebSocket transport. GET/POST /api/graphql is the HTTP transport.
+    The explorer/GLQL-related registrations are separately recorded. GET
+    /-/cable is a recorded WebSocket handshake, not proof that an anonymous
+    connection can use a channel or subscribe to a GraphQL subscription.
+
+GRAPHQL COUNTS ARE SEPARATE FROM HTTP URL COUNTS
+
+graphql_unauthenticated.json contains 3,006 source-labeled anonymous GraphQL
+records: 170 root query records and 2,836 nested field records. Of these, 614
+are labeled unauthenticated and 2,392 conditional_anonymous. All share the
+GraphQL HTTP transport; they are not 3,006 additional URLs. CE contributes
+1,190 and EE 1,816 records. No mutation or subscription is included in this
+saved public GraphQL partition.
+
+graphql-records.csv retains every field/query, schema witness, resolver, edition,
+condition and source reference. Witness paths are saved shortest source paths,
+not proof that a runtime object or policy permits traversing every field.
+currentUser's two edition records explicitly have nullable_identity responses;
+they do not establish disclosure of a logged-in identity to an anonymous user.
+Framework-generated connection, edge, interface and introspection members are
+not fully expanded in the saved inventory.
+
+OLDER SAVED CLAIMS, CORRECTIONS AND REPEATED REFERENCES
+
+The earlier frontend_gem_api_map inventory has 331 controller candidates labeled
+unauthenticated. This is not a second list of 331 verified anonymous routes.
+Every such candidate is retained in legacy-anonymous-candidates.csv, with its
+original routes/source location and any existing targeted-review result.
+Handler/action comparison to the later inventory is only a lookup of existing
+labels; no route equivalence or new authentication result is inferred.
+
+The saved targeted review of 191 original candidates reports:
+  142 registered actions;
+   42 public methods with unresolved HTTP registration;
+    7 callback blocks previously miscounted as actions;
+   27 retained unauthenticated classifications and 164 unknown classifications.
+
+The 27 include two ActivityPub base helpers without reconstructed HTTP actions.
+Examples of recorded public actions in that review include ActivityPub release
+actions, OAuth dynamic/protected-resource metadata, Jira Connect descriptors,
+sandbox renderers, unsubscribe/redirect handlers, Terraform discovery,
+security.txt, WhatsNew, CustomersDot proxy, Kerberos negotiation, Telesign
+callback and sitemap. Their conditions remain attached to the original records.
+
+The legacy baseline also calls some actions public that the newer saved
+inventory marks unknown or authenticated. For example, RootController#index is
+an older unauthenticated candidate but the newer '/' registration is unknown;
+Groups::WorkItemsController#show and Projects::Aws::ConfigurationController#index
+have newer authenticated labels. This is why an indiscriminate union would
+misrepresent the saved evidence. All older claims remain in the legacy table.
+
+The newer receiver/argument companions contain 122 rows selected by existing
+anonymous labels, referring to 82 existing entrypoint IDs and 44 path strings.
+All 82 IDs resolve to the principal inventory; the labels agree. These repeated
+downstream references add no entrypoints. downstream-anonymous-references.csv
+retains the IDs and source-table record numbers without interpreting downstream
+operations. The recorded downstream source revision differs from the principal
+inventory revision; that discrepancy is retained in the original metadata.
+
+The depth-limited search also retains 5,438 anonymous-labeled root records:
+3,704 were walked and 1,734 have unresolved roots. Every root ID resolves to
+the principal inventory and the saved auth labels agree. This is exactly the
+5,426 public/application records plus 12 error-only records, not another set
+of routes. Its 346,088 anonymous-labeled method-name-match rows do not create
+new authentication conclusions. Larger match/decision/unresolved-stop tables
+were included in the full saved-file search, including compressed tables.
+
+OLDER REQUEST-FLOW ARCHIVES AND AUTHENTICATION LIMITS
+
+The compact CURRENT_INPUT_FLOWS bundle has 29 saved reference records: 26 main,
+two partial and one auxiliary. They are conditional request-processing recipes,
+not an anonymous-endpoint census. Their selected source families are OAuth
+dynamic registration, event forwarding, ActivityPub inbox, branches, GraphQL
+package cursor, passkey registration/password/JSON phases, compressed JSON
+middleware, Slack options/interactions, CI lint, MLflow artifact paths and
+semantic-search settings. Multiple records repeat the same external route.
+
+The saved notes specifically keep Slack request signatures, internal shared
+secrets, admin settings permissions, passkey authenticated-user requirements,
+MLflow project/auth permissions and Conan package/schema permissions as gates.
+Those recipes are not counted here as universally anonymous endpoints. The
+passkey Rails parsing notes describe processing before local controller auth
+under prior middleware admission, and expressly avoid a general anonymous-
+access claim. No memory-operation paths were reanalyzed for this report.
+
+The broad frozen/iteration graph counts, native registration counts and lexical
+method matches are not additional anonymous entrypoints. Their READMEs explicitly
+distinguish candidates, contradicted paths, partials, conditional exclusions and
+input-flow recipes. The newest full-graph checkpoint is unfinished and produced
+no final joined reachability inventory. Its serialized parser state and
+interrupted native streams were included in the saved-material search; no state
+was executed or used to derive new authentication findings.
+
+Older registration tables also record global middleware such as
+Gitlab::Middleware::UnauthenticatedSessionExpiry. A middleware call registration
+has no separately established HTTP URL and does not add a public route.
+
+WHAT REMAINS UNRESOLVED IN THE SAVED DATA
+
+The main inventory has 19,671 unknown records, including 4,024 HTTP records;
+unknown is not a private or public classification. Coverage retains 554 routing-
+snapshot templates with unresolved methods/handlers/authentication, 103 Workhorse
+dispatch registrations with delegated/unresolved authentication, 4,057 older
+baseline records without reconstructed registrations, and explicit parse,
+dynamic-dispatch, route, engine and policy gaps. The 5,058-template saved EE
+routing snapshot is fully accounted for, but only 4,504 templates are matched
+to source registrations. These counts describe the saved inventory's bounds.
+
+All saved public claims are represented in the principal/legacy/reference
+tables. The evidence does not support an exhaustive runtime-verified list of
+everything any anonymous visitor can successfully use on a deployed GitLab.
+Research coverage and any unreadable stream boundaries are recorded separately
+in RESEARCH_COVERAGE.txt and research-coverage.json.
+
+FILES TO USE
+
+SUMMARY.txt                         this readable summary
+http-records.csv                    all 2,420 saved anonymous HTTP records
+http-method-paths.csv               all 1,295 unique saved method/path pairs
+http-handler-families.csv           all 245 handler families and actions
+error-only-http-records.csv         12 anonymous-labeled error-only handlers
+graphql-records.csv                 all 3,006 saved anonymous GraphQL records
+legacy-anonymous-candidates.csv     all 331 older anonymous-labeled candidates
+downstream-anonymous-references.csv 82 repeated entrypoint references
+counts.json                        counts from the existing records
+saved-evidence.json                copied auth evidence/callback dictionary
+RESEARCH_COVERAGE.txt               saved-material search coverage and limits
+research-coverage.json              file/archive/history/checksum accounting
+
+The original full inventory, partitions, evidence, coverage gaps, validation
+receipts and unchanged archives remain available in the repository. No saved
+unknown case was promoted to anonymous access.

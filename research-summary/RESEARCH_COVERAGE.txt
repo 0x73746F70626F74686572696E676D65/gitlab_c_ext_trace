@@ -1,0 +1,103 @@
+Saved-material research coverage
+
+Repository work at 2b0bc9e9229755b1f7a9233c8cd67f75d1f83af5; 45 commits ahead of results-20260930.
+Searched all working-tree saved files (including hidden files, excluding Git
+internal storage), all extracted analysis archives, the existing sibling
+inspection copies, and every historical Git blob version absent from HEAD.
+Reachable history contains 71 commits. No unreachable saved objects were
+reported by git fsck. The original archive catalog has no missing members in
+the extracted set. Two archived hard links point to separately included and
+searched copies of the same script; no additional payload is hidden there.
+
+Opened 23 archives, including both ordered split-xz
+archives, the unfinished graph checkpoint and the full seven-part checkpoint.
+Enumerated 2157 members and read
+2136 regular archived files. All 123 files
+in the full checkpoint manifest match their recorded SHA-256 hashes.
+Read 140 older Git blob versions, totaling
+79,256,068 stored bytes, in addition to current files.
+Enumerated 2763 saved files; searched
+2213 unique byte contents after identifying
+byte-identical duplicates. All duplicate paths remain in the search manifest.
+Consumed 10,763,737,930 decompressed/raw bytes during
+the initial pass, plus any partial-stream rescan bytes described below.
+There are 362 unique files with research keyword
+matches. Matches include irrelevant words such as unauthorized and anonymous
+Ruby blocks; these were not promoted to public-entrypoint evidence.
+
+Verified 362 available checksum references; all matched. Reassembled
+archive hashes were computed by reading ordered parts without changing saved
+archive contents. Export integrity checks confirm that every one of the 2,420
+main HTTP IDs, all 1,295 method/path pairs, all 3,006 GraphQL IDs, all 331 older
+candidate rows and all 122 repeated downstream references is retained. The
+12 extra anonymous-labeled error-only handlers are retained separately.
+
+This was file research and summary/export work only. No GitLab application,
+endpoint, gem extension, saved analysis generator or vulnerability test ran.
+Serialized parser/cache state was decompressed and keyword-searched as bytes;
+it was never unpickled or used to infer new routes or authentication outcomes.
+Native/call-graph candidates and lexical matches are not treated as public
+HTTP entrypoints. Source revisions and recorded unresolved conditions remain
+part of the interpretation.
+
+Interrupted-stream boundaries
+Initial gzip read failures: 8.
+
+/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_boundaries.jsonl.gz
+  Initial read error: EOFError('Compressed file ended before the end-of-stream marker was reached')
+  Rescanned all saved decompressible bytes: 1,912,095
+  Gzip end marker present: False
+  Additional rescan error: None
+
+/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_call_index.jsonl.gz
+  Initial read error: EOFError('Compressed file ended before the end-of-stream marker was reached')
+  Rescanned all saved decompressible bytes: 636,980,390
+  Gzip end marker present: False
+  Additional rescan error: None
+
+/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_callback_assignments.jsonl.gz
+  Initial read error: EOFError('Compressed file ended before the end-of-stream marker was reached')
+  Rescanned all saved decompressible bytes: 22,346,782
+  Gzip end marker present: False
+  Additional rescan error: None
+
+/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_edges.jsonl.gz
+  Initial read error: EOFError('Compressed file ended before the end-of-stream marker was reached')
+  Rescanned all saved decompressible bytes: 609,088,564
+  Gzip end marker present: False
+  Additional rescan error: None
+
+/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_files.jsonl.gz
+  Initial read error: EOFError('Compressed file ended before the end-of-stream marker was reached')
+  Rescanned all saved decompressible bytes: 5,915,907
+  Gzip end marker present: False
+  Additional rescan error: None
+
+/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_namespaces.jsonl.gz
+  Initial read error: EOFError('Compressed file ended before the end-of-stream marker was reached')
+  Rescanned all saved decompressible bytes: 144,106
+  Gzip end marker present: False
+  Additional rescan error: None
+
+/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_nodes.jsonl.gz
+  Initial read error: EOFError('Compressed file ended before the end-of-stream marker was reached')
+  Rescanned all saved decompressible bytes: 824,011,815
+  Gzip end marker present: False
+  Additional rescan error: None
+
+/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_registrations.jsonl.gz
+  Initial read error: EOFError('Compressed file ended before the end-of-stream marker was reached')
+  Rescanned all saved decompressible bytes: 2,061,414
+  Gzip end marker present: False
+  Additional rescan error: None
+
+Missing gzip trailers and unsaved final records cannot be reconstructed from
+the checkpoint. The rescan reads the saved decompressible prefix without
+executing or repairing analysis. This limitation is also documented by the
+original checkpoint manifest. It does not supply an additional authenticated
+or anonymous endpoint inventory.
+
+Full accounting is in research-coverage.json. Full per-file paths, hashes,
+duplicate references and search outcomes remain available in
+/workspace/scratch/SAVED_MATERIAL_SEARCH_MANIFEST.json. Archive and history
+manifests and raw keyword locators are retained under /workspace/scratch.

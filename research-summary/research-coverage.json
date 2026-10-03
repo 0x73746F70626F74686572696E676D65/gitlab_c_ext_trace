@@ -1,0 +1,271 @@
+{
+  "repository_commit": "2b0bc9e9229755b1f7a9233c8cd67f75d1f83af5",
+  "source_research_only": true,
+  "application_or_saved_analysis_scripts_executed": false,
+  "archives_opened": 23,
+  "archive_members_enumerated": 2157,
+  "archive_regular_files_read": 2136,
+  "archive_links": [
+    {
+      "archive": "gitlab-frozen-v2-path-results.tar.xz",
+      "member": "corrected-results/scripts/run_frontend_profile_extractors.py",
+      "bytes": 0,
+      "kind": "1",
+      "link_target": "corrected-results/scripts/gitlab_c_ext_trace/run_frontend_profile_extractors.py"
+    },
+    {
+      "archive": "gitlab-frozen-v2-path-results.tar.xz",
+      "member": "corrected-results/scripts/validate_frontend_profile_bindings.py",
+      "bytes": 0,
+      "kind": "1",
+      "link_target": "corrected-results/scripts/gitlab_c_ext_trace/validate_frontend_profile_bindings.py"
+    }
+  ],
+  "archive_catalog_missing_members": [],
+  "full_checkpoint_manifest_files_verified": 123,
+  "prior_git_blob_versions_read": 140,
+  "reachable_git_history_commits": 71,
+  "saved_files_enumerated": 2763,
+  "unique_file_contents_scanned": 2213,
+  "stored_unique_file_bytes": 4496274896,
+  "decompressed_bytes_read_in_initial_search": 10763737930,
+  "files_with_keyword_occurrences": 362,
+  "keyword_occurrences": 674979,
+  "checksum_verifications": {
+    "match": 362
+  },
+  "initial_scan_errors": [
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_boundaries.jsonl.gz",
+      "stored_bytes": 250580,
+      "sha256": "48ce17df9d8ec7ed7ad1ceb9cedb1aef4e57f2167ac94de04e3547c62417db50",
+      "decompressed_bytes_read": 1048576,
+      "keyword_occurrences": 0,
+      "scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "hits_file": "/workspace/scratch/saved-search-hits/48ce17df9d8ec7ed7ad1ceb9cedb1aef4e57f2167ac94de04e3547c62417db50.jsonl",
+      "mode": "decompressed bytes"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_call_index.jsonl.gz",
+      "stored_bytes": 48607907,
+      "sha256": "f753737ffe87d96749ed68f14bea607f9f41dffca6fd0f765245d8997e904412",
+      "decompressed_bytes_read": 636485632,
+      "keyword_occurrences": 329,
+      "scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "hits_file": "/workspace/scratch/saved-search-hits/f753737ffe87d96749ed68f14bea607f9f41dffca6fd0f765245d8997e904412.jsonl",
+      "mode": "decompressed bytes"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_callback_assignments.jsonl.gz",
+      "stored_bytes": 2906866,
+      "sha256": "ef34f0e3249fa1b7d62e499504129893e1b7100924b29f316fe8760831d30490",
+      "decompressed_bytes_read": 22020096,
+      "keyword_occurrences": 10,
+      "scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "hits_file": "/workspace/scratch/saved-search-hits/ef34f0e3249fa1b7d62e499504129893e1b7100924b29f316fe8760831d30490.jsonl",
+      "mode": "decompressed bytes"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_edges.jsonl.gz",
+      "stored_bytes": 56844338,
+      "sha256": "098f0177647a2704e174cb09c38b9859cdd994890ad3adfdfc17cde1958cf89b",
+      "decompressed_bytes_read": 608174080,
+      "keyword_occurrences": 79,
+      "scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "hits_file": "/workspace/scratch/saved-search-hits/098f0177647a2704e174cb09c38b9859cdd994890ad3adfdfc17cde1958cf89b.jsonl",
+      "mode": "decompressed bytes"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_files.jsonl.gz",
+      "stored_bytes": 838571,
+      "sha256": "76168ab940303cb050be6d1b400a777646ff3e4bd73743a3eb64401a507dd032",
+      "decompressed_bytes_read": 5242880,
+      "keyword_occurrences": 0,
+      "scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "hits_file": "/workspace/scratch/saved-search-hits/76168ab940303cb050be6d1b400a777646ff3e4bd73743a3eb64401a507dd032.jsonl",
+      "mode": "decompressed bytes"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_namespaces.jsonl.gz",
+      "stored_bytes": 28609,
+      "sha256": "7315e2da4d379937f21a60b7035ba9af84358ea26832d1c67e86741bfa5980ca",
+      "decompressed_bytes_read": 0,
+      "keyword_occurrences": 0,
+      "scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "hits_file": "/workspace/scratch/saved-search-hits/7315e2da4d379937f21a60b7035ba9af84358ea26832d1c67e86741bfa5980ca.jsonl",
+      "mode": "decompressed bytes"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_nodes.jsonl.gz",
+      "stored_bytes": 72867891,
+      "sha256": "6fbabf9d516daa423bf09c392061f21609ac6da6755ea4ddaae9d56df0d1a64f",
+      "decompressed_bytes_read": 823132160,
+      "keyword_occurrences": 404,
+      "scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "hits_file": "/workspace/scratch/saved-search-hits/6fbabf9d516daa423bf09c392061f21609ac6da6755ea4ddaae9d56df0d1a64f.jsonl",
+      "mode": "decompressed bytes"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_registrations.jsonl.gz",
+      "stored_bytes": 251452,
+      "sha256": "1421ad1f1842ff6c34e6a817439825905a9d3004b7c1d57c8a0516ba277035f3",
+      "decompressed_bytes_read": 1048576,
+      "keyword_occurrences": 0,
+      "scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "hits_file": "/workspace/scratch/saved-search-hits/1421ad1f1842ff6c34e6a817439825905a9d3004b7c1d57c8a0516ba277035f3.jsonl",
+      "mode": "decompressed bytes"
+    }
+  ],
+  "partial_gzip_stream_rescans": [
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_boundaries.jsonl.gz",
+      "original_scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "saved_compressed_bytes": 250580,
+      "salvaged_decompressed_bytes": 1912095,
+      "keyword_occurrences": 0,
+      "gzip_end_marker_present": false,
+      "rescan_error": null,
+      "rescan_hits_file": "/workspace/scratch/saved-search-hits/48ce17df9d8ec7ed7ad1ceb9cedb1aef4e57f2167ac94de04e3547c62417db50.partial-stream-rescan.jsonl",
+      "interpretation": "read all saved decompressible bytes; missing trailer/unsaved records not invented"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_call_index.jsonl.gz",
+      "original_scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "saved_compressed_bytes": 48607907,
+      "salvaged_decompressed_bytes": 636980390,
+      "keyword_occurrences": 329,
+      "gzip_end_marker_present": false,
+      "rescan_error": null,
+      "rescan_hits_file": "/workspace/scratch/saved-search-hits/f753737ffe87d96749ed68f14bea607f9f41dffca6fd0f765245d8997e904412.partial-stream-rescan.jsonl",
+      "interpretation": "read all saved decompressible bytes; missing trailer/unsaved records not invented"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_callback_assignments.jsonl.gz",
+      "original_scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "saved_compressed_bytes": 2906866,
+      "salvaged_decompressed_bytes": 22346782,
+      "keyword_occurrences": 10,
+      "gzip_end_marker_present": false,
+      "rescan_error": null,
+      "rescan_hits_file": "/workspace/scratch/saved-search-hits/ef34f0e3249fa1b7d62e499504129893e1b7100924b29f316fe8760831d30490.partial-stream-rescan.jsonl",
+      "interpretation": "read all saved decompressible bytes; missing trailer/unsaved records not invented"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_edges.jsonl.gz",
+      "original_scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "saved_compressed_bytes": 56844338,
+      "salvaged_decompressed_bytes": 609088564,
+      "keyword_occurrences": 79,
+      "gzip_end_marker_present": false,
+      "rescan_error": null,
+      "rescan_hits_file": "/workspace/scratch/saved-search-hits/098f0177647a2704e174cb09c38b9859cdd994890ad3adfdfc17cde1958cf89b.partial-stream-rescan.jsonl",
+      "interpretation": "read all saved decompressible bytes; missing trailer/unsaved records not invented"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_files.jsonl.gz",
+      "original_scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "saved_compressed_bytes": 838571,
+      "salvaged_decompressed_bytes": 5915907,
+      "keyword_occurrences": 0,
+      "gzip_end_marker_present": false,
+      "rescan_error": null,
+      "rescan_hits_file": "/workspace/scratch/saved-search-hits/76168ab940303cb050be6d1b400a777646ff3e4bd73743a3eb64401a507dd032.partial-stream-rescan.jsonl",
+      "interpretation": "read all saved decompressible bytes; missing trailer/unsaved records not invented"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_namespaces.jsonl.gz",
+      "original_scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "saved_compressed_bytes": 28609,
+      "salvaged_decompressed_bytes": 144106,
+      "keyword_occurrences": 0,
+      "gzip_end_marker_present": false,
+      "rescan_error": null,
+      "rescan_hits_file": "/workspace/scratch/saved-search-hits/7315e2da4d379937f21a60b7035ba9af84358ea26832d1c67e86741bfa5980ca.partial-stream-rescan.jsonl",
+      "interpretation": "read all saved decompressible bytes; missing trailer/unsaved records not invented"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_nodes.jsonl.gz",
+      "original_scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "saved_compressed_bytes": 72867891,
+      "salvaged_decompressed_bytes": 824011815,
+      "keyword_occurrences": 404,
+      "gzip_end_marker_present": false,
+      "rescan_error": null,
+      "rescan_hits_file": "/workspace/scratch/saved-search-hits/6fbabf9d516daa423bf09c392061f21609ac6da6755ea4ddaae9d56df0d1a64f.partial-stream-rescan.jsonl",
+      "interpretation": "read all saved decompressible bytes; missing trailer/unsaved records not invented"
+    },
+    {
+      "path": "/workspace/scratch/saved-archives/FULL_SAVED_DATA_CHECKPOINT/gitlab_c_ext_full_graph/tables/native_registrations.jsonl.gz",
+      "original_scan_error": "EOFError('Compressed file ended before the end-of-stream marker was reached')",
+      "saved_compressed_bytes": 251452,
+      "salvaged_decompressed_bytes": 2061414,
+      "keyword_occurrences": 0,
+      "gzip_end_marker_present": false,
+      "rescan_error": null,
+      "rescan_hits_file": "/workspace/scratch/saved-search-hits/1421ad1f1842ff6c34e6a817439825905a9d3004b7c1d57c8a0516ba277035f3.partial-stream-rescan.jsonl",
+      "interpretation": "read all saved decompressible bytes; missing trailer/unsaved records not invented"
+    }
+  ],
+  "research_manifest": "/workspace/scratch/SAVED_MATERIAL_SEARCH_MANIFEST.json",
+  "history_manifest": "/workspace/scratch/saved-history/HISTORY_MANIFEST.json",
+  "archive_member_manifest": "/workspace/scratch/saved-archives/ALL_MEMBERS.json",
+  "checksum_manifest": "/workspace/scratch/SAVED_CHECKSUM_RESEARCH.json",
+  "records_exported": {
+    "repository_commit": "2b0bc9e9229755b1f7a9233c8cd67f75d1f83af5",
+    "branch": "work",
+    "commits_ahead_of_results_20260930": 45,
+    "gitlab_inventory_revision": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+    "http_records": 2420,
+    "http_saved_auth_counts": {
+      "conditional_anonymous": 1732,
+      "unauthenticated": 688
+    },
+    "http_type_counts": {
+      "grape_endpoint": 621,
+      "health_listener_endpoint": 4,
+      "http_registration": 96,
+      "middleware_endpoint": 2,
+      "rails_action": 1695,
+      "websocket_registration": 2
+    },
+    "http_edition_counts": {
+      "ce": 1076,
+      "ee": 1344
+    },
+    "distinct_http_path_templates": 1196,
+    "distinct_method_path_pairs": 1295,
+    "http_handler_families": 245,
+    "graphql_records": 3006,
+    "graphql_types": {
+      "graphql_field": 2836,
+      "graphql_query": 170
+    },
+    "graphql_saved_auth_counts": {
+      "unauthenticated": 614,
+      "conditional_anonymous": 2392
+    },
+    "legacy_baseline_anonymous_candidates": 331,
+    "targeted_review_candidates": 191,
+    "targeted_review_unauthenticated": 27,
+    "downstream_reference_rows": 122,
+    "downstream_unique_entrypoints": 82,
+    "unknown_all_records": 19671,
+    "unknown_http_records": 4024,
+    "complete": false,
+    "runtime_verified": false,
+    "new_application_analysis_performed": false,
+    "additional_anonymous_labeled_error_only_http_records": 12,
+    "depth_search_anonymous_root_records": 5438,
+    "depth_search_walked_anonymous_roots": 3704,
+    "depth_search_unresolved_anonymous_roots": 1734,
+    "depth_search_anonymous_match_rows": 346088,
+    "depth_search_anonymous_ids_missing_from_principal_inventory": 0
+  },
+  "limits": [
+    "Keyword search consumes all saved file contents but does not prove authentication completeness.",
+    "Byte-identical files searched once with every duplicate path retained in the manifest.",
+    "Pickle/cache bytes were decompressed and searched as data, never loaded or executed.",
+    "Saved source evidence and existing auth conclusions were read; no new source reachability inference was performed.",
+    "Truncated native streams retain all saved decompressible bytes; unsaved trailing records cannot be recovered."
+  ]
+}

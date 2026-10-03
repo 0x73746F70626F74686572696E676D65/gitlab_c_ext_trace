@@ -1,0 +1,246 @@
+handler,records,distinct_path_templates,editions,saved_auth,actions
+API::Admin::BroadcastMessages,4,2,ce ee,unauthenticated,GET
+API::Analytics::CodeReviewAnalytics,1,1,ee,conditional_anonymous,GET
+API::Avatar,2,1,ce ee,conditional_anonymous,GET
+API::Branches,6,2,ce ee,conditional_anonymous,GET HEAD
+API::CargoProjectPackages,12,6,ce ee,conditional_anonymous,GET
+API::Cd::Rollouts,1,1,ee,unauthenticated,POST
+API::Ci::Pipelines,16,8,ce ee,conditional_anonymous unauthenticated,GET
+API::Ci::Runner,24,11,ce ee,unauthenticated,DELETE GET PATCH POST PUT
+API::Ci::Triggers,2,1,ce ee,unauthenticated,POST
+API::Commits,20,9,ce ee,conditional_anonymous,GET POST
+API::ComplianceExternalControls,1,1,ee,unauthenticated,PATCH
+API::ComposerPackages,10,5,ce ee,unauthenticated,GET
+API::Conan::V1::InstancePackages,22,11,ce ee,conditional_anonymous unauthenticated,GET
+API::Conan::V1::ProjectPackages,22,11,ce ee,conditional_anonymous unauthenticated,GET
+API::Conan::V2::ProjectPackages,22,11,ce ee,conditional_anonymous unauthenticated,GET
+API::DebianGroupPackages,20,10,ce ee,conditional_anonymous unauthenticated,GET
+API::DebianProjectPackages,20,10,ce ee,conditional_anonymous unauthenticated,GET
+API::DependencyProxy::Packages::Maven,1,1,ee,unauthenticated,GET
+API::DependencyProxy::Packages::Npm,1,1,ee,unauthenticated,GET
+API::Dora::Metrics,2,2,ee,conditional_anonymous,GET
+API::Epics,2,2,ee,unauthenticated,GET
+API::Events,2,1,ce ee,unauthenticated,GET
+API::Files,14,4,ce ee,unauthenticated,GET HEAD POST PUT
+API::GenericPackages,2,1,ce ee,conditional_anonymous,GET
+API::Geo,2,1,ce ee,unauthenticated,GET
+API::Glql,4,2,ce ee,unauthenticated,GET POST
+API::GoProxy,8,4,ce ee,conditional_anonymous,GET
+API::Govern::Policies,3,3,ee,unauthenticated,GET
+API::Graphql::GraphqlExplorerController,2,1,ce ee,unauthenticated,show
+API::GroupAvatar,2,1,ce ee,unauthenticated,GET
+API::GroupContainerRepositories,2,1,ce ee,conditional_anonymous,GET
+API::GroupDebianDistributions,6,3,ce ee,conditional_anonymous,GET
+API::GroupImport,2,1,ce ee,unauthenticated,POST
+API::Groups,13,8,ce ee,conditional_anonymous unauthenticated,GET
+API::HelmPackages,4,2,ce ee,conditional_anonymous,GET
+API::ImportBitbucketServer,2,1,ce ee,unauthenticated,POST
+API::Integrations,2,1,ce ee,unauthenticated,POST
+API::Internal::Ci::JobRouter,7,5,ce ee,unauthenticated,GET POST PUT
+API::Internal::Kubernetes,16,11,ce ee,unauthenticated,GET POST PUT
+API::Internal::Orbit,12,11,ee,unauthenticated,GET POST
+API::Internal::SecretsManager,1,1,ee,unauthenticated,POST
+API::Internal::Workhorse,2,1,ce ee,unauthenticated,POST
+API::Issues,17,9,ce ee,conditional_anonymous unauthenticated,GET
+API::Ldap,2,2,ee,unauthenticated,GET
+API::Lint,2,1,ce ee,conditional_anonymous,GET
+API::MarkdownUploads,4,2,ce ee,conditional_anonymous,GET
+API::MavenPackages,6,3,ce ee,conditional_anonymous,GET
+API::MergeRequestApprovalRules,2,2,ee,unauthenticated,GET
+API::MergeRequestApprovals,4,3,ce ee,unauthenticated,GET
+API::MergeRequestDependencies,5,3,ee,conditional_anonymous unauthenticated,DELETE GET POST
+API::MergeRequests,28,14,ce ee,conditional_anonymous unauthenticated,GET
+API::NpmGroupPackages,2,1,ce ee,conditional_anonymous,GET
+API::NpmInstancePackages,2,1,ce ee,conditional_anonymous,GET
+API::NpmProjectPackages,6,3,ce ee,conditional_anonymous unauthenticated,GET
+API::NugetGroupPackages,8,4,ce ee,unauthenticated,GET
+API::NugetProjectPackages,24,12,ce ee,conditional_anonymous unauthenticated,GET PUT
+API::ProjectAvatar,2,1,ce ee,unauthenticated,GET
+API::ProjectDebianDistributions,6,3,ce ee,conditional_anonymous,GET
+API::ProjectEvents,2,1,ce ee,conditional_anonymous,GET
+API::ProjectSnippets,6,3,ce ee,unauthenticated,GET
+API::Projects,24,12,ce ee,conditional_anonymous unauthenticated,GET
+API::ProtectedBranches,4,2,ce ee,conditional_anonymous,GET
+API::PypiPackages,14,7,ce ee,conditional_anonymous unauthenticated,GET
+API::RelatedEpicLinks,1,1,ee,conditional_anonymous,GET
+API::Release::Links,10,2,ce ee,conditional_anonymous,DELETE GET POST PUT
+API::Releases,10,5,ce ee,conditional_anonymous,GET
+API::RemoteDevelopment::Internal::Agents::Agentw::AuthorizeUserAccess,1,1,ee,unauthenticated,GET
+API::RemoteDevelopment::Internal::Agents::Agentw::ServerConfig,1,1,ee,unauthenticated,GET
+API::Repositories,18,8,ce ee,conditional_anonymous,GET POST
+API::RpmProjectPackages,6,3,ce ee,conditional_anonymous,GET POST
+API::RubygemPackages,6,3,ce ee,conditional_anonymous,GET
+API::Scim::GroupScim,5,2,ee,unauthenticated,DELETE GET PATCH POST
+API::Scim::InstanceScim,11,4,ee,unauthenticated,DELETE GET PATCH POST PUT
+API::Security::VulnerabilityScanning::SbomScans,4,4,ee,unauthenticated,GET POST
+API::Snippets,6,3,ce ee,unauthenticated,GET
+API::Tags,6,3,ce ee,conditional_anonymous,GET
+API::Templates,4,2,ce ee,unauthenticated,GET
+API::Terraform::Modules::V1::NamespacePackages,12,6,ce ee,conditional_anonymous,GET
+API::Terraform::Modules::V1::ProjectPackages,4,2,ce ee,unauthenticated,GET
+API::Topics,4,2,ce ee,unauthenticated,GET
+API::UsageData,2,1,ce ee,unauthenticated,GET
+API::UsageDataServicePing,2,1,ce ee,unauthenticated,GET
+API::UsageDataTrack,2,1,ce ee,unauthenticated,GET
+API::Users,12,6,ce ee,unauthenticated,GET
+API::WebCommits,2,1,ce ee,unauthenticated,GET
+API::WorkItems::List,5,3,ce ee,conditional_anonymous unauthenticated,GET
+Achievements::AwardedAchievementsController,8,2,ce ee,conditional_anonymous,accept
+AcmeChallengesController,4,2,ce ee,conditional_anonymous unauthenticated,show
+ActivityPub::Projects::ReleasesController,12,6,ce ee,conditional_anonymous,inbox index outbox
+Admin::ImpersonationsController,2,1,ce ee,unauthenticated,destroy
+Admin::InitialSetupController,2,1,ce ee,unauthenticated,update
+AntiAbuse::ArkoseController,2,2,ee,conditional_anonymous unauthenticated,data_exchange_payload
+ApplicationCable::Connection,2,1,ce ee,unauthenticated,connect
+ApplicationController,34,5,ce ee,conditional_anonymous unauthenticated,route_not_found
+AutocompleteController,16,8,ce ee,conditional_anonymous unauthenticated,award_emojis merge_request_source_branches merge_request_target_branches users
+Banzai::DiagramProxyController,4,2,ce ee,conditional_anonymous unauthenticated,proxy
+Banzai::UploadsController,4,2,ce ee,conditional_anonymous unauthenticated,show
+ChaosController,28,14,ce ee,conditional_anonymous,cpu_spin db_spin gc kill leakmem quit sleep
+CloudConnector::KeysController,2,2,ee,conditional_anonymous unauthenticated,keys
+ConfirmationsController,24,10,ce ee,conditional_anonymous unauthenticated,almost_there new show
+CountriesController,2,2,ee,conditional_anonymous unauthenticated,index
+CountryStatesController,2,2,ee,conditional_anonymous unauthenticated,index
+CustomersDot::ProxyController,2,2,ee,conditional_anonymous unauthenticated,graphql
+Devise::SessionsController,8,4,ce ee,conditional_anonymous unauthenticated,destroy new
+Devise::UnlocksController,18,4,ce ee,conditional_anonymous unauthenticated,create new show
+Doorkeeper::DeviceAuthorizationGrant::DeviceCodesController,4,2,ce ee,conditional_anonymous unauthenticated,create
+EventForward::EventForwardController,4,2,ce ee,conditional_anonymous unauthenticated,forward
+Explore::CatalogController,8,4,ce ee,conditional_anonymous unauthenticated,cells index
+Explore::GroupsController,12,6,ce ee,conditional_anonymous unauthenticated,index
+Explore::ProjectsController,8,4,ce ee,conditional_anonymous unauthenticated,topic topics
+Explore::SnippetsController,4,2,ce ee,conditional_anonymous unauthenticated,index
+ExternalRedirect::ExternalRedirectController,4,2,ce ee,conditional_anonymous unauthenticated,index
+Gitlab::Middleware::BasicHealthCheck,2,1,ce ee,conditional_anonymous,
+GitlabSubscriptions::HandRaiseLeadsController,4,4,ee,conditional_anonymous unauthenticated,create track_cart_abandonment
+GitlabSubscriptions::TrialsController,4,4,ee,conditional_anonymous,create new
+Glql::BaseController,2,1,ce ee,unauthenticated,execute
+GraphqlController,4,3,ce ee,conditional_anonymous unauthenticated,execute
+Groups::OmniauthCallbacksController,1,1,ee,conditional_anonymous,group_saml
+HealthController,8,4,ce ee,conditional_anonymous unauthenticated,liveness readiness
+HelpController,20,10,ce ee,conditional_anonymous,drawers index instance_configuration redirect_to_docs show
+InvitesController,12,6,ce ee,conditional_anonymous,accept decline show
+JiraConnect::AppDescriptorController,4,2,ce ee,conditional_anonymous unauthenticated,show
+JiraConnect::BranchesController,4,2,ce ee,conditional_anonymous unauthenticated,route
+JiraConnect::InstallationsController,8,4,ce ee,conditional_anonymous unauthenticated,index update
+JiraConnect::OauthApplicationIdsController,8,2,ce ee,conditional_anonymous unauthenticated,show
+JiraConnect::PublicKeysController,4,2,ce ee,conditional_anonymous unauthenticated,show
+JiraConnect::RepositoriesController,8,4,ce ee,conditional_anonymous unauthenticated,associate search
+JiraConnect::SubscriptionsController,12,6,ce ee,conditional_anonymous unauthenticated,destroy index
+JiraConnect::WorkspacesController,4,2,ce ee,conditional_anonymous unauthenticated,search
+JwksController,60,16,ce ee,conditional_anonymous unauthenticated,keys provider webfinger
+JwtController,4,2,ce ee,conditional_anonymous unauthenticated,auth
+MetricsController,8,4,ce ee,conditional_anonymous unauthenticated,index system
+Oauth::DynamicRegistrationsController,4,2,ce ee,conditional_anonymous unauthenticated,create
+Oauth::GeoAuthController,6,6,ee,conditional_anonymous unauthenticated,auth callback logout
+Oauth::ProtectedResourceMetadataController,20,6,ce ee,conditional_anonymous unauthenticated,show
+Oauth::TokenInfoController,4,2,ce ee,conditional_anonymous unauthenticated,show
+Oauth::TokensController,20,6,ce ee,conditional_anonymous unauthenticated,create introspect revoke
+OmniauthKerberosController,2,2,ee,conditional_anonymous unauthenticated,negotiate
+PasswordsController,20,8,ce ee,conditional_anonymous unauthenticated,complexity edit new update
+PhoneVerification::TelesignCallbacksController,2,2,ee,conditional_anonymous unauthenticated,notify
+Profiles::AccountsController,12,6,ce ee,conditional_anonymous unauthenticated,generate_support_pin show unlink
+Profiles::AvatarsController,4,2,ce ee,conditional_anonymous unauthenticated,destroy
+Profiles::ChatNamesController,12,6,ce ee,conditional_anonymous unauthenticated,deny destroy new
+Profiles::NotificationsController,4,2,ce ee,conditional_anonymous unauthenticated,update
+Profiles::PreferencesController,4,2,ce ee,conditional_anonymous unauthenticated,update
+Profiles::SlacksController,8,4,ce ee,conditional_anonymous unauthenticated,edit slack_link
+ProfilesController,16,8,ce ee,conditional_anonymous unauthenticated,reset_feed_token reset_incoming_email_token reset_static_object_token update_username
+Projects::Alerting::NotificationsController,12,6,ce ee,conditional_anonymous,create
+Projects::Analytics::CycleAnalytics::StagesController,22,12,ce ee,conditional_anonymous,average average_duration_chart count index median records
+Projects::Analytics::CycleAnalytics::SummaryController,6,4,ce ee,conditional_anonymous,show time_summary
+Projects::Analytics::CycleAnalytics::ValueStreamsController,12,8,ce ee,conditional_anonymous,edit index new show
+Projects::ArtifactsController,12,6,ce ee,conditional_anonymous,external_file file latest_succeeded
+Projects::AutocompleteSourcesController,38,22,ce ee,conditional_anonymous,commands epics issues iterations labels members merge_requests milestones snippets vulnerabilities wikis
+Projects::AvatarsController,4,2,ce ee,conditional_anonymous,show
+Projects::BadgesController,16,8,ce ee,conditional_anonymous,coverage custom pipeline release
+Projects::BlameController,8,4,ce ee,conditional_anonymous,show
+Projects::BlobController,20,10,ce ee,conditional_anonymous,diff diff_lines preview show
+Projects::BranchesController,12,6,ce ee,conditional_anonymous,diverging_commit_counts index
+Projects::BuildArtifactsController,20,10,ce ee,conditional_anonymous,browse download file latest_succeeded raw
+Projects::BuildsController,12,6,ce ee,conditional_anonymous,index raw show
+Projects::Ci::PrometheusMetrics::HistogramsController,4,2,ce ee,conditional_anonymous,create
+Projects::CommitController,40,18,ce ee,conditional_anonymous,create_discussions diff_file diff_files diff_files_metadata diff_for_path diffs_stats discussions merge_requests pipelines show
+Projects::CommitDiffsStreamController,4,2,ce ee,conditional_anonymous,diffs_stream
+Projects::CommitsController,4,2,ce ee,conditional_anonymous,commits_root
+Projects::CompareController,32,14,ce ee,conditional_anonymous,create diff_file diff_files_metadata diff_for_path diffs_stats index signatures target_projects_json
+Projects::CompareDiffsStreamController,4,2,ce ee,conditional_anonymous,diffs_stream
+Projects::CycleAnalytics::EventsController,28,14,ce ee,conditional_anonymous,code issue plan production review staging test
+Projects::CycleAnalyticsController,4,2,ce ee,conditional_anonymous,show
+Projects::DeploymentsController,8,4,ce ee,conditional_anonymous,index show
+Projects::DiscussionsController,4,2,ce ee,conditional_anonymous,show
+Projects::EnvironmentsController,16,8,ce ee,conditional_anonymous,folder index k8s search
+Projects::FindFileController,8,4,ce ee,conditional_anonymous,list show
+Projects::ForksController,4,2,ce ee,conditional_anonymous,index
+Projects::IncidentManagement::PagerDutyIncidentsController,4,2,ce ee,conditional_anonymous,create
+Projects::IncidentsController,2,2,ee,conditional_anonymous,show
+Projects::InsightsController,4,4,ee,conditional_anonymous,query show
+Projects::Integrations::Jira::IssuesController,4,4,ee,conditional_anonymous,index show
+Projects::Integrations::Zentao::IssuesController,4,4,ee,conditional_anonymous,index show
+Projects::IssueLinksController,4,2,ce ee,conditional_anonymous,index
+Projects::IssuesController,48,24,ce ee,conditional_anonymous,calendar can_create_branch delete_description_version description_diff discussions index move realtime_changes related_branches reorder service_desk toggle_subscription update
+Projects::JobsController,4,2,ce ee,conditional_anonymous,show
+Projects::LabelsController,8,4,ce ee,conditional_anonymous,index toggle_subscription
+Projects::LegacyArchiveController,4,2,ce ee,conditional_anonymous,show
+Projects::MergeRequests::ConflictsController,10,6,ce ee,conditional_anonymous,conflict_for_path resolve_conflicts show
+Projects::MergeRequests::ContentController,8,4,ce ee,conditional_anonymous,cached_widget widget
+Projects::MergeRequests::DiffsController,24,10,ce ee,conditional_anonymous,diff_by_file_hash diff_for_path diffs_batch diffs_metadata show
+Projects::MergeRequests::DiffsStreamController,4,2,ce ee,conditional_anonymous,diffs_stream
+Projects::MergeRequests::DraftsController,8,4,ce ee,conditional_anonymous,discard index
+Projects::MergeRequests::SamlApprovalsController,2,2,ee,conditional_anonymous,create
+Projects::MergeRequestsController,120,62,ce ee,conditional_anonymous,accessibility_reports ci_environments_status codequality_mr_diff_reports codequality_reports commit_change_content commits context_commits coverage_reports delete_description_version description_diff diff_file diff_files_metadata diffs diffs_stats discussions edit exposed_artifacts index merge metrics_reports pipeline_status pipelines remove_wip reports show terraform_reports test_reports toggle_subscription update versions
+Projects::MilestonesController,24,12,ce ee,conditional_anonymous,index issues labels merge_requests participants show
+Projects::NotesController,8,4,ce ee,conditional_anonymous,index outdated_line_change
+Projects::PipelineSchedulesController,4,2,ce ee,conditional_anonymous,index
+Projects::Pipelines::TestsController,8,4,ce ee,conditional_anonymous,show summary
+Projects::PipelinesController,40,22,ce ee,conditional_anonymous,builds codequality_report destroy downloadable_artifacts failures index manual_variables security stage status test_report
+Projects::ProjectMembersController,4,2,ce ee,conditional_anonymous,index
+Projects::Quality::TestCasesController,4,4,ee,conditional_anonymous,index show
+Projects::RawController,8,4,ce ee,conditional_anonymous,show
+Projects::RedirectController,8,4,ce ee,conditional_anonymous,redirect_from_id
+Projects::RefsController,4,2,ce ee,conditional_anonymous,switch
+Projects::Registry::RepositoriesController,8,4,ce ee,conditional_anonymous,index show
+Projects::Registry::TagsController,8,4,ce ee,conditional_anonymous,bulk_destroy index
+Projects::ReleasesController,12,6,ce ee,conditional_anonymous,downloads index latest_permalink
+Projects::RepositoriesController,4,2,ce ee,conditional_anonymous,archive
+Projects::Security::AgentArtifactsController,2,2,ee,conditional_anonymous,download
+Projects::Security::ComplianceViolationsController,2,2,ee,conditional_anonymous,show
+Projects::Settings::GitlabDuo::GovernanceController,2,2,ee,conditional_anonymous,index
+Projects::Snippets::BlobsController,4,2,ce ee,conditional_anonymous,raw
+Projects::SnippetsController,16,8,ce ee,conditional_anonymous,index raw show
+Projects::StarrersController,4,2,ce ee,conditional_anonymous,index
+Projects::TagsController,8,4,ce ee,conditional_anonymous,index show
+Projects::TargetBranchRulesController,2,2,ee,conditional_anonymous,index
+Projects::TreeController,8,4,ce ee,conditional_anonymous,show
+Projects::UploadsController,4,2,ce ee,conditional_anonymous,show
+Projects::WikisController,36,18,ce ee,conditional_anonymous,diff history index new pages preview_markdown raw show templates
+Projects::WorkItemsController,12,6,ce ee,conditional_anonymous,calendar rss show
+ProjectsController,20,10,ce ee,conditional_anonymous,activity index refs show unfoldered_environment_names
+RegistrationsController,12,4,ce ee,conditional_anonymous unauthenticated,cancel new
+Repositories::GitHttpController,30,20,ce ee,conditional_anonymous,git_receive_pack git_upload_pack info_refs ssh_receive_pack ssh_upload_pack
+Repositories::LfsApiController,18,12,ce ee,conditional_anonymous,batch deprecated
+Repositories::LfsLocksApiController,24,12,ce ee,conditional_anonymous,create index unlock verify
+Repositories::LfsStorageController,18,12,ce ee,conditional_anonymous,download upload_authorize upload_finalize
+SandboxController,8,4,ce ee,conditional_anonymous unauthenticated,mermaid_v11 swagger
+Security::ProjectsController,4,4,ee,conditional_anonymous unauthenticated,create destroy
+SentNotificationsController,6,3,ce ee,conditional_anonymous,unsubscribe
+SessionsController,26,14,ce ee,conditional_anonymous unauthenticated,fallback_to_email_otp new new_passkey resend_verification_code sign_in_path skip_verification_for_now
+SitemapController,2,2,ee,conditional_anonymous unauthenticated,show
+SmartcardController,2,2,ee,conditional_anonymous unauthenticated,auth
+Snippets::NotesController,4,2,ce ee,conditional_anonymous,index
+SnippetsController,8,4,ce ee,conditional_anonymous,index preview_markdown
+Terraform::ServicesController,4,2,ce ee,conditional_anonymous unauthenticated,index
+TrialRegistrationsController,2,2,ee,conditional_anonymous unauthenticated,new
+UploadsController,34,10,ce ee,conditional_anonymous unauthenticated,authorize create show
+UserSettings::ActiveSessionsController,6,4,ce ee,conditional_anonymous unauthenticated,index saml
+UserSettings::PasswordsController,12,4,ce ee,conditional_anonymous unauthenticated,create new update
+UserSettings::PersonalAccessTokensController,6,4,ce,conditional_anonymous unauthenticated,create index toggle_dpop
+Users::RedirectController,4,2,ce ee,conditional_anonymous unauthenticated,redirect_from_id
+Users::RegistrationsIdentityVerificationController,20,20,ee,conditional_anonymous unauthenticated,resend_email_code send_phone_verification_code success toggle_phone_exemption verification_state verify_arkose_labs_session verify_credit_card verify_credit_card_captcha verify_email_code verify_phone_verification_code
+Users::TermsController,4,2,ce ee,conditional_anonymous unauthenticated,index
+Users::UnsubscribesController,8,2,ce ee,conditional_anonymous unauthenticated,create show
+VirtualRegistries::ContainerController,8,6,ee,conditional_anonymous unauthenticated,referrers referrers_not_found show upload
+WellKnownController,4,2,ce ee,conditional_anonymous unauthenticated,security_txt
+WhatsNewController,4,2,ce ee,conditional_anonymous unauthenticated,index
+health_listener_endpoint,4,2,ce ee,conditional_anonymous,
+http_registration,96,57,ce ee,conditional_anonymous unauthenticated,

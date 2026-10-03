@@ -1,0 +1,51 @@
+{
+  "repository_commit": "2b0bc9e9229755b1f7a9233c8cd67f75d1f83af5",
+  "branch": "work",
+  "commits_ahead_of_results_20260930": 45,
+  "gitlab_inventory_revision": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "http_records": 2420,
+  "http_saved_auth_counts": {
+    "conditional_anonymous": 1732,
+    "unauthenticated": 688
+  },
+  "http_type_counts": {
+    "grape_endpoint": 621,
+    "health_listener_endpoint": 4,
+    "http_registration": 96,
+    "middleware_endpoint": 2,
+    "rails_action": 1695,
+    "websocket_registration": 2
+  },
+  "http_edition_counts": {
+    "ce": 1076,
+    "ee": 1344
+  },
+  "distinct_http_path_templates": 1196,
+  "distinct_method_path_pairs": 1295,
+  "http_handler_families": 245,
+  "graphql_records": 3006,
+  "graphql_types": {
+    "graphql_field": 2836,
+    "graphql_query": 170
+  },
+  "graphql_saved_auth_counts": {
+    "unauthenticated": 614,
+    "conditional_anonymous": 2392
+  },
+  "legacy_baseline_anonymous_candidates": 331,
+  "targeted_review_candidates": 191,
+  "targeted_review_unauthenticated": 27,
+  "downstream_reference_rows": 122,
+  "downstream_unique_entrypoints": 82,
+  "unknown_all_records": 19671,
+  "unknown_http_records": 4024,
+  "complete": false,
+  "runtime_verified": false,
+  "new_application_analysis_performed": false,
+  "additional_anonymous_labeled_error_only_http_records": 12,
+  "depth_search_anonymous_root_records": 5438,
+  "depth_search_walked_anonymous_roots": 3704,
+  "depth_search_unresolved_anonymous_roots": 1734,
+  "depth_search_anonymous_match_rows": 346088,
+  "depth_search_anonymous_ids_missing_from_principal_inventory": 0
+}
