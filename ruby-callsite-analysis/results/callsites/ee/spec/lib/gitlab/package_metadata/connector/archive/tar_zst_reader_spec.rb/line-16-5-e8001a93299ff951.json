@@ -1,0 +1,361 @@
+{
+  "callsite_id": "e8001a93299ff951abec99eaf893b308dfbaf9ead0f9b1682857f132d7d84d05",
+  "expression": "Zstd.compress(tar.string)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "compress",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "0b14bb8f708c6c8d9ee8a4e1772786707272c934082a48e87f481cfc29a40adc",
+        "16ebe824d7171f269d49c3331ac69369091b78dbc524f12eae765b7f70c06010",
+        "3ba35d350f010176d959f6ba01211af54807f5be554ceb203c2502a2412988c5",
+        "afa1f0e57302053021da0962247ca63db2fe7425d0b7c583e59c21012d3d5193"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* value = bounds . lowerBound",
+            "file": "ext/zstdruby/libzstd/compress/zstd_compress.c",
+            "function": "ZSTD_cParam_clampBounds",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/libzstd/compress/zstd_compress.c:642:ZSTD_cParam_clampBounds",
+            "line": 646,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "10c315ae609d49b2fc431521aa95908086e69fd917991c5ed9a875af3d1208e8"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "free ( ( ptr ) )",
+            "file": "ext/zstdruby/libzstd/common/allocations.h",
+            "function": "ZSTD_customFree",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/libzstd/common/allocations.h:45:ZSTD_customFree",
+            "line": 51,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "6a718e8edaca112abdc0bdfa7de67edefaa44c8d9e514b79672ab58ab3a9118a"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( ptr )",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "free",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "malloc ( size )",
+            "file": "ext/zstdruby/libzstd/common/allocations.h",
+            "function": "ZSTD_customMalloc",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/libzstd/common/allocations.h:26:ZSTD_customMalloc",
+            "line": 30,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "6a718e8edaca112abdc0bdfa7de67edefaa44c8d9e514b79672ab58ab3a9118a"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "size",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "malloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_resize ( output , ret )",
+            "file": "ext/zstdruby/zstdruby.c",
+            "function": "rb_compress",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/zstdruby.c:11:rb_compress",
+            "line": 38,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "23a587fccbc9356f9a1a101def6a129ff9e0bdec5df04152b256e5f7f5c77113"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "output",
+              "index": 0
+            },
+            {
+              "expression": "ret",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_resize",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zstd-ruby",
+        "method": "compress",
+        "owner": "Zstd",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "2.0.8"
+      },
+      "native_api_group": "4da43085c6c931536a18d19130e3b6f5f01334a9e0f139db2c3f828fadbea501",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "tar.string",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 605,
+          "byte_start": 580,
+          "column": 5,
+          "end_line": 16,
+          "expression": "Zstd.compress(tar.string)",
+          "file": "ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb",
+          "kind": "call",
+          "line": 16,
+          "method": "compress",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb#L16",
+          "source_sha256": "a07a1fdd97b08e289b3780bb10e8c68be582efb1aa60e6a1db5d868ec63a0fcf",
+          "unit": "ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb:359:instance:build_archive"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "1e7836ae3ec5f9b606ee7b7b179a6440935988cf5e91f61d9ae0599d0cf02545",
+        "4e41c7557ee4b0410ea9c28e63cc84f1df0eebd740fb5399b00d84f6a1d5a5ed",
+        "57a4d448bb450287820ece26589fdcec771c9c30515e882116ed3940dc035ee7",
+        "5f955410bef6f1eb159e25f409305b60932552cf39bba2bff91306c5ec00a3aa",
+        "8155d3f258c3b2260ec570351373fffe90b278a9afb314c72432d30b42a683ce",
+        "b255ec71062469ea1deb94a51b5ca74840b2fd361a5c752c3e69a06b3868f765",
+        "bf91e225cb8ed8300f8ab9edcf37cefcd0c0a4f3f8b02db8b412802433b48349"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* srcPos = input . pos",
+            "file": "ext/zstdruby/libzstd/compress/zstd_compress.c",
+            "function": "ZSTD_compressStream2_simpleArgs",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/libzstd/compress/zstd_compress.c:6546:ZSTD_compressStream2_simpleArgs",
+            "line": 6563,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "10c315ae609d49b2fc431521aa95908086e69fd917991c5ed9a875af3d1208e8"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( input_value )",
+            "file": "ext/zstdruby/zstdruby.c",
+            "function": "rb_compress",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/zstdruby.c:11:rb_compress",
+            "line": 17,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "23a587fccbc9356f9a1a101def6a129ff9e0bdec5df04152b256e5f7f5c77113"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input_value",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "bufPool -> buffers [ bufPool -> nbBuffers ++ ] = buf",
+            "file": "ext/zstdruby/libzstd/compress/zstdmt_compress.c",
+            "function": "ZSTDMT_releaseBuffer",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/libzstd/compress/zstdmt_compress.c:255:ZSTDMT_releaseBuffer",
+            "line": 261,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "c83db699b4041bf4db89c5558db490dd295635f1eeefd60b643fbc862bbac7b5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "bufPool -> buffers [ bufPool -> nbBuffers ++ ] = buf",
+            "file": "ext/zstdruby/libzstd/compress/zstdmt_compress.c",
+            "function": "ZSTDMT_releaseBuffer",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/libzstd/compress/zstdmt_compress.c:255:ZSTDMT_releaseBuffer",
+            "line": 261,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "c83db699b4041bf4db89c5558db490dd295635f1eeefd60b643fbc862bbac7b5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "free ( ( ptr ) )",
+            "file": "ext/zstdruby/libzstd/common/allocations.h",
+            "function": "ZSTD_customFree",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/libzstd/common/allocations.h:45:ZSTD_customFree",
+            "line": 51,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "6a718e8edaca112abdc0bdfa7de67edefaa44c8d9e514b79672ab58ab3a9118a"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( ptr )",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "free",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "malloc ( size )",
+            "file": "ext/zstdruby/libzstd/common/allocations.h",
+            "function": "ZSTD_customMalloc",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/libzstd/common/allocations.h:26:ZSTD_customMalloc",
+            "line": 30,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "6a718e8edaca112abdc0bdfa7de67edefaa44c8d9e514b79672ab58ab3a9118a"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "size",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "malloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_resize ( output , ret )",
+            "file": "ext/zstdruby/zstdruby.c",
+            "function": "rb_compress",
+            "function_id": "zstd-ruby@2.0.8:ext/zstdruby/zstdruby.c:11:rb_compress",
+            "line": 38,
+            "package": "zstd-ruby@2.0.8",
+            "source_sha256": "23a587fccbc9356f9a1a101def6a129ff9e0bdec5df04152b256e5f7f5c77113"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "output",
+              "index": 0
+            },
+            {
+              "expression": "ret",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_resize",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zstd-ruby",
+        "method": "compress",
+        "owner": "Zstd",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "2.0.8"
+      },
+      "native_api_group": "4da43085c6c931536a18d19130e3b6f5f01334a9e0f139db2c3f828fadbea501",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "tar.string",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 605,
+          "byte_start": 580,
+          "column": 5,
+          "end_line": 16,
+          "expression": "Zstd.compress(tar.string)",
+          "file": "ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb",
+          "kind": "call",
+          "line": 16,
+          "method": "compress",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb#L16",
+          "source_sha256": "a07a1fdd97b08e289b3780bb10e8c68be582efb1aa60e6a1db5d868ec63a0fcf",
+          "unit": "ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb:359:instance:build_archive"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zstd",
+    "proof": [
+      {
+        "byte_end": 584,
+        "byte_start": 580,
+        "column": 5,
+        "end_line": 16,
+        "expression": "Zstd",
+        "file": "ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb",
+        "kind": "expression",
+        "line": 16,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb#L16",
+        "source_sha256": "a07a1fdd97b08e289b3780bb10e8c68be582efb1aa60e6a1db5d868ec63a0fcf",
+        "unit": "ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb:359:instance:build_archive"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zstd"
+      ]
+    ]
+  },
+  "source": {
+    "column": 5,
+    "file": "ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb",
+    "line": 16,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/package_metadata/connector/archive/tar_zst_reader_spec.rb#L16",
+    "source_sha256": "a07a1fdd97b08e289b3780bb10e8c68be582efb1aa60e6a1db5d868ec63a0fcf"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "tar.string",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

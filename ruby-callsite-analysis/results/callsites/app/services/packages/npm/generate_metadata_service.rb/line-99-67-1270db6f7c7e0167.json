@@ -1,0 +1,510 @@
+{
+  "callsite_id": "1270db6f7c7e016793259e2db6e32f682982a3888ea0ace9da7db113abf33e74",
+  "expression": "VersionSorter.compare(version, latest_version)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "compare",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "02b3a90a810f9a05542fd461ffad2c55c6df9397e557be022039bcc4b3a2e6c3",
+        "04fc668d6623a857716bff4a841671302253f7067d324a840620cacd0f05887e",
+        "1366ed40648948cd30677e891a32f5590e923460f1bba83660109d417e1c9cd2",
+        "33ff8673ec1489d26de617e716eeac7dfb43d1dd32dce20f8ede59815bd751c8",
+        "440826620599f5bd37305dc6f5ac6e6240ce69df9fdbfe934dbd9f0edc0c3469",
+        "68f5027dfbdc1eebeb7716e0c28fc30dab4e4ce3e992f6dbad8c0c935aee3d8f",
+        "7143d04cbacf47d23f2071151718e7dc42360ec7f31d12676a81a01363871c1c",
+        "a45394f1a71b58fbfb21471a5d0d7192f03c5ba8a5f5bce96db0fbf187ce8611",
+        "dcd740224153609f6c6fbc657099cd02833e59ace32475ce5987a91b457d2492",
+        "ef774246eadea201be2ba9e907b51e8885a1557ed7b91bae1080732ede49b4ed",
+        "fc9f981f898e27f4a641b062a1e6756849b2888b3d3d106e7324ee6d6cfc56ca",
+        "fd45b02f82c632264f76afbe56970b958ed7ecf642caef748f996fb5e2e58cba"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "INT2NUM ( version_compare_cb ( & context -> version_a , & context -> version_b ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:275:rb_version_compare_cb",
+            "line": 283,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "version_compare_cb ( & context -> version_a , & context -> version_b )",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "INT2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( context -> rb_version_a )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:275:rb_version_compare_cb",
+            "line": 280,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context -> rb_version_a",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( context -> rb_version_b )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:275:rb_version_compare_cb",
+            "line": 281,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context -> rb_version_b",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( original_a + a -> offset , original_b + b -> offset , len )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "strchunk_cmp",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:35:strchunk_cmp",
+            "line": 40,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strcmp ( a -> original , b -> original )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "compare_version_number",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:44:compare_version_number",
+            "line": 75,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "a -> original",
+              "index": 0
+            },
+            {
+              "expression": "b -> original",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xfree ( context . version_a )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:286:rb_version_compare",
+            "line": 297,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context . version_a",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "xfree",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xfree ( context . version_b )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:286:rb_version_compare",
+            "line": 298,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context . version_b",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "xfree",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xrealloc ( version , ( sizeof ( struct version_number ) + sizeof ( union version_comp ) * new_size ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "grow_version_number",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:103:grow_version_number",
+            "line": 106,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "version",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "xrealloc",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "version_sorter",
+        "method": "compare",
+        "owner": "VersionSorter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "2.3.0"
+      },
+      "native_api_group": "a516bf1d35c2e43f19e5cb57cfe5d6d6f40b85c3cbea2d7c1d7819c8dd22599c",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "version",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 3249,
+          "byte_start": 3203,
+          "column": 67,
+          "end_line": 99,
+          "expression": "VersionSorter.compare(version, latest_version)",
+          "file": "app/services/packages/npm/generate_metadata_service.rb",
+          "kind": "call",
+          "line": 99,
+          "method": "compare",
+          "owner": "Packages::Npm::GenerateMetadataService",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/npm/generate_metadata_service.rb#L99",
+          "source_sha256": "1b45b95683b5ab50ad62f0b639f0a55fbd00c66ee0ad6bb3348ebea9bdb55993",
+          "unit": "app/services/packages/npm/generate_metadata_service.rb:3103:instance:store_latest_version"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "13040a9377a9c30900b141ad9ad4212ee68533dd6238fd19f55e6c26d18e8835",
+        "24604081e3fd825d8a744baa3a4a50a537f47d1e9958d99e6e7fe7ccfeb266ef",
+        "2c2ddc915ea8c5617c2831136ceb2c441ac87efb139b634beb8f18a6e18fb771",
+        "46f86b99d930596e2e99cf58b81ea805ff16a6c0380e9c23be9d308ab54bcc25",
+        "52cfc8a89850559705570817322cd115bdc46409b1c0eecc60774dbea22e0f55",
+        "88bb3ed251647d7d5e0968810375d01458c56059499fd3c6bad32f9b779b5201",
+        "a5624d72a34d1b9574774e73d5bd11375da70eeb607e0164282110a58c943596",
+        "bb9ea062c7aec1866e6d39b08b7a8f21988eb4c8d0cd5a6a22dade705666301e",
+        "c76cd20084f3347b9c266f5011b46f44e2631e88f2a0cdf4d85b877137e59a53",
+        "d9be0d4270a3d3e5220b627166756b7b35d29202e7718ba4ba9ed0d71ceda948",
+        "dfc6d23e9d1380d68a76b3c46b2ca89ea556dfbb9adba5b9ca73817411276563",
+        "f1bcb1395e0c749f577368ac6e7afcc8eae1b039bc8d6a235c98c1f533016e99"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "INT2NUM ( version_compare_cb ( & context -> version_a , & context -> version_b ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:275:rb_version_compare_cb",
+            "line": 283,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "version_compare_cb ( & context -> version_a , & context -> version_b )",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "INT2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( context -> rb_version_a )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:275:rb_version_compare_cb",
+            "line": 280,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context -> rb_version_a",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( context -> rb_version_b )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:275:rb_version_compare_cb",
+            "line": 281,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context -> rb_version_b",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( original_a + a -> offset , original_b + b -> offset , len )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "strchunk_cmp",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:35:strchunk_cmp",
+            "line": 40,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strcmp ( a -> original , b -> original )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "compare_version_number",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:44:compare_version_number",
+            "line": 75,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "a -> original",
+              "index": 0
+            },
+            {
+              "expression": "b -> original",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xfree ( context . version_a )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:286:rb_version_compare",
+            "line": 297,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context . version_a",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "xfree",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xfree ( context . version_b )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_compare",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:286:rb_version_compare",
+            "line": 298,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context . version_b",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "xfree",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xrealloc ( version , ( sizeof ( struct version_number ) + sizeof ( union version_comp ) * new_size ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "grow_version_number",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:103:grow_version_number",
+            "line": 106,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "version",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "xrealloc",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "version_sorter",
+        "method": "compare",
+        "owner": "VersionSorter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "2.3.0"
+      },
+      "native_api_group": "a516bf1d35c2e43f19e5cb57cfe5d6d6f40b85c3cbea2d7c1d7819c8dd22599c",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "latest_version",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 3249,
+          "byte_start": 3203,
+          "column": 67,
+          "end_line": 99,
+          "expression": "VersionSorter.compare(version, latest_version)",
+          "file": "app/services/packages/npm/generate_metadata_service.rb",
+          "kind": "call",
+          "line": 99,
+          "method": "compare",
+          "owner": "Packages::Npm::GenerateMetadataService",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/npm/generate_metadata_service.rb#L99",
+          "source_sha256": "1b45b95683b5ab50ad62f0b639f0a55fbd00c66ee0ad6bb3348ebea9bdb55993",
+          "unit": "app/services/packages/npm/generate_metadata_service.rb:3103:instance:store_latest_version"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "VersionSorter",
+    "proof": [
+      {
+        "byte_end": 3216,
+        "byte_start": 3203,
+        "column": 67,
+        "end_line": 99,
+        "expression": "VersionSorter",
+        "file": "app/services/packages/npm/generate_metadata_service.rb",
+        "kind": "expression",
+        "line": 99,
+        "owner": "Packages::Npm::GenerateMetadataService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/npm/generate_metadata_service.rb#L99",
+        "source_sha256": "1b45b95683b5ab50ad62f0b639f0a55fbd00c66ee0ad6bb3348ebea9bdb55993",
+        "unit": "app/services/packages/npm/generate_metadata_service.rb:3103:instance:store_latest_version"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "VersionSorter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 67,
+    "file": "app/services/packages/npm/generate_metadata_service.rb",
+    "line": 99,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/npm/generate_metadata_service.rb#L99",
+    "source_sha256": "1b45b95683b5ab50ad62f0b639f0a55fbd00c66ee0ad6bb3348ebea9bdb55993"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "version",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "latest_version",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

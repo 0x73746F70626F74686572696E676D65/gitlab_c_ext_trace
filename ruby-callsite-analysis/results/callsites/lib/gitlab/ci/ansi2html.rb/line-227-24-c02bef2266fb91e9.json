@@ -1,0 +1,234 @@
+{
+  "callsite_id": "c02bef2266fb91e9ca3b6464a76a65a5c57214c41804cfeab75ebacf5826d757",
+  "expression": "scanner[3]",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "[]",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "d5964dc2aaf790fbfe59b8e1d8c3f5e6d1886b111414d95a95d17d04ab35f073",
+        "fc970ea9068da0e5595908578f2f73cae44ffe298161dbdc283248aa07a47514"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "rb_str_new ( ptr , len )",
+            "file": "ext/strscan/strscan.c",
+            "function": "str_new",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:151:str_new",
+            "line": 154,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ptr",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new ( ptr , len )",
+            "file": "ext/strscan/strscan.c",
+            "function": "str_new",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:151:str_new",
+            "line": 154,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ptr",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "strscan",
+        "method": "[]",
+        "owner": "StringScanner",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.1.8"
+      },
+      "native_api_group": "554856952397364d2be39f961bc21e143aa062fe1144c6a9c93b87b23e0657a7",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "3",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 7253,
+          "byte_start": 7243,
+          "column": 24,
+          "end_line": 227,
+          "expression": "scanner[3]",
+          "file": "lib/gitlab/ci/ansi2html.rb",
+          "kind": "call",
+          "line": 227,
+          "method": "[]",
+          "owner": "Gitlab::Ci::Ansi2html::Converter",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2html.rb#L227",
+          "source_sha256": "573c4520d9fcc646e507d56130c8895822386041c88bf8ab64aa91bed478163c",
+          "unit": "lib/gitlab/ci/ansi2html.rb:7158:instance:handle_sequence"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "scanner",
+    "proof": [
+      {
+        "byte_end": 4158,
+        "byte_start": 4135,
+        "column": 21,
+        "end_line": 130,
+        "expression": "StringScanner.new(line)",
+        "file": "lib/gitlab/ci/ansi2html.rb",
+        "kind": "call",
+        "line": 130,
+        "method": "new",
+        "owner": "Gitlab::Ci::Ansi2html::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2html.rb#L130",
+        "source_sha256": "573c4520d9fcc646e507d56130c8895822386041c88bf8ab64aa91bed478163c",
+        "unit": "lib/gitlab/ci/ansi2html.rb:4092:instance:consume_line"
+      },
+      {
+        "byte_end": 4158,
+        "byte_start": 4125,
+        "column": 11,
+        "end_line": 130,
+        "expression": "scanner = StringScanner.new(line)",
+        "file": "lib/gitlab/ci/ansi2html.rb",
+        "kind": "expression",
+        "line": 130,
+        "owner": "Gitlab::Ci::Ansi2html::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2html.rb#L130",
+        "source_sha256": "573c4520d9fcc646e507d56130c8895822386041c88bf8ab64aa91bed478163c",
+        "unit": "lib/gitlab/ci/ansi2html.rb:4092:instance:consume_line"
+      },
+      {
+        "byte_end": 4415,
+        "byte_start": 4408,
+        "column": 27,
+        "end_line": 137,
+        "expression": "scanner",
+        "file": "lib/gitlab/ci/ansi2html.rb",
+        "kind": "expression",
+        "line": 137,
+        "owner": "Gitlab::Ci::Ansi2html::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2html.rb#L137",
+        "source_sha256": "573c4520d9fcc646e507d56130c8895822386041c88bf8ab64aa91bed478163c",
+        "unit": "lib/gitlab/ci/ansi2html.rb:4092:instance:consume_line"
+      },
+      {
+        "byte_end": 4446,
+        "byte_start": 4394,
+        "column": 13,
+        "end_line": 137,
+        "expression": "consume_token(scanner, @offset == line_start_offset)",
+        "file": "lib/gitlab/ci/ansi2html.rb",
+        "kind": "call",
+        "line": 137,
+        "method": "consume_token",
+        "owner": "Gitlab::Ci::Ansi2html::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2html.rb#L137",
+        "source_sha256": "573c4520d9fcc646e507d56130c8895822386041c88bf8ab64aa91bed478163c",
+        "unit": "lib/gitlab/ci/ansi2html.rb:4092:instance:consume_line"
+      },
+      {
+        "byte_end": 4806,
+        "byte_start": 4799,
+        "column": 29,
+        "end_line": 147,
+        "expression": "scanner",
+        "file": "lib/gitlab/ci/ansi2html.rb",
+        "kind": "expression",
+        "line": 147,
+        "owner": "Gitlab::Ci::Ansi2html::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2html.rb#L147",
+        "source_sha256": "573c4520d9fcc646e507d56130c8895822386041c88bf8ab64aa91bed478163c",
+        "unit": "lib/gitlab/ci/ansi2html.rb:4482:instance:consume_token"
+      },
+      {
+        "byte_end": 4807,
+        "byte_start": 4783,
+        "column": 13,
+        "end_line": 147,
+        "expression": "handle_sequence(scanner)",
+        "file": "lib/gitlab/ci/ansi2html.rb",
+        "kind": "call",
+        "line": 147,
+        "method": "handle_sequence",
+        "owner": "Gitlab::Ci::Ansi2html::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2html.rb#L147",
+        "source_sha256": "573c4520d9fcc646e507d56130c8895822386041c88bf8ab64aa91bed478163c",
+        "unit": "lib/gitlab/ci/ansi2html.rb:4482:instance:consume_token"
+      },
+      {
+        "byte_end": 7250,
+        "byte_start": 7243,
+        "column": 24,
+        "end_line": 227,
+        "expression": "scanner",
+        "file": "lib/gitlab/ci/ansi2html.rb",
+        "kind": "expression",
+        "line": 227,
+        "owner": "Gitlab::Ci::Ansi2html::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2html.rb#L227",
+        "source_sha256": "573c4520d9fcc646e507d56130c8895822386041c88bf8ab64aa91bed478163c",
+        "unit": "lib/gitlab/ci/ansi2html.rb:7158:instance:handle_sequence"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "StringScanner"
+      ]
+    ]
+  },
+  "source": {
+    "column": 24,
+    "file": "lib/gitlab/ci/ansi2html.rb",
+    "line": 227,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2html.rb#L227",
+    "source_sha256": "573c4520d9fcc646e507d56130c8895822386041c88bf8ab64aa91bed478163c"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "3",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Integer"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

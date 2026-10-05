@@ -1,0 +1,448 @@
+{
+  "callsite_id": "b5566d5650f9c4137cd51ac91c055ae0d0358b69d122601abb931ae657ea2a9a",
+  "expression": "escape_javascript(value)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "escape_javascript",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "073b19e85cfb6864902d831bff610e719e89e29716805792e42b9cbf0b6ea181",
+        "09ea24b8222f818a9d1fe8fca17d56d24c2b017a670e84e059373d2cc8268ce6",
+        "11b4f472b6c798dd6adf2e71f31444662bdae49ff56614ab04e4f603f8802236",
+        "1e7015baec33bf221149c580ac48bc752ab92789bbc48aa0af5cd827d0e18cbf",
+        "22ad410b525d6c85d7c2fcfbd6b2a741b23198098532ba73f19b0b2e73b05684",
+        "31a0418f183ef0e606a4802d55260bb071cd0c282d74746bd8223ecae266b729",
+        "5a903520e70e6e975854d7a696916f035dfe154bc1a1094dbd807c7ce6ee77b1",
+        "67f83ab9e2c2eb2bcd46e2631824bb53b01397380e4a1d0270212765d51f462f",
+        "98596b88266e2f68546e1d5c7a9b41febfc7b36904e514c49adf64c2438526e8",
+        "b0ead27f2ff892685678fa684de12938419cfcb3bbca811dad9e515ab3841a34",
+        "ca7d0bc2328d02590057cfee81d947958ef357888d8e17fe4b4d2a3f5c2b8315",
+        "cd82a122dd935e4a30ecc2f3be388612e9d670d2d2018bea12218843a48ecd8a",
+        "ddae308c12ccd0347df1c42d6d97a6287d63597d2017b4c4acba2864d11b1334",
+        "e3df04e7e3b3cd9142becf994c0fa813971bb90d21b881a0ac8782d2ecb2a0f6",
+        "ef0cfe8a773424f3655d5fc473ac0175a57fcf6e2e264976fe315fdc223c5864",
+        "f956e7310ffd6a4e5e84ff475c647ab3430c20baac716dad9f1695f405885c67"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_put",
+            "function_id": "escape_utils@1.3.0:ext/escape_utils/buffer.c:129:gh_buf_put",
+            "line": 134,
+            "package": "escape_utils@1.3.0",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_put",
+            "function_id": "escape_utils@1.3.0:ext/escape_utils/buffer.c:129:gh_buf_put",
+            "line": 134,
+            "package": "escape_utils@1.3.0",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_put",
+            "function_id": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af:ext/escape_utils/buffer.c:129:gh_buf_put",
+            "line": 134,
+            "package": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_put",
+            "function_id": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af:ext/escape_utils/buffer.c:129:gh_buf_put",
+            "line": 134,
+            "package": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "free ( buf -> ptr )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_free",
+            "function_id": "escape_utils@1.3.0:ext/escape_utils/buffer.c:84:gh_buf_free",
+            "line": 89,
+            "package": "escape_utils@1.3.0",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "free",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "free ( buf -> ptr )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_free",
+            "function_id": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af:ext/escape_utils/buffer.c:84:gh_buf_free",
+            "line": 89,
+            "package": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "free",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_put",
+            "function_id": "escape_utils@1.3.0:ext/escape_utils/buffer.c:129:gh_buf_put",
+            "line": 132,
+            "package": "escape_utils@1.3.0",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr + buf -> size",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_put",
+            "function_id": "escape_utils@1.3.0:ext/escape_utils/buffer.c:129:gh_buf_put",
+            "line": 132,
+            "package": "escape_utils@1.3.0",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_put",
+            "function_id": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af:ext/escape_utils/buffer.c:129:gh_buf_put",
+            "line": 132,
+            "package": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr + buf -> size",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_put",
+            "function_id": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af:ext/escape_utils/buffer.c:129:gh_buf_put",
+            "line": 132,
+            "package": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_obj_as_string ( str )",
+            "file": "ext/escape_utils/escape_utils.c",
+            "function": "rb_eu_escape_js",
+            "function_id": "escape_utils@1.3.0:ext/escape_utils/escape_utils.c:88:rb_eu_escape_js",
+            "line": 90,
+            "package": "escape_utils@1.3.0",
+            "source_sha256": "9ddfda441011238caf17bf4efdb2c78b9977ac8da5d04b826187caca144f5899"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "rb_obj_as_string",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_obj_as_string ( str )",
+            "file": "ext/escape_utils/escape_utils.c",
+            "function": "rb_eu_escape_js",
+            "function_id": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af:ext/escape_utils/escape_utils.c:88:rb_eu_escape_js",
+            "line": 90,
+            "package": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af",
+            "source_sha256": "9ddfda441011238caf17bf4efdb2c78b9977ac8da5d04b826187caca144f5899"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "rb_obj_as_string",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "realloc ( new_ptr , new_size )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_try_grow",
+            "function_id": "escape_utils@1.3.0:ext/escape_utils/buffer.c:38:gh_buf_try_grow",
+            "line": 65,
+            "package": "escape_utils@1.3.0",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "new_ptr",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "realloc",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "realloc ( new_ptr , new_size )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_try_grow",
+            "function_id": "escape_utils@1.3.0:ext/escape_utils/buffer.c:38:gh_buf_try_grow",
+            "line": 65,
+            "package": "escape_utils@1.3.0",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "new_size",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "realloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "realloc ( new_ptr , new_size )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_try_grow",
+            "function_id": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af:ext/escape_utils/buffer.c:38:gh_buf_try_grow",
+            "line": 65,
+            "package": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "new_ptr",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "realloc",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "realloc ( new_ptr , new_size )",
+            "file": "ext/escape_utils/buffer.c",
+            "function": "gh_buf_try_grow",
+            "function_id": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af:ext/escape_utils/buffer.c:38:gh_buf_try_grow",
+            "line": 65,
+            "package": "escape_utils@1.3.0:git:ae8a3ba25f894d8ef3ac835e2bd3b58b01b512af",
+            "source_sha256": "365ad3b69a2703a62b91e81c6e17dbb33eae213bde515a82da896504c6e293c5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "new_size",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "realloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "escape_utils",
+        "method": "escape_javascript",
+        "owner": "EscapeUtils",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "1.3.0"
+      },
+      "native_api_group": "62cc3b4575d3ec10186c5063277070fce20025c4a0d2cb3ed9d25bbbb845f799",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "value",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 420,
+          "byte_start": 396,
+          "call_event": "b5566d5650f9c4137cd51ac91c055ae0d0358b69d122601abb931ae657ea2a9a",
+          "callee": "@gem/escape_utils@1.3.0/lib/escape_utils/javascript/action_view.rb:69:instance:escape_javascript",
+          "callee_argument": 0,
+          "column": 66,
+          "end_line": 12,
+          "expression": "escape_javascript(value)",
+          "file": "spec/support/helpers/features/source_editor_spec_helpers.rb",
+          "kind": "ruby_argument_binding",
+          "line": 12,
+          "method": "escape_javascript",
+          "owner": "Features::SourceEditorSpecHelpers",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/features/source_editor_spec_helpers.rb#L12",
+          "source_sha256": "894860bbb607b5a01f6f0c273edb74e8b1a42f29af7baa3b40166c7fc6293259",
+          "unit": "spec/support/helpers/features/source_editor_spec_helpers.rb:234:instance:editor_set_value"
+        },
+        {
+          "byte_end": 139,
+          "byte_start": 102,
+          "column": 9,
+          "end_line": 5,
+          "expression": "EscapeUtils.escape_javascript(s.to_s)",
+          "file": "@gem/escape_utils@1.3.0/lib/escape_utils/javascript/action_view.rb",
+          "kind": "call",
+          "line": 5,
+          "method": "escape_javascript",
+          "owner": "ActionView::Helpers::JavaScriptHelper",
+          "source_package": {
+            "file": "lib/escape_utils/javascript/action_view.rb",
+            "gem": "escape_utils",
+            "package_sha256": "dffb7010922880ace6ceed642156c64e2a64620f27e0849f43bc4f68fd3c2c09",
+            "source_url": "https://rubygems.org/downloads/escape_utils-1.3.0.gem",
+            "version": "1.3.0"
+          },
+          "source_sha256": "5f2875be23a18b38185129f8e29f0d372062db4948e118a0672b8017ff6522eb",
+          "unit": "@gem/escape_utils@1.3.0/lib/escape_utils/javascript/action_view.rb:69:instance:escape_javascript"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "self",
+    "proof": [
+      {
+        "byte_end": 420,
+        "byte_start": 396,
+        "column": 66,
+        "end_line": 12,
+        "expression": "escape_javascript(value)",
+        "file": "spec/support/helpers/features/source_editor_spec_helpers.rb",
+        "kind": "call",
+        "line": 12,
+        "method": "escape_javascript",
+        "owner": "Features::SourceEditorSpecHelpers",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/features/source_editor_spec_helpers.rb#L12",
+        "source_sha256": "894860bbb607b5a01f6f0c273edb74e8b1a42f29af7baa3b40166c7fc6293259",
+        "unit": "spec/support/helpers/features/source_editor_spec_helpers.rb:234:instance:editor_set_value"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "Features::SourceEditorSpecHelpers"
+      ]
+    ]
+  },
+  "source": {
+    "column": 66,
+    "file": "spec/support/helpers/features/source_editor_spec_helpers.rb",
+    "line": 12,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/features/source_editor_spec_helpers.rb#L12",
+    "source_sha256": "894860bbb607b5a01f6f0c273edb74e8b1a42f29af7baa3b40166c7fc6293259"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "value",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

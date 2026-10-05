@@ -1,0 +1,117 @@
+{
+  "callsite_id": "405270e5003571e7ac75b3e81b66c35962126d0a1cfdbbd4c6cb9fb850af3de3",
+  "expression": "OpenSSL::PKey.generate_key('RSA')",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "generate_key",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "a5bbfac85278280925b92a83fe0acb72d616afcecc408cb60f6a4851dd12a754"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( alg )",
+            "file": "ext/openssl/ossl_pkey.c",
+            "function": "pkey_generate",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_pkey.c:364:pkey_generate",
+            "line": 391,
+            "package": "openssl@3.3.3",
+            "source_sha256": "45f5d8251c4e0ece1f3766a8b7635db871de1996440d33f0ada0a9b08106adbc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "alg",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "generate_key",
+        "owner": "OpenSSL::PKey",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "af576f94e4553a75abf84e8f3013f674bc5ccd2f2fd347389daf5daaea921ce4",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "'RSA'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 352,
+          "byte_start": 319,
+          "column": 19,
+          "end_line": 8,
+          "expression": "OpenSSL::PKey.generate_key('RSA')",
+          "file": "spec/tasks/ci/validate_id_token_configuration_task_spec.rb",
+          "kind": "call",
+          "line": 8,
+          "method": "generate_key",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/tasks/ci/validate_id_token_configuration_task_spec.rb#L8",
+          "source_sha256": "1ff5212d721210da8b82e2e12f41e311c028fd278f7cac2d62c4a595fd8967a6",
+          "unit": "spec/tasks/ci/validate_id_token_configuration_task_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::PKey",
+    "proof": [
+      {
+        "byte_end": 332,
+        "byte_start": 319,
+        "column": 19,
+        "end_line": 8,
+        "expression": "OpenSSL::PKey",
+        "file": "spec/tasks/ci/validate_id_token_configuration_task_spec.rb",
+        "kind": "expression",
+        "line": 8,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/tasks/ci/validate_id_token_configuration_task_spec.rb#L8",
+        "source_sha256": "1ff5212d721210da8b82e2e12f41e311c028fd278f7cac2d62c4a595fd8967a6",
+        "unit": "spec/tasks/ci/validate_id_token_configuration_task_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::PKey"
+      ]
+    ]
+  },
+  "source": {
+    "column": 19,
+    "file": "spec/tasks/ci/validate_id_token_configuration_task_spec.rb",
+    "line": 8,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/tasks/ci/validate_id_token_configuration_task_spec.rb#L8",
+    "source_sha256": "1ff5212d721210da8b82e2e12f41e311c028fd278f7cac2d62c4a595fd8967a6"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "'RSA'",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

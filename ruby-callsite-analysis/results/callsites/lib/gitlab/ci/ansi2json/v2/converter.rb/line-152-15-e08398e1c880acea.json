@@ -1,0 +1,221 @@
+{
+  "callsite_id": "e08398e1c880aceabc80a7d2a33126a6d7c90ed749b51b8636ece82aa2b1c135",
+  "expression": "scanner.pos",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "pos=",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "c6c96d3b47c76935e4922fa59989ca2a0de423a248b3256c47fa78f184723230",
+        "d983fc7f6fffd8519f47fccb9c0c1da8956777561f6b1f935cd233747fccd478"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "LONG2NUM ( i )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_set_pos",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:574:strscan_set_pos",
+            "line": 586,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "i",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "LONG2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "LONG2NUM ( i )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_set_pos",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:574:strscan_set_pos",
+            "line": 586,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "i",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "LONG2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "strscan",
+        "method": "pos=",
+        "owner": "StringScanner",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.1.8"
+      },
+      "native_api_group": "97a2aa6195f5f58bd06bc95c15e1faefd7831217f8c09bfd68379681289c8096",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "pos",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 4878,
+          "byte_start": 4867,
+          "column": 15,
+          "end_line": 152,
+          "expression": "scanner.pos",
+          "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+          "kind": "call",
+          "line": 152,
+          "method": "pos=",
+          "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L152",
+          "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+          "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:4495:instance:consume_escape"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "scanner",
+    "proof": [
+      {
+        "byte_end": 735,
+        "byte_start": 714,
+        "column": 24,
+        "end_line": 20,
+        "expression": "StringScanner.new('')",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "call",
+        "line": 20,
+        "method": "new",
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L20",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:547:instance:convert"
+      },
+      {
+        "byte_end": 735,
+        "byte_start": 703,
+        "column": 13,
+        "end_line": 20,
+        "expression": "@scanner = StringScanner.new('')",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 20,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L20",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:547:instance:convert"
+      },
+      {
+        "byte_end": 2871,
+        "byte_start": 2863,
+        "column": 27,
+        "end_line": 92,
+        "expression": "@scanner",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 92,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L92",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2779:instance:consume_line"
+      },
+      {
+        "byte_end": 2872,
+        "byte_start": 2849,
+        "column": 13,
+        "end_line": 92,
+        "expression": "consume_token(@scanner)",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "call",
+        "line": 92,
+        "method": "consume_token",
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L92",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2779:instance:consume_line"
+      },
+      {
+        "byte_end": 3172,
+        "byte_start": 3165,
+        "column": 30,
+        "end_line": 100,
+        "expression": "scanner",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 100,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L100",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2918:instance:consume_token"
+      },
+      {
+        "byte_end": 3173,
+        "byte_start": 3150,
+        "column": 15,
+        "end_line": 100,
+        "expression": "consume_escape(scanner)",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "call",
+        "line": 100,
+        "method": "consume_escape",
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L100",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2918:instance:consume_token"
+      },
+      {
+        "byte_end": 4874,
+        "byte_start": 4867,
+        "column": 15,
+        "end_line": 152,
+        "expression": "scanner",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 152,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L152",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:4495:instance:consume_escape"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "StringScanner"
+      ]
+    ]
+  },
+  "source": {
+    "column": 15,
+    "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+    "line": 152,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L152",
+    "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "pos",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

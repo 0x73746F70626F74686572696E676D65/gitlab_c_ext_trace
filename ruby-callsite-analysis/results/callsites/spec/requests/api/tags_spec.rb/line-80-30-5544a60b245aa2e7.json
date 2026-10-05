@@ -1,0 +1,255 @@
+{
+  "callsite_id": "5544a60b245aa2e70f3c783dcca88c72b482a9b20e3290d4f668c71be209c266",
+  "expression": "VersionSorter.sort(project.repository.tags.map { |tag| tag.name })",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "sort",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "0c0384873b69c2f4c9e770923bc73347cdc07b9e69f42dd2474601ec3181dfc9",
+        "265f4ec233f534ef5d674d5bbc811406f207bf63219a4d16f2eb8213e92c785f",
+        "6bb203931b60a809f8cda8ad67c3a6f0c334b598d84898000a42c6065453d8af",
+        "823973d0d1c945f5d6b38385d21c45ace834811b7b9e7389215089be1c7e8229",
+        "aeb3b7392488970e0797c794c73a6fd462037a82aa508ba192c68e690d9b0e18",
+        "bc355df1c4ff1cc73e9a8c81c8f3192b6dba2c4e20090c394d61f5d45be0e0fd",
+        "be2826385d5c69f0a38160c92649958abdbf27490ba1d1ac4431e107cf860403",
+        "edeae85acd288ff403346bc7629662ed82a5d5ae92ebb7de3630b258df0e0b00"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( rb_version_string )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 199,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rb_version_string",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "context -> versions [ i ] = parse_version_number ( StringValueCStr ( rb_version_string ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 199,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_ary_dup ( rb_versions )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:246:rb_version_sort",
+            "line": 249,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rb_versions",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_ary_dup",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_version_ptr [ i ] = context -> versions [ i ] -> rb_version",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 207,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_version_ptr [ i ] = context -> versions [ i ] -> rb_version",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 207,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "xcalloc ( length , sizeof ( struct version_number * ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:213:rb_version_sort_1",
+            "line": 229,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "length",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( struct version_number * )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "xcalloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xfree ( context . versions )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:213:rb_version_sort_1",
+            "line": 237,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context . versions",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "xfree",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xrealloc ( version , ( sizeof ( struct version_number ) + sizeof ( union version_comp ) * new_size ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "grow_version_number",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:103:grow_version_number",
+            "line": 106,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "version",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "xrealloc",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "version_sorter",
+        "method": "sort",
+        "owner": "VersionSorter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "2.3.0"
+      },
+      "native_api_group": "3ec56bb60f1c6ee59022119af2d0b524b584adf60da0d80235a99de3c6e94e77",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "project.repository.tags.map { |tag| tag.name }",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2960,
+          "byte_start": 2894,
+          "column": 30,
+          "end_line": 80,
+          "expression": "VersionSorter.sort(project.repository.tags.map { |tag| tag.name })",
+          "file": "spec/requests/api/tags_spec.rb",
+          "kind": "call",
+          "line": 80,
+          "method": "sort",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/requests/api/tags_spec.rb#L80",
+          "source_sha256": "fe7d0e35b7a62141d8ce01013a530d178a99a46c205966d33abeda0b2afd3655",
+          "unit": "spec/requests/api/tags_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "VersionSorter",
+    "proof": [
+      {
+        "byte_end": 2907,
+        "byte_start": 2894,
+        "column": 30,
+        "end_line": 80,
+        "expression": "VersionSorter",
+        "file": "spec/requests/api/tags_spec.rb",
+        "kind": "expression",
+        "line": 80,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/requests/api/tags_spec.rb#L80",
+        "source_sha256": "fe7d0e35b7a62141d8ce01013a530d178a99a46c205966d33abeda0b2afd3655",
+        "unit": "spec/requests/api/tags_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "VersionSorter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 30,
+    "file": "spec/requests/api/tags_spec.rb",
+    "line": 80,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/requests/api/tags_spec.rb#L80",
+    "source_sha256": "fe7d0e35b7a62141d8ce01013a530d178a99a46c205966d33abeda0b2afd3655"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "project.repository.tags.map { |tag| tag.name }",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

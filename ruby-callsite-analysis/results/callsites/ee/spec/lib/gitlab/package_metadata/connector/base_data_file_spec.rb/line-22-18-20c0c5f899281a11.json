@@ -1,0 +1,163 @@
+{
+  "callsite_id": "20c0c5f899281a11aae1fadd1de27a44b28aa8d9f53e4f09f859374251678636",
+  "expression": "StringIO.new(\"rails,v7.2,MIT\\nactiverecord,v6.1,Apache\")",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "9ad42edb7882971273703ce75d7e2a38c650a3fd8dee17633e6a92b1674d5588",
+        "a743c8001afaa9af5e13e8f1f09ebec46b9cf0a7f0689801beb8883e9e80bcf8"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/stringio/stringio.c",
+            "function": "strio_s_new",
+            "function_id": "stringio@3.2.0:ext/stringio/stringio.c:414:strio_s_new",
+            "line": 423,
+            "package": "stringio@3.2.0",
+            "source_sha256": "d8d29c2e1d571e9b0b137de0616eaab2761e55a11b04119e295693a33f05e3a1"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/stringio/stringio.c",
+            "function": "strio_s_new",
+            "function_id": "stringio@3.2.0:git:fd9fbc33efe5993ce53fce3d4e6c76d7ef99402e:ext/stringio/stringio.c:414:strio_s_new",
+            "line": 423,
+            "package": "stringio@3.2.0:git:fd9fbc33efe5993ce53fce3d4e6c76d7ef99402e",
+            "source_sha256": "d8d29c2e1d571e9b0b137de0616eaab2761e55a11b04119e295693a33f05e3a1"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "stringio",
+        "method": "new",
+        "owner": "StringIO",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.0"
+      },
+      "native_api_group": "47d98d3ee6046561fb17fbfedaefd147b6b5715f74c5db88227646b1836b21ee",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "\"rails,v7.2,MIT\\nactiverecord,v6.1,Apache\"",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 740,
+          "byte_start": 684,
+          "column": 18,
+          "end_line": 22,
+          "expression": "StringIO.new(\"rails,v7.2,MIT\\nactiverecord,v6.1,Apache\")",
+          "file": "ee/spec/lib/gitlab/package_metadata/connector/base_data_file_spec.rb",
+          "kind": "call",
+          "line": 22,
+          "method": "new",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/package_metadata/connector/base_data_file_spec.rb#L22",
+          "source_sha256": "2ec35e505763da2a28e6e159e7f5db54e59e2cfb1d7f2886dc00a34acf50e9b7",
+          "unit": "ee/spec/lib/gitlab/package_metadata/connector/base_data_file_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "StringIO",
+    "proof": [
+      {
+        "byte_end": 692,
+        "byte_start": 684,
+        "column": 18,
+        "end_line": 22,
+        "expression": "StringIO",
+        "file": "ee/spec/lib/gitlab/package_metadata/connector/base_data_file_spec.rb",
+        "kind": "expression",
+        "line": 22,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/package_metadata/connector/base_data_file_spec.rb#L22",
+        "source_sha256": "2ec35e505763da2a28e6e159e7f5db54e59e2cfb1d7f2886dc00a34acf50e9b7",
+        "unit": "ee/spec/lib/gitlab/package_metadata/connector/base_data_file_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "StringIO"
+      ]
+    ]
+  },
+  "source": {
+    "column": 18,
+    "file": "ee/spec/lib/gitlab/package_metadata/connector/base_data_file_spec.rb",
+    "line": 22,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/package_metadata/connector/base_data_file_spec.rb#L22",
+    "source_sha256": "2ec35e505763da2a28e6e159e7f5db54e59e2cfb1d7f2886dc00a34acf50e9b7"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "\"rails,v7.2,MIT\\nactiverecord,v6.1,Apache\"",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

@@ -1,0 +1,318 @@
+{
+  "callsite_id": "8175f76c48825ea0a4becfe03620bd8c354da2fe04572f747290449e938d6333",
+  "expression": "fixed_today - 3",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "-",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "20b4e1efe8fc1b5602c9501996f8dd98b57a6b045df8e3c8896035f248e06d6e",
+        "27556a8a44489b35d69c5d9b7e0bbd791419a8a5a4ef170336c3856ed58c47e3",
+        "2b307428574f3ab05afa9db310867c96d0cc20c937d9375eb9d724a79e9a742f",
+        "2e0d18f4f448bf0713871630531a0fc5f0d7124337b5e1dd7591dbb293809fdb",
+        "3542068d3ad11d9792b3d9ec4d2d8b5f3e4f8653abe3c6162144657a6213bd4a",
+        "6b3659b5c90562a57b8e5a1b35b4cd3084fb761e0b676e3cfa5d6e0533d0ce58",
+        "757ae8d3ee31702db3b7645ee105bb3fd89e4db33a0a47dda2b4fd82bd559b5b",
+        "77f074f661a61d3777cd150bca333fc54768417d94e5cc4e9b186f930cf82f24",
+        "81fde06500d5323e5c62eeec2929fdb2c0c6ca59281dfe1139f709afdc9d8562",
+        "98369ac52d0e4f188a3c5f9e7719e6911101762e654658c4a7444b1df067a4a4",
+        "9cbd8b9a225c86aaa6bf603ec0a174202c9c3e354661a4ed8f2f1f9029a1a7e1",
+        "b5371546e6e0d4359671b61f050d83a512bd31b2160057e2dc8ac54f07ab5ea2",
+        "c61427f7316a83a107f3825432b8bcdd1747268b29f0fa315f17ff28e0094366",
+        "fc110cc83d93bb0e7baea4a47c52b425f4e2102280111ab13f735fa38075cf8b"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* min = df / 60",
+            "file": "ext/date/date_core.c",
+            "function": "df_to_time",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:950:df_to_time",
+            "line": 955,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rjd = ( int ) jd",
+            "file": "ext/date/date_core.c",
+            "function": "c_civil_to_jd",
+            "function_id": "date@3.5.1:ext/date/date_core.c:502:c_civil_to_jd",
+            "line": 523,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rjd = ( int ) jd",
+            "file": "ext/date/date_core.c",
+            "function": "c_civil_to_jd",
+            "function_id": "date@3.5.1:ext/date/date_core.c:502:c_civil_to_jd",
+            "line": 523,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rjd = ( int ) jd",
+            "file": "ext/date/date_core.c",
+            "function": "c_civil_to_jd",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:502:c_civil_to_jd",
+            "line": 523,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rjd = ( int ) jd",
+            "file": "ext/date/date_core.c",
+            "function": "c_civil_to_jd",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:502:c_civil_to_jd",
+            "line": 523,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* s = df % 60",
+            "file": "ext/date/date_core.c",
+            "function": "df_to_time",
+            "function_id": "date@3.5.1:ext/date/date_core.c:950:df_to_time",
+            "line": 956,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "DBL2NUM ( - RFLOAT_VALUE ( other ) )",
+            "file": "ext/date/date_core.c",
+            "function": "d_lite_minus",
+            "function_id": "date@3.5.1:ext/date/date_core.c:6342:d_lite_minus",
+            "line": 6352,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "- RFLOAT_VALUE ( other )",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "DBL2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "LONG2NUM ( - FIX2LONG ( other ) )",
+            "file": "ext/date/date_core.c",
+            "function": "d_lite_minus",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:6342:d_lite_minus",
+            "line": 6350,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "- FIX2LONG ( other )",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "LONG2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_rational_new1 ( INT2FIX ( d ) )",
+            "file": "ext/date/date_core.c",
+            "function": "minus_dd",
+            "function_id": "date@3.5.1:ext/date/date_core.c:6272:minus_dd",
+            "line": 6311,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "INT2FIX ( d )",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_rational_new1",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_rational_new1 ( INT2FIX ( d ) )",
+            "file": "ext/date/date_core.c",
+            "function": "minus_dd",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:6272:minus_dd",
+            "line": 6311,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "INT2FIX ( d )",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_rational_new1",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "-",
+        "owner": "Date",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "0b277e6e237d2d8d8e239bd21a038dd14c420f82a71001677beb8a7320529dd8",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "3",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 3724,
+          "byte_start": 3709,
+          "column": 23,
+          "end_line": 107,
+          "expression": "fixed_today - 3",
+          "file": "ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb",
+          "kind": "call",
+          "line": 107,
+          "method": "-",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb#L107",
+          "source_sha256": "2533925e2ae584139b29992cfcedf8c7e5878462c3e68ca340acaa45a6cdde74",
+          "unit": "ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "fixed_today",
+    "proof": [
+      {
+        "byte_end": 439,
+        "byte_start": 418,
+        "column": 17,
+        "end_line": 8,
+        "expression": "Date.new(2025, 1, 15)",
+        "file": "ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb",
+        "kind": "call",
+        "line": 8,
+        "method": "new",
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb#L8",
+        "source_sha256": "2533925e2ae584139b29992cfcedf8c7e5878462c3e68ca340acaa45a6cdde74",
+        "unit": "ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb:0:singleton:<file-body>"
+      },
+      {
+        "byte_end": 439,
+        "byte_start": 404,
+        "column": 3,
+        "end_line": 8,
+        "expression": "fixed_today = Date.new(2025, 1, 15)",
+        "file": "ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb",
+        "kind": "expression",
+        "line": 8,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb#L8",
+        "source_sha256": "2533925e2ae584139b29992cfcedf8c7e5878462c3e68ca340acaa45a6cdde74",
+        "unit": "ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb:0:singleton:<file-body>"
+      },
+      {
+        "byte_end": 3720,
+        "byte_start": 3709,
+        "column": 23,
+        "end_line": 107,
+        "expression": "fixed_today",
+        "file": "ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb",
+        "kind": "expression",
+        "line": 107,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb#L107",
+        "source_sha256": "2533925e2ae584139b29992cfcedf8c7e5878462c3e68ca340acaa45a6cdde74",
+        "unit": "ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "Date"
+      ]
+    ]
+  },
+  "source": {
+    "column": 23,
+    "file": "ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb",
+    "line": 107,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/finders/work_items/widgets/rolledup_dates_finder_spec.rb#L107",
+    "source_sha256": "2533925e2ae584139b29992cfcedf8c7e5878462c3e68ca340acaa45a6cdde74"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "3",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Integer"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

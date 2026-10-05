@@ -1,0 +1,167 @@
+{
+  "callsite_id": "308805e62fc2bae6c7024d255f479e96d2c7ad624e152704e66db18a4a479ccd",
+  "expression": "GPGME::Engine.home_dir",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "home_dir=",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "657983d0d82275195157b32e1474e23c14d5751f22a639a85b3b7f4a0a6c1ebf"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( vhome_dir )",
+            "file": "ext/gpgme/gpgme_n.c",
+            "function": "rb_s_gpgme_set_engine_info",
+            "function_id": "gpgme@2.0.26:ext/gpgme/gpgme_n.c:266:rb_s_gpgme_set_engine_info",
+            "line": 274,
+            "package": "gpgme@2.0.26",
+            "source_sha256": "8739742fc66d53c6ad01d489f8d2a817520ee6d5d0238a635911fa41d4e073b6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "vhome_dir",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "gpgme",
+        "method": "gpgme_set_engine_info",
+        "owner": "GPGME",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          3
+        ],
+        "version": "2.0.26"
+      },
+      "native_api_group": "dcfeba87b377d2eb9f3ba731e2ab17fe0a4d14dd60f47466a47bc70dd3672786",
+      "native_argument_index": 2,
+      "ruby_argument_expression": "'/tmp/gpg'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 4312,
+          "byte_start": 4290,
+          "call_event": "308805e62fc2bae6c7024d255f479e96d2c7ad624e152704e66db18a4a479ccd",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/engine.rb:2052:singleton:home_dir=",
+          "callee_argument": 0,
+          "column": 7,
+          "end_line": 119,
+          "expression": "GPGME::Engine.home_dir",
+          "file": "spec/lib/gitlab/gpg_spec.rb",
+          "kind": "ruby_argument_binding",
+          "line": 119,
+          "method": "home_dir=",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/gpg_spec.rb#L119",
+          "source_sha256": "aa4548219c1a5f0e748bf2787d5c595ef06865afa760be76a6180fea098d1600",
+          "unit": "spec/lib/gitlab/gpg_spec.rb:0:singleton:<file-body>"
+        },
+        {
+          "actual_index": 2,
+          "byte_end": 2167,
+          "byte_start": 2113,
+          "call_event": "ec3641e077043f3238924cc40c69f9c08a3de43db6ace8943c45a98271b6ce7e",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/engine.rb:1629:singleton:set_info",
+          "callee_argument": 2,
+          "column": 9,
+          "end_line": 72,
+          "expression": "set_info current.protocol, current.file_name, home_dir",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/engine.rb",
+          "kind": "ruby_argument_binding",
+          "line": 72,
+          "method": "set_info",
+          "owner": "GPGME::Engine",
+          "source_package": {
+            "file": "lib/gpgme/engine.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "a29aaf026f854803da48ca58f9aa66fb9b7559fc5ecf82c0043d67098e46d738",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/engine.rb:2052:singleton:home_dir="
+        },
+        {
+          "byte_end": 1740,
+          "byte_start": 1684,
+          "column": 15,
+          "end_line": 58,
+          "expression": "GPGME::gpgme_set_engine_info(proto, file_name, home_dir)",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/engine.rb",
+          "kind": "call",
+          "line": 58,
+          "method": "gpgme_set_engine_info",
+          "owner": "GPGME::Engine",
+          "source_package": {
+            "file": "lib/gpgme/engine.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "a29aaf026f854803da48ca58f9aa66fb9b7559fc5ecf82c0043d67098e46d738",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/engine.rb:1629:singleton:set_info"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "GPGME::Engine",
+    "proof": [
+      {
+        "byte_end": 4303,
+        "byte_start": 4290,
+        "column": 7,
+        "end_line": 119,
+        "expression": "GPGME::Engine",
+        "file": "spec/lib/gitlab/gpg_spec.rb",
+        "kind": "expression",
+        "line": 119,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/gpg_spec.rb#L119",
+        "source_sha256": "aa4548219c1a5f0e748bf2787d5c595ef06865afa760be76a6180fea098d1600",
+        "unit": "spec/lib/gitlab/gpg_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "GPGME::Engine"
+      ]
+    ]
+  },
+  "source": {
+    "column": 7,
+    "file": "spec/lib/gitlab/gpg_spec.rb",
+    "line": 119,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/gpg_spec.rb#L119",
+    "source_sha256": "aa4548219c1a5f0e748bf2787d5c595ef06865afa760be76a6180fea098d1600"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "'/tmp/gpg'",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

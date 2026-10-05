@@ -1,0 +1,163 @@
+{
+  "callsite_id": "7a49f6e59a9643d864c7948b15fc540958ffd4193118104949e87541b8822016",
+  "expression": "cipher.iv",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "iv=",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "00deae7f22e3d3d892ed9150f212d109eda2dc55e1de4f69360a2a4dd75d7a00",
+        "0c79e3c8f0efecff4458b0e06c168add19f5324a35ed6e889321efbc55547657"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( iv )",
+            "file": "ext/openssl/ossl_cipher.c",
+            "function": "ossl_cipher_set_iv",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_cipher.c:517:ossl_cipher_set_iv",
+            "line": 523,
+            "package": "openssl@3.3.3",
+            "source_sha256": "791365c984bfafbc9f4ab27a357709d15f66abfd37c230463bd71aa0e93ce55f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "iv",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( iv )",
+            "file": "ext/openssl/ossl_cipher.c",
+            "function": "ossl_cipher_set_iv",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_cipher.c:517:ossl_cipher_set_iv",
+            "line": 523,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "791365c984bfafbc9f4ab27a357709d15f66abfd37c230463bd71aa0e93ce55f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "iv",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "iv=",
+        "owner": "OpenSSL::Cipher",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "8ccea34ac314767ae1b055a5ce14294d499b594023b18bfcb8ef4066c5489535",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "@salt ||= cipher.random_iv",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2014,
+          "byte_start": 2005,
+          "column": 11,
+          "end_line": 72,
+          "expression": "cipher.iv",
+          "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+          "kind": "call",
+          "line": 72,
+          "method": "iv=",
+          "owner": "Gitlab::Geo::Oauth::LogoutState",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L72",
+          "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3",
+          "unit": "ee/lib/gitlab/geo/oauth/logout_state.rb:1781:instance:with_cipher"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "cipher",
+    "proof": [
+      {
+        "byte_end": 1866,
+        "byte_start": 1832,
+        "column": 20,
+        "end_line": 67,
+        "expression": "OpenSSL::Cipher.new('AES-256-GCM')",
+        "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+        "kind": "call",
+        "line": 67,
+        "method": "new",
+        "owner": "Gitlab::Geo::Oauth::LogoutState",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L67",
+        "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3",
+        "unit": "ee/lib/gitlab/geo/oauth/logout_state.rb:1781:instance:with_cipher"
+      },
+      {
+        "byte_end": 1866,
+        "byte_start": 1823,
+        "column": 11,
+        "end_line": 67,
+        "expression": "cipher = OpenSSL::Cipher.new('AES-256-GCM')",
+        "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+        "kind": "expression",
+        "line": 67,
+        "owner": "Gitlab::Geo::Oauth::LogoutState",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L67",
+        "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3",
+        "unit": "ee/lib/gitlab/geo/oauth/logout_state.rb:1781:instance:with_cipher"
+      },
+      {
+        "byte_end": 2011,
+        "byte_start": 2005,
+        "column": 11,
+        "end_line": 72,
+        "expression": "cipher",
+        "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+        "kind": "expression",
+        "line": 72,
+        "owner": "Gitlab::Geo::Oauth::LogoutState",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L72",
+        "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3",
+        "unit": "ee/lib/gitlab/geo/oauth/logout_state.rb:1781:instance:with_cipher"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::Cipher"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+    "line": 72,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L72",
+    "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "@salt ||= cipher.random_iv",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

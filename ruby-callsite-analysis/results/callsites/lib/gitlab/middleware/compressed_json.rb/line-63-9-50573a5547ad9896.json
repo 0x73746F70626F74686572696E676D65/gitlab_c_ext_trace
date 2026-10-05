@@ -1,0 +1,467 @@
+{
+  "callsite_id": "50573a5547ad9896b9e15f2500a9582a44a5f6b67f7063521b3cd61111ba45cb",
+  "expression": "Zlib::GzipReader.new(input)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "075394c7f581d665d26ae1419c45c210bc6cb33bff7c9a6543c58e3745a192dd",
+        "0d91cbf907803e163410e74286d2c09868b1197056f5368533b5f2c1bd93137f",
+        "16eaeec1d8ce38e74a2c95ffb03f89e7b7d495008c68617c38c4cbcb25cfdedf",
+        "2ced3c0eb546d435fae08c8640cf840612d32689f0be69fa461071e3ca30e270",
+        "6378285c3519daa5538cf9489ab6cd7db129abb0755d5bade45f8242a89cc0a6",
+        "6e2e476c1bd7a3c5e8491793039448928233a269d75b96cb4ab07f24554106ae",
+        "6fe1e614cde1cfc69c25e8fa8211ffae941a07cdb51f1a456b493031f88e6e3c",
+        "8d8d1bcae100cb9aba6f064058e33b59ebc00c94041b60970bbb33119a8e1249",
+        "8fe1bc7d9e99b57ef097b602a2cb2add8d5dd509b3d2042fd616af3d9a869303",
+        "a233ce35e33529347236291db9bb19e94fb2f6c877f145610363998cf0c34ff9",
+        "a30ecb7ac5ad05d7e1c0651f84d870ee24fefad47ac9f93a9654b02e507a4bb0",
+        "a6ee0b1d7d5d86d760609e074c04a371eb54e2f611b5065ca85b2c541b091968",
+        "aae6750db80b8d2d62bcc98c97f0ad6032d0a48e7ab3ad41e077627f33af3b10",
+        "b9df42d1b57401cffbfb704baed5823737b892c64101da7f2a27ceae3f2abf6c",
+        "c160dfa6319206b61cc794f6ad981ef548b711ced696bc959825bf0b9aaaaba9",
+        "f138c03c977b8acc4345e7fb824aac55c2ce16c6700eede14fba779e6d9fba15"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( src )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_inflate_set_dictionary",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:2344:rb_inflate_set_dictionary",
+            "line": 2351,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "src",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( src )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_inflate_set_dictionary",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:2344:rb_inflate_set_dictionary",
+            "line": 2351,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "src",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memchr ( RSTRING_PTR ( gz -> z . input ) + offset , '\\0' , RSTRING_LEN ( gz -> z . input ) - offset )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_read_raw_until_zero",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:2630:gzfile_read_raw_until_zero",
+            "line": 2637,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "RSTRING_LEN ( gz -> z . input ) - offset",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memchr",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memchr ( RSTRING_PTR ( gz -> z . input ) + offset , '\\0' , RSTRING_LEN ( gz -> z . input ) - offset )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_read_raw_until_zero",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:2630:gzfile_read_raw_until_zero",
+            "line": 2637,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "RSTRING_PTR ( gz -> z . input ) + offset",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memchr",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memchr ( RSTRING_PTR ( gz -> z . input ) + offset , '\\0' , RSTRING_LEN ( gz -> z . input ) - offset )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_read_raw_until_zero",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:2630:gzfile_read_raw_until_zero",
+            "line": 2637,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "RSTRING_LEN ( gz -> z . input ) - offset",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memchr",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memchr ( RSTRING_PTR ( gz -> z . input ) + offset , '\\0' , RSTRING_LEN ( gz -> z . input ) - offset )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_read_raw_until_zero",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:2630:gzfile_read_raw_until_zero",
+            "line": 2637,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "RSTRING_PTR ( gz -> z . input ) + offset",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memchr",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( ptr , ptr + len , newlen )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_discard_input",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:902:zstream_discard_input",
+            "line": 915,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "newlen",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( ptr , ptr + len , newlen )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_discard_input",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:902:zstream_discard_input",
+            "line": 915,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ptr + len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( ptr , ptr + len , newlen )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_discard_input",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:902:zstream_discard_input",
+            "line": 915,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "newlen",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( ptr , ptr + len , newlen )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_discard_input",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:902:zstream_discard_input",
+            "line": 915,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ptr + len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_cat ( z -> input , ( const char * ) src , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 894,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> input",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) src",
+              "index": 1
+            },
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_cat",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_cat ( z -> input , ( const char * ) src , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 894,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> input",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) src",
+              "index": 1
+            },
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_cat",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_uint2inum ( z -> stream . adler )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_run_try",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:1128:zstream_run_try",
+            "line": 1189,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> stream . adler",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "rb_uint2inum",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_uint2inum ( z -> stream . adler )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_run_try",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:1128:zstream_run_try",
+            "line": 1189,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> stream . adler",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "rb_uint2inum",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "initialize",
+        "owner": "Zlib::GzipReader",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "c835989bec5a32616b74d60f844e719330e8c1b508688064e65587066d4ca744",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "input",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1683,
+          "byte_start": 1656,
+          "column": 9,
+          "end_line": 63,
+          "expression": "Zlib::GzipReader.new(input)",
+          "file": "lib/gitlab/middleware/compressed_json.rb",
+          "kind": "call",
+          "line": 63,
+          "method": "new",
+          "owner": "Gitlab::Middleware::CompressedJson",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/middleware/compressed_json.rb#L63",
+          "source_sha256": "0df0b65faa10f38c7d29a1a6a4bfdc25999ccd14ddaeaa781f6a7e3a61be4d1b",
+          "unit": "lib/gitlab/middleware/compressed_json.rb:1629:instance:extract"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::GzipReader",
+    "proof": [
+      {
+        "byte_end": 1672,
+        "byte_start": 1656,
+        "column": 9,
+        "end_line": 63,
+        "expression": "Zlib::GzipReader",
+        "file": "lib/gitlab/middleware/compressed_json.rb",
+        "kind": "expression",
+        "line": 63,
+        "owner": "Gitlab::Middleware::CompressedJson",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/middleware/compressed_json.rb#L63",
+        "source_sha256": "0df0b65faa10f38c7d29a1a6a4bfdc25999ccd14ddaeaa781f6a7e3a61be4d1b",
+        "unit": "lib/gitlab/middleware/compressed_json.rb:1629:instance:extract"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::GzipReader"
+      ]
+    ]
+  },
+  "source": {
+    "column": 9,
+    "file": "lib/gitlab/middleware/compressed_json.rb",
+    "line": 63,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/middleware/compressed_json.rb#L63",
+    "source_sha256": "0df0b65faa10f38c7d29a1a6a4bfdc25999ccd14ddaeaa781f6a7e3a61be4d1b"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "input",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

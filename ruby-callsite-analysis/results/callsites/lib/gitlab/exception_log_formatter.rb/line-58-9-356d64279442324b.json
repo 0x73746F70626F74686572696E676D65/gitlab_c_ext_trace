@@ -1,0 +1,588 @@
+{
+  "callsite_id": "356d64279442324b6ad2b48ef0e7a0c3da2351a928830142dcf97c5dec48eea4",
+  "expression": "PgQuery.normalize(sql)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "normalize",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "04098ec20badfa9fbb926df6f1672033262ee6f9419836e0c930249e488b9529",
+        "063bf608f02920fe6d4d9e3986dbb608260db15a882a2b993f617cff393350ec",
+        "067bd69da7044c09a8573f002c2880d8f76927c9b40fa99a55c138c6da4aed8b",
+        "0f26bfc824cf1401e965b697f9044ee1359b56c62cbfed1c3df35515376ed395",
+        "0f925f0a9f5ad54884e711e2380993cb6849b4ccc4410468c154eccb6bb5ea8c",
+        "11b9a5f59132010a6b91f94b4bf974ebd7a91d8054347d4c7923371e6355e9af",
+        "19015f85c16d191702ae6d68f3cac8ffe3273a1d04748bb376aac753bb4375d6",
+        "2857b2d6fe64ce829b6b5f49d59bb486edcc28992efbccc97609f39094f1fbaa",
+        "29499295a61cd3a53334c4fdc04c033e224cbb37f698c0628bf61ec24040a0e9",
+        "441099bc0ba05cf09dcea26aa1a7ead41a30880baea58aea142e752db6391c86",
+        "49e369b83c16e116663f29f7dd588841e93bd5bd3eb437875669922bd3cddd06",
+        "56c3483431ec175e54083080f9d3579e480b8d44c27b0e031ae4532a1203611b",
+        "650468db2e48e3a30605346b8323b7dfa57a905cbf8d73b1fb84ec370fbe4209",
+        "65aee8bb9734fb3051d95fa80e5a2ef56fece666ed2b995f23eeedc511580a16",
+        "871790b897fefabbb66f7c69632f35822b3cbc8649c0f0fc6f64fa9db43ab886",
+        "8f5bd174e1a9d4b4976bd263d75d8c16b72def66787e58cb62daaaa999d1c7d9",
+        "92ba0e85e6cb7275b6fe7f9da1eaadf5a0923656df8db6146bbe7dc336e6474b",
+        "93d38121c662ce4dd5202b6f0f8a5d7967ad6f461079de699e590c4612ee480f",
+        "b24e1be9b00e6d1f833db0871d3866dd061eba148914b8dda51f505ecf6cad8f",
+        "b3b509a302128c69e303ffa93ce575fe73916a0e21f0c0ac16104f63d057368f",
+        "db0a3f8d26c5f98154c38aa41b382d024a9a0a7109c44ece51072171ead58613",
+        "e210e97b72ae1aa563d94c10495014eb77567440cffd3a0f97c8867225788294",
+        "e45d229e6f9dec22c79ca316eaebf7a9df0cc9b48705d05a2b8841e0f282a45d",
+        "f666d7922f439d928c614c3e61a271e856d4dabdad6b1de55fce71b77cb7bd96"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* query_len_p = n_quer_loc",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 302,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* query_len_p = n_quer_loc",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 302,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* query_len_p = n_quer_loc",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 302,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* query_len_p = n_quer_loc",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 302,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( input )",
+            "file": "ext/pg_query/pg_query_ruby.c",
+            "function": "pg_query_ruby_normalize",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_ruby.c:285:pg_query_ruby_normalize",
+            "line": 290,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "cb5fbeb46e03976f584581ae13efb3ec882ba082edd671a3fb44aca555a44515"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( input )",
+            "file": "ext/pg_query/pg_query_ruby.c",
+            "function": "pg_query_ruby_normalize",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_ruby.c:285:pg_query_ruby_normalize",
+            "line": 290,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "cb5fbeb46e03976f584581ae13efb3ec882ba082edd671a3fb44aca555a44515"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( norm_query + n_quer_loc , query + quer_loc , len_to_wrt )",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 275,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "norm_query + n_quer_loc",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( norm_query + n_quer_loc , query + quer_loc , len_to_wrt )",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 296,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len_to_wrt",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( norm_query + n_quer_loc , query + quer_loc , len_to_wrt )",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 296,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "norm_query + n_quer_loc",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( yyext -> scanbuf , str , slen )",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10683,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "slen",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( yyext -> scanbuf , str , slen )",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10683,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( yyext -> scanbuf , str , slen )",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10683,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memset ( slab -> isChunkFree , 0 , ( slab -> chunksPerBlock * sizeof ( bool ) ) )",
+            "file": "ext/pg_query/src_backend_utils_mmgr_slab.c",
+            "function": "SlabCheck",
+            "function_id": "pg_query@6.2.2:ext/pg_query/src_backend_utils_mmgr_slab.c:921:SlabCheck",
+            "line": 977,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "9e262b499d5c7a5a36c835956697db29ce28247f785dd0abb3f6b8f684b7a28e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( slab -> chunksPerBlock * sizeof ( bool ) )",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_set",
+          "memory_operation": "memset",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memset ( slab -> isChunkFree , 0 , ( slab -> chunksPerBlock * sizeof ( bool ) ) )",
+            "file": "ext/pg_query/src_backend_utils_mmgr_slab.c",
+            "function": "SlabCheck",
+            "function_id": "pg_query@6.2.2:ext/pg_query/src_backend_utils_mmgr_slab.c:921:SlabCheck",
+            "line": 977,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "9e262b499d5c7a5a36c835956697db29ce28247f785dd0abb3f6b8f684b7a28e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "slab -> isChunkFree",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_set",
+          "memory_operation": "memset",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memset ( slab -> isChunkFree , 0 , ( slab -> chunksPerBlock * sizeof ( bool ) ) )",
+            "file": "ext/pg_query/src_backend_utils_mmgr_slab.c",
+            "function": "SlabCheck",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/src_backend_utils_mmgr_slab.c:921:SlabCheck",
+            "line": 977,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "9e262b499d5c7a5a36c835956697db29ce28247f785dd0abb3f6b8f684b7a28e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( slab -> chunksPerBlock * sizeof ( bool ) )",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_set",
+          "memory_operation": "memset",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memset ( slab -> isChunkFree , 0 , ( slab -> chunksPerBlock * sizeof ( bool ) ) )",
+            "file": "ext/pg_query/src_backend_utils_mmgr_slab.c",
+            "function": "SlabCheck",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/src_backend_utils_mmgr_slab.c:921:SlabCheck",
+            "line": 977,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "9e262b499d5c7a5a36c835956697db29ce28247f785dd0abb3f6b8f684b7a28e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "slab -> isChunkFree",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_set",
+          "memory_operation": "memset",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "norm_query [ n_quer_loc ] = '\\0'",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 300,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "sprintf ( norm_query + n_quer_loc , \"$%d\" , param_id )",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 282,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "norm_query + n_quer_loc",
+              "index": 0
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "sprintf",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "sprintf ( norm_query + n_quer_loc , \"$%d\" , param_id )",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 282,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "param_id",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "sprintf ( norm_query + n_quer_loc , \"$%d\" , param_id )",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 282,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "norm_query + n_quer_loc",
+              "index": 0
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "sprintf",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "sprintf ( norm_query + n_quer_loc , \"$%d\" , param_id )",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "generate_normalized_query",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_normalize.c:223:generate_normalized_query",
+            "line": 282,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "param_id",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strlen ( input )",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "pg_query_normalize_ext",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_normalize.c:603:pg_query_normalize_ext",
+            "line": 619,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strlen",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strlen ( input )",
+            "file": "ext/pg_query/pg_query_normalize.c",
+            "function": "pg_query_normalize_ext",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_normalize.c:603:pg_query_normalize_ext",
+            "line": 619,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "916665ab82d0fad1395e5f16c45eaf65ae2db8a2b78bed4d0c2735372654e683"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strlen",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "yyext -> scanbuf [ slen ] = yyext -> scanbuf [ slen + 1 ] = 0",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10684,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "pg_query",
+        "method": "normalize",
+        "owner": "PgQuery",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "6.2.2"
+      },
+      "native_api_group": "8972fe93eed7bcf39772cf10feac28f0801a6d82a5f046024c562fb9a9866bc6",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "sql",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1792,
+          "byte_start": 1770,
+          "column": 9,
+          "end_line": 58,
+          "expression": "PgQuery.normalize(sql)",
+          "file": "lib/gitlab/exception_log_formatter.rb",
+          "kind": "call",
+          "line": 58,
+          "method": "normalize",
+          "owner": "Gitlab::ExceptionLogFormatter",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/exception_log_formatter.rb#L58",
+          "source_sha256": "e84de1b2b9dde5c16fe0c0640ddf213d41855ddc3886268fcd45b7c1074facef",
+          "unit": "lib/gitlab/exception_log_formatter.rb:1737:singleton:normalize_query"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "PgQuery",
+    "proof": [
+      {
+        "byte_end": 1777,
+        "byte_start": 1770,
+        "column": 9,
+        "end_line": 58,
+        "expression": "PgQuery",
+        "file": "lib/gitlab/exception_log_formatter.rb",
+        "kind": "expression",
+        "line": 58,
+        "owner": "Gitlab::ExceptionLogFormatter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/exception_log_formatter.rb#L58",
+        "source_sha256": "e84de1b2b9dde5c16fe0c0640ddf213d41855ddc3886268fcd45b7c1074facef",
+        "unit": "lib/gitlab/exception_log_formatter.rb:1737:singleton:normalize_query"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "PgQuery"
+      ]
+    ]
+  },
+  "source": {
+    "column": 9,
+    "file": "lib/gitlab/exception_log_formatter.rb",
+    "line": 58,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/exception_log_formatter.rb#L58",
+    "source_sha256": "e84de1b2b9dde5c16fe0c0640ddf213d41855ddc3886268fcd45b7c1074facef"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "sql",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

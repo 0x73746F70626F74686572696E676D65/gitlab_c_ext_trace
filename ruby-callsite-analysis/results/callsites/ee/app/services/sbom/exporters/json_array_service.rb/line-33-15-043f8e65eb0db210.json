@@ -1,0 +1,454 @@
+{
+  "callsite_id": "043f8e65eb0db210331c4bc1b6c340fcbc550ce5dbffbac8459537b7b314840c",
+  "expression": "json_stream.push_json(line.chomp.force_encoding(Encoding::UTF_8))",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "push_json",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "01ce4091652f8b1c0232fc6facaea7d9a4a87191912d3dc2f32be790611060e4",
+        "03633b9d765714fa4f83fb708379dbef1ce9994ea2eaa990fa27e511745c88b4",
+        "091e06dae8debb4c131efd8391d50f641bfcb826f6a544013c4837f88a1a4ea9",
+        "1fae56ac30668dde2887971d62f23c32d821f4e4ebbc8a6ec728f56d8006bce1",
+        "222da24f3fc3bfafc2c94a10953b21ab1124c4cac5b429c17fb06f0e5fa47924",
+        "4bc00eea8b1f42c73eb586bfca5aa4008ecce01b95c15adfbe48feda4fba8b5c",
+        "73131940fece4de931df2a2ab93f003535647585f5f14ad00e5b7ee08699457c",
+        "746d3bee2afa1dcb59ac1c533d3b33f2d13b89ff49e392c060308661590f8219",
+        "9ca2f97f575428d10001489bfa1b869a4979505a03c85715128431ceea0e010c",
+        "a10710c926e48473515fc32a5681196d199e34cb3b559cc86efa583f41276fc3",
+        "b28e551ce065525a33611a93ecd6e5f79b0f85f2c05288e61e5aaf24551bda6a",
+        "e8255dc8e4a858a25d68b552d47a657ceb27de56aef331981a4328ee58ac5f21",
+        "ea5d524fb8c589be1770b3c125ebf4c4aed12df917826485221fa89ae9466547",
+        "fe059f9a027c491f1881346be89a5a883f688e682c9d41aa353bbc8fd99500b5"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* out -> cur = '\\0'",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_raw",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:1452:oj_dump_raw",
+            "line": 1455,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* out -> cur = '\\0'",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_raw",
+            "function_id": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b:ext/oj/dump.c:1452:oj_dump_raw",
+            "line": 1455,
+            "package": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( * argv )",
+            "file": "ext/oj/stream_writer.c",
+            "function": "stream_writer_push_json",
+            "function_id": "oj@3.17.6:ext/oj/stream_writer.c:257:stream_writer_push_json",
+            "line": 262,
+            "package": "oj@3.17.6",
+            "source_sha256": "3b28472192bfc142c13805da0d2ffdcaaaea8522c9390f81502fd180c44853ae"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "* argv",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( * argv )",
+            "file": "ext/oj/stream_writer.c",
+            "function": "stream_writer_push_json",
+            "function_id": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b:ext/oj/stream_writer.c:257:stream_writer_push_json",
+            "line": 265,
+            "package": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b",
+            "source_sha256": "3b28472192bfc142c13805da0d2ffdcaaaea8522c9390f81502fd180c44853ae"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "* argv",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( out -> cur , str , cnt )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_raw",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:1452:oj_dump_raw",
+            "line": 1454,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "cnt",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( out -> cur , str , cnt )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_raw",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:1452:oj_dump_raw",
+            "line": 1454,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "out -> cur",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( out -> cur , str , cnt )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_raw",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:1452:oj_dump_raw",
+            "line": 1454,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( out -> cur , str , cnt )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_raw",
+            "function_id": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b:ext/oj/dump.c:1452:oj_dump_raw",
+            "line": 1454,
+            "package": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "cnt",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( out -> cur , str , cnt )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_raw",
+            "function_id": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b:ext/oj/dump.c:1452:oj_dump_raw",
+            "line": 1454,
+            "package": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "out -> cur",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( out -> cur , str , cnt )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_raw",
+            "function_id": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b:ext/oj/dump.c:1452:oj_dump_raw",
+            "line": 1454,
+            "package": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_utf8_str_new ( sw -> sw . out . buf , size )",
+            "file": "ext/oj/stream_writer.c",
+            "function": "stream_writer_write",
+            "function_id": "oj@3.17.6:ext/oj/stream_writer.c:54:stream_writer_write",
+            "line": 61,
+            "package": "oj@3.17.6",
+            "source_sha256": "3b28472192bfc142c13805da0d2ffdcaaaea8522c9390f81502fd180c44853ae"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "sw -> sw . out . buf",
+              "index": 0
+            },
+            {
+              "expression": "size",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_utf8_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_utf8_str_new ( sw -> sw . out . buf , size )",
+            "file": "ext/oj/stream_writer.c",
+            "function": "stream_writer_write",
+            "function_id": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b:ext/oj/stream_writer.c:54:stream_writer_write",
+            "line": 61,
+            "package": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b",
+            "source_sha256": "3b28472192bfc142c13805da0d2ffdcaaaea8522c9390f81502fd180c44853ae"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "sw -> sw . out . buf",
+              "index": 0
+            },
+            {
+              "expression": "size",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_utf8_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strlen ( json )",
+            "file": "ext/oj/string_writer.c",
+            "function": "oj_str_writer_push_json",
+            "function_id": "oj@3.17.6:ext/oj/string_writer.c:183:oj_str_writer_push_json",
+            "line": 201,
+            "package": "oj@3.17.6",
+            "source_sha256": "fcb3ef87300d4f44c5ed68b1fa8bbd92acf1c9b3843b12981eb90d2231cd2746"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "json",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strlen",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strlen ( json )",
+            "file": "ext/oj/string_writer.c",
+            "function": "oj_str_writer_push_json",
+            "function_id": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b:ext/oj/string_writer.c:183:oj_str_writer_push_json",
+            "line": 201,
+            "package": "oj@3.17.6:git:54bec6d335aeca7cfe66e15f7466554797faa48b",
+            "source_sha256": "fcb3ef87300d4f44c5ed68b1fa8bbd92acf1c9b3843b12981eb90d2231cd2746"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "json",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strlen",
+          "operand_role": "source",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "oj",
+        "method": "push_json",
+        "owner": "Oj::StreamWriter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.17.6"
+      },
+      "native_api_group": "f38a3e2296793e46d653288a492784540709be74c6c8fdf0bd496195ee193eb3",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "line.chomp.force_encoding(Encoding::UTF_8)",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 847,
+          "byte_start": 782,
+          "column": 15,
+          "end_line": 33,
+          "expression": "json_stream.push_json(line.chomp.force_encoding(Encoding::UTF_8))",
+          "file": "ee/app/services/sbom/exporters/json_array_service.rb",
+          "kind": "call",
+          "line": 33,
+          "method": "push_json",
+          "owner": "Sbom::Exporters::JsonArrayService",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/sbom/exporters/json_array_service.rb#L33",
+          "source_sha256": "b59561ba8c89ba874f56ddc7c42f4f3fce780e5ce1c6ed47ba47f5c00d3e1774",
+          "unit": "ee/app/services/sbom/exporters/json_array_service.rb:653:singleton:write_part_to_stream"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "json_stream",
+    "proof": [
+      {
+        "byte_end": 283,
+        "byte_start": 239,
+        "column": 27,
+        "end_line": 11,
+        "expression": "Oj::StreamWriter.new(export_file, indent: 2)",
+        "file": "ee/app/services/sbom/exporters/json_array_service.rb",
+        "kind": "call",
+        "line": 11,
+        "method": "new",
+        "owner": "Sbom::Exporters::JsonArrayService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/sbom/exporters/json_array_service.rb#L11",
+        "source_sha256": "b59561ba8c89ba874f56ddc7c42f4f3fce780e5ce1c6ed47ba47f5c00d3e1774",
+        "unit": "ee/app/services/sbom/exporters/json_array_service.rb:142:singleton:combine_parts"
+      },
+      {
+        "byte_end": 283,
+        "byte_start": 225,
+        "column": 13,
+        "end_line": 11,
+        "expression": "json_stream = Oj::StreamWriter.new(export_file, indent: 2)",
+        "file": "ee/app/services/sbom/exporters/json_array_service.rb",
+        "kind": "expression",
+        "line": 11,
+        "owner": "Sbom::Exporters::JsonArrayService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/sbom/exporters/json_array_service.rb#L11",
+        "source_sha256": "b59561ba8c89ba874f56ddc7c42f4f3fce780e5ce1c6ed47ba47f5c00d3e1774",
+        "unit": "ee/app/services/sbom/exporters/json_array_service.rb:142:singleton:combine_parts"
+      },
+      {
+        "byte_end": 395,
+        "byte_start": 384,
+        "column": 64,
+        "end_line": 15,
+        "expression": "json_stream",
+        "file": "ee/app/services/sbom/exporters/json_array_service.rb",
+        "kind": "expression",
+        "line": 15,
+        "owner": "Sbom::Exporters::JsonArrayService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/sbom/exporters/json_array_service.rb#L15",
+        "source_sha256": "b59561ba8c89ba874f56ddc7c42f4f3fce780e5ce1c6ed47ba47f5c00d3e1774",
+        "unit": "ee/app/services/sbom/exporters/json_array_service.rb:142:singleton:combine_parts"
+      },
+      {
+        "byte_end": 407,
+        "byte_start": 363,
+        "column": 43,
+        "end_line": 15,
+        "expression": "write_part_to_stream(json_stream, part_file)",
+        "file": "ee/app/services/sbom/exporters/json_array_service.rb",
+        "kind": "call",
+        "line": 15,
+        "method": "write_part_to_stream",
+        "owner": "Sbom::Exporters::JsonArrayService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/sbom/exporters/json_array_service.rb#L15",
+        "source_sha256": "b59561ba8c89ba874f56ddc7c42f4f3fce780e5ce1c6ed47ba47f5c00d3e1774",
+        "unit": "ee/app/services/sbom/exporters/json_array_service.rb:142:singleton:combine_parts"
+      },
+      {
+        "byte_end": 793,
+        "byte_start": 782,
+        "column": 15,
+        "end_line": 33,
+        "expression": "json_stream",
+        "file": "ee/app/services/sbom/exporters/json_array_service.rb",
+        "kind": "expression",
+        "line": 33,
+        "owner": "Sbom::Exporters::JsonArrayService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/sbom/exporters/json_array_service.rb#L33",
+        "source_sha256": "b59561ba8c89ba874f56ddc7c42f4f3fce780e5ce1c6ed47ba47f5c00d3e1774",
+        "unit": "ee/app/services/sbom/exporters/json_array_service.rb:653:singleton:write_part_to_stream"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "Oj::StreamWriter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 15,
+    "file": "ee/app/services/sbom/exporters/json_array_service.rb",
+    "line": 33,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/sbom/exporters/json_array_service.rb#L33",
+    "source_sha256": "b59561ba8c89ba874f56ddc7c42f4f3fce780e5ce1c6ed47ba47f5c00d3e1774"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "line.chomp.force_encoding(Encoding::UTF_8)",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

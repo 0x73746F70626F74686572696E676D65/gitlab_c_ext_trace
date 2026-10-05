@@ -1,0 +1,26 @@
+{
+  "call_depth_limit": null,
+  "fixed_point_reached": true,
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "native_inputs": {
+    "c_namespaces.jsonl": "be7f067d1dc56f0724fca4bb926f54d4a1c87731357af8fdf6455d635befb86f",
+    "c_registrations.jsonl": "2ee50379279069f638e11486cce9d78060df857710c9a5395c965d18fb0fe27c",
+    "gems.jsonl": "8bb0acd8a4626f8982b26f4dd48aa9fa4921493ef26d52d7d89eb173354eb02a",
+    "ruby_native_registrations.jsonl": "9b8f0406308b4ac00c6925cfcb68b345cfa77dda49e69478e049606f1e749fbc"
+  },
+  "python_hash_seed": 1,
+  "ruby_wrapper_manifest_sha256": "444e3e89d05b2bff43e39c7d86ff1386cc355aad58415f9384e659749f857925",
+  "scripts": {
+    "analyze.py": "f1750559ba86d3fa0abf6898b39d249354d0f8d2c6db37994768a2f47f34dc0f",
+    "check_determinism.py": "1165a2092b070d4f9ed9997cd7bd465f531f7e9eaf9edf91cd41d0e0e958edac",
+    "finalize.py": "9fa8ddfc687015408c5a5e3753d73d65ca29c0834819665567dd8e72e7bdfebe",
+    "package_results.py": "bfa214bdd2f2b9b57b3eeb3e2b20b370f488ef5b7d4bd0d4f8681ef344860d90",
+    "requirements.txt": "2743da0ee4ad27f671f89b3e8e8e065218fb6d5c83b885295cf15ae9462daedd",
+    "restore_wrappers.py": "f53a1f41e9886e6460d18fc156cdb9536d680bd5fd4300340dd3acc9085f061a",
+    "run.sh": "50d32790a96ace0cfc69765e575165c2fa3b4ffef02cfbb7e84f944161ad1ba4",
+    "split_large_jsonl.py": "bc346f88c8958c1696478df38c30acc9cf3ac662f6e240c3f602a9fef6ff3ae6",
+    "test_analysis.py": "87ea0d92b4b85f3ae39c3ff5556331fce90d0d4ac2d48be231c921dd38007c49",
+    "validate.py": "c5fa1ddf46651b9a85115c08a321a44e5f62d5eea089c7f7c559cd42ba51db19"
+  },
+  "source_scope": "All tracked .rb/.rake/.ru files, including tests/fixtures; embedded template languages excluded"
+}

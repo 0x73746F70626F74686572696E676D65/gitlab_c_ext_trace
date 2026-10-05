@@ -1,0 +1,158 @@
+{
+  "callsite_id": "05d41712eab5626a1ffa026a9672d784bad562a41fb3aecc93260e75d06c5128",
+  "expression": "Zlib::GzipReader.wrap(StringIO.new(spec_file.file.read)) do |gzip|\n      Marshal.load(gzip.read) # rubocop:disable Security/MarshalLoad -- RubyGems spec indexes are Marshal dumps and this test reads trusted generated content.\n    end",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "wrap",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "da5abf6578d2a2f9bb063c184f109000df3272666fb180eb9a024734c5820c6e",
+        "dd50635c5c3843feb3dbd06f47aef44d8bf78c36d687d1d00dee257de4a2076b"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "wrap",
+        "owner": "Zlib::GzipFile",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "3a89179bffa4b685a363bd0bcaee5a459cda3130b7c03c9e0408b0e6eaa0e71a",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "StringIO.new(spec_file.file.read)",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 6411,
+          "byte_start": 6178,
+          "column": 5,
+          "end_line": 181,
+          "expression": "Zlib::GzipReader.wrap(StringIO.new(spec_file.file.read)) do |gzip|\n      Marshal.load(gzip.read) # rubocop:disable Security/MarshalLoad -- RubyGems spec indexes are Marshal dumps and this test reads trusted generated content.\n    end",
+          "file": "spec/services/packages/rubygems/create_spec_files_service_spec.rb",
+          "kind": "call",
+          "line": 179,
+          "method": "wrap",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/services/packages/rubygems/create_spec_files_service_spec.rb#L179",
+          "source_sha256": "9b879abe1b6b1b8d8d1d3694738e5a9823b7df559e64d8e84fdf73b066c74424",
+          "unit": "spec/services/packages/rubygems/create_spec_files_service_spec.rb:6014:instance:read_spec_file"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::GzipReader",
+    "proof": [
+      {
+        "byte_end": 6194,
+        "byte_start": 6178,
+        "column": 5,
+        "end_line": 179,
+        "expression": "Zlib::GzipReader",
+        "file": "spec/services/packages/rubygems/create_spec_files_service_spec.rb",
+        "kind": "expression",
+        "line": 179,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/services/packages/rubygems/create_spec_files_service_spec.rb#L179",
+        "source_sha256": "9b879abe1b6b1b8d8d1d3694738e5a9823b7df559e64d8e84fdf73b066c74424",
+        "unit": "spec/services/packages/rubygems/create_spec_files_service_spec.rb:6014:instance:read_spec_file"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::GzipReader"
+      ]
+    ]
+  },
+  "source": {
+    "column": 5,
+    "file": "spec/services/packages/rubygems/create_spec_files_service_spec.rb",
+    "line": 179,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/services/packages/rubygems/create_spec_files_service_spec.rb#L179",
+    "source_sha256": "9b879abe1b6b1b8d8d1d3694738e5a9823b7df559e64d8e84fdf73b066c74424"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "StringIO.new(spec_file.file.read)",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

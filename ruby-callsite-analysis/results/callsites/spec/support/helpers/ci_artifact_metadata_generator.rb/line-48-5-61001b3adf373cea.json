@@ -1,0 +1,473 @@
+{
+  "callsite_id": "61001b3adf373ceab4d9ebb8618c556777492c5f219b71fdc1d200a9848ab014",
+  "expression": "output.write(data)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "write",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "23d437d25bf5a714af4b4429239ad7df73c4823c03645e871578f66b19bc9d51",
+        "276ffd43e6a60243ee49e044029c301035c3070105860f4dfc20c94129f94a90",
+        "28d091b714e02f8f0d2973d6cc06c0b95ecaad27aa1188d1dad65835c48d93fa",
+        "2a07a42e8a296ab017bd42d683174e64c58c75ef3ae1677e07a18b12d517f918",
+        "39455fc83704a10a78239ae243726c9321d1947fd8f008d23ee0d6acc98b0448",
+        "41987985cf591088f665cfa6c915ba8d25247c882d3df4fb61d45a55141cf776",
+        "585265b1f817280f067df0f52932ea286b31aaa6cb4f1868014417ce82d73cdc",
+        "65fab6a483dff6822b26c41fcbd15eac1a6cc9c6904ff829cc0210ff99a49ca2",
+        "8364c9b683b9f4438e44fed4220d2a31f4272ce8ebe1540ea1a4ba58924b49a3",
+        "891da7635645b17ac7eec6430ddc0d773b05f54c4c24bf8857d6cf8c8addb8ce",
+        "8ea5b762ac9c799e49108f21d735ee7a48cef25ea7bc2c354b7845104f2be336",
+        "9913708a810e3bd7e32c4f8cbdc4778c0f5a1f756763c3c45e5574299ce959b5",
+        "9e8df16d0602acbfbe289691cb4c16ff45022417b93547b3146fc2a5622e05b8",
+        "a43df61d9fc9c0e2e719dec4d5cd73902a5a38b028f64862dd4ab52b4c991536",
+        "a828c79d3d9d7c0b7358c5675ae117ff936dacf299932bd85e886aac9bb20abc",
+        "bb83e49f87879f3c1400bc4001dc200c5d172355bba8642cbb07e95d1f909e96",
+        "bf8ef498b96a89f922010b566c9e4b7d672f9014b9c58dff50e2ca07c651789a",
+        "c0f1f790e81abd7275e344f54adfe4870399cf92c61057b11f29a5b8d3bb7efe",
+        "cd2062af2da7468586edf43ba219a801f9ddd19e1ec8c9b4b65bc9f54d4da2bf",
+        "da09982aec4f86c0a2dc430c4a02bda74bb702d1c0a04d4bdee658557a830f68",
+        "e6b803bf60264b9d1f0a9997e8bb5861a9e49d3ecb6222a8212980e8c648f119",
+        "e88b54b68be587ebc7705f3491531ed3dc55c72ac9f505efc2724079d27fa4a5",
+        "e9a3b3f19f8529bdea133ea4f880434973df127fe3756343d81f749a65fd0786",
+        "ec3af56bc580c154f8297c1d835ff2c96ad5f1823b063406afaeb8891b9d1bbd",
+        "ed62f3ff585c8016b77d17de6e49f15bee13fe87473dfd8475fa048ee9e57afd",
+        "ef294ccffb2a91cd19a7a76b97972a6bf13320bab5eac2f1a58f882d2c05002e"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "SIZET2NUM ( total )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_gzwriter_write",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3817:rb_gzwriter_write",
+            "line": 3834,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "total",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "SIZET2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "SIZET2NUM ( total )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_gzwriter_write",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3817:rb_gzwriter_write",
+            "line": 3834,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "total",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "SIZET2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "buf [ 9 ] = gz -> os_code",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_make_header",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:2709:gzfile_make_header",
+            "line": 2738,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf [ 9 ] = gz -> os_code",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_make_header",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:2709:gzfile_make_header",
+            "line": 2738,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_obj_as_string ( str )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_gzwriter_write",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3817:rb_gzwriter_write",
+            "line": 3826,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "rb_obj_as_string",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_obj_as_string ( str )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_gzwriter_write",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3817:rb_gzwriter_write",
+            "line": 3826,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "rb_obj_as_string",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_cat ( z -> input , ( const char * ) src , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 894,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> input",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) src",
+              "index": 1
+            },
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_cat",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_cat ( z -> input , ( const char * ) src , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 890,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> input",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) src",
+              "index": 1
+            },
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_cat",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_cat ( z -> input , ( const char * ) src , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 894,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> input",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) src",
+              "index": 1
+            },
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_cat",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_new ( len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 889,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_modify ( z -> buf )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_expand_buffer",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:660:zstream_expand_buffer",
+            "line": 680,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> buf",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_modify",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_uint2inum ( z -> stream . adler )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_run_try",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:1128:zstream_run_try",
+            "line": 1189,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> stream . adler",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "rb_uint2inum",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_uint2inum ( z -> stream . adler )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_run_try",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:1128:zstream_run_try",
+            "line": 1189,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> stream . adler",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "rb_uint2inum",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "write",
+        "owner": "Zlib::GzipWriter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "1b3d2543354d006f4f185ac56dfe5b9520bb85647798e8d60ca948f65c16d118",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "data",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1032,
+          "byte_start": 1014,
+          "column": 5,
+          "end_line": 48,
+          "expression": "output.write(data)",
+          "file": "spec/support/helpers/ci_artifact_metadata_generator.rb",
+          "kind": "call",
+          "line": 48,
+          "method": "write",
+          "owner": "CiArtifactMetadataGenerator",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/ci_artifact_metadata_generator.rb#L48",
+          "source_sha256": "c11654cd8f1da69786b0eccddd128c07473a9be9380a8f2f65ab01da1cf02074",
+          "unit": "spec/support/helpers/ci_artifact_metadata_generator.rb:926:instance:write_string"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "output",
+    "proof": [
+      {
+        "byte_end": 435,
+        "byte_start": 407,
+        "column": 15,
+        "end_line": 14,
+        "expression": "Zlib::GzipWriter.new(stream)",
+        "file": "spec/support/helpers/ci_artifact_metadata_generator.rb",
+        "kind": "call",
+        "line": 14,
+        "method": "new",
+        "owner": "CiArtifactMetadataGenerator",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/ci_artifact_metadata_generator.rb#L14",
+        "source_sha256": "c11654cd8f1da69786b0eccddd128c07473a9be9380a8f2f65ab01da1cf02074",
+        "unit": "spec/support/helpers/ci_artifact_metadata_generator.rb:352:instance:initialize"
+      },
+      {
+        "byte_end": 435,
+        "byte_start": 397,
+        "column": 5,
+        "end_line": 14,
+        "expression": "@output = Zlib::GzipWriter.new(stream)",
+        "file": "spec/support/helpers/ci_artifact_metadata_generator.rb",
+        "kind": "expression",
+        "line": 14,
+        "owner": "CiArtifactMetadataGenerator",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/ci_artifact_metadata_generator.rb#L14",
+        "source_sha256": "c11654cd8f1da69786b0eccddd128c07473a9be9380a8f2f65ab01da1cf02074",
+        "unit": "spec/support/helpers/ci_artifact_metadata_generator.rb:352:instance:initialize"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "Zlib::GzipWriter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 5,
+    "file": "spec/support/helpers/ci_artifact_metadata_generator.rb",
+    "line": 48,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/ci_artifact_metadata_generator.rb#L48",
+    "source_sha256": "c11654cd8f1da69786b0eccddd128c07473a9be9380a8f2f65ab01da1cf02074"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "data",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

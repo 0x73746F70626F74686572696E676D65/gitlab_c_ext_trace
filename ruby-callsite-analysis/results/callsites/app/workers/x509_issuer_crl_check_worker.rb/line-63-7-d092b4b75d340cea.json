@@ -1,0 +1,203 @@
+{
+  "callsite_id": "d092b4b75d340cea28927f6655463baa7c42ec25f68527ed76ea86f870412248",
+  "expression": "OpenSSL::X509::CRL.new(response.body)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "633dbc2d181f22c8fcf15c94039a0f797cb86233f8c0cfcb34cc0e8d3fee32cd",
+        "72e8b71f6af1d86cef1a9bf57f6868b2df775500e4dc790608437901dd1aee36",
+        "933cdfde97c46aa0550767ff52e8b31867f13d75a4867d807e3f8312436e998d",
+        "a5623e5f46f39e3c1e634bb07ddc4bfdca3909b765b63182768eef62158a0616",
+        "c238cb80aac97c5eb6c53da53e76c9662b4e0c71ec61f7969feb79057403089e",
+        "febf5163f59fa667f8c88cc80d63462581ff6834c1b2a9dc910b212136905aae"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::X509::CRL",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "2050abd4d8cb1182203e13a69fe14b23b2ead1e21845a1ea419249c6ddc51d53",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "response.body",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1551,
+          "byte_start": 1514,
+          "column": 7,
+          "end_line": 63,
+          "expression": "OpenSSL::X509::CRL.new(response.body)",
+          "file": "app/workers/x509_issuer_crl_check_worker.rb",
+          "kind": "call",
+          "line": 63,
+          "method": "new",
+          "owner": "X509IssuerCrlCheckWorker",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/workers/x509_issuer_crl_check_worker.rb#L63",
+          "source_sha256": "379be787802012cebd01f473c2fe67847db6b6bfa24e0cff6c0c2a477006bac6",
+          "unit": "app/workers/x509_issuer_crl_check_worker.rb:1401:instance:download_crl"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::X509::CRL",
+    "proof": [
+      {
+        "byte_end": 1532,
+        "byte_start": 1514,
+        "column": 7,
+        "end_line": 63,
+        "expression": "OpenSSL::X509::CRL",
+        "file": "app/workers/x509_issuer_crl_check_worker.rb",
+        "kind": "expression",
+        "line": 63,
+        "owner": "X509IssuerCrlCheckWorker",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/workers/x509_issuer_crl_check_worker.rb#L63",
+        "source_sha256": "379be787802012cebd01f473c2fe67847db6b6bfa24e0cff6c0c2a477006bac6",
+        "unit": "app/workers/x509_issuer_crl_check_worker.rb:1401:instance:download_crl"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::X509::CRL"
+      ]
+    ]
+  },
+  "source": {
+    "column": 7,
+    "file": "app/workers/x509_issuer_crl_check_worker.rb",
+    "line": 63,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/workers/x509_issuer_crl_check_worker.rb#L63",
+    "source_sha256": "379be787802012cebd01f473c2fe67847db6b6bfa24e0cff6c0c2a477006bac6"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "response.body",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

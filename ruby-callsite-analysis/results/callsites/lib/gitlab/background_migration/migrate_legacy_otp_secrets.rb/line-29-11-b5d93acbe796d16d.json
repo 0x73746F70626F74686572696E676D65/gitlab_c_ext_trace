@@ -1,0 +1,163 @@
+{
+  "callsite_id": "b5d93acbe796d16d9435dc5ce1e2241c3988e87ff314e3b277f7c56a8435a30a",
+  "expression": "cipher.iv",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "iv=",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "00deae7f22e3d3d892ed9150f212d109eda2dc55e1de4f69360a2a4dd75d7a00",
+        "0c79e3c8f0efecff4458b0e06c168add19f5324a35ed6e889321efbc55547657"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( iv )",
+            "file": "ext/openssl/ossl_cipher.c",
+            "function": "ossl_cipher_set_iv",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_cipher.c:517:ossl_cipher_set_iv",
+            "line": 523,
+            "package": "openssl@3.3.3",
+            "source_sha256": "791365c984bfafbc9f4ab27a357709d15f66abfd37c230463bd71aa0e93ce55f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "iv",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( iv )",
+            "file": "ext/openssl/ossl_cipher.c",
+            "function": "ossl_cipher_set_iv",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_cipher.c:517:ossl_cipher_set_iv",
+            "line": 523,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "791365c984bfafbc9f4ab27a357709d15f66abfd37c230463bd71aa0e93ce55f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "iv",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "iv=",
+        "owner": "OpenSSL::Cipher",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "8ccea34ac314767ae1b055a5ce14294d499b594023b18bfcb8ef4066c5489535",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "iv",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1181,
+          "byte_start": 1172,
+          "column": 11,
+          "end_line": 29,
+          "expression": "cipher.iv",
+          "file": "lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb",
+          "kind": "call",
+          "line": 29,
+          "method": "iv=",
+          "owner": "Gitlab::BackgroundMigration::MigrateLegacyOtpSecrets::User",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb#L29",
+          "source_sha256": "ffe8b1ce87a0e68ec3dc0cc82f9226d702bb755be13c333753bbc460d01670bf",
+          "unit": "lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb:599:instance:legacy_otp_secret"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "cipher",
+    "proof": [
+      {
+        "byte_end": 1036,
+        "byte_start": 1002,
+        "column": 20,
+        "end_line": 25,
+        "expression": "OpenSSL::Cipher.new('aes-256-cbc')",
+        "file": "lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb",
+        "kind": "call",
+        "line": 25,
+        "method": "new",
+        "owner": "Gitlab::BackgroundMigration::MigrateLegacyOtpSecrets::User",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb#L25",
+        "source_sha256": "ffe8b1ce87a0e68ec3dc0cc82f9226d702bb755be13c333753bbc460d01670bf",
+        "unit": "lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb:599:instance:legacy_otp_secret"
+      },
+      {
+        "byte_end": 1036,
+        "byte_start": 993,
+        "column": 11,
+        "end_line": 25,
+        "expression": "cipher = OpenSSL::Cipher.new('aes-256-cbc')",
+        "file": "lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb",
+        "kind": "expression",
+        "line": 25,
+        "owner": "Gitlab::BackgroundMigration::MigrateLegacyOtpSecrets::User",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb#L25",
+        "source_sha256": "ffe8b1ce87a0e68ec3dc0cc82f9226d702bb755be13c333753bbc460d01670bf",
+        "unit": "lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb:599:instance:legacy_otp_secret"
+      },
+      {
+        "byte_end": 1178,
+        "byte_start": 1172,
+        "column": 11,
+        "end_line": 29,
+        "expression": "cipher",
+        "file": "lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb",
+        "kind": "expression",
+        "line": 29,
+        "owner": "Gitlab::BackgroundMigration::MigrateLegacyOtpSecrets::User",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb#L29",
+        "source_sha256": "ffe8b1ce87a0e68ec3dc0cc82f9226d702bb755be13c333753bbc460d01670bf",
+        "unit": "lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb:599:instance:legacy_otp_secret"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::Cipher"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb",
+    "line": 29,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/background_migration/migrate_legacy_otp_secrets.rb#L29",
+    "source_sha256": "ffe8b1ce87a0e68ec3dc0cc82f9226d702bb755be13c333753bbc460d01670bf"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "iv",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

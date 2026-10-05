@@ -1,0 +1,192 @@
+{
+  "callsite_id": "ad71b3ddea50561f6ab0d1ef8b71efefe25a534e58b2ed330a7adb080105f78b",
+  "expression": "Zlib::GzipReader.open(package_file.file.path)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "open",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "5a593523c07e27372f2a18cc044ffb2e2737011a8ec944f89c4cd3369b4d71a3",
+        "74ec65033b199fbe03b26f90a8f088e763b5253aa5e4c22d9677118bff09d9a4",
+        "b02ced9c6763b720be842ba11459d5560b45249bbf41e7f2c6457a81e15106e5",
+        "da3a3c9d5f2917998c3906ec000c09755cefdceec51c38a3ad8edc3a839c5741"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "argv [ 0 ] = io",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_s_open",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3305:gzfile_s_open",
+            "line": 3313,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "argv [ 0 ] = io",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_s_open",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3305:gzfile_s_open",
+            "line": 3313,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "open",
+        "owner": "Zlib::GzipReader",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "7cbfca84a6a9e010a7d0e0d1c5773df963e33e0bc5cf600288d9faa29d16db45",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "package_file.file.path",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 6538,
+          "byte_start": 6493,
+          "column": 56,
+          "end_line": 151,
+          "expression": "Zlib::GzipReader.open(package_file.file.path)",
+          "file": "spec/services/packages/terraform_module/metadata/extract_files_service_spec.rb",
+          "kind": "call",
+          "line": 151,
+          "method": "open",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/services/packages/terraform_module/metadata/extract_files_service_spec.rb#L151",
+          "source_sha256": "18c16db995d06619aebcf1310b0a75595e5c4c541bacabb6594c23138f0459a8",
+          "unit": "spec/services/packages/terraform_module/metadata/extract_files_service_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::GzipReader",
+    "proof": [
+      {
+        "byte_end": 6509,
+        "byte_start": 6493,
+        "column": 56,
+        "end_line": 151,
+        "expression": "Zlib::GzipReader",
+        "file": "spec/services/packages/terraform_module/metadata/extract_files_service_spec.rb",
+        "kind": "expression",
+        "line": 151,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/services/packages/terraform_module/metadata/extract_files_service_spec.rb#L151",
+        "source_sha256": "18c16db995d06619aebcf1310b0a75595e5c4c541bacabb6594c23138f0459a8",
+        "unit": "spec/services/packages/terraform_module/metadata/extract_files_service_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::GzipReader"
+      ]
+    ]
+  },
+  "source": {
+    "column": 56,
+    "file": "spec/services/packages/terraform_module/metadata/extract_files_service_spec.rb",
+    "line": 151,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/services/packages/terraform_module/metadata/extract_files_service_spec.rb#L151",
+    "source_sha256": "18c16db995d06619aebcf1310b0a75595e5c4c541bacabb6594c23138f0459a8"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "package_file.file.path",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

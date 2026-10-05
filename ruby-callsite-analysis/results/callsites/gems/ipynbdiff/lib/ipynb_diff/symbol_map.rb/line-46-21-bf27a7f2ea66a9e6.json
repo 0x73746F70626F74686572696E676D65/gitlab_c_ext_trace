@@ -1,0 +1,121 @@
+{
+  "callsite_id": "bf27a7f2ea66a9e6fbbafb7597c4dfb3533f1c21d9d3a39d78e103a39a49e973",
+  "expression": "Oj::Parser.new(:saj)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "b1457befecaec76336a7fab81ded46a057229da1c7858cb665198d6f2b037a9a"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "strcmp ( \"compat\" , ms )",
+            "file": "ext/oj/parser.c",
+            "function": "parser_new",
+            "function_id": "oj@3.17.6:ext/oj/parser.c:1284:parser_new",
+            "line": 1319,
+            "package": "oj@3.17.6",
+            "source_sha256": "952785c9221a600f4e15d9defad495d1b33ac36823027dbac4ac917d69db68db"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "\"compat\"",
+              "index": 0
+            },
+            {
+              "expression": "ms",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "oj",
+        "method": "new",
+        "owner": "Oj::Parser",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.17.6"
+      },
+      "native_api_group": "5c5b76d920ccc9473a99a5307b9ad0622cf08bb6f6c62c4c0e41e0d4319dc10c",
+      "native_argument_index": 0,
+      "ruby_argument_expression": ":saj",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 871,
+          "byte_start": 851,
+          "column": 21,
+          "end_line": 46,
+          "expression": "Oj::Parser.new(:saj)",
+          "file": "gems/ipynbdiff/lib/ipynb_diff/symbol_map.rb",
+          "kind": "call",
+          "line": 46,
+          "method": "new",
+          "owner": "IpynbDiff::SymbolMap",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/ipynbdiff/lib/ipynb_diff/symbol_map.rb#L46",
+          "source_sha256": "e2d16775bda8e257c38ea9127630bf21c5d54c63e3bdc80c2247cee32d0295a3",
+          "unit": "gems/ipynbdiff/lib/ipynb_diff/symbol_map.rb:820:singleton:parser"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Oj::Parser",
+    "proof": [
+      {
+        "byte_end": 861,
+        "byte_start": 851,
+        "column": 21,
+        "end_line": 46,
+        "expression": "Oj::Parser",
+        "file": "gems/ipynbdiff/lib/ipynb_diff/symbol_map.rb",
+        "kind": "expression",
+        "line": 46,
+        "owner": "IpynbDiff::SymbolMap",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/ipynbdiff/lib/ipynb_diff/symbol_map.rb#L46",
+        "source_sha256": "e2d16775bda8e257c38ea9127630bf21c5d54c63e3bdc80c2247cee32d0295a3",
+        "unit": "gems/ipynbdiff/lib/ipynb_diff/symbol_map.rb:820:singleton:parser"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Oj::Parser"
+      ]
+    ]
+  },
+  "source": {
+    "column": 21,
+    "file": "gems/ipynbdiff/lib/ipynb_diff/symbol_map.rb",
+    "line": 46,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/ipynbdiff/lib/ipynb_diff/symbol_map.rb#L46",
+    "source_sha256": "e2d16775bda8e257c38ea9127630bf21c5d54c63e3bdc80c2247cee32d0295a3"
+  },
+  "supplied_arguments": [
+    {
+      "expression": ":saj",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Symbol"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

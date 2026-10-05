@@ -1,0 +1,839 @@
+{
+  "callsite_id": "8c80d24f428da2a50fd77af86e0f3b8320a9fca798973c80254246d0d019c91f",
+  "expression": "CommonMarker.render_doc(text)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "render_doc",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "04892f41605eaa4528afb4284221a788859d575529fe3a4d666b4d00dc718693",
+        "04970e1770db04b376bdadb31407762c1b5eadd054e1733cd61ccb0407dced8d",
+        "04bf35ad3f8c91e68bd61e4b4f1fb4f8f21c859e535dcd9c15ac7eb4b5325f13",
+        "0564f90492f641de7d9e6f751a99ebb8b4256097a2f61da8893a9c7887a57dcb",
+        "05c5efa17fb1bfc9d7f5ad992663af1e55fd78e4f257afe00a511ea0cd2bd065",
+        "06343a595756edad7ec773a48c12c8f3a4325e0994df68328f8eaefc12dc1f3c",
+        "0713b987b7baad556c3914bab04c4238c8987dbe9f55925d08b25f2339828143",
+        "128e81bd72c2110a3bb1274afded6eb238d517df92dc53d7294e693cd741c280",
+        "222056273075cd8123923616d7903dbfc066ff0f1f03b51d6c2d67f7f9ea1d5f",
+        "252582d45092f5402766d699575934b1cd6229647a5fdfd323361032b4dc4dc2",
+        "25e4865212c7555fa414f635b197706992012fae488bfb364f85939031ad95df",
+        "3717f8524ca1759f1626a95976d232f65712f266702fba1625ca57928d84140c",
+        "4a02b05a34086de9920b4d7dedeba7875725c1e7066df18d4be00caa5694a3e8",
+        "5416c758f294e14d9b1e552238bb5c982bf7f40872f258395bbf2c17297de518",
+        "5883941c63433390a457c8f29d377f7f939b86f33ebfa92326ccdcc53cef6157",
+        "5f8b417b051fa5f774193daf26142ae0489032b7768c255a045685527d592873",
+        "6803d1b7e029a8fed07b37c4e27c4de7d7ff4471bf39137bde2c7bd7cf09632c",
+        "6ae486d6e0e177413d3dabbc09d3fdf3b44cc5ffc5d58be3e767460a54832f89",
+        "6d0c6dd03b5219915490f7d47511d04d037a4714a15017833091bde0c8efef05",
+        "74567ef3ebda2f39d2c0c0405046ba720c6c960b6556e62958b9bcbf9439a642",
+        "7490a826e7e698bd9c6188091994a41f1fca67df949c7a867d29e345d66347b6",
+        "74a2772050d594c396df19d361ba02173a6fef38bcfb03540e862ef10da15cb1",
+        "7666ea437a749619f41a2cce54c39dc8e4b9414352eae2e220b1938f7aa5d049",
+        "77934eec072936aeb714418dd181588dcce33bc6313972ee53e5af6a7904b5f2",
+        "79d253b821b4b773fb484a99d9b83d292e9f20fc4b39a2c0b9367cd618d4d268",
+        "7d8a6b48eb8501d711a22d5f4dda306d7847ee5150febb115ecd25758ed2aabc",
+        "7dfc6de75de50dcaaa97e8698e9ba5028788454baaaddd68250853211cba3ce6",
+        "827382802dd582a46680e418ad5b6c127583c44535e2f5fc272fcee0018ab15a",
+        "82df018756c3e65713129d8d020d40bc8af133bf3b0d883b211359cc5ac80167",
+        "83ef79a906307ba98a7214b8694b49b0f08c9e5d31055d28e8e265f3104f16be",
+        "8721e566bc4cf122c8051d433b8beab9751fc66cbac8494027d55c06055a9c07",
+        "8efe42a7fefc603325050d9e8f789fe01b5b61dcf495f882e544ca843005eebe",
+        "8f826d29e2ea9b221dcaacddca6a7af6216b3cb61631f3ce594ada620936d11c",
+        "92bb5df15702208c350b4ccf5f151dc1f197a943755a2b9a6d2184bb83470655",
+        "97a0c14d84ffc16f72b56c1efbddcad284bc18e1918ead3b96b928adab0bc5cd",
+        "9cfce007fcf19956721e45863638b687cf70e14b241ff2a53a45d7804dceed5d",
+        "a2e1bbd62b7f6f68be6d9eb5884b816c7b920291187b061794b5bdbf35790169",
+        "a975f52eee2bcc156960255dcf12321f6b2c569173b41dbddb2ba1848081764f",
+        "aa3298f716ead2b345173241a55406fbbcb05ca4be854bdfd1fd59cf0015b3e2",
+        "abf66813ae45cd88631e75387eaac00a59596b7440310ab7a4d4473f186897cf",
+        "ac10e2a676a1f4f2dd3a5e807fa8ab80dc4e3812b582c6a82ebfb3c2bf79a6e0",
+        "afbb1a8dbf86242375b2111b022763e336e34193dcb63bd1f32f4101644581d9",
+        "b056c1fc5f02ac738913b3c29176c9225452246bde621a02a5f5fed4e82e1f12",
+        "b1a7834877dccacb36ad0d418d93c0d30343e99bf0026b9cae27b2372af0900f",
+        "b64f5c0f5ac6e3f7403e07ca370a6ef4a961eedc17e70cbd40897e8591856cec",
+        "be2ef9e4b9c87218d0323933dfd01f00bf3e0b01540bc70194758663b8e3c843",
+        "c120651cb7f6a2d12b65d45d852b4571896749e280db1f0b111b02ab01a4b9b6",
+        "c5eff722003d2e98b4ca57391dd6936805ec36ba91bc98b487802dad42a26fa2",
+        "c8525fc6b9f65264a18d1e81e82dbb65e4b8215966eaa8de5855bb6990963fce",
+        "cb2bdd89d60edd5ef7bf23c712cd0ee33edf41198d5a6d486a059c1759e11a6a",
+        "ce5e3bb65478c980e38b2fe1fc2634b547872bfb1f88f03ed21f0d0cbe5ac55d",
+        "d4da9678151694094b6bf20eb21b9f4a5148fc686ab1493a38d23bf30cf38940",
+        "d736fc6b5cfb0e609679217bef93220e6e4d0335443649606ad4df507046a070",
+        "d905910564cc041e4bb8eb1f230d8d3d123edbb835c20409042f9efd3e2cf942",
+        "e1531b6dbe61515ecc29158a3dd1584b9213b40e8736e3cadce9f75caa7a1824",
+        "e7b3bf0a8acf981659f2bfc09a4cfaec0877b9338781930fd16948905ea4f659",
+        "ef8f07e1af9f92ba6ca1fe068e1e294c0d4aaf226870dac450b1d945b3837523",
+        "fb2e0cac6fe347896d8eeca9ef21eec6c190eb7e16a1e7438733c0b32aef4d7f",
+        "fdb78e8fbcde1131cf5055aa353609f5037bb93f1ff122899bba01e443c2d181",
+        "fecaaf63ecb113f1f915c118d41b564bad8dd395582b5e377e8a4ec0e400ec82"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* container = new_container",
+            "file": "ext/commonmarker/blocks.c",
+            "function": "open_new_blocks",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/blocks.c:1118:open_new_blocks",
+            "line": 1316,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "464266209ed2c94b42ba6c9c4d2768f0f7bda3d668f4e5fa86bcf47b18b7f0ff"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* container = new_container",
+            "file": "ext/commonmarker/blocks.c",
+            "function": "open_new_blocks",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/blocks.c:1118:open_new_blocks",
+            "line": 1316,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "464266209ed2c94b42ba6c9c4d2768f0f7bda3d668f4e5fa86bcf47b18b7f0ff"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_drop",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:205:cmark_strbuf_drop",
+            "line": 213,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_drop",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:205:cmark_strbuf_drop",
+            "line": 213,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_drop",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:205:cmark_strbuf_drop",
+            "line": 213,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 115,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 115,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 115,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ buf -> size ] = '\\0'",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 115,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ w ++ ] = buf -> ptr [ r ]",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_unescape",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:267:cmark_strbuf_unescape",
+            "line": 274,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ w ++ ] = buf -> ptr [ r ]",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_unescape",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:267:cmark_strbuf_unescape",
+            "line": 274,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memchr ( ch -> data + offset , c , ch -> len - offset )",
+            "file": "ext/commonmarker/chunk.h",
+            "function": "cmark_chunk_strchr",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/chunk.h:54:cmark_chunk_strchr",
+            "line": 57,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "33ee10c88d18a91e943cb7b418e51bf661ae371dd74d8f51cefc802620df1164"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ch -> len - offset",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memchr",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memchr ( ch -> data + offset , c , ch -> len - offset )",
+            "file": "ext/commonmarker/chunk.h",
+            "function": "cmark_chunk_strchr",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/chunk.h:54:cmark_chunk_strchr",
+            "line": 57,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "33ee10c88d18a91e943cb7b418e51bf661ae371dd74d8f51cefc802620df1164"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ch -> len - offset",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memchr",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 113,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr + buf -> size",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 113,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 113,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 113,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr + buf -> size",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 113,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 113,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr , buf -> ptr + n , buf -> size )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_drop",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:205:cmark_strbuf_drop",
+            "line": 211,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr + n",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr , buf -> ptr + n , buf -> size )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_drop",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:205:cmark_strbuf_drop",
+            "line": 211,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr , buf -> ptr + n , buf -> size )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_drop",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:205:cmark_strbuf_drop",
+            "line": 211,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> size",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr , buf -> ptr + n , buf -> size )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_drop",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:205:cmark_strbuf_drop",
+            "line": 211,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr + n",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr , buf -> ptr + n , buf -> size )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_drop",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:205:cmark_strbuf_drop",
+            "line": 211,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr , buf -> ptr + n , buf -> size )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_drop",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:205:cmark_strbuf_drop",
+            "line": 211,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> size",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strncmp ( ( const char * ) s , ( const char * ) cmark_entities [ i ] . entity , len )",
+            "file": "ext/commonmarker/cmark-upstream/src/houdini_html_u.c",
+            "function": "S_lookup",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/cmark-upstream/src/houdini_html_u.c:12:S_lookup",
+            "line": 16,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "5738d88a576c807c99905405833057411329ce61fa784f4db3a55d5fb5f3ac7b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( const char * ) s",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) cmark_entities [ i ] . entity",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strncmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strncmp ( ( const char * ) s , ( const char * ) cmark_entities [ i ] . entity , len )",
+            "file": "ext/commonmarker/houdini_html_u.c",
+            "function": "S_lookup",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/houdini_html_u.c:12:S_lookup",
+            "line": 16,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "5738d88a576c807c99905405833057411329ce61fa784f4db3a55d5fb5f3ac7b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( const char * ) s",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) cmark_entities [ i ] . entity",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strncmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "commonmarker",
+        "method": "parse_document",
+        "owner": "CommonMarker::Node",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          4
+        ],
+        "version": "0.23.12"
+      },
+      "native_api_group": "f05e499ed0d95d379830196df5d046c1821096ac77e57ec1badab64d0196f6d6",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "text",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 464,
+          "byte_start": 435,
+          "call_event": "8c80d24f428da2a50fd77af86e0f3b8320a9fca798973c80254246d0d019c91f",
+          "callee": "@gem/commonmarker@0.23.12/lib/commonmarker.rb:1288:singleton:render_doc",
+          "callee_argument": 0,
+          "column": 17,
+          "end_line": 13,
+          "expression": "CommonMarker.render_doc(text)",
+          "file": "lib/gitlab/bitbucket_import/markdown_text.rb",
+          "kind": "ruby_argument_binding",
+          "line": 13,
+          "method": "render_doc",
+          "owner": "Gitlab::BitbucketImport::MarkdownText",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/bitbucket_import/markdown_text.rb#L13",
+          "source_sha256": "b452564fdabd224ce0b03d9f1c83af3d70c97d1926f05777a98a3beb1aba7519",
+          "unit": "lib/gitlab/bitbucket_import/markdown_text.rb:321:singleton:fetch_attachments"
+        },
+        {
+          "byte_end": 1593,
+          "byte_start": 1535,
+          "column": 7,
+          "end_line": 42,
+          "expression": "Node.parse_document(text, text.bytesize, opts, extensions)",
+          "file": "@gem/commonmarker@0.23.12/lib/commonmarker.rb",
+          "kind": "call",
+          "line": 42,
+          "method": "parse_document",
+          "owner": "CommonMarker",
+          "source_package": {
+            "file": "lib/commonmarker.rb",
+            "gem": "commonmarker",
+            "package_sha256": "da2d2f89c7c7b51c42c6e69ace3ab5df39497683f86e83aca7087c671d523ccd",
+            "source_url": "https://rubygems.org/downloads/commonmarker-0.23.12.gem",
+            "version": "0.23.12"
+          },
+          "source_sha256": "3b8422b4dde5c85712a3ce79cf27d0d72c4fc52a5d20b1dca242e0c7ecbef9b5",
+          "unit": "@gem/commonmarker@0.23.12/lib/commonmarker.rb:1288:singleton:render_doc"
+        }
+      ],
+      "via": "ruby_wrapper"
+    },
+    {
+      "c_flow_ids": [
+        "597795069f59e8d1bd8c19d26714130fcdbcac6639872dd31125572b047ff65e",
+        "6f36f8f850f9865cb2e54a5b31c0b2ce77b39b614ad9f8c09c6316b51561d603",
+        "ad5dbbc4232109100af6edb2aac92e2c9e562795153c4b89da9aebec83103c6c",
+        "beb3e227f065a251106a22a8ee26435c7e3db3f5ed6a7892e9f86caa65ae2e70"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ 0 ] = '\\0'",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_clear",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:74:cmark_strbuf_clear",
+            "line": 78,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> ptr [ 0 ] = '\\0'",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_clear",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:74:cmark_strbuf_clear",
+            "line": 78,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 113,
+            "package": "commonmarker@0.23.12",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr + buf -> size",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( buf -> ptr + buf -> size , data , len )",
+            "file": "ext/commonmarker/buffer.c",
+            "function": "cmark_strbuf_put",
+            "function_id": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921:ext/commonmarker/buffer.c:107:cmark_strbuf_put",
+            "line": 113,
+            "package": "commonmarker@0.23.12:git:cd435f7bb1a2c53e9ca3bb95b389c7d777083921",
+            "source_sha256": "3f458b3947a6595c06963e52489e0e0fc8b43e1edb316a192a42df3fd986b2d5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> ptr + buf -> size",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "destination",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "commonmarker",
+        "method": "parse_document",
+        "owner": "CommonMarker::Node",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          4
+        ],
+        "version": "0.23.12"
+      },
+      "native_api_group": "f05e499ed0d95d379830196df5d046c1821096ac77e57ec1badab64d0196f6d6",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "text",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 464,
+          "byte_start": 435,
+          "call_event": "8c80d24f428da2a50fd77af86e0f3b8320a9fca798973c80254246d0d019c91f",
+          "callee": "@gem/commonmarker@0.23.12/lib/commonmarker.rb:1288:singleton:render_doc",
+          "callee_argument": 0,
+          "column": 17,
+          "end_line": 13,
+          "expression": "CommonMarker.render_doc(text)",
+          "file": "lib/gitlab/bitbucket_import/markdown_text.rb",
+          "kind": "ruby_argument_binding",
+          "line": 13,
+          "method": "render_doc",
+          "owner": "Gitlab::BitbucketImport::MarkdownText",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/bitbucket_import/markdown_text.rb#L13",
+          "source_sha256": "b452564fdabd224ce0b03d9f1c83af3d70c97d1926f05777a98a3beb1aba7519",
+          "unit": "lib/gitlab/bitbucket_import/markdown_text.rb:321:singleton:fetch_attachments"
+        },
+        {
+          "byte_end": 1593,
+          "byte_start": 1535,
+          "column": 7,
+          "end_line": 42,
+          "expression": "Node.parse_document(text, text.bytesize, opts, extensions)",
+          "file": "@gem/commonmarker@0.23.12/lib/commonmarker.rb",
+          "kind": "call",
+          "line": 42,
+          "method": "parse_document",
+          "owner": "CommonMarker",
+          "source_package": {
+            "file": "lib/commonmarker.rb",
+            "gem": "commonmarker",
+            "package_sha256": "da2d2f89c7c7b51c42c6e69ace3ab5df39497683f86e83aca7087c671d523ccd",
+            "source_url": "https://rubygems.org/downloads/commonmarker-0.23.12.gem",
+            "version": "0.23.12"
+          },
+          "source_sha256": "3b8422b4dde5c85712a3ce79cf27d0d72c4fc52a5d20b1dca242e0c7ecbef9b5",
+          "unit": "@gem/commonmarker@0.23.12/lib/commonmarker.rb:1288:singleton:render_doc"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "CommonMarker",
+    "proof": [
+      {
+        "byte_end": 447,
+        "byte_start": 435,
+        "column": 17,
+        "end_line": 13,
+        "expression": "CommonMarker",
+        "file": "lib/gitlab/bitbucket_import/markdown_text.rb",
+        "kind": "expression",
+        "line": 13,
+        "owner": "Gitlab::BitbucketImport::MarkdownText",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/bitbucket_import/markdown_text.rb#L13",
+        "source_sha256": "b452564fdabd224ce0b03d9f1c83af3d70c97d1926f05777a98a3beb1aba7519",
+        "unit": "lib/gitlab/bitbucket_import/markdown_text.rb:321:singleton:fetch_attachments"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "CommonMarker"
+      ]
+    ]
+  },
+  "source": {
+    "column": 17,
+    "file": "lib/gitlab/bitbucket_import/markdown_text.rb",
+    "line": 13,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/bitbucket_import/markdown_text.rb#L13",
+    "source_sha256": "b452564fdabd224ce0b03d9f1c83af3d70c97d1926f05777a98a3beb1aba7519"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "text",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

@@ -1,0 +1,172 @@
+{
+  "callsite_id": "de83e412fccdac8d876eb726ef17806a40199926c160e5fd3175cda663da5968",
+  "expression": "RE2::Regexp.new(pattern, log_errors: false)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "58a5df671efc67b55755dabf071687fad99f024e809f17c4444ebaff2721bd6b",
+        "8a5abd64311ed82d875aec8c8d0872792770413da31da5abb12a4b73e54f572f",
+        "a149b0a1c9f24ce4b284a6d999d364aaac4eaf1fe585ae1cf9332923e36b6582"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( pattern )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_regexp_initialize",
+            "function_id": "re2@2.27.0:ext/re2/re2.cc:1368:re2_regexp_initialize",
+            "line": 1375,
+            "package": "re2@2.27.0",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pattern",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( pattern )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_regexp_initialize",
+            "function_id": "re2@2.27.0:git:b0fe138a3bbff1fd0f0790854838a58e31a443e6:ext/re2/re2.cc:1368:re2_regexp_initialize",
+            "line": 1375,
+            "package": "re2@2.27.0:git:b0fe138a3bbff1fd0f0790854838a58e31a443e6",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pattern",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "re2",
+        "method": "initialize",
+        "owner": "RE2::Regexp",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "2.27.0"
+      },
+      "native_api_group": "e2e73ff8dd228d343e8114693aef87760aa72b7454f1840a3522bbda2b87e41b",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "pattern",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1069,
+          "byte_start": 1026,
+          "column": 17,
+          "end_line": 28,
+          "expression": "RE2::Regexp.new(pattern, log_errors: false)",
+          "file": "lib/gitlab/untrusted_regexp.rb",
+          "kind": "call",
+          "line": 28,
+          "method": "new",
+          "owner": "Gitlab::UntrustedRegexp",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L28",
+          "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+          "unit": "lib/gitlab/untrusted_regexp.rb:921:instance:initialize"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "RE2::Regexp",
+    "proof": [
+      {
+        "byte_end": 1037,
+        "byte_start": 1026,
+        "column": 17,
+        "end_line": 28,
+        "expression": "RE2::Regexp",
+        "file": "lib/gitlab/untrusted_regexp.rb",
+        "kind": "expression",
+        "line": 28,
+        "owner": "Gitlab::UntrustedRegexp",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L28",
+        "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+        "unit": "lib/gitlab/untrusted_regexp.rb:921:instance:initialize"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "RE2::Regexp"
+      ]
+    ]
+  },
+  "source": {
+    "column": 17,
+    "file": "lib/gitlab/untrusted_regexp.rb",
+    "line": 28,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L28",
+    "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "pattern",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ],
+        [
+          "singleton",
+          "Gitlab::Changelog::Config::DEFAULT_TAG_REGEX"
+        ],
+        [
+          "singleton",
+          "described_class::MARKDOWN_CODE_BLOCK_REGEX_UNTRUSTED"
+        ],
+        [
+          "singleton",
+          "described_class::MARKDOWN_HTML_BLOCK_REGEX_UNTRUSTED"
+        ],
+        [
+          "singleton",
+          "described_class::MARKDOWN_HTML_COMMENT_BLOCK_REGEX_UNTRUSTED"
+        ],
+        [
+          "singleton",
+          "described_class::MARKDOWN_HTML_COMMENT_LINE_REGEX_UNTRUSTED"
+        ]
+      ]
+    },
+    {
+      "expression": "log_errors: false",
+      "index": 1,
+      "kind": "keywords",
+      "types": [
+        [
+          "instance",
+          "Hash"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

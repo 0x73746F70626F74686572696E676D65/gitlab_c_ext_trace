@@ -1,0 +1,332 @@
+{
+  "callsite_id": "eebbdaf800dc628d17fe1e8c585c5b0aad20000929deda1e69c65923c883e892",
+  "expression": "RE2.Replace(text, regexp, rewrite)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "Replace",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "113eeca17097a177a5d97d7184ed50ea25351dc1cc3dff3ac92a0a489bb1930e",
+        "3a1e86a0c8d732ba5978d51c6f2c8d21db080c8f1eab58a5ede16540ce1bd88c",
+        "8d48bfc58757cb917a53deea7672ec8feb2775b7f5d1d3f45a898b173d0b570a",
+        "e21f29309617f6b0e8f23c4045ab7f445aca5e7088b077365204c929297deaee"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_replace",
+            "function_id": "re2@2.27.0:ext/re2/re2.cc:2155:re2_replace",
+            "line": 2163,
+            "package": "re2@2.27.0",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( str )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_replace",
+            "function_id": "re2@2.27.0:ext/re2/re2.cc:2155:re2_replace",
+            "line": 2164,
+            "package": "re2@2.27.0",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "re2",
+        "method": "Replace",
+        "owner": "RE2",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          3
+        ],
+        "version": "2.27.0"
+      },
+      "native_api_group": "ef5ed7d2192d302a7d6701eddd5f38cb31216e9d5251853713e433457e8eadd1",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "text",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2416,
+          "byte_start": 2382,
+          "column": 7,
+          "end_line": 84,
+          "expression": "RE2.Replace(text, regexp, rewrite)",
+          "file": "lib/gitlab/untrusted_regexp.rb",
+          "kind": "call",
+          "line": 84,
+          "method": "Replace",
+          "owner": "Gitlab::UntrustedRegexp",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L84",
+          "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+          "unit": "lib/gitlab/untrusted_regexp.rb:2349:instance:replace"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "86879971ab495be6defd7c4733c7b73912803ac65627b22e161661d85ce8ded8",
+        "9fc0c6f1e60bc6c5d66ba2c0330695f42d1aa621f6dbba70e82983b933e9fe58",
+        "a5e1c1a9c0b10dc1fa2935ff0eff81d8aba03ff03cc3523954fc56e19b1a5384",
+        "fdf10b7f7ba01b3b9dea992f2dc09edb80064d1b5861adb9eabb62d9ce85fa79"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( pattern )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_replace",
+            "function_id": "re2@2.27.0:ext/re2/re2.cc:2155:re2_replace",
+            "line": 2168,
+            "package": "re2@2.27.0",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pattern",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( pattern )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_replace",
+            "function_id": "re2@2.27.0:ext/re2/re2.cc:2155:re2_replace",
+            "line": 2169,
+            "package": "re2@2.27.0",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pattern",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "re2",
+        "method": "Replace",
+        "owner": "RE2",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          3
+        ],
+        "version": "2.27.0"
+      },
+      "native_api_group": "ef5ed7d2192d302a7d6701eddd5f38cb31216e9d5251853713e433457e8eadd1",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "regexp",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2416,
+          "byte_start": 2382,
+          "column": 7,
+          "end_line": 84,
+          "expression": "RE2.Replace(text, regexp, rewrite)",
+          "file": "lib/gitlab/untrusted_regexp.rb",
+          "kind": "call",
+          "line": 84,
+          "method": "Replace",
+          "owner": "Gitlab::UntrustedRegexp",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L84",
+          "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+          "unit": "lib/gitlab/untrusted_regexp.rb:2349:instance:replace"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "45c383757657456d29f89964fb156799cc838053e95fe9e2a3ec5b81f046af23",
+        "642d8c32e8ad333ed300b5ad21b6e18fb878a8935bc43a5c83f5a88efd60eaf7",
+        "798e7b57f28a55b44f1659a178934829780c39ec3832a5a47e56c90e03c35769",
+        "e433c3f6b139c39c699e7271cee6bb396c77a8124c965c8d7f2f922fdc2b1542"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( rewrite )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_replace",
+            "function_id": "re2@2.27.0:ext/re2/re2.cc:2155:re2_replace",
+            "line": 2171,
+            "package": "re2@2.27.0",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rewrite",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( rewrite )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_replace",
+            "function_id": "re2@2.27.0:ext/re2/re2.cc:2155:re2_replace",
+            "line": 2172,
+            "package": "re2@2.27.0",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rewrite",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "re2",
+        "method": "Replace",
+        "owner": "RE2",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          3
+        ],
+        "version": "2.27.0"
+      },
+      "native_api_group": "ef5ed7d2192d302a7d6701eddd5f38cb31216e9d5251853713e433457e8eadd1",
+      "native_argument_index": 2,
+      "ruby_argument_expression": "rewrite",
+      "ruby_argument_index": 2,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2416,
+          "byte_start": 2382,
+          "column": 7,
+          "end_line": 84,
+          "expression": "RE2.Replace(text, regexp, rewrite)",
+          "file": "lib/gitlab/untrusted_regexp.rb",
+          "kind": "call",
+          "line": 84,
+          "method": "Replace",
+          "owner": "Gitlab::UntrustedRegexp",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L84",
+          "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+          "unit": "lib/gitlab/untrusted_regexp.rb:2349:instance:replace"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "RE2",
+    "proof": [
+      {
+        "byte_end": 2385,
+        "byte_start": 2382,
+        "column": 7,
+        "end_line": 84,
+        "expression": "RE2",
+        "file": "lib/gitlab/untrusted_regexp.rb",
+        "kind": "expression",
+        "line": 84,
+        "owner": "Gitlab::UntrustedRegexp",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L84",
+        "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+        "unit": "lib/gitlab/untrusted_regexp.rb:2349:instance:replace"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "RE2"
+      ]
+    ]
+  },
+  "source": {
+    "column": 7,
+    "file": "lib/gitlab/untrusted_regexp.rb",
+    "line": 84,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L84",
+    "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "text",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "regexp",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "RE2::Regexp"
+        ]
+      ]
+    },
+    {
+      "expression": "rewrite",
+      "index": 2,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

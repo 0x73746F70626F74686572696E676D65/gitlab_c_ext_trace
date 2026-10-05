@@ -1,0 +1,236 @@
+{
+  "callsite_id": "0d242515150666f2034aeef39167d23f483b3b4a9e795842c9958f252d29055d",
+  "expression": "OpenSSL::PKCS7.sign(cert, key, data, Array.wrap(ca_certs), OpenSSL::PKCS7::DETACHED)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "sign",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "01d50a6c93e55e7cf8fd14b06f66cc115c57d0249698955dcae12e46de122559",
+        "121cfe3e5729e24eed4ed3aea1f1db82170f39349a08e13ab6dcb6d1ae2ae89b",
+        "5af077e4403c4d396f01ada692a71d063f8a62c6b2bd9adcb110cb2a35443707",
+        "7aa16e89882f0f41bc6b7a8ed20c12d115391325a57bbd328561d98c120c70c4",
+        "c14653285abdcd5f4441b9b6deb203dacf3501cc48760c21115ee092b4b22b05",
+        "f35ed136d4993bad157b2a5b72e2fa170fd5a649790b4c0302b1171a552048f3"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "sign",
+        "owner": "OpenSSL::PKCS7",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "b9eff7115d8f7b9bbf2ddc8751cf055b81da396adec56f34c2cf9682c2170209",
+      "native_argument_index": 2,
+      "ruby_argument_expression": "data",
+      "ruby_argument_index": 2,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 548,
+          "byte_start": 464,
+          "column": 25,
+          "end_line": 14,
+          "expression": "OpenSSL::PKCS7.sign(cert, key, data, Array.wrap(ca_certs), OpenSSL::PKCS7::DETACHED)",
+          "file": "lib/gitlab/email/smime/signer.rb",
+          "kind": "call",
+          "line": 14,
+          "method": "sign",
+          "owner": "Gitlab::Email::Smime::Signer",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/email/smime/signer.rb#L14",
+          "source_sha256": "c9ac3f8d365f0a1e03fc4c97fd1c93aad98309206898ceea645ac4a70fe32608",
+          "unit": "lib/gitlab/email/smime/signer.rb:391:singleton:sign"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::PKCS7",
+    "proof": [
+      {
+        "byte_end": 478,
+        "byte_start": 464,
+        "column": 25,
+        "end_line": 14,
+        "expression": "OpenSSL::PKCS7",
+        "file": "lib/gitlab/email/smime/signer.rb",
+        "kind": "expression",
+        "line": 14,
+        "owner": "Gitlab::Email::Smime::Signer",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/email/smime/signer.rb#L14",
+        "source_sha256": "c9ac3f8d365f0a1e03fc4c97fd1c93aad98309206898ceea645ac4a70fe32608",
+        "unit": "lib/gitlab/email/smime/signer.rb:391:singleton:sign"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::PKCS7"
+      ]
+    ]
+  },
+  "source": {
+    "column": 25,
+    "file": "lib/gitlab/email/smime/signer.rb",
+    "line": 14,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/email/smime/signer.rb#L14",
+    "source_sha256": "c9ac3f8d365f0a1e03fc4c97fd1c93aad98309206898ceea645ac4a70fe32608"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "cert",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "OpenSSL::X509::Certificate"
+        ]
+      ]
+    },
+    {
+      "expression": "key",
+      "index": 1,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "data",
+      "index": 2,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "Array.wrap(ca_certs)",
+      "index": 3,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "OpenSSL::PKCS7::DETACHED",
+      "index": 4,
+      "kind": "positional",
+      "types": [
+        [
+          "singleton",
+          "OpenSSL::PKCS7::DETACHED"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

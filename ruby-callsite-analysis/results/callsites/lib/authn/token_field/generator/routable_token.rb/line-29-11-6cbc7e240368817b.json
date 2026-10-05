@@ -1,0 +1,112 @@
+{
+  "callsite_id": "6cbc7e240368817b8d2152ae684019eb2652413c6d017f7ed357a31a7792a1d1",
+  "expression": "Zlib.crc32(encoded)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "crc32",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "941fad68204b7d40c91a1facc09c860d13ffbf3c9e5ce8f7f3b265d042a4a7a4"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/zlib/zlib.c",
+            "function": "do_checksum",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:409:do_checksum",
+            "line": 440,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "crc32",
+        "owner": "Zlib",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "4fbff4934118b3b97d7f83c70bbb4012407da8503deb392b4f0bb5e31029242c",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "encoded",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 863,
+          "byte_start": 844,
+          "column": 11,
+          "end_line": 29,
+          "expression": "Zlib.crc32(encoded)",
+          "file": "lib/authn/token_field/generator/routable_token.rb",
+          "kind": "call",
+          "line": 29,
+          "method": "crc32",
+          "owner": "Authn::TokenField::Generator::RoutableToken",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/authn/token_field/generator/routable_token.rb#L29",
+          "source_sha256": "3245e980b920a7e659178d884662f0891bb9ef3c613d1b4391636d1359189fda",
+          "unit": "lib/authn/token_field/generator/routable_token.rb:809:singleton:crc_of"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib",
+    "proof": [
+      {
+        "byte_end": 848,
+        "byte_start": 844,
+        "column": 11,
+        "end_line": 29,
+        "expression": "Zlib",
+        "file": "lib/authn/token_field/generator/routable_token.rb",
+        "kind": "expression",
+        "line": 29,
+        "owner": "Authn::TokenField::Generator::RoutableToken",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/authn/token_field/generator/routable_token.rb#L29",
+        "source_sha256": "3245e980b920a7e659178d884662f0891bb9ef3c613d1b4391636d1359189fda",
+        "unit": "lib/authn/token_field/generator/routable_token.rb:809:singleton:crc_of"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "lib/authn/token_field/generator/routable_token.rb",
+    "line": 29,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/authn/token_field/generator/routable_token.rb#L29",
+    "source_sha256": "3245e980b920a7e659178d884662f0891bb9ef3c613d1b4391636d1359189fda"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "encoded",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

@@ -1,0 +1,149 @@
+{
+  "callsite_id": "9daea28c0e85db52c1a1f491c9f968dc3603e85fa3c3df5c98c90eef0e195b75",
+  "expression": "store.add_file(Gitlab.config.smartcard.ca_file)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "add_file",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "921a6a9f9b5f0531572c0232bbc49b930eecb9e001df20fd9185ff0ae637c572",
+        "b1bf12e64869d01821d9e55d0e8526fc8d3eb7ce773ccc739fe8d808f7b0581f"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( file )",
+            "file": "ext/openssl/ossl_x509store.c",
+            "function": "ossl_x509store_add_file",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_x509store.c:354:ossl_x509store_add_file",
+            "line": 362,
+            "package": "openssl@3.3.3",
+            "source_sha256": "31df0dfb00ff180a881f504a6fe2bd591c2e2f0bc8d23c1e456d44c404cc63e2"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "file",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( file )",
+            "file": "ext/openssl/ossl_x509store.c",
+            "function": "ossl_x509store_add_file",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_x509store.c:354:ossl_x509store_add_file",
+            "line": 362,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "31df0dfb00ff180a881f504a6fe2bd591c2e2f0bc8d23c1e456d44c404cc63e2"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "file",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "add_file",
+        "owner": "OpenSSL::X509::Store",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "6ca614b9a7fadcf900fc159bdc6e46d116b043054f692fdef86926bfc166e65e",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "Gitlab.config.smartcard.ca_file",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 399,
+          "byte_start": 352,
+          "column": 13,
+          "end_line": 14,
+          "expression": "store.add_file(Gitlab.config.smartcard.ca_file)",
+          "file": "ee/lib/gitlab/auth/smartcard/base.rb",
+          "kind": "call",
+          "line": 14,
+          "method": "add_file",
+          "owner": "Gitlab::Auth::Smartcard::Base",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/auth/smartcard/base.rb#L14",
+          "source_sha256": "e0ad3d3b3974095742495ae96942aded9e081e1ef79bae9a490f477e2fdacfaf",
+          "unit": "ee/lib/gitlab/auth/smartcard/base.rb:264:singleton:store"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "store",
+    "proof": [
+      {
+        "byte_end": 324,
+        "byte_start": 300,
+        "column": 22,
+        "end_line": 13,
+        "expression": "OpenSSL::X509::Store.new",
+        "file": "ee/lib/gitlab/auth/smartcard/base.rb",
+        "kind": "call",
+        "line": 13,
+        "method": "new",
+        "owner": "Gitlab::Auth::Smartcard::Base",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/auth/smartcard/base.rb#L13",
+        "source_sha256": "e0ad3d3b3974095742495ae96942aded9e081e1ef79bae9a490f477e2fdacfaf",
+        "unit": "ee/lib/gitlab/auth/smartcard/base.rb:264:singleton:store"
+      },
+      {
+        "byte_end": 357,
+        "byte_start": 352,
+        "column": 13,
+        "end_line": 14,
+        "expression": "store",
+        "file": "ee/lib/gitlab/auth/smartcard/base.rb",
+        "kind": "expression",
+        "line": 14,
+        "owner": "Gitlab::Auth::Smartcard::Base",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/auth/smartcard/base.rb#L14",
+        "source_sha256": "e0ad3d3b3974095742495ae96942aded9e081e1ef79bae9a490f477e2fdacfaf",
+        "unit": "ee/lib/gitlab/auth/smartcard/base.rb:264:singleton:store"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::X509::Store"
+      ]
+    ]
+  },
+  "source": {
+    "column": 13,
+    "file": "ee/lib/gitlab/auth/smartcard/base.rb",
+    "line": 14,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/auth/smartcard/base.rb#L14",
+    "source_sha256": "e0ad3d3b3974095742495ae96942aded9e081e1ef79bae9a490f477e2fdacfaf"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "Gitlab.config.smartcard.ca_file",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

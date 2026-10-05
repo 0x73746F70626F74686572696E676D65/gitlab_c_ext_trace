@@ -1,0 +1,158 @@
+{
+  "callsite_id": "1729a2ac779e0b47d31fbe1987c14fa9765e34241487b914c1e2b0292110469e",
+  "expression": "Zlib::GzipWriter.wrap(io) do |gzip|\n            gzip.mtime = 0\n            Marshal.dump(specs, gzip)\n          end",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "wrap",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "da5abf6578d2a2f9bb063c184f109000df3272666fb180eb9a024734c5820c6e",
+        "dd50635c5c3843feb3dbd06f47aef44d8bf78c36d687d1d00dee257de4a2076b"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "wrap",
+        "owner": "Zlib::GzipFile",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "3a89179bffa4b685a363bd0bcaee5a459cda3130b7c03c9e0408b0e6eaa0e71a",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "io",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2444,
+          "byte_start": 2330,
+          "column": 11,
+          "end_line": 78,
+          "expression": "Zlib::GzipWriter.wrap(io) do |gzip|\n            gzip.mtime = 0\n            Marshal.dump(specs, gzip)\n          end",
+          "file": "app/services/packages/rubygems/create_spec_files_service.rb",
+          "kind": "call",
+          "line": 75,
+          "method": "wrap",
+          "owner": "Packages::Rubygems::CreateSpecFilesService",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/rubygems/create_spec_files_service.rb#L75",
+          "source_sha256": "d81e5b1b54e805fb9b09935a288e38a8b936f502b440440451f7d2b3a8458f75",
+          "unit": "app/services/packages/rubygems/create_spec_files_service.rb:2256:instance:gzip_marshal_dump"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::GzipWriter",
+    "proof": [
+      {
+        "byte_end": 2346,
+        "byte_start": 2330,
+        "column": 11,
+        "end_line": 75,
+        "expression": "Zlib::GzipWriter",
+        "file": "app/services/packages/rubygems/create_spec_files_service.rb",
+        "kind": "expression",
+        "line": 75,
+        "owner": "Packages::Rubygems::CreateSpecFilesService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/rubygems/create_spec_files_service.rb#L75",
+        "source_sha256": "d81e5b1b54e805fb9b09935a288e38a8b936f502b440440451f7d2b3a8458f75",
+        "unit": "app/services/packages/rubygems/create_spec_files_service.rb:2256:instance:gzip_marshal_dump"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::GzipWriter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "app/services/packages/rubygems/create_spec_files_service.rb",
+    "line": 75,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/rubygems/create_spec_files_service.rb#L75",
+    "source_sha256": "d81e5b1b54e805fb9b09935a288e38a8b936f502b440440451f7d2b3a8458f75"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "io",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

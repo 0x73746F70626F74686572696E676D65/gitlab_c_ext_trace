@@ -1,0 +1,301 @@
+{
+  "callsite_id": "fd3628be438cf92ac9fc59be825b888b0a8fc08a706d7e872a1410ecb36d6e16",
+  "expression": "OpenSSL::KDF.pbkdf2_hmac(\n            password.to_s,\n            salt: [salt].pack(\"H*\"),\n            iterations: stretches,\n            hash: hash,\n            length: hash.digest_length\n          )",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "pbkdf2_hmac",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "afd5f706be4109426dadb06e1ce55bb885ee82e3950a1c64c52679915c2e49b7",
+        "fbf0b7f391856f600222a8abbcb9b7a35038c1049552bd938df38a125f8749d1"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( kwargs [ 0 ] )",
+            "file": "ext/openssl/ossl_kdf.c",
+            "function": "kdf_pbkdf2_hmac",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_kdf.c:37:kdf_pbkdf2_hmac",
+            "line": 55,
+            "package": "openssl@3.3.3",
+            "source_sha256": "9cd46f098de9ffe51b74c57b2400e31d7ce1c3d8d8ef5a45e11a63441150adae"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "kwargs [ 0 ]",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new ( 0 , len )",
+            "file": "ext/openssl/ossl_kdf.c",
+            "function": "kdf_pbkdf2_hmac",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_kdf.c:37:kdf_pbkdf2_hmac",
+            "line": 60,
+            "package": "openssl@3.3.3",
+            "source_sha256": "9cd46f098de9ffe51b74c57b2400e31d7ce1c3d8d8ef5a45e11a63441150adae"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "0",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "pbkdf2_hmac",
+        "owner": "OpenSSL::KDF",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "0833d98242047545e4aba5ddadb7d7523587b7f87655bd1d8808c6eec92a77d6",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "password.to_s",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1737,
+          "byte_start": 1538,
+          "column": 11,
+          "end_line": 47,
+          "expression": "OpenSSL::KDF.pbkdf2_hmac(\n            password.to_s,\n            salt: [salt].pack(\"H*\"),\n            iterations: stretches,\n            hash: hash,\n            length: hash.digest_length\n          )",
+          "file": "vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb",
+          "kind": "call",
+          "line": 41,
+          "method": "pbkdf2_hmac",
+          "owner": "Devise::Pbkdf2Encryptable::Encryptors::Base",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb#L41",
+          "source_sha256": "edb9407006398c60c8aa0a31290db5571ae93e170a18a1a4087e16d8afc4221e",
+          "unit": "vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb:1389:singleton:pbkdf2_checksum"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "afd5f706be4109426dadb06e1ce55bb885ee82e3950a1c64c52679915c2e49b7",
+        "fbf0b7f391856f600222a8abbcb9b7a35038c1049552bd938df38a125f8749d1"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( kwargs [ 0 ] )",
+            "file": "ext/openssl/ossl_kdf.c",
+            "function": "kdf_pbkdf2_hmac",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_kdf.c:37:kdf_pbkdf2_hmac",
+            "line": 55,
+            "package": "openssl@3.3.3",
+            "source_sha256": "9cd46f098de9ffe51b74c57b2400e31d7ce1c3d8d8ef5a45e11a63441150adae"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "kwargs [ 0 ]",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new ( 0 , len )",
+            "file": "ext/openssl/ossl_kdf.c",
+            "function": "kdf_pbkdf2_hmac",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_kdf.c:37:kdf_pbkdf2_hmac",
+            "line": 60,
+            "package": "openssl@3.3.3",
+            "source_sha256": "9cd46f098de9ffe51b74c57b2400e31d7ce1c3d8d8ef5a45e11a63441150adae"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "0",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "pbkdf2_hmac",
+        "owner": "OpenSSL::KDF",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "0833d98242047545e4aba5ddadb7d7523587b7f87655bd1d8808c6eec92a77d6",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "salt: [salt].pack(\"H*\"), iterations: stretches, hash: hash, length: hash.digest_length",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "keywords",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1737,
+          "byte_start": 1538,
+          "column": 11,
+          "end_line": 47,
+          "expression": "OpenSSL::KDF.pbkdf2_hmac(\n            password.to_s,\n            salt: [salt].pack(\"H*\"),\n            iterations: stretches,\n            hash: hash,\n            length: hash.digest_length\n          )",
+          "file": "vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb",
+          "kind": "call",
+          "line": 41,
+          "method": "pbkdf2_hmac",
+          "owner": "Devise::Pbkdf2Encryptable::Encryptors::Base",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb#L41",
+          "source_sha256": "edb9407006398c60c8aa0a31290db5571ae93e170a18a1a4087e16d8afc4221e",
+          "unit": "vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb:1389:singleton:pbkdf2_checksum"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "96b50db1da831b94c58adddd4e3cfc5c8a0fce34f804685f9284a0a246d40905"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( pass )",
+            "file": "ext/openssl/ossl_kdf.c",
+            "function": "kdf_pbkdf2_hmac",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_kdf.c:37:kdf_pbkdf2_hmac",
+            "line": 54,
+            "package": "openssl@3.3.3",
+            "source_sha256": "9cd46f098de9ffe51b74c57b2400e31d7ce1c3d8d8ef5a45e11a63441150adae"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pass",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "pbkdf2_hmac",
+        "owner": "OpenSSL::KDF",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "0833d98242047545e4aba5ddadb7d7523587b7f87655bd1d8808c6eec92a77d6",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "password.to_s",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1737,
+          "byte_start": 1538,
+          "column": 11,
+          "end_line": 47,
+          "expression": "OpenSSL::KDF.pbkdf2_hmac(\n            password.to_s,\n            salt: [salt].pack(\"H*\"),\n            iterations: stretches,\n            hash: hash,\n            length: hash.digest_length\n          )",
+          "file": "vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb",
+          "kind": "call",
+          "line": 41,
+          "method": "pbkdf2_hmac",
+          "owner": "Devise::Pbkdf2Encryptable::Encryptors::Base",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb#L41",
+          "source_sha256": "edb9407006398c60c8aa0a31290db5571ae93e170a18a1a4087e16d8afc4221e",
+          "unit": "vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb:1389:singleton:pbkdf2_checksum"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::KDF",
+    "proof": [
+      {
+        "byte_end": 1550,
+        "byte_start": 1538,
+        "column": 11,
+        "end_line": 41,
+        "expression": "OpenSSL::KDF",
+        "file": "vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb",
+        "kind": "expression",
+        "line": 41,
+        "owner": "Devise::Pbkdf2Encryptable::Encryptors::Base",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb#L41",
+        "source_sha256": "edb9407006398c60c8aa0a31290db5571ae93e170a18a1a4087e16d8afc4221e",
+        "unit": "vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb:1389:singleton:pbkdf2_checksum"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::KDF"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb",
+    "line": 41,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/vendor/gems/devise-pbkdf2-encryptable/lib/devise/pbkdf2_encryptable/encryptors/base.rb#L41",
+    "source_sha256": "edb9407006398c60c8aa0a31290db5571ae93e170a18a1a4087e16d8afc4221e"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "password.to_s",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "salt: [salt].pack(\"H*\"), iterations: stretches, hash: hash, length: hash.digest_length",
+      "index": 1,
+      "kind": "keywords",
+      "types": [
+        [
+          "instance",
+          "Hash"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

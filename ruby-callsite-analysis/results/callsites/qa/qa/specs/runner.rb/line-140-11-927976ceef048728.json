@@ -1,0 +1,239 @@
+{
+  "callsite_id": "927976ceef048728f0c63777d40b3e128f1fae6cf4506c7404651061838108cb",
+  "expression": "JSON.load_file(file, symbolize_names: true)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "load_file",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "059f528afc3ca5bec3c9e4f7ea8ff78a2431888a61e66657b14c989fe0d39c2e",
+        "49dcdad6d28ae234bad2f5d96a072fda19447944450431add1e2f38ff347c576",
+        "a9d185e8af4ec1a0f3d0ca1aabe16bbaa62ef6d83524c592b364f5a21551d890",
+        "c6b4802b9feb933c27567c1d839865096aabb22b0a110a14ba9bb95dc0c774a0"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( source )",
+            "file": "ext/json/ext/parser/parser.c",
+            "function": "convert_encoding",
+            "function_id": "json@2.21.2:ext/json/ext/parser/parser.c:1974:convert_encoding",
+            "line": 1976,
+            "package": "json@2.21.2",
+            "source_sha256": "8d42f7d20053d6d3432c78b2a6ff7919124caa60b2b647c0c41ff7ec3c52afb6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "source",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( source )",
+            "file": "ext/json/ext/parser/parser.c",
+            "function": "convert_encoding",
+            "function_id": "json@2.21.2:git:5a32e4367ca5976f62af12887a09685b7109b054:ext/json/ext/parser/parser.c:1974:convert_encoding",
+            "line": 1976,
+            "package": "json@2.21.2:git:5a32e4367ca5976f62af12887a09685b7109b054",
+            "source_sha256": "8d42f7d20053d6d3432c78b2a6ff7919124caa60b2b647c0c41ff7ec3c52afb6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "source",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_dup ( source )",
+            "file": "ext/json/ext/parser/parser.c",
+            "function": "convert_encoding",
+            "function_id": "json@2.21.2:ext/json/ext/parser/parser.c:1974:convert_encoding",
+            "line": 1985,
+            "package": "json@2.21.2",
+            "source_sha256": "8d42f7d20053d6d3432c78b2a6ff7919124caa60b2b647c0c41ff7ec3c52afb6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "source",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_dup",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_dup ( source )",
+            "file": "ext/json/ext/parser/parser.c",
+            "function": "convert_encoding",
+            "function_id": "json@2.21.2:git:5a32e4367ca5976f62af12887a09685b7109b054:ext/json/ext/parser/parser.c:1974:convert_encoding",
+            "line": 1985,
+            "package": "json@2.21.2:git:5a32e4367ca5976f62af12887a09685b7109b054",
+            "source_sha256": "8d42f7d20053d6d3432c78b2a6ff7919124caa60b2b647c0c41ff7ec3c52afb6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "source",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_dup",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "json",
+        "method": "parse",
+        "owner": "JSON::Ext::Parser",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "2.21.2"
+      },
+      "native_api_group": "ae104bcfeeac71bb4f6299150ab0c196e19015d379c4fd3eaea06b48cd9fa3fc",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "file",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 4535,
+          "byte_start": 4492,
+          "call_event": "927976ceef048728f0c63777d40b3e128f1fae6cf4506c7404651061838108cb",
+          "callee": "@gem/json@2.21.2/lib/json/common.rb:11764:instance:load_file",
+          "callee_argument": 0,
+          "column": 11,
+          "end_line": 140,
+          "expression": "JSON.load_file(file, symbolize_names: true)",
+          "file": "qa/qa/specs/runner.rb",
+          "kind": "ruby_argument_binding",
+          "line": 140,
+          "method": "load_file",
+          "owner": "QA::Specs::Runner",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/qa/qa/specs/runner.rb#L140",
+          "source_sha256": "01fb7bd431ab97bd12d903c4a65f87e2e985866fdf710914f9589dd868cc72c6",
+          "unit": "qa/qa/specs/runner.rb:4092:instance:count_examples_only"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 11863,
+          "byte_start": 11804,
+          "call_event": "7034d35a21efea8020d3d245b80b340821edb7eaf7145a524495cc7e0ed19114",
+          "callee": "@gem/json@2.21.2/lib/json/common.rb:10865:instance:parse",
+          "callee_argument": 0,
+          "column": 5,
+          "end_line": 400,
+          "expression": "parse(File.read(filespec, encoding: Encoding::UTF_8), opts)",
+          "file": "@gem/json@2.21.2/lib/json/common.rb",
+          "kind": "ruby_argument_binding",
+          "line": 400,
+          "method": "parse",
+          "owner": "JSON",
+          "source_package": {
+            "file": "lib/json/common.rb",
+            "gem": "json",
+            "package_sha256": "1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a",
+            "source_url": "https://rubygems.org/downloads/json-2.21.2.gem",
+            "version": "2.21.2"
+          },
+          "source_sha256": "4517bbea2ec577573dae3b065171e9c2fb73c2b47952a0359c7ae13e8c9dafb1",
+          "unit": "@gem/json@2.21.2/lib/json/common.rb:11764:instance:load_file"
+        },
+        {
+          "byte_end": 10981,
+          "byte_start": 10955,
+          "column": 5,
+          "end_line": 364,
+          "expression": "Parser.parse(source, opts)",
+          "file": "@gem/json@2.21.2/lib/json/common.rb",
+          "kind": "call",
+          "line": 364,
+          "method": "parse",
+          "owner": "JSON",
+          "source_package": {
+            "file": "lib/json/common.rb",
+            "gem": "json",
+            "package_sha256": "1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a",
+            "source_url": "https://rubygems.org/downloads/json-2.21.2.gem",
+            "version": "2.21.2"
+          },
+          "source_sha256": "4517bbea2ec577573dae3b065171e9c2fb73c2b47952a0359c7ae13e8c9dafb1",
+          "unit": "@gem/json@2.21.2/lib/json/common.rb:10865:instance:parse"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "JSON",
+    "proof": [
+      {
+        "byte_end": 4496,
+        "byte_start": 4492,
+        "column": 11,
+        "end_line": 140,
+        "expression": "JSON",
+        "file": "qa/qa/specs/runner.rb",
+        "kind": "expression",
+        "line": 140,
+        "owner": "QA::Specs::Runner",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/qa/qa/specs/runner.rb#L140",
+        "source_sha256": "01fb7bd431ab97bd12d903c4a65f87e2e985866fdf710914f9589dd868cc72c6",
+        "unit": "qa/qa/specs/runner.rb:4092:instance:count_examples_only"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "JSON"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "qa/qa/specs/runner.rb",
+    "line": 140,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/qa/qa/specs/runner.rb#L140",
+    "source_sha256": "01fb7bd431ab97bd12d903c4a65f87e2e985866fdf710914f9589dd868cc72c6"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "file",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "symbolize_names: true",
+      "index": 1,
+      "kind": "keywords",
+      "types": [
+        [
+          "instance",
+          "Hash"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

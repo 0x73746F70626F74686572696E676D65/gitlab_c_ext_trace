@@ -1,0 +1,197 @@
+{
+  "callsite_id": "d097fed00499a2262bf2ebd90618d3b011744f5f3f6add0bb846f0e45b9b81b2",
+  "expression": "cert.not_after",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "not_after=",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "01a4cca00cfa6a80371b90bf48351a9e7ff749c2d8086e1334413b9e355e73b2",
+        "758ae1db7de9d6ea44d8089adc378325df6ba6f22a359b5a91734f4a170cbc30",
+        "88454a7b3efbb492b1cadd311f336660be47d64311b6f77ad297377cc3a1c542",
+        "bfd32623fa0331bbb9d925c25a80ec3b6c2c247395f38d29aa5e8d5b9736259c"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* sec = t % 86400",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "ossl_time_split",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_asn1.c:78:ossl_time_split",
+            "line": 85,
+            "package": "openssl@3.3.3",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* sec = t % 86400",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "ossl_time_split",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_asn1.c:78:ossl_time_split",
+            "line": 85,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_Integer ( time )",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "ossl_time_split",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_asn1.c:78:ossl_time_split",
+            "line": 81,
+            "package": "openssl@3.3.3",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "time",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "rb_Integer",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_Integer ( time )",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "ossl_time_split",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_asn1.c:78:ossl_time_split",
+            "line": 81,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "time",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "rb_Integer",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "not_after=",
+        "owner": "OpenSSL::X509::Certificate",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "14a7e783bf9b3046d1cdc93dee413f4f576f0b33920e6fef169152d793994aac",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "Time.current + 3600",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 540,
+          "byte_start": 526,
+          "column": 5,
+          "end_line": 18,
+          "expression": "cert.not_after",
+          "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+          "kind": "call",
+          "line": 18,
+          "method": "not_after=",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L18",
+          "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347",
+          "unit": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "cert",
+    "proof": [
+      {
+        "byte_end": 445,
+        "byte_start": 415,
+        "column": 12,
+        "end_line": 14,
+        "expression": "OpenSSL::X509::Certificate.new",
+        "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+        "kind": "call",
+        "line": 14,
+        "method": "new",
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L14",
+        "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347",
+        "unit": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb:0:singleton:<file-body>"
+      },
+      {
+        "byte_end": 445,
+        "byte_start": 408,
+        "column": 5,
+        "end_line": 14,
+        "expression": "cert = OpenSSL::X509::Certificate.new",
+        "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+        "kind": "expression",
+        "line": 14,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L14",
+        "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347",
+        "unit": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb:0:singleton:<file-body>"
+      },
+      {
+        "byte_end": 530,
+        "byte_start": 526,
+        "column": 5,
+        "end_line": 18,
+        "expression": "cert",
+        "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+        "kind": "expression",
+        "line": 18,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L18",
+        "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347",
+        "unit": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::X509::Certificate"
+      ]
+    ]
+  },
+  "source": {
+    "column": 5,
+    "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+    "line": 18,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L18",
+    "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "Time.current + 3600",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

@@ -1,0 +1,203 @@
+{
+  "callsite_id": "aa4f49e98e0f64aa939940125d78c41bf51dd3252ce882b074959902179742a4",
+  "expression": "OpenSSL::PKey::EC.new(service_desk_private_key.public_to_pem)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "053470d8476a4b3d0766a644ea96d527afa2782282f3452ed9892179be22587c",
+        "4bee7682d3e3f452169f80e10899e688bb74bcd9c786240831bbea6e9dd3cd3e",
+        "5caa777e23181070bcbbae4e226a13fb6c1c53cdc42a6ed08d79a5255e53938c",
+        "7a625f90cc41a616b9042627afc1a998b30851f895d53bccc8d73af0d4bc40fc",
+        "a6aa3812c64edcbac89693da9cce47eb23a24cea2cbdf34508aa43f246dc05bf",
+        "a7b15db7c6734db44be900bb2abb5ee42191d357b9cd31a79800249ad511adf6"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( arg )",
+            "file": "ext/openssl/ossl_pkey_ec.c",
+            "function": "ec_key_new_from_group",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_pkey_ec.c:67:ec_key_new_from_group",
+            "line": 84,
+            "package": "openssl@3.3.3",
+            "source_sha256": "15734533a47240b85832b557c8a7cd10e4ed396c56d2e6c686147b1285a4e000"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "arg",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( arg )",
+            "file": "ext/openssl/ossl_pkey_ec.c",
+            "function": "ec_key_new_from_group",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_pkey_ec.c:67:ec_key_new_from_group",
+            "line": 84,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "15734533a47240b85832b557c8a7cd10e4ed396c56d2e6c686147b1285a4e000"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "arg",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::PKey::EC",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "d985a57f0cd5294908a519cc360992384baa3047a8249c4afa6f40808fc7b433",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "service_desk_private_key.public_to_pem",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2069,
+          "byte_start": 2008,
+          "column": 35,
+          "end_line": 56,
+          "expression": "OpenSSL::PKey::EC.new(service_desk_private_key.public_to_pem)",
+          "file": "spec/lib/gitlab/mail_room/authenticator_spec.rb",
+          "kind": "call",
+          "line": 56,
+          "method": "new",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/mail_room/authenticator_spec.rb#L56",
+          "source_sha256": "d69b38fac3913b0fdfe98291a6ed2af8d37de74470bb0392c17f449123150724",
+          "unit": "spec/lib/gitlab/mail_room/authenticator_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::PKey::EC",
+    "proof": [
+      {
+        "byte_end": 2025,
+        "byte_start": 2008,
+        "column": 35,
+        "end_line": 56,
+        "expression": "OpenSSL::PKey::EC",
+        "file": "spec/lib/gitlab/mail_room/authenticator_spec.rb",
+        "kind": "expression",
+        "line": 56,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/mail_room/authenticator_spec.rb#L56",
+        "source_sha256": "d69b38fac3913b0fdfe98291a6ed2af8d37de74470bb0392c17f449123150724",
+        "unit": "spec/lib/gitlab/mail_room/authenticator_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::PKey::EC"
+      ]
+    ]
+  },
+  "source": {
+    "column": 35,
+    "file": "spec/lib/gitlab/mail_room/authenticator_spec.rb",
+    "line": 56,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/mail_room/authenticator_spec.rb#L56",
+    "source_sha256": "d69b38fac3913b0fdfe98291a6ed2af8d37de74470bb0392c17f449123150724"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "service_desk_private_key.public_to_pem",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

@@ -1,0 +1,174 @@
+{
+  "callsite_id": "9af8bd9e655c7c9ceaf78868775761c8e1d4f8bc04b9b09cab8ea1f8044990e3",
+  "expression": "cert.sign(signed_by&.fetch(:key, nil) || key, OpenSSL::Digest.new('SHA256'))",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "sign",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "197a7d7cf11752be12aafc8d60650f8df239fe7c0315cbd987f36cc7c144a29b",
+        "3d6b768d30c41308fcdec2d6f539e48fdad726011f0f740e7cea43b19c0cfedf"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "sign",
+        "owner": "OpenSSL::X509::Certificate",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "88eadabd73e3be8a344b2490d9b5ffbd3e4d0b5b14de08bf15dddac707b2d7b6",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "OpenSSL::Digest.new('SHA256')",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2305,
+          "byte_start": 2229,
+          "column": 5,
+          "end_line": 55,
+          "expression": "cert.sign(signed_by&.fetch(:key, nil) || key, OpenSSL::Digest.new('SHA256'))",
+          "file": "spec/support/helpers/smime_helper.rb",
+          "kind": "call",
+          "line": 55,
+          "method": "sign",
+          "owner": "SmimeHelper",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/smime_helper.rb#L55",
+          "source_sha256": "2c7e0c140e7fedb33c4cc3e27797699e74e7fa6f8febfefe45757804c331f478",
+          "unit": "spec/support/helpers/smime_helper.rb:620:instance:issue"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "cert",
+    "proof": [
+      {
+        "byte_end": 1034,
+        "byte_start": 1004,
+        "column": 12,
+        "end_line": 30,
+        "expression": "OpenSSL::X509::Certificate.new",
+        "file": "spec/support/helpers/smime_helper.rb",
+        "kind": "call",
+        "line": 30,
+        "method": "new",
+        "owner": "SmimeHelper",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/smime_helper.rb#L30",
+        "source_sha256": "2c7e0c140e7fedb33c4cc3e27797699e74e7fa6f8febfefe45757804c331f478",
+        "unit": "spec/support/helpers/smime_helper.rb:620:instance:issue"
+      },
+      {
+        "byte_end": 1034,
+        "byte_start": 997,
+        "column": 5,
+        "end_line": 30,
+        "expression": "cert = OpenSSL::X509::Certificate.new",
+        "file": "spec/support/helpers/smime_helper.rb",
+        "kind": "expression",
+        "line": 30,
+        "owner": "SmimeHelper",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/smime_helper.rb#L30",
+        "source_sha256": "2c7e0c140e7fedb33c4cc3e27797699e74e7fa6f8febfefe45757804c331f478",
+        "unit": "spec/support/helpers/smime_helper.rb:620:instance:issue"
+      },
+      {
+        "byte_end": 2233,
+        "byte_start": 2229,
+        "column": 5,
+        "end_line": 55,
+        "expression": "cert",
+        "file": "spec/support/helpers/smime_helper.rb",
+        "kind": "expression",
+        "line": 55,
+        "owner": "SmimeHelper",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/smime_helper.rb#L55",
+        "source_sha256": "2c7e0c140e7fedb33c4cc3e27797699e74e7fa6f8febfefe45757804c331f478",
+        "unit": "spec/support/helpers/smime_helper.rb:620:instance:issue"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::X509::Certificate"
+      ]
+    ]
+  },
+  "source": {
+    "column": 5,
+    "file": "spec/support/helpers/smime_helper.rb",
+    "line": 55,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/smime_helper.rb#L55",
+    "source_sha256": "2c7e0c140e7fedb33c4cc3e27797699e74e7fa6f8febfefe45757804c331f478"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "signed_by&.fetch(:key, nil) || key",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "OpenSSL::Digest.new('SHA256')",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "OpenSSL::Digest"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

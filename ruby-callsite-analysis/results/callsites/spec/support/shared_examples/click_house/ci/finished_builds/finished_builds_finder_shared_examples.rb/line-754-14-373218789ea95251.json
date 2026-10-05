@@ -1,0 +1,465 @@
+{
+  "callsite_id": "373218789ea952518c674fbd8f23af8244c50f5089cdda8a44620e7eda42c317",
+  "expression": "BigDecimal(raw.to_s)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "BigDecimal",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "1436455a24fc8255fd1fce99c7ab88029de61f74c5bd90b2a298daac71ce499e",
+        "144cb1c885e7f7498cb464126c6f3f0dfa5aab760d5fb009e687f9abf3b251c7",
+        "3861a5fcf9afa42c76adc5b2aee2690e8ce184d7aaa671d19dd5b4feb27de841",
+        "4a5e46c2455da282cfd9d0a07c7a30cff3240619587609a32a985ff608535f43",
+        "4f5ac8dabdef7f5a0ac34df2749ddff81988e6efa55d3093bddc1024226fa8e1",
+        "6dc0e6086588db9340bd0b61596c6b30c7f43a155da3ccce8504ce9a63238631",
+        "6f44cf86dddd5abf188cd9dbfce2484faee4df0f491fe8fc3c57812b55055876",
+        "7616f13a816438b5e4b6b7d5a59363b0e27c0d90cc814513ac2e5f974cb234d8",
+        "7622d202e91cb9bed4e29e18452372873ae013142f7bd4d3ea75737e7f7b1167",
+        "911b3a28237d96b68d4b27042b4351254c32dd3bae86dae24dadeed66ba2fe2d",
+        "9424d36ee72e1f65d0d195c53089b1d4982bc5efb5e2d5f998d578610aeef7d1",
+        "ac0424488b8a5c824adc27f91a0a9382faa1b75341d74737cd0da978302ed250",
+        "b28c42a892c223f5df149c97c02b2f419d179fe2c57b59cc5e143c1a4fca6643",
+        "c0391aca8bedec6d96bbb64eb0af44ac312841eacc928fca199cb78a6da07439",
+        "d4bcb36f41051ffcf40e7787be4c1276264d977562452be6e994cdf68b7c0142",
+        "dcaeed6576e1deb56a581f60b431ab406bf8b657b10a829996a2729b4c16e412",
+        "e85df78a6fff1850bcb4a8e61dbd27e49cdab6b84717b76de18fc9dbe92c38f7",
+        "fe71627df08af41dd6bb9678a062fc1f349c0b0657554d3158a489a6114724e7"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "MEMCPY ( pv -> frac , x -> frac , DECDIG , pv -> MaxPrec )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpCopy",
+            "function_id": "bigdecimal@3.3.1:ext/bigdecimal/bigdecimal.c:1062:VpCopy",
+            "line": 1073,
+            "package": "bigdecimal@3.3.1",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pv -> MaxPrec",
+              "index": 3
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "MEMCPY",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "MEMCPY ( pv -> frac , x -> frac , DECDIG , pv -> MaxPrec )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpCopy",
+            "function_id": "bigdecimal@3.3.1:ext/bigdecimal/bigdecimal.c:1062:VpCopy",
+            "line": 1073,
+            "package": "bigdecimal@3.3.1",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pv -> frac",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "MEMCPY",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "MEMCPY ( pv -> frac , x -> frac , DECDIG , pv -> MaxPrec )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpCopy",
+            "function_id": "bigdecimal@3.3.1:ext/bigdecimal/bigdecimal.c:1062:VpCopy",
+            "line": 1073,
+            "package": "bigdecimal@3.3.1",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "x -> frac",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "MEMCPY",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "MEMCPY ( pv -> frac , x -> frac , DECDIG , pv -> MaxPrec )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpCopy",
+            "function_id": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a:ext/bigdecimal/bigdecimal.c:1062:VpCopy",
+            "line": 1073,
+            "package": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pv -> MaxPrec",
+              "index": 3
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "MEMCPY",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "MEMCPY ( pv -> frac , x -> frac , DECDIG , pv -> MaxPrec )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpCopy",
+            "function_id": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a:ext/bigdecimal/bigdecimal.c:1062:VpCopy",
+            "line": 1073,
+            "package": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pv -> frac",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "MEMCPY",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "MEMCPY ( pv -> frac , x -> frac , DECDIG , pv -> MaxPrec )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpCopy",
+            "function_id": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a:ext/bigdecimal/bigdecimal.c:1062:VpCopy",
+            "line": 1073,
+            "package": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "x -> frac",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "MEMCPY",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( val )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "rb_str_convert_to_BigDecimal",
+            "function_id": "bigdecimal@3.3.1:ext/bigdecimal/bigdecimal.c:2900:rb_str_convert_to_BigDecimal",
+            "line": 2903,
+            "package": "bigdecimal@3.3.1",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "val",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( val )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "rb_str_convert_to_BigDecimal",
+            "function_id": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a:ext/bigdecimal/bigdecimal.c:2900:rb_str_convert_to_BigDecimal",
+            "line": 2903,
+            "package": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "val",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "psz [ i ] = szVal [ j ]",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpAlloc",
+            "function_id": "bigdecimal@3.3.1:ext/bigdecimal/bigdecimal.c:4239:VpAlloc",
+            "line": 4322,
+            "package": "bigdecimal@3.3.1",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "psz [ i ] = szVal [ j ]",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpAlloc",
+            "function_id": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a:ext/bigdecimal/bigdecimal.c:4239:VpAlloc",
+            "line": 4347,
+            "package": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_tmp_new ( strlen ( szVal ) + 1 )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpAlloc",
+            "function_id": "bigdecimal@3.3.1:ext/bigdecimal/bigdecimal.c:4239:VpAlloc",
+            "line": 4266,
+            "package": "bigdecimal@3.3.1",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "strlen ( szVal ) + 1",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_tmp_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_tmp_new ( strlen ( szVal ) + 1 )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpAlloc",
+            "function_id": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a:ext/bigdecimal/bigdecimal.c:4239:VpAlloc",
+            "line": 4266,
+            "package": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "strlen ( szVal ) + 1",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_tmp_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "ruby_xrealloc ( pv , rbd_struct_size ( x -> MaxPrec ) )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpCopy",
+            "function_id": "bigdecimal@3.3.1:ext/bigdecimal/bigdecimal.c:1062:VpCopy",
+            "line": 1067,
+            "package": "bigdecimal@3.3.1",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbd_struct_size ( x -> MaxPrec )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "ruby_xrealloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "ruby_xrealloc ( pv , rbd_struct_size ( x -> MaxPrec ) )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpCopy",
+            "function_id": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a:ext/bigdecimal/bigdecimal.c:1062:VpCopy",
+            "line": 1067,
+            "package": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbd_struct_size ( x -> MaxPrec )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "ruby_xrealloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strlen ( szVal )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpAlloc",
+            "function_id": "bigdecimal@3.3.1:ext/bigdecimal/bigdecimal.c:4239:VpAlloc",
+            "line": 4266,
+            "package": "bigdecimal@3.3.1",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "szVal",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strlen",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strlen ( szVal )",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "VpAlloc",
+            "function_id": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a:ext/bigdecimal/bigdecimal.c:4239:VpAlloc",
+            "line": 4266,
+            "package": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "szVal",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strlen",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "vp -> frac [ 0 ] = ( DECDIG ) uval",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "rb_uint64_convert_to_BigDecimal",
+            "function_id": "bigdecimal@3.3.1:ext/bigdecimal/bigdecimal.c:2603:rb_uint64_convert_to_BigDecimal",
+            "line": 2620,
+            "package": "bigdecimal@3.3.1",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "vp -> frac [ 0 ] = ( DECDIG ) uval",
+            "file": "ext/bigdecimal/bigdecimal.c",
+            "function": "rb_uint64_convert_to_BigDecimal",
+            "function_id": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a:ext/bigdecimal/bigdecimal.c:2603:rb_uint64_convert_to_BigDecimal",
+            "line": 2620,
+            "package": "bigdecimal@3.3.1:git:2d932f479c5802ad59d1dd1be0af63945a343e9a",
+            "source_sha256": "3d690a2cf5d00c86643f0724e534f6b2efc135fad89135f9df7a24ae1698a566"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "bigdecimal",
+        "method": "BigDecimal",
+        "owner": "Kernel",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [],
+        "version": "3.3.1"
+      },
+      "native_api_group": "f8b480f0abac4d18d0917e22866cb0ba2f84379a059935b0b584706cb73808bd",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "raw.to_s",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 21615,
+          "byte_start": 21595,
+          "column": 14,
+          "end_line": 754,
+          "expression": "BigDecimal(raw.to_s)",
+          "file": "spec/support/shared_examples/click_house/ci/finished_builds/finished_builds_finder_shared_examples.rb",
+          "kind": "call",
+          "line": 754,
+          "method": "BigDecimal",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/shared_examples/click_house/ci/finished_builds/finished_builds_finder_shared_examples.rb#L754",
+          "source_sha256": "7d899dc347b48e110cb14affaa6673a0f9391a6ac8d07639623ca37f3b708161",
+          "unit": "spec/support/shared_examples/click_house/ci/finished_builds/finished_builds_finder_shared_examples.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "self",
+    "proof": [
+      {
+        "byte_end": 21615,
+        "byte_start": 21595,
+        "column": 14,
+        "end_line": 754,
+        "expression": "BigDecimal(raw.to_s)",
+        "file": "spec/support/shared_examples/click_house/ci/finished_builds/finished_builds_finder_shared_examples.rb",
+        "kind": "call",
+        "line": 754,
+        "method": "BigDecimal",
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/shared_examples/click_house/ci/finished_builds/finished_builds_finder_shared_examples.rb#L754",
+        "source_sha256": "7d899dc347b48e110cb14affaa6673a0f9391a6ac8d07639623ca37f3b708161",
+        "unit": "spec/support/shared_examples/click_house/ci/finished_builds/finished_builds_finder_shared_examples.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "Object"
+      ]
+    ]
+  },
+  "source": {
+    "column": 14,
+    "file": "spec/support/shared_examples/click_house/ci/finished_builds/finished_builds_finder_shared_examples.rb",
+    "line": 754,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/shared_examples/click_house/ci/finished_builds/finished_builds_finder_shared_examples.rb#L754",
+    "source_sha256": "7d899dc347b48e110cb14affaa6673a0f9391a6ac8d07639623ca37f3b708161"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "raw.to_s",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

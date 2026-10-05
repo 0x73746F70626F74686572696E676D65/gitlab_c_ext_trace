@@ -1,0 +1,328 @@
+{
+  "callsite_id": "6f6fe393dd28889613b397573430bf23f94b93c3a471c1637fc1e70177ae5110",
+  "expression": "Date.new(year, month, 1)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "2746485090981e1b0dee7e555c9cb829d4f090ffa650cae732508ba70c6c7774",
+        "e71102a9aa048f429b39baf26767909a11b974785e5a198a2673f347b42ac1d0"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* ry = FIX2INT ( y )",
+            "file": "ext/date/date_core.c",
+            "function": "valid_civil_p",
+            "function_id": "date@3.5.1:ext/date/date_core.c:2238:valid_civil_p",
+            "line": 2255,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* ry = FIX2INT ( y )",
+            "file": "ext/date/date_core.c",
+            "function": "valid_civil_p",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:2238:valid_civil_p",
+            "line": 2255,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "initialize",
+        "owner": "Date",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "1da6c2ff6bc0ac58281390a866e6f2a45d9621cfb8c245fd96162e42fc214f1c",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "year",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2578,
+          "byte_start": 2554,
+          "column": 21,
+          "end_line": 67,
+          "expression": "Date.new(year, month, 1)",
+          "file": "keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb",
+          "kind": "call",
+          "line": 67,
+          "method": "new",
+          "owner": "Keeps::OverdueFinalizeBackgroundMigrations::OutdatedMigrationChecker",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb#L67",
+          "source_sha256": "82d87685278597c943e473bb351ceedc5f17aab32e94728d295820961b0428ca",
+          "unit": "keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb:2493:instance:third_thursday_of_month"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "620a24a94320d73a0359262f7b32c6a152000f90206c830e699cd276b5b57e78",
+        "afa7f0cdb70c7cac46c6310cdcf368f3cc496b09942d3ba9b5c754ba60960705"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* rm = m",
+            "file": "ext/date/date_core.c",
+            "function": "c_valid_gregorian_p",
+            "function_id": "date@3.5.1:ext/date/date_core.c:747:c_valid_gregorian_p",
+            "line": 761,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rm = m",
+            "file": "ext/date/date_core.c",
+            "function": "c_valid_gregorian_p",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:747:c_valid_gregorian_p",
+            "line": 761,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "initialize",
+        "owner": "Date",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "1da6c2ff6bc0ac58281390a866e6f2a45d9621cfb8c245fd96162e42fc214f1c",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "month",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2578,
+          "byte_start": 2554,
+          "column": 21,
+          "end_line": 67,
+          "expression": "Date.new(year, month, 1)",
+          "file": "keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb",
+          "kind": "call",
+          "line": 67,
+          "method": "new",
+          "owner": "Keeps::OverdueFinalizeBackgroundMigrations::OutdatedMigrationChecker",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb#L67",
+          "source_sha256": "82d87685278597c943e473bb351ceedc5f17aab32e94728d295820961b0428ca",
+          "unit": "keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb:2493:instance:third_thursday_of_month"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "aa620ce72aa3b946cb1c0f67a823c9f8b999110d226f8b18792d308cf8736833",
+        "b493d0e1abb71c482cb942f0bff15614470d3e223155328142f473311dc1e41b",
+        "d0fdd4ee97a30f8d9c7fdd349652a9b89bae2d10aeb437fcd39e25dd972e870b",
+        "de6468211d9d504e0429bef2654ca889057e4666d66e0a4c9915ba6dbda7abda"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* rd = d",
+            "file": "ext/date/date_core.c",
+            "function": "c_valid_gregorian_p",
+            "function_id": "date@3.5.1:ext/date/date_core.c:747:c_valid_gregorian_p",
+            "line": 762,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rd = d",
+            "file": "ext/date/date_core.c",
+            "function": "c_valid_gregorian_p",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:747:c_valid_gregorian_p",
+            "line": 762,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rdom = ( int ) dom",
+            "file": "ext/date/date_core.c",
+            "function": "c_jd_to_civil",
+            "function_id": "date@3.5.1:ext/date/date_core.c:526:c_jd_to_civil",
+            "line": 553,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rdom = ( int ) dom",
+            "file": "ext/date/date_core.c",
+            "function": "c_jd_to_civil",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:526:c_jd_to_civil",
+            "line": 553,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "initialize",
+        "owner": "Date",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "1da6c2ff6bc0ac58281390a866e6f2a45d9621cfb8c245fd96162e42fc214f1c",
+      "native_argument_index": 2,
+      "ruby_argument_expression": "1",
+      "ruby_argument_index": 2,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2578,
+          "byte_start": 2554,
+          "column": 21,
+          "end_line": 67,
+          "expression": "Date.new(year, month, 1)",
+          "file": "keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb",
+          "kind": "call",
+          "line": 67,
+          "method": "new",
+          "owner": "Keeps::OverdueFinalizeBackgroundMigrations::OutdatedMigrationChecker",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb#L67",
+          "source_sha256": "82d87685278597c943e473bb351ceedc5f17aab32e94728d295820961b0428ca",
+          "unit": "keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb:2493:instance:third_thursday_of_month"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Date",
+    "proof": [
+      {
+        "byte_end": 2558,
+        "byte_start": 2554,
+        "column": 21,
+        "end_line": 67,
+        "expression": "Date",
+        "file": "keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb",
+        "kind": "expression",
+        "line": 67,
+        "owner": "Keeps::OverdueFinalizeBackgroundMigrations::OutdatedMigrationChecker",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb#L67",
+        "source_sha256": "82d87685278597c943e473bb351ceedc5f17aab32e94728d295820961b0428ca",
+        "unit": "keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb:2493:instance:third_thursday_of_month"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Date"
+      ]
+    ]
+  },
+  "source": {
+    "column": 21,
+    "file": "keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb",
+    "line": 67,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/keeps/overdue_finalize_background_migrations/outdated_migration_checker.rb#L67",
+    "source_sha256": "82d87685278597c943e473bb351ceedc5f17aab32e94728d295820961b0428ca"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "year",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "month",
+      "index": 1,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "1",
+      "index": 2,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Integer"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

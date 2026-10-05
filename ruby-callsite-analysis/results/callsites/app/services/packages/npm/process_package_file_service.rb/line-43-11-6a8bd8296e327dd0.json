@@ -1,0 +1,192 @@
+{
+  "callsite_id": "6a8bd8296e327dd029b2d7c07cc9c94cae0696236e40a69f5707f606b4c6acc7",
+  "expression": "Zlib::GzipReader.open(open_file.file_path) do |gz|\n            tar_reader = Gem::Package::TarReader.new(gz)\n\n            entry_path = entry_full_name(tar_reader)\n            yield unless entry_path.is_a?(String)\n\n            tar_reader.rewind\n            entry = tar_reader.find { |e| path_for(e) == entry_path }\n\n            yield entry\n          end",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "open",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "5a593523c07e27372f2a18cc044ffb2e2737011a8ec944f89c4cd3369b4d71a3",
+        "74ec65033b199fbe03b26f90a8f088e763b5253aa5e4c22d9677118bff09d9a4",
+        "b02ced9c6763b720be842ba11459d5560b45249bbf41e7f2c6457a81e15106e5",
+        "da3a3c9d5f2917998c3906ec000c09755cefdceec51c38a3ad8edc3a839c5741"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "argv [ 0 ] = io",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_s_open",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3305:gzfile_s_open",
+            "line": 3313,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "argv [ 0 ] = io",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_s_open",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3305:gzfile_s_open",
+            "line": 3313,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "open",
+        "owner": "Zlib::GzipReader",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "7cbfca84a6a9e010a7d0e0d1c5773df963e33e0bc5cf600288d9faa29d16db45",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "open_file.file_path",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1579,
+          "byte_start": 1228,
+          "column": 11,
+          "end_line": 53,
+          "expression": "Zlib::GzipReader.open(open_file.file_path) do |gz|\n            tar_reader = Gem::Package::TarReader.new(gz)\n\n            entry_path = entry_full_name(tar_reader)\n            yield unless entry_path.is_a?(String)\n\n            tar_reader.rewind\n            entry = tar_reader.find { |e| path_for(e) == entry_path }\n\n            yield entry\n          end",
+          "file": "app/services/packages/npm/process_package_file_service.rb",
+          "kind": "call",
+          "line": 43,
+          "method": "open",
+          "owner": "Packages::Npm::ProcessPackageFileService",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/npm/process_package_file_service.rb#L43",
+          "source_sha256": "09045639ad0384fa653cbb0a49d14879f0f5a374bf85f14f287c9ce0f31952ba",
+          "unit": "app/services/packages/npm/process_package_file_service.rb:1114:instance:with_package_json_entry"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::GzipReader",
+    "proof": [
+      {
+        "byte_end": 1244,
+        "byte_start": 1228,
+        "column": 11,
+        "end_line": 43,
+        "expression": "Zlib::GzipReader",
+        "file": "app/services/packages/npm/process_package_file_service.rb",
+        "kind": "expression",
+        "line": 43,
+        "owner": "Packages::Npm::ProcessPackageFileService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/npm/process_package_file_service.rb#L43",
+        "source_sha256": "09045639ad0384fa653cbb0a49d14879f0f5a374bf85f14f287c9ce0f31952ba",
+        "unit": "app/services/packages/npm/process_package_file_service.rb:1114:instance:with_package_json_entry"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::GzipReader"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "app/services/packages/npm/process_package_file_service.rb",
+    "line": 43,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/npm/process_package_file_service.rb#L43",
+    "source_sha256": "09045639ad0384fa653cbb0a49d14879f0f5a374bf85f14f287c9ce0f31952ba"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "open_file.file_path",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

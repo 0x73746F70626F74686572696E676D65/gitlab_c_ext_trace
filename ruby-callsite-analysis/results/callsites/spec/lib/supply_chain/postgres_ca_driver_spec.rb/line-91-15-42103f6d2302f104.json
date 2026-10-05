@@ -1,0 +1,139 @@
+{
+  "callsite_id": "42103f6d2302f104bae28a65c397477c7723564c34de41652346bf7fb848c7ef",
+  "expression": "OpenSSL::PKey::EC.generate(described_class::EC_CURVE)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "generate",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "b02311a889e276cbff10cf55574e188cbedcffde421a4f5e4b1d034895dccbb3",
+        "e116dcdff40386c0251b191824c895a3f083abecb9069fa875a2d5a862b306cd"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( arg )",
+            "file": "ext/openssl/ossl_pkey_ec.c",
+            "function": "ec_key_new_from_group",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_pkey_ec.c:67:ec_key_new_from_group",
+            "line": 84,
+            "package": "openssl@3.3.3",
+            "source_sha256": "15734533a47240b85832b557c8a7cd10e4ed396c56d2e6c686147b1285a4e000"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "arg",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( arg )",
+            "file": "ext/openssl/ossl_pkey_ec.c",
+            "function": "ec_key_new_from_group",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_pkey_ec.c:67:ec_key_new_from_group",
+            "line": 84,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "15734533a47240b85832b557c8a7cd10e4ed396c56d2e6c686147b1285a4e000"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "arg",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "generate",
+        "owner": "OpenSSL::PKey::EC",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "aa398e85615dcb7e1b307d560042b4545995d26f5766490b4e0a1d641e73e834",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "described_class::EC_CURVE",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 3616,
+          "byte_start": 3563,
+          "column": 15,
+          "end_line": 91,
+          "expression": "OpenSSL::PKey::EC.generate(described_class::EC_CURVE)",
+          "file": "spec/lib/supply_chain/postgres_ca_driver_spec.rb",
+          "kind": "call",
+          "line": 91,
+          "method": "generate",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/supply_chain/postgres_ca_driver_spec.rb#L91",
+          "source_sha256": "78e2c90d0f091b57becd35d65293d52f095295eec332c38e6fd470eaebdc2c73",
+          "unit": "spec/lib/supply_chain/postgres_ca_driver_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::PKey::EC",
+    "proof": [
+      {
+        "byte_end": 3580,
+        "byte_start": 3563,
+        "column": 15,
+        "end_line": 91,
+        "expression": "OpenSSL::PKey::EC",
+        "file": "spec/lib/supply_chain/postgres_ca_driver_spec.rb",
+        "kind": "expression",
+        "line": 91,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/supply_chain/postgres_ca_driver_spec.rb#L91",
+        "source_sha256": "78e2c90d0f091b57becd35d65293d52f095295eec332c38e6fd470eaebdc2c73",
+        "unit": "spec/lib/supply_chain/postgres_ca_driver_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::PKey::EC"
+      ]
+    ]
+  },
+  "source": {
+    "column": 15,
+    "file": "spec/lib/supply_chain/postgres_ca_driver_spec.rb",
+    "line": 91,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/supply_chain/postgres_ca_driver_spec.rb#L91",
+    "source_sha256": "78e2c90d0f091b57becd35d65293d52f095295eec332c38e6fd470eaebdc2c73"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "described_class::EC_CURVE",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "singleton",
+          "described_class::EC_CURVE"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

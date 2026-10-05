@@ -1,0 +1,324 @@
+{
+  "callsite_id": "2f7e1cdd24ef304fe2bf7f227d553527aa2b9cd146536c6d636f0d38171899c6",
+  "expression": "Zlib::Deflate.deflate(Gitlab::Json.dump([{ 'content' => content, 'message_type' => 'user' }]))",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "deflate",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "1e310c2a5fc65e9a54e05c8f9fb28061107337157f4a7f02b17e4fc27f42fd35",
+        "37db51303fba60c76ac870e0b893e2b550092f853ce95012b599b6c23e5728b7",
+        "400f4fe8f47b58dc309bc85e918a77ef6d6ab4cb27b920355755b65f2b443043",
+        "431a0f045e298770c178c0ae5b2d6221bd22b7478bc67a8a3b7e271749c372b0",
+        "43a1f8bced8eaaff1864a8a8047171515e14c461681ef8d00daa19cd1b316abd",
+        "539a0a43defc4bfeb671885312dd12012e235488d8ebe3f1c4ecb6eb1334513b",
+        "53aa71b270013a7cfcad3b9cda44a3a685672d6ec6322a1ae61e6d4c7e6cc9e1",
+        "63f13270c980aa7077532b376f8a616e5e0287849dfe3f71794f8d9d3ce04306",
+        "685887b0758fe1519f645d9696b1972c7c568b0b570afe08083929f62edbd646",
+        "dc6ce2e6d598578e78d3be6dbc945f15a7fe3dcc7e0e2fdac82fab49573ce0df"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( src )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_deflate_s_deflate",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:1764:rb_deflate_s_deflate",
+            "line": 1774,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "src",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( src )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_deflate_s_deflate",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:1764:rb_deflate_s_deflate",
+            "line": 1774,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "src",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "args [ 1 ] = src",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_deflate_s_deflate",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:1764:rb_deflate_s_deflate",
+            "line": 1783,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "args [ 1 ] = src",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_deflate_s_deflate",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:1764:rb_deflate_s_deflate",
+            "line": 1783,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_cat ( z -> input , ( const char * ) src , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 894,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> input",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) src",
+              "index": 1
+            },
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_cat",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_cat ( z -> input , ( const char * ) src , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 890,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> input",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) src",
+              "index": 1
+            },
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_cat",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_uint2inum ( z -> stream . adler )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_run_try",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:1128:zstream_run_try",
+            "line": 1189,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> stream . adler",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "rb_uint2inum",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_uint2inum ( z -> stream . adler )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_run_try",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:1128:zstream_run_try",
+            "line": 1189,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> stream . adler",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "rb_uint2inum",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "deflate",
+        "owner": "Zlib::Deflate",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "1fe434cb9d8c7fb96a7cbae1e2ac9ee395954179d28ebd8be429eade28eb40d6",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "Gitlab::Json.dump([{ 'content' => content, 'message_type' => 'user' }])",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 49460,
+          "byte_start": 49366,
+          "column": 21,
+          "end_line": 1157,
+          "expression": "Zlib::Deflate.deflate(Gitlab::Json.dump([{ 'content' => content, 'message_type' => 'user' }]))",
+          "file": "ee/spec/requests/api/graphql/ai/duo_workflows/workflows_spec.rb",
+          "kind": "call",
+          "line": 1157,
+          "method": "deflate",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/requests/api/graphql/ai/duo_workflows/workflows_spec.rb#L1157",
+          "source_sha256": "9d599e517403013c2ccf2c23580b8c4e4f5d93fa93277bec950b659d56ea99d4",
+          "unit": "ee/spec/requests/api/graphql/ai/duo_workflows/workflows_spec.rb:48594:instance:create_incremental_session"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::Deflate",
+    "proof": [
+      {
+        "byte_end": 49379,
+        "byte_start": 49366,
+        "column": 21,
+        "end_line": 1157,
+        "expression": "Zlib::Deflate",
+        "file": "ee/spec/requests/api/graphql/ai/duo_workflows/workflows_spec.rb",
+        "kind": "expression",
+        "line": 1157,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/requests/api/graphql/ai/duo_workflows/workflows_spec.rb#L1157",
+        "source_sha256": "9d599e517403013c2ccf2c23580b8c4e4f5d93fa93277bec950b659d56ea99d4",
+        "unit": "ee/spec/requests/api/graphql/ai/duo_workflows/workflows_spec.rb:48594:instance:create_incremental_session"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::Deflate"
+      ]
+    ]
+  },
+  "source": {
+    "column": 21,
+    "file": "ee/spec/requests/api/graphql/ai/duo_workflows/workflows_spec.rb",
+    "line": 1157,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/requests/api/graphql/ai/duo_workflows/workflows_spec.rb#L1157",
+    "source_sha256": "9d599e517403013c2ccf2c23580b8c4e4f5d93fa93277bec950b659d56ea99d4"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "Gitlab::Json.dump([{ 'content' => content, 'message_type' => 'user' }])",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

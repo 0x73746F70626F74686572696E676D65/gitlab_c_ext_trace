@@ -1,0 +1,260 @@
+{
+  "callsite_id": "6cd189aa83f9fac346174c52e0159d6e9e4383ec7cb78eff73ce3fb2a677eade",
+  "expression": "ca_cert.sign(ca_key, digest)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "sign",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "197a7d7cf11752be12aafc8d60650f8df239fe7c0315cbd987f36cc7c144a29b",
+        "3d6b768d30c41308fcdec2d6f539e48fdad726011f0f740e7cea43b19c0cfedf"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "sign",
+        "owner": "OpenSSL::X509::Certificate",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "88eadabd73e3be8a344b2490d9b5ffbd3e4d0b5b14de08bf15dddac707b2d7b6",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "digest",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 724,
+          "byte_start": 696,
+          "column": 7,
+          "end_line": 30,
+          "expression": "ca_cert.sign(ca_key, digest)",
+          "file": "lib/supply_chain/postgres_ca_driver.rb",
+          "kind": "call",
+          "line": 30,
+          "method": "sign",
+          "owner": "SupplyChain::PostgresCaDriver",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/postgres_ca_driver.rb#L30",
+          "source_sha256": "504ae9441b5eec99a6d55f4ac039c00837027e1f6da128a596b06772a7772077",
+          "unit": "lib/supply_chain/postgres_ca_driver.rb:570:instance:provision_ca!"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "ca_cert",
+    "proof": [
+      {
+        "byte_end": 3081,
+        "byte_start": 3051,
+        "column": 21,
+        "end_line": 87,
+        "expression": "OpenSSL::X509::Certificate.new",
+        "file": "lib/supply_chain/root_ca_driver.rb",
+        "kind": "call",
+        "line": 87,
+        "method": "new",
+        "owner": "SupplyChain::RootCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/root_ca_driver.rb#L87",
+        "source_sha256": "0cd6076009de25bb7306ce280d44b27b8981f9cace3fd983ebf1bc4e6721398d",
+        "unit": "lib/supply_chain/root_ca_driver.rb:2992:instance:build_certificate"
+      },
+      {
+        "byte_end": 3081,
+        "byte_start": 3037,
+        "column": 7,
+        "end_line": 87,
+        "expression": "certificate = OpenSSL::X509::Certificate.new",
+        "file": "lib/supply_chain/root_ca_driver.rb",
+        "kind": "expression",
+        "line": 87,
+        "owner": "SupplyChain::RootCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/root_ca_driver.rb#L87",
+        "source_sha256": "0cd6076009de25bb7306ce280d44b27b8981f9cace3fd983ebf1bc4e6721398d",
+        "unit": "lib/supply_chain/root_ca_driver.rb:2992:instance:build_certificate"
+      },
+      {
+        "byte_end": 3313,
+        "byte_start": 3302,
+        "column": 7,
+        "end_line": 94,
+        "expression": "certificate",
+        "file": "lib/supply_chain/root_ca_driver.rb",
+        "kind": "expression",
+        "line": 94,
+        "owner": "SupplyChain::RootCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/root_ca_driver.rb#L94",
+        "source_sha256": "0cd6076009de25bb7306ce280d44b27b8981f9cace3fd983ebf1bc4e6721398d",
+        "unit": "lib/supply_chain/root_ca_driver.rb:2992:instance:build_certificate"
+      },
+      {
+        "byte_end": 2532,
+        "byte_start": 2482,
+        "column": 21,
+        "end_line": 74,
+        "expression": "build_certificate(key: key, validity: CA_VALIDITY)",
+        "file": "lib/supply_chain/root_ca_driver.rb",
+        "kind": "call",
+        "line": 74,
+        "method": "build_certificate",
+        "owner": "SupplyChain::RootCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/root_ca_driver.rb#L74",
+        "source_sha256": "0cd6076009de25bb7306ce280d44b27b8981f9cace3fd983ebf1bc4e6721398d",
+        "unit": "lib/supply_chain/root_ca_driver.rb:2381:instance:build_ca_certificate"
+      },
+      {
+        "byte_end": 2532,
+        "byte_start": 2468,
+        "column": 7,
+        "end_line": 74,
+        "expression": "certificate = build_certificate(key: key, validity: CA_VALIDITY)",
+        "file": "lib/supply_chain/root_ca_driver.rb",
+        "kind": "expression",
+        "line": 74,
+        "owner": "SupplyChain::RootCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/root_ca_driver.rb#L74",
+        "source_sha256": "0cd6076009de25bb7306ce280d44b27b8981f9cace3fd983ebf1bc4e6721398d",
+        "unit": "lib/supply_chain/root_ca_driver.rb:2381:instance:build_ca_certificate"
+      },
+      {
+        "byte_end": 2978,
+        "byte_start": 2967,
+        "column": 7,
+        "end_line": 83,
+        "expression": "certificate",
+        "file": "lib/supply_chain/root_ca_driver.rb",
+        "kind": "expression",
+        "line": 83,
+        "owner": "SupplyChain::RootCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/root_ca_driver.rb#L83",
+        "source_sha256": "0cd6076009de25bb7306ce280d44b27b8981f9cace3fd983ebf1bc4e6721398d",
+        "unit": "lib/supply_chain/root_ca_driver.rb:2381:instance:build_ca_certificate"
+      },
+      {
+        "byte_end": 689,
+        "byte_start": 656,
+        "column": 17,
+        "end_line": 29,
+        "expression": "build_ca_certificate(key: ca_key)",
+        "file": "lib/supply_chain/postgres_ca_driver.rb",
+        "kind": "call",
+        "line": 29,
+        "method": "build_ca_certificate",
+        "owner": "SupplyChain::PostgresCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/postgres_ca_driver.rb#L29",
+        "source_sha256": "504ae9441b5eec99a6d55f4ac039c00837027e1f6da128a596b06772a7772077",
+        "unit": "lib/supply_chain/postgres_ca_driver.rb:570:instance:provision_ca!"
+      },
+      {
+        "byte_end": 689,
+        "byte_start": 646,
+        "column": 7,
+        "end_line": 29,
+        "expression": "ca_cert = build_ca_certificate(key: ca_key)",
+        "file": "lib/supply_chain/postgres_ca_driver.rb",
+        "kind": "expression",
+        "line": 29,
+        "owner": "SupplyChain::PostgresCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/postgres_ca_driver.rb#L29",
+        "source_sha256": "504ae9441b5eec99a6d55f4ac039c00837027e1f6da128a596b06772a7772077",
+        "unit": "lib/supply_chain/postgres_ca_driver.rb:570:instance:provision_ca!"
+      },
+      {
+        "byte_end": 703,
+        "byte_start": 696,
+        "column": 7,
+        "end_line": 30,
+        "expression": "ca_cert",
+        "file": "lib/supply_chain/postgres_ca_driver.rb",
+        "kind": "expression",
+        "line": 30,
+        "owner": "SupplyChain::PostgresCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/postgres_ca_driver.rb#L30",
+        "source_sha256": "504ae9441b5eec99a6d55f4ac039c00837027e1f6da128a596b06772a7772077",
+        "unit": "lib/supply_chain/postgres_ca_driver.rb:570:instance:provision_ca!"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::X509::Certificate"
+      ]
+    ]
+  },
+  "source": {
+    "column": 7,
+    "file": "lib/supply_chain/postgres_ca_driver.rb",
+    "line": 30,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/postgres_ca_driver.rb#L30",
+    "source_sha256": "504ae9441b5eec99a6d55f4ac039c00837027e1f6da128a596b06772a7772077"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "ca_key",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "digest",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "OpenSSL::Digest"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

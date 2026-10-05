@@ -1,0 +1,189 @@
+{
+  "callsite_id": "dd98c84e933f157176c23e5a8f9723244e8de515a82245f2dc455ff3eb0ff813",
+  "expression": "FFI::DynamicLibrary.open(\n    '/System/Library/Frameworks/Foundation.framework/Foundation',\n    FFI::DynamicLibrary::RTLD_LAZY | FFI::DynamicLibrary::RTLD_GLOBAL\n  )",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "open",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "09e00a939dd2d6622514902d84e58cf8f4862c48318fbfbad31d70b4eac661dd",
+        "406a111fe444b36950efc3bc58810fd68c2e7ec9a55bc9084b607948609b559e",
+        "7c5634c24b956c9c700b8815bb3ce511675eb4bb616df7a8d003c07bbabd21fc",
+        "b9cea59042fa56648782e4c91bbff979a5269f475351b825c79ba0460dd1bfd0"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( libname )",
+            "file": "ext/ffi_c/DynamicLibrary.c",
+            "function": "library_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/DynamicLibrary.c:136:library_initialize",
+            "line": 147,
+            "package": "ffi@1.17.4",
+            "source_sha256": "b6596d021bea84c82d8017dd1b4b60072cd8b58c2dfb9b4ac34a154d29f2f2bf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "libname",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( libname )",
+            "file": "ext/ffi_c/DynamicLibrary.c",
+            "function": "library_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/DynamicLibrary.c:136:library_initialize",
+            "line": 152,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "b6596d021bea84c82d8017dd1b4b60072cd8b58c2dfb9b4ac34a154d29f2f2bf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "libname",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( libname )",
+            "file": "ext/ffi_c/DynamicLibrary.c",
+            "function": "library_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/DynamicLibrary.c:136:library_initialize",
+            "line": 164,
+            "package": "ffi@1.17.4",
+            "source_sha256": "b6596d021bea84c82d8017dd1b4b60072cd8b58c2dfb9b4ac34a154d29f2f2bf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "libname",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( libname )",
+            "file": "ext/ffi_c/DynamicLibrary.c",
+            "function": "library_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/DynamicLibrary.c:136:library_initialize",
+            "line": 164,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "b6596d021bea84c82d8017dd1b4b60072cd8b58c2dfb9b4ac34a154d29f2f2bf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "libname",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "ffi",
+        "method": "open",
+        "owner": "FFI::DynamicLibrary",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "1.17.4"
+      },
+      "native_api_group": "c356bb641e8d16b939d1d63f9c314b88ee353e8a572003e30ee6e5451a54d5d5",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "'/System/Library/Frameworks/Foundation.framework/Foundation'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 954,
+          "byte_start": 789,
+          "column": 3,
+          "end_line": 27,
+          "expression": "FFI::DynamicLibrary.open(\n    '/System/Library/Frameworks/Foundation.framework/Foundation',\n    FFI::DynamicLibrary::RTLD_LAZY | FFI::DynamicLibrary::RTLD_GLOBAL\n  )",
+          "file": "config/initializers/macos.rb",
+          "kind": "call",
+          "line": 24,
+          "method": "open",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/config/initializers/macos.rb#L24",
+          "source_sha256": "b7fffd8875b1576bf82367ef3a987b63427f6d59676052b68879a0e1c3d35cbd",
+          "unit": "config/initializers/macos.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "FFI::DynamicLibrary",
+    "proof": [
+      {
+        "byte_end": 808,
+        "byte_start": 789,
+        "column": 3,
+        "end_line": 24,
+        "expression": "FFI::DynamicLibrary",
+        "file": "config/initializers/macos.rb",
+        "kind": "expression",
+        "line": 24,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/config/initializers/macos.rb#L24",
+        "source_sha256": "b7fffd8875b1576bf82367ef3a987b63427f6d59676052b68879a0e1c3d35cbd",
+        "unit": "config/initializers/macos.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "FFI::DynamicLibrary"
+      ]
+    ]
+  },
+  "source": {
+    "column": 3,
+    "file": "config/initializers/macos.rb",
+    "line": 24,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/config/initializers/macos.rb#L24",
+    "source_sha256": "b7fffd8875b1576bf82367ef3a987b63427f6d59676052b68879a0e1c3d35cbd"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "'/System/Library/Frameworks/Foundation.framework/Foundation'",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    },
+    {
+      "expression": "FFI::DynamicLibrary::RTLD_LAZY | FFI::DynamicLibrary::RTLD_GLOBAL",
+      "index": 1,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

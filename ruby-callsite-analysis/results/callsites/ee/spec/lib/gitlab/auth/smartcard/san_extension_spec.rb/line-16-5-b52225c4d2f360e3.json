@@ -1,0 +1,192 @@
+{
+  "callsite_id": "b52225c4d2f360e3fb7dd29bcf99b1d42df7ddb57ed2e4a76e5aa455913c90b1",
+  "expression": "cert.serial",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "serial=",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "58e9a196c0fef534923ddb46bd86471507316f9e3ac0159193bb682f7171376f",
+        "a5f8208b1305903582f79d07df8f29394a7ecb38b40b667c68f66aa1940386db",
+        "de8aec4e44c5c13e1da184a21082df8bfeebe60e79fc2f4d21a8cd2ff22b7146",
+        "e07e9da7885fa9a9bfaafd00535e590c396d229b8f284109a7515ed55d4aed02"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* ptr = tmp",
+            "file": "ext/openssl/ossl_bn.c",
+            "function": "ossl_bn_value_ptr",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bn.c:135:ossl_bn_value_ptr",
+            "line": 145,
+            "package": "openssl@3.3.3",
+            "source_sha256": "653613568749c88e719a0eef11ec69f7ed6313e5b99aab37331bcb1471dbda09"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* ptr = tmp",
+            "file": "ext/openssl/ossl_bn.c",
+            "function": "ossl_bn_value_ptr",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bn.c:135:ossl_bn_value_ptr",
+            "line": 145,
+            "package": "openssl@3.3.3",
+            "source_sha256": "653613568749c88e719a0eef11ec69f7ed6313e5b99aab37331bcb1471dbda09"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* ptr = tmp",
+            "file": "ext/openssl/ossl_bn.c",
+            "function": "ossl_bn_value_ptr",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bn.c:135:ossl_bn_value_ptr",
+            "line": 145,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "653613568749c88e719a0eef11ec69f7ed6313e5b99aab37331bcb1471dbda09"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* ptr = tmp",
+            "file": "ext/openssl/ossl_bn.c",
+            "function": "ossl_bn_value_ptr",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bn.c:135:ossl_bn_value_ptr",
+            "line": 145,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "653613568749c88e719a0eef11ec69f7ed6313e5b99aab37331bcb1471dbda09"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "serial=",
+        "owner": "OpenSSL::X509::Certificate",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "c0867cf18ec497cda9d22b18b4c75505f11872325593f747b9581ed099ee33be",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "0",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 482,
+          "byte_start": 471,
+          "column": 5,
+          "end_line": 16,
+          "expression": "cert.serial",
+          "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+          "kind": "call",
+          "line": 16,
+          "method": "serial=",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L16",
+          "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347",
+          "unit": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "cert",
+    "proof": [
+      {
+        "byte_end": 445,
+        "byte_start": 415,
+        "column": 12,
+        "end_line": 14,
+        "expression": "OpenSSL::X509::Certificate.new",
+        "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+        "kind": "call",
+        "line": 14,
+        "method": "new",
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L14",
+        "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347",
+        "unit": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb:0:singleton:<file-body>"
+      },
+      {
+        "byte_end": 445,
+        "byte_start": 408,
+        "column": 5,
+        "end_line": 14,
+        "expression": "cert = OpenSSL::X509::Certificate.new",
+        "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+        "kind": "expression",
+        "line": 14,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L14",
+        "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347",
+        "unit": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb:0:singleton:<file-body>"
+      },
+      {
+        "byte_end": 475,
+        "byte_start": 471,
+        "column": 5,
+        "end_line": 16,
+        "expression": "cert",
+        "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+        "kind": "expression",
+        "line": 16,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L16",
+        "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347",
+        "unit": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::X509::Certificate"
+      ]
+    ]
+  },
+  "source": {
+    "column": 5,
+    "file": "ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb",
+    "line": 16,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/lib/gitlab/auth/smartcard/san_extension_spec.rb#L16",
+    "source_sha256": "35fad20c39c5301e00326022bd5886c2489a9c0efe888a55f66c2c830f11a347"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "0",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Integer"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

@@ -1,0 +1,137 @@
+{
+  "callsite_id": "ec18d41b77d732182ab9e14873c8d6aafc89ffa33cf263427e84b988692d14cc",
+  "expression": "OpenSSL::PKey::RSA.generate(3072)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "generate",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "bd1c9a178604228a7100ac28c8b053da7936dc2cc6996f01e13c9eff9819cb03"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "args [ 1 ] = options",
+            "file": "ext/openssl/ossl_pkey.c",
+            "function": "pkey_ctx_apply_options",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_pkey.c:272:pkey_ctx_apply_options",
+            "line": 277,
+            "package": "openssl@3.3.3",
+            "source_sha256": "45f5d8251c4e0ece1f3766a8b7635db871de1996440d33f0ada0a9b08106adbc"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "generate_key",
+        "owner": "OpenSSL::PKey",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "af576f94e4553a75abf84e8f3013f674bc5ccd2f2fd347389daf5daaea921ce4",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "3072",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 6158,
+          "byte_start": 6125,
+          "call_event": "ec18d41b77d732182ab9e14873c8d6aafc89ffa33cf263427e84b988692d14cc",
+          "callee": "@gem/openssl@3.3.3/lib/openssl/pkey.rb:10743:singleton:generate",
+          "callee_argument": 0,
+          "column": 27,
+          "end_line": 165,
+          "expression": "OpenSSL::PKey::RSA.generate(3072)",
+          "file": "spec/services/auth/container_registry_authentication_service_spec.rb",
+          "kind": "ruby_argument_binding",
+          "line": 165,
+          "method": "generate",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/services/auth/container_registry_authentication_service_spec.rb#L165",
+          "source_sha256": "d3c2321f8c4518572a7bf49108f0a1f5c0e6f4ad61daabe61b65e8e399bcb5ec",
+          "unit": "spec/services/auth/container_registry_authentication_service_spec.rb:0:singleton:<file-body>"
+        },
+        {
+          "byte_end": 10918,
+          "byte_start": 10791,
+          "column": 9,
+          "end_line": 347,
+          "expression": "OpenSSL::PKey.generate_key(\"RSA\", {\n          \"rsa_keygen_bits\" => size,\n          \"rsa_keygen_pubexp\" => exp,\n        }, &blk)",
+          "file": "@gem/openssl@3.3.3/lib/openssl/pkey.rb",
+          "kind": "call",
+          "line": 344,
+          "method": "generate_key",
+          "owner": "OpenSSL::PKey::RSA",
+          "source_package": {
+            "file": "lib/openssl/pkey.rb",
+            "gem": "openssl",
+            "package_sha256": "d46902138f2987c13122fab826030a11c2bb9b8a16394215cbfc5062c5e2d335",
+            "source_url": "https://rubygems.org/downloads/openssl-3.3.3.gem",
+            "version": "3.3.3"
+          },
+          "source_sha256": "d9858e45bfe5806eb9da48415bf206d5a1cb402e7aafb0146266f3c21f9f0247",
+          "unit": "@gem/openssl@3.3.3/lib/openssl/pkey.rb:10743:singleton:generate"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::PKey::RSA",
+    "proof": [
+      {
+        "byte_end": 6143,
+        "byte_start": 6125,
+        "column": 27,
+        "end_line": 165,
+        "expression": "OpenSSL::PKey::RSA",
+        "file": "spec/services/auth/container_registry_authentication_service_spec.rb",
+        "kind": "expression",
+        "line": 165,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/services/auth/container_registry_authentication_service_spec.rb#L165",
+        "source_sha256": "d3c2321f8c4518572a7bf49108f0a1f5c0e6f4ad61daabe61b65e8e399bcb5ec",
+        "unit": "spec/services/auth/container_registry_authentication_service_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::PKey::RSA"
+      ]
+    ]
+  },
+  "source": {
+    "column": 27,
+    "file": "spec/services/auth/container_registry_authentication_service_spec.rb",
+    "line": 165,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/services/auth/container_registry_authentication_service_spec.rb#L165",
+    "source_sha256": "d3c2321f8c4518572a7bf49108f0a1f5c0e6f4ad61daabe61b65e8e399bcb5ec"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "3072",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Integer"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

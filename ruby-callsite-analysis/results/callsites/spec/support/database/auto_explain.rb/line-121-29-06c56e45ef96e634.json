@@ -1,0 +1,300 @@
+{
+  "callsite_id": "06c56e45ef96e634dd7e7f51bf7c1bc0b7d1f3f2214513fb89d4ebae283c2d04",
+  "expression": "PgQuery.fingerprint(query)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "fingerprint",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "03299f6f01634a83981e9d84e32ddf74ff3abc2510969f7e32a9f1756939e7da",
+        "15a0b08ab88a17ba015bfc2856ae97c2757a24234ccb0f24560a6f10bc4b3d46",
+        "2e3efb90a82bd38ade978e1cd85db40225285445192fa78e0160ee2327bbd0f1",
+        "45e3c39780f94ddab2b2d664a3c1318ac11faff3cf76cc3c15ddf677b1d027cd",
+        "8cc3bdac57648a74d373ab050f43850a0b246b773502f238964bc897bd3bb2b3",
+        "a3ccb0811bce0b23a46dd2433591d91aaa4acb45cdcb1aa4c1567304dc6f07a7",
+        "a51325de2e8468a0186ae0e4769c2aa14784bc60c5dea7000ee8337abadc2dc5",
+        "bda957a1a88caa7307b43dd5cb8f696d73b4e8a7b691cd0527594ce47dac97c6",
+        "c4f6c959e32459b0ef1dd6a61da7d2975ea9c79e95c5d8113b57e5da69fd63e4",
+        "fceb6f8f7821518c9091d9b13da8b21c98f172f05b8c52884ba68febc28ca786"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( input )",
+            "file": "ext/pg_query/pg_query_ruby.c",
+            "function": "pg_query_ruby_fingerprint",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_ruby.c:301:pg_query_ruby_fingerprint",
+            "line": 306,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "cb5fbeb46e03976f584581ae13efb3ec882ba082edd671a3fb44aca555a44515"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( input )",
+            "file": "ext/pg_query/pg_query_ruby.c",
+            "function": "pg_query_ruby_fingerprint",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_ruby.c:301:pg_query_ruby_fingerprint",
+            "line": 306,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "cb5fbeb46e03976f584581ae13efb3ec882ba082edd671a3fb44aca555a44515"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( yyext -> scanbuf , str , slen )",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10683,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "slen",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( yyext -> scanbuf , str , slen )",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10683,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( yyext -> scanbuf , str , slen )",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10683,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "slen",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( yyext -> scanbuf , str , slen )",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10683,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strlen ( str )",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10663,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strlen",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strlen ( str )",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10663,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strlen",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "yyext -> scanbuf [ slen ] = yyext -> scanbuf [ slen + 1 ] = 0",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10684,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "yyext -> scanbuf [ slen ] = yyext -> scanbuf [ slen + 1 ] = 0",
+            "file": "ext/pg_query/src_backend_parser_scan.c",
+            "function": "scanner_init",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/src_backend_parser_scan.c:10657:scanner_init",
+            "line": 10684,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "827bb0e3485acff42ce398e57945f638409eaed5cf0efa9801e850bf699a9693"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "pg_query",
+        "method": "fingerprint",
+        "owner": "PgQuery",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "6.2.2"
+      },
+      "native_api_group": "71b25803b8b1e27fd237e24b88ee7c967c16e9ff03bd97009ea4ced3b5f20b3a",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "query",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 4739,
+          "byte_start": 4713,
+          "column": 29,
+          "end_line": 121,
+          "expression": "PgQuery.fingerprint(query)",
+          "file": "spec/support/database/auto_explain.rb",
+          "kind": "call",
+          "line": 121,
+          "method": "fingerprint",
+          "owner": "AutoExplain",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/database/auto_explain.rb#L121",
+          "source_sha256": "66fe4beb94dcbfdd581ec18d6c432e246c7ec93c743bf99fd02267ba152c776a",
+          "unit": "spec/support/database/auto_explain.rb:490:singleton:record"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "PgQuery",
+    "proof": [
+      {
+        "byte_end": 4720,
+        "byte_start": 4713,
+        "column": 29,
+        "end_line": 121,
+        "expression": "PgQuery",
+        "file": "spec/support/database/auto_explain.rb",
+        "kind": "expression",
+        "line": 121,
+        "owner": "AutoExplain",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/database/auto_explain.rb#L121",
+        "source_sha256": "66fe4beb94dcbfdd581ec18d6c432e246c7ec93c743bf99fd02267ba152c776a",
+        "unit": "spec/support/database/auto_explain.rb:490:singleton:record"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "PgQuery"
+      ]
+    ]
+  },
+  "source": {
+    "column": 29,
+    "file": "spec/support/database/auto_explain.rb",
+    "line": 121,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/database/auto_explain.rb#L121",
+    "source_sha256": "66fe4beb94dcbfdd581ec18d6c432e246c7ec93c743bf99fd02267ba152c776a"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "query",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

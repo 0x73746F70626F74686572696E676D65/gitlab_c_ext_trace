@@ -1,0 +1,352 @@
+{
+  "callsite_id": "a532212e22a8e835ebe0defeacf412b89a1799fc575eeee37c8e6a2996ccba5e",
+  "expression": "Rinku.auto_link(\"See #{unbalanced_link}...\")",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "auto_link",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "3d8c0fb5b7c93f7809db572c26cffbad2495c3b23ab7d5ac51a8499ba6660178",
+        "3f181eac2ede868a54d95b4e89e92d5df844679bc5bff3b0aaab043d20c4888c",
+        "555c74df0d9a1bfa0216123c571ffe8003a716f32d6a5b610497a74cdfdf93bc",
+        "5e88d1fbbbbfc36af03a975a4e88d7e60a01de3b164c5c9d806d4c7c8bbe3a94",
+        "7c6461323aea6452ec8c03dc98a5e62ecb3d23ef34941c57438dd501cc74ea53",
+        "875a43726fc1e346f0904d9a64dd78f406637383624e81e92a96fb522abc79d5",
+        "94106083f33a1c6e2d22f50b2596086dd7dc81734038afb284bad6e41949d2ff",
+        "9ecdf54c1dc2bf038de8f3cf3e14f58e6e000cbee00e26b2fc0c1056396d6c0f",
+        "a83fa0791f11180e009170814b11658f1e461586c5812b9c2a8a293b4a69aa7c",
+        "acce24d2a7bbea357b4a3302b78c6d9fa217bfca7b54b118081b175f03fe082a",
+        "b677f776f1a2d3b003aae86301305319f43fa5c97eaf165ba3ec972f7a1ef744",
+        "b691c90962fa9258cc2d4d39d6e225e232030d95ba65cae10038a20740e2f64b"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "( * pos ) += length",
+            "file": "ext/rinku/utf8.c",
+            "function": "utf8proc_next",
+            "function_id": "rinku@2.0.0:ext/rinku/utf8.c:70:utf8proc_next",
+            "line": 74,
+            "package": "rinku@2.0.0",
+            "source_sha256": "084d4b94260363db60ecd60e297b3011fe0efc75acc474f5ff83400451bc0399"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "( * pos ) += length",
+            "file": "ext/rinku/utf8.c",
+            "function": "utf8proc_next",
+            "function_id": "rinku@2.0.0:ext/rinku/utf8.c:70:utf8proc_next",
+            "line": 74,
+            "package": "rinku@2.0.0",
+            "source_sha256": "084d4b94260363db60ecd60e297b3011fe0efc75acc474f5ff83400451bc0399"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "buf -> data [ buf -> size ] = c",
+            "file": "ext/rinku/buffer.c",
+            "function": "bufputc",
+            "function_id": "rinku@2.0.0:ext/rinku/buffer.c:175:bufputc",
+            "line": 183,
+            "package": "rinku@2.0.0",
+            "source_sha256": "f55514048fb22c2519d16702e12619eaa3b634e544e817ab5e54d465c53d5e6e"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "free ( buf -> data )",
+            "file": "ext/rinku/buffer.c",
+            "function": "bufrelease",
+            "function_id": "rinku@2.0.0:ext/rinku/buffer.c:188:bufrelease",
+            "line": 194,
+            "package": "rinku@2.0.0",
+            "source_sha256": "f55514048fb22c2519d16702e12619eaa3b634e544e817ab5e54d465c53d5e6e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> data",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "free",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( buf -> data + buf -> size , data , len )",
+            "file": "ext/rinku/buffer.c",
+            "function": "bufput",
+            "function_id": "rinku@2.0.0:ext/rinku/buffer.c:154:bufput",
+            "line": 162,
+            "package": "rinku@2.0.0",
+            "source_sha256": "f55514048fb22c2519d16702e12619eaa3b634e544e817ab5e54d465c53d5e6e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> data + buf -> size",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( buf -> data + buf -> size , data , len )",
+            "file": "ext/rinku/buffer.c",
+            "function": "bufput",
+            "function_id": "rinku@2.0.0:ext/rinku/buffer.c:154:bufput",
+            "line": 162,
+            "package": "rinku@2.0.0",
+            "source_sha256": "f55514048fb22c2519d16702e12619eaa3b634e544e817ab5e54d465c53d5e6e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( buf -> data + buf -> size , data , len )",
+            "file": "ext/rinku/buffer.c",
+            "function": "bufput",
+            "function_id": "rinku@2.0.0:ext/rinku/buffer.c:154:bufput",
+            "line": 162,
+            "package": "rinku@2.0.0",
+            "source_sha256": "f55514048fb22c2519d16702e12619eaa3b634e544e817ab5e54d465c53d5e6e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_enc_str_new ( ( const char * ) url , url_len , data -> encoding )",
+            "file": "ext/rinku/rinku_rb.c",
+            "function": "autolink_callback",
+            "function_id": "rinku@2.0.0:ext/rinku/rinku_rb.c:51:autolink_callback",
+            "line": 58,
+            "package": "rinku@2.0.0",
+            "source_sha256": "1a90b28e700a971730521f962fb84c2ba4831dbc734d5aedfe0929231b2117ca"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( const char * ) url",
+              "index": 0
+            },
+            {
+              "expression": "url_len",
+              "index": 1
+            },
+            {
+              "expression": "data -> encoding",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_enc_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "realloc ( buf -> data , neoasz )",
+            "file": "ext/rinku/buffer.c",
+            "function": "bufgrow",
+            "function_id": "rinku@2.0.0:ext/rinku/buffer.c:52:bufgrow",
+            "line": 70,
+            "package": "rinku@2.0.0",
+            "source_sha256": "f55514048fb22c2519d16702e12619eaa3b634e544e817ab5e54d465c53d5e6e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf -> data",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "realloc",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "realloc ( buf -> data , neoasz )",
+            "file": "ext/rinku/buffer.c",
+            "function": "bufgrow",
+            "function_id": "rinku@2.0.0:ext/rinku/buffer.c:52:bufgrow",
+            "line": 70,
+            "package": "rinku@2.0.0",
+            "source_sha256": "f55514048fb22c2519d16702e12619eaa3b634e544e817ab5e54d465c53d5e6e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "neoasz",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "realloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strchr ( \"?!.,:\" , data [ link -> end - 1 ] )",
+            "file": "ext/rinku/autolink.c",
+            "function": "autolink_delim",
+            "function_id": "rinku@2.0.0:ext/rinku/autolink.c:52:autolink_delim",
+            "line": 65,
+            "package": "rinku@2.0.0",
+            "source_sha256": "bd1ebdcbf393194b348a42c9f626c81ddccc5c96e9f2bb4abd479d0e1b884e96"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data [ link -> end - 1 ]",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strchr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strlen ( str )",
+            "file": "ext/rinku/buffer.c",
+            "function": "bufputs",
+            "function_id": "rinku@2.0.0:ext/rinku/buffer.c:167:bufputs",
+            "line": 170,
+            "package": "rinku@2.0.0",
+            "source_sha256": "f55514048fb22c2519d16702e12619eaa3b634e544e817ab5e54d465c53d5e6e"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strlen",
+          "operand_role": "source",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "rinku",
+        "method": "auto_link",
+        "owner": "Rinku",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "2.0.0"
+      },
+      "native_api_group": "3dd7152afa2b0e7a291b7ce24fb06d6e165c8e12b691263609f2e053bf5dd0f1",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "\"See #{unbalanced_link}...\"",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 5457,
+          "byte_start": 5413,
+          "column": 59,
+          "end_line": 169,
+          "expression": "Rinku.auto_link(\"See #{unbalanced_link}...\")",
+          "file": "spec/lib/banzai/filter/autolink_filter_spec.rb",
+          "kind": "call",
+          "line": 169,
+          "method": "auto_link",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/banzai/filter/autolink_filter_spec.rb#L169",
+          "source_sha256": "a10196f2038cedfbc46deb3e280ebd3f5e44c20ff2ff295937d3ee7acaefd82e",
+          "unit": "spec/lib/banzai/filter/autolink_filter_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Rinku",
+    "proof": [
+      {
+        "byte_end": 5418,
+        "byte_start": 5413,
+        "column": 59,
+        "end_line": 169,
+        "expression": "Rinku",
+        "file": "spec/lib/banzai/filter/autolink_filter_spec.rb",
+        "kind": "expression",
+        "line": 169,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/banzai/filter/autolink_filter_spec.rb#L169",
+        "source_sha256": "a10196f2038cedfbc46deb3e280ebd3f5e44c20ff2ff295937d3ee7acaefd82e",
+        "unit": "spec/lib/banzai/filter/autolink_filter_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Rinku"
+      ]
+    ]
+  },
+  "source": {
+    "column": 59,
+    "file": "spec/lib/banzai/filter/autolink_filter_spec.rb",
+    "line": 169,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/banzai/filter/autolink_filter_spec.rb#L169",
+    "source_sha256": "a10196f2038cedfbc46deb3e280ebd3f5e44c20ff2ff295937d3ee7acaefd82e"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "\"See #{unbalanced_link}...\"",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

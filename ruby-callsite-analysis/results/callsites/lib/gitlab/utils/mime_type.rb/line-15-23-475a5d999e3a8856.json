@@ -1,0 +1,196 @@
+{
+  "callsite_id": "475a5d999e3a88562b0a8ba1cca6dc3c94bfc2aaa47a6cce22512613c06e032e",
+  "expression": "File.magic(io, Magic::MIME_TYPE)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "magic",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "26b0a2391bf58206d86624f3bdf664396856aac31a7e6b2f5d611673cc04056f",
+        "e50e300f8683d82f0569f1314653e3f97ae440d2e7c4127e45266a5bc215276e",
+        "e858992896d946764b28a348b824c7f07e434dcf9113ead96452c630e2f36870"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "INT2NUM ( mga . flags )",
+            "file": "ext/magic/ruby-magic.c",
+            "function": "rb_mgc_set_flags",
+            "function_id": "ruby-magic@0.6.0:ext/magic/ruby-magic.c:519:rb_mgc_set_flags",
+            "line": 575,
+            "package": "ruby-magic@0.6.0",
+            "source_sha256": "2ee32c7a1cc5eac9f0a263b7998c53af1ee94efd1e069cb9a6055416cf929b96"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "mga . flags",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "INT2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "INT2NUM ( mga . flags )",
+            "file": "ext/magic/ruby-magic.c",
+            "function": "rb_mgc_set_flags",
+            "function_id": "ruby-magic@0.6.0:git:b781dd6b03f45e2e7c31939f9c034d568992a27e:ext/magic/ruby-magic.c:519:rb_mgc_set_flags",
+            "line": 575,
+            "package": "ruby-magic@0.6.0:git:b781dd6b03f45e2e7c31939f9c034d568992a27e",
+            "source_sha256": "2ee32c7a1cc5eac9f0a263b7998c53af1ee94efd1e069cb9a6055416cf929b96"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "mga . flags",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "INT2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "ruby-magic",
+        "method": "flags=",
+        "owner": "Magic",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "0.6.0"
+      },
+      "native_api_group": "8ddaea09e84ba5913a4f2363d62b0d58b32e909995bad509b0a702cf12538715",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "Magic::MIME_TYPE",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 1,
+          "byte_end": 415,
+          "byte_start": 383,
+          "call_event": "475a5d999e3a88562b0a8ba1cca6dc3c94bfc2aaa47a6cce22512613c06e032e",
+          "callee": "@gem/ruby-magic@0.6.0/lib/magic/core/file.rb:236:singleton:magic",
+          "callee_argument": 1,
+          "column": 23,
+          "end_line": 15,
+          "expression": "File.magic(io, Magic::MIME_TYPE)",
+          "file": "lib/gitlab/utils/mime_type.rb",
+          "kind": "ruby_argument_binding",
+          "line": 15,
+          "method": "magic",
+          "owner": "Gitlab::Utils::MimeType",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/utils/mime_type.rb#L15",
+          "source_sha256": "814ab9c928f3fd7863e67f73ffcdb00d6e3465ade8459f6ef427727e06be10b0",
+          "unit": "lib/gitlab/utils/mime_type.rb:285:singleton:from_io"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 320,
+          "byte_start": 279,
+          "call_event": "130958c5364cdad9c183098b68bcba34ddcdb7208ee020f337f48b5ddde743e2",
+          "callee": "@gem/ruby-magic@0.6.0/lib/magic.rb:2070:singleton:open",
+          "callee_argument": 0,
+          "column": 7,
+          "end_line": 13,
+          "expression": "Magic.open(flags) {|mgc| mgc.file(path) }",
+          "file": "@gem/ruby-magic@0.6.0/lib/magic/core/file.rb",
+          "kind": "ruby_argument_binding",
+          "line": 13,
+          "method": "open",
+          "owner": "File",
+          "source_package": {
+            "file": "lib/magic/core/file.rb",
+            "gem": "ruby-magic",
+            "package_sha256": "7b2138877b7d23aff812c95564eba6473b74b815ef85beb0eb792e729a2b6101",
+            "source_url": "https://rubygems.org/downloads/ruby-magic-0.6.0.gem",
+            "version": "0.6.0"
+          },
+          "source_sha256": "6e0983624aa362fa340e710315be83a333310da716b114b1a469c39c78b3f803",
+          "unit": "@gem/ruby-magic@0.6.0/lib/magic/core/file.rb:236:singleton:magic"
+        },
+        {
+          "byte_end": 2141,
+          "byte_start": 2130,
+          "column": 7,
+          "end_line": 83,
+          "expression": "magic.flags",
+          "file": "@gem/ruby-magic@0.6.0/lib/magic.rb",
+          "kind": "call",
+          "line": 83,
+          "method": "flags=",
+          "owner": "Magic",
+          "source_package": {
+            "file": "lib/magic.rb",
+            "gem": "ruby-magic",
+            "package_sha256": "7b2138877b7d23aff812c95564eba6473b74b815ef85beb0eb792e729a2b6101",
+            "source_url": "https://rubygems.org/downloads/ruby-magic-0.6.0.gem",
+            "version": "0.6.0"
+          },
+          "source_sha256": "a8c3ffce3264df137a94ca881a21a583ec232f65b0b98e32f51a8ff49d2fa1b0",
+          "unit": "@gem/ruby-magic@0.6.0/lib/magic.rb:2070:singleton:open"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "File",
+    "proof": [
+      {
+        "byte_end": 387,
+        "byte_start": 383,
+        "column": 23,
+        "end_line": 15,
+        "expression": "File",
+        "file": "lib/gitlab/utils/mime_type.rb",
+        "kind": "expression",
+        "line": 15,
+        "owner": "Gitlab::Utils::MimeType",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/utils/mime_type.rb#L15",
+        "source_sha256": "814ab9c928f3fd7863e67f73ffcdb00d6e3465ade8459f6ef427727e06be10b0",
+        "unit": "lib/gitlab/utils/mime_type.rb:285:singleton:from_io"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "File"
+      ]
+    ]
+  },
+  "source": {
+    "column": 23,
+    "file": "lib/gitlab/utils/mime_type.rb",
+    "line": 15,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/utils/mime_type.rb#L15",
+    "source_sha256": "814ab9c928f3fd7863e67f73ffcdb00d6e3465ade8459f6ef427727e06be10b0"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "io",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "Magic::MIME_TYPE",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "singleton",
+          "Magic::MIME_TYPE"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

@@ -1,0 +1,189 @@
+{
+  "callsite_id": "2e2e9978b01fec38cb0e757aa1110230eafa2ae1da2e7ee2dd4f66791f2b1ca4",
+  "expression": "FFI::DynamicLibrary.open(\n          nil, FFI::DynamicLibrary::RTLD_LAZY | FFI::DynamicLibrary::RTLD_GLOBAL\n        )",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "open",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "09e00a939dd2d6622514902d84e58cf8f4862c48318fbfbad31d70b4eac661dd",
+        "406a111fe444b36950efc3bc58810fd68c2e7ec9a55bc9084b607948609b559e",
+        "7c5634c24b956c9c700b8815bb3ce511675eb4bb616df7a8d003c07bbabd21fc",
+        "b9cea59042fa56648782e4c91bbff979a5269f475351b825c79ba0460dd1bfd0"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( libname )",
+            "file": "ext/ffi_c/DynamicLibrary.c",
+            "function": "library_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/DynamicLibrary.c:136:library_initialize",
+            "line": 147,
+            "package": "ffi@1.17.4",
+            "source_sha256": "b6596d021bea84c82d8017dd1b4b60072cd8b58c2dfb9b4ac34a154d29f2f2bf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "libname",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( libname )",
+            "file": "ext/ffi_c/DynamicLibrary.c",
+            "function": "library_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/DynamicLibrary.c:136:library_initialize",
+            "line": 152,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "b6596d021bea84c82d8017dd1b4b60072cd8b58c2dfb9b4ac34a154d29f2f2bf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "libname",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( libname )",
+            "file": "ext/ffi_c/DynamicLibrary.c",
+            "function": "library_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/DynamicLibrary.c:136:library_initialize",
+            "line": 164,
+            "package": "ffi@1.17.4",
+            "source_sha256": "b6596d021bea84c82d8017dd1b4b60072cd8b58c2dfb9b4ac34a154d29f2f2bf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "libname",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( libname )",
+            "file": "ext/ffi_c/DynamicLibrary.c",
+            "function": "library_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/DynamicLibrary.c:136:library_initialize",
+            "line": 164,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "b6596d021bea84c82d8017dd1b4b60072cd8b58c2dfb9b4ac34a154d29f2f2bf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "libname",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "ffi",
+        "method": "open",
+        "owner": "FFI::DynamicLibrary",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "1.17.4"
+      },
+      "native_api_group": "c356bb641e8d16b939d1d63f9c314b88ee353e8a572003e30ee6e5451a54d5d5",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "nil",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2599,
+          "byte_start": 2483,
+          "column": 9,
+          "end_line": 85,
+          "expression": "FFI::DynamicLibrary.open(\n          nil, FFI::DynamicLibrary::RTLD_LAZY | FFI::DynamicLibrary::RTLD_GLOBAL\n        )",
+          "file": "lib/gitlab/memory/jemalloc.rb",
+          "kind": "call",
+          "line": 83,
+          "method": "open",
+          "owner": "Gitlab::Memory::Jemalloc",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/memory/jemalloc.rb#L83",
+          "source_sha256": "7f44bd21459af4cfa2bd2f8948a4f53d7cbaf44c8e502a83435426ee8df78454",
+          "unit": "lib/gitlab/memory/jemalloc.rb:2455:instance:current_process"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "FFI::DynamicLibrary",
+    "proof": [
+      {
+        "byte_end": 2502,
+        "byte_start": 2483,
+        "column": 9,
+        "end_line": 83,
+        "expression": "FFI::DynamicLibrary",
+        "file": "lib/gitlab/memory/jemalloc.rb",
+        "kind": "expression",
+        "line": 83,
+        "owner": "Gitlab::Memory::Jemalloc",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/memory/jemalloc.rb#L83",
+        "source_sha256": "7f44bd21459af4cfa2bd2f8948a4f53d7cbaf44c8e502a83435426ee8df78454",
+        "unit": "lib/gitlab/memory/jemalloc.rb:2455:instance:current_process"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "FFI::DynamicLibrary"
+      ]
+    ]
+  },
+  "source": {
+    "column": 9,
+    "file": "lib/gitlab/memory/jemalloc.rb",
+    "line": 83,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/memory/jemalloc.rb#L83",
+    "source_sha256": "7f44bd21459af4cfa2bd2f8948a4f53d7cbaf44c8e502a83435426ee8df78454"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "nil",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ]
+      ]
+    },
+    {
+      "expression": "FFI::DynamicLibrary::RTLD_LAZY | FFI::DynamicLibrary::RTLD_GLOBAL",
+      "index": 1,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

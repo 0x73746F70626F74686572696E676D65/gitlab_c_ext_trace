@@ -1,0 +1,396 @@
+{
+  "callsite_id": "05a6ac58d14bdbddcf1e62b6de3cabc3c4cf9229c2498a5b00b8bb6a39d996c6",
+  "expression": "Date.parse('2025-03-03')",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "parse",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "3b093bcc27f3ba5b71110eff2ccfb092c48fd66b1da9cf1721b88212dbfa5321",
+        "80164e9c2123272b20f7f627920504280dc980f7edf251c2ae2e26034befed7d",
+        "849fbaecf4c21a40155fef2887a5a628b9c71f4199ffc16fa4b67fee203cd32e",
+        "8af04ac97b099ceabdd3abd0d370440dee445096449a6ca82969a9fb0222d0d5",
+        "b195870ade63e4d80ad3effb4e9591c67dafee2435cd58559cb46b7994cccf2f",
+        "bbaaf813c0cd9d2e6b675be4d97e4f653f51d73ac7f924f59b6c4bdffa33ba07"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/date/date_core.c",
+            "function": "check_limit",
+            "function_id": "date@3.5.1:ext/date/date_core.c:4467:check_limit",
+            "line": 4471,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/date/date_core.c",
+            "function": "check_limit",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:4467:check_limit",
+            "line": 4471,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "argv2 [ argc2 ++ ] = opt",
+            "file": "ext/date/date_core.c",
+            "function": "date_s_parse",
+            "function_id": "date@3.5.1:ext/date/date_core.c:4567:date_s_parse",
+            "line": 4588,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "argv2 [ argc2 ++ ] = opt",
+            "file": "ext/date/date_core.c",
+            "function": "date_s_parse",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:4567:date_s_parse",
+            "line": 4588,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_hash_aset ( hash , ID2SYM ( rb_intern ( \"_comp\" \"\" ) ) , comp )",
+            "file": "ext/date/date_parse.c",
+            "function": "date__parse",
+            "function_id": "date@3.5.1:ext/date/date_parse.c:2139:date__parse",
+            "line": 2168,
+            "package": "date@3.5.1",
+            "source_sha256": "c95ed43dd24d92c70a4a51ed5fed445a1362a9cf5b31efa8e7368ef7867377fb"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "hash",
+              "index": 0
+            },
+            {
+              "expression": "ID2SYM ( rb_intern ( \"_comp\" \"\" ) )",
+              "index": 1
+            },
+            {
+              "expression": "comp",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_hash_aset",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_hash_aset ( hash , ID2SYM ( rb_intern ( \"_comp\" \"\" ) ) , comp )",
+            "file": "ext/date/date_parse.c",
+            "function": "date__parse",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_parse.c:2139:date__parse",
+            "line": 2168,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c95ed43dd24d92c70a4a51ed5fed445a1362a9cf5b31efa8e7368ef7867377fb"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "hash",
+              "index": 0
+            },
+            {
+              "expression": "ID2SYM ( rb_intern ( \"_comp\" \"\" ) )",
+              "index": 1
+            },
+            {
+              "expression": "comp",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_hash_aset",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "parse",
+        "owner": "Date",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "957e4cca5c3fa01343952030709369292a7f31464c9c6fe62b385a1b098ff853",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "'2025-03-03'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 4193,
+          "byte_start": 4169,
+          "column": 41,
+          "end_line": 103,
+          "expression": "Date.parse('2025-03-03')",
+          "file": "spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb",
+          "kind": "call",
+          "line": 103,
+          "method": "parse",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb#L103",
+          "source_sha256": "a4e531f5127297291dfb4441dc4414c1ff5d3ef57241ba1995a9fa64e6368dac",
+          "unit": "spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "238b2afd0ccda8af5a24768ad92b05a5e54ee4a092a480a4cd660a47166bba9c",
+        "2d84ede6c8023d9b53f3f3292e2842f40601fb4c801aaed58cafe3270bfb8382",
+        "2e399693574cb43853cb1f7f8f40698090f84d1570803fd41c733b47f16c1c38",
+        "3759e25531bbfd951317299b89784fc188f3bc4c6eb5b25e3c3f548b1fc5f664",
+        "ac867f5cb482226e83c03e41a90a3e490af7150fb5d46206df90b7cd710dbee1",
+        "dd44246c959795b0ea654b8e34b3ed4b527cde3468c56b0870ae2d35de908e49"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/date/date_core.c",
+            "function": "check_limit",
+            "function_id": "date@3.5.1:ext/date/date_core.c:4467:check_limit",
+            "line": 4471,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/date/date_core.c",
+            "function": "check_limit",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:4467:check_limit",
+            "line": 4471,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "argv2 [ 0 ] = str",
+            "file": "ext/date/date_core.c",
+            "function": "date_s_parse",
+            "function_id": "date@3.5.1:ext/date/date_core.c:4567:date_s_parse",
+            "line": 4586,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "argv2 [ 0 ] = str",
+            "file": "ext/date/date_core.c",
+            "function": "date_s_parse",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:4567:date_s_parse",
+            "line": 4586,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_dup ( str )",
+            "file": "ext/date/date_parse.c",
+            "function": "date__parse",
+            "function_id": "date@3.5.1:ext/date/date_parse.c:2139:date__parse",
+            "line": 2163,
+            "package": "date@3.5.1",
+            "source_sha256": "c95ed43dd24d92c70a4a51ed5fed445a1362a9cf5b31efa8e7368ef7867377fb"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_dup",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_dup ( str )",
+            "file": "ext/date/date_parse.c",
+            "function": "date__parse",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_parse.c:2139:date__parse",
+            "line": 2163,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c95ed43dd24d92c70a4a51ed5fed445a1362a9cf5b31efa8e7368ef7867377fb"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_dup",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "parse",
+        "owner": "Date",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "957e4cca5c3fa01343952030709369292a7f31464c9c6fe62b385a1b098ff853",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "'2025-03-03'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 4193,
+          "byte_start": 4169,
+          "column": 41,
+          "end_line": 103,
+          "expression": "Date.parse('2025-03-03')",
+          "file": "spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb",
+          "kind": "call",
+          "line": 103,
+          "method": "parse",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb#L103",
+          "source_sha256": "a4e531f5127297291dfb4441dc4414c1ff5d3ef57241ba1995a9fa64e6368dac",
+          "unit": "spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Date",
+    "proof": [
+      {
+        "byte_end": 4173,
+        "byte_start": 4169,
+        "column": 41,
+        "end_line": 103,
+        "expression": "Date",
+        "file": "spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb",
+        "kind": "expression",
+        "line": 103,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb#L103",
+        "source_sha256": "a4e531f5127297291dfb4441dc4414c1ff5d3ef57241ba1995a9fa64e6368dac",
+        "unit": "spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Date"
+      ]
+    ]
+  },
+  "source": {
+    "column": 41,
+    "file": "spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb",
+    "line": 103,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/database/aggregation/click_house/lagged_count_spec.rb#L103",
+    "source_sha256": "a4e531f5127297291dfb4441dc4414c1ff5d3ef57241ba1995a9fa64e6368dac"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "'2025-03-03'",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

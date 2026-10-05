@@ -1,0 +1,197 @@
+{
+  "callsite_id": "8aa7176fbf068f34be730e6767df28757305de7eeb2ed34b9b63483047f72d73",
+  "expression": "Zlib::GzipWriter.open(out_filepath) do |gz|\n        gz.puts Gitlab::Json.generate(::StackProf.results)\n      end",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "open",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "39645497e35d3c925310b7b3fc5f6bb247e1a542784f0058e1ab7ef759a02527",
+        "48d3476c38e80cd952ce49f59dbcb1624e7cd58e877935cb356cc5a4f527a1c9",
+        "629ef034c266ac8320d803c114d2c1a90e0bdf309d815392270707cad5a28402",
+        "756b20e0db252636e9fad4a9499fdb557ab5ad6c74437f3fb11cca6b3fd93411"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "argv [ 0 ] = io",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_s_open",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3305:gzfile_s_open",
+            "line": 3313,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "argv [ 0 ] = io",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_s_open",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3305:gzfile_s_open",
+            "line": 3313,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "open",
+        "owner": "Zlib::GzipWriter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "747b763be08f2dfa5c4964ca948433644d7c34f5adc005dc5a50728adce18214",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "out_filepath",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1496,
+          "byte_start": 1384,
+          "column": 7,
+          "end_line": 40,
+          "expression": "Zlib::GzipWriter.open(out_filepath) do |gz|\n        gz.puts Gitlab::Json.generate(::StackProf.results)\n      end",
+          "file": "spec/support/stack_prof.rb",
+          "kind": "call",
+          "line": 38,
+          "method": "open",
+          "owner": "Support::StackProf",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/stack_prof.rb#L38",
+          "source_sha256": "731dae2b63d2078d2e03daf84d629093057fecbfa3b68b3dfc47b5ea371aa33a",
+          "unit": "spec/support/stack_prof.rb:685:singleton:finish"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::GzipWriter",
+    "proof": [
+      {
+        "byte_end": 1400,
+        "byte_start": 1384,
+        "column": 7,
+        "end_line": 38,
+        "expression": "Zlib::GzipWriter",
+        "file": "spec/support/stack_prof.rb",
+        "kind": "expression",
+        "line": 38,
+        "owner": "Support::StackProf",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/stack_prof.rb#L38",
+        "source_sha256": "731dae2b63d2078d2e03daf84d629093057fecbfa3b68b3dfc47b5ea371aa33a",
+        "unit": "spec/support/stack_prof.rb:685:singleton:finish"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::GzipWriter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 7,
+    "file": "spec/support/stack_prof.rb",
+    "line": 38,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/stack_prof.rb#L38",
+    "source_sha256": "731dae2b63d2078d2e03daf84d629093057fecbfa3b68b3dfc47b5ea371aa33a"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "out_filepath",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

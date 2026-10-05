@@ -1,0 +1,215 @@
+{
+  "callsite_id": "11b6091417022d0754e03595fd6ab95e737fe0b7eaa6661267224238e042016f",
+  "expression": "OpenSSL::PKey.read(pkey(record).to_s, pass(record).to_s)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "read",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "1b8175c09fe4ceda3f701a1fd7319ecaa24e64dbcd8842278ad693fd27fc5356",
+        "3f4835862f9c3517078bb422a27cef4a18d4224eb489d14b48daa1c16bf69caa",
+        "e69d5b09cb02098f6acd9835780b885f1d2b0bb2fd4be50214ab67e9df2fea11"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "read",
+        "owner": "OpenSSL::PKey",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "a11756f4301f094b468c0783682863d53dee87d15038dd34644e0222866115fa",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "pkey(record).to_s",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1748,
+          "byte_start": 1692,
+          "column": 5,
+          "end_line": 52,
+          "expression": "OpenSSL::PKey.read(pkey(record).to_s, pass(record).to_s)",
+          "file": "app/validators/x509_certificate_credentials_validator.rb",
+          "kind": "call",
+          "line": 52,
+          "method": "read",
+          "owner": "X509CertificateCredentialsValidator",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/validators/x509_certificate_credentials_validator.rb#L52",
+          "source_sha256": "433e20227f4946be73af6f75ef207c6b1d26deaef9f60cec31bed9b011fa2721",
+          "unit": "app/validators/x509_certificate_credentials_validator.rb:1659:instance:read_private_key"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "339c273432278c211a94b2b0d6b0c7617dae5f3ff862df71f5e13143499a1869"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( pass )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_pem_passwd_value",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl.c:156:ossl_pem_passwd_value",
+            "line": 162,
+            "package": "openssl@3.3.3",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pass",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "read",
+        "owner": "OpenSSL::PKey",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "a11756f4301f094b468c0783682863d53dee87d15038dd34644e0222866115fa",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "pass(record).to_s",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1748,
+          "byte_start": 1692,
+          "column": 5,
+          "end_line": 52,
+          "expression": "OpenSSL::PKey.read(pkey(record).to_s, pass(record).to_s)",
+          "file": "app/validators/x509_certificate_credentials_validator.rb",
+          "kind": "call",
+          "line": 52,
+          "method": "read",
+          "owner": "X509CertificateCredentialsValidator",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/validators/x509_certificate_credentials_validator.rb#L52",
+          "source_sha256": "433e20227f4946be73af6f75ef207c6b1d26deaef9f60cec31bed9b011fa2721",
+          "unit": "app/validators/x509_certificate_credentials_validator.rb:1659:instance:read_private_key"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::PKey",
+    "proof": [
+      {
+        "byte_end": 1705,
+        "byte_start": 1692,
+        "column": 5,
+        "end_line": 52,
+        "expression": "OpenSSL::PKey",
+        "file": "app/validators/x509_certificate_credentials_validator.rb",
+        "kind": "expression",
+        "line": 52,
+        "owner": "X509CertificateCredentialsValidator",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/validators/x509_certificate_credentials_validator.rb#L52",
+        "source_sha256": "433e20227f4946be73af6f75ef207c6b1d26deaef9f60cec31bed9b011fa2721",
+        "unit": "app/validators/x509_certificate_credentials_validator.rb:1659:instance:read_private_key"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::PKey"
+      ]
+    ]
+  },
+  "source": {
+    "column": 5,
+    "file": "app/validators/x509_certificate_credentials_validator.rb",
+    "line": 52,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/validators/x509_certificate_credentials_validator.rb#L52",
+    "source_sha256": "433e20227f4946be73af6f75ef207c6b1d26deaef9f60cec31bed9b011fa2721"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "pkey(record).to_s",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "pass(record).to_s",
+      "index": 1,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

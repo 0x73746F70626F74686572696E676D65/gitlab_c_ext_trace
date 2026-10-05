@@ -1,0 +1,310 @@
+{
+  "callsite_id": "b713ad1f5fec64448a2a3b1cde4c1799e7982e0a8ee000cc9094f874ed65420a",
+  "expression": "Nokogiri::XML::Node.new('em', doc.document)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "03118b26e6d0e6038c95ea5b3669bdbfaeff1db4e9eadae6df1d87847ab2503e",
+        "060448fe583449e44799378aa0b82e7c2c6477b3c0359429e3989dfed257bb80",
+        "09e193382ef74c48169014fa2a10ef7a066d018c304f83720642cc25314e9938",
+        "2b942469c4844edbc93dda6638d556cfbf1f3310b0cf9926b0d6be8715c11bb7",
+        "402c6c9dcbb2d2aa70522cd3a4f806ad1b44804434cd96c146b1703875dd9400",
+        "47548d53528fbd38a3d39a4d539e8c5d0eb2b605a03839ad82c6c2a7756b303e",
+        "65d3df26f10dc95f2aaa6cfa4108e71f5650e1a94c49caf8a1aa560370c15960",
+        "a929f7c7a4a01c50002f0c8eeb3f0babaddd22f8aa86be2476b24021b2583cba",
+        "cc73c29e128b907cc1334648a96fc240e78cef2e044f4a7d6524ced5fe20ac6e",
+        "ff954c101c2e7275045b79a22ae2b92465b9ae8ce21a975d1b0136b6fef90d81"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* ( pool -> free ++ ) = 0",
+            "file": "vendor/libxml2/dict.c",
+            "function": "xmlDictAddString",
+            "function_id": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9:vendor/libxml2/dict.c:137:xmlDictAddString",
+            "line": 188,
+            "package": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9",
+            "source_sha256": "516f59a03a18bc92234e3e06515d598e59a56450c7c587e64be48c5cd63db8e1"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( rb_name )",
+            "file": "ext/nokogiri/xml_node.c",
+            "function": "rb_xml_node_new",
+            "function_id": "nokogiri@1.19.4-aarch64-linux-gnu:ext/nokogiri/xml_node.c:2082:rb_xml_node_new",
+            "line": 2102,
+            "package": "nokogiri@1.19.4-aarch64-linux-gnu",
+            "source_sha256": "8beeb092a9512840303e485a2a9ac16c739dc84baa14e60aaf7866a8aaaa5050"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rb_name",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( rb_name )",
+            "file": "ext/nokogiri/xml_node.c",
+            "function": "rb_xml_node_new",
+            "function_id": "nokogiri@1.19.4:ext/nokogiri/xml_node.c:2082:rb_xml_node_new",
+            "line": 2102,
+            "package": "nokogiri@1.19.4",
+            "source_sha256": "8beeb092a9512840303e485a2a9ac16c739dc84baa14e60aaf7866a8aaaa5050"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rb_name",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( rb_name )",
+            "file": "ext/nokogiri/xml_node.c",
+            "function": "rb_xml_node_new",
+            "function_id": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9:ext/nokogiri/xml_node.c:2082:rb_xml_node_new",
+            "line": 2102,
+            "package": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9",
+            "source_sha256": "8beeb092a9512840303e485a2a9ac16c739dc84baa14e60aaf7866a8aaaa5050"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rb_name",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "dict -> table [ 0 ] = * cur",
+            "file": "vendor/libxml2/dict.c",
+            "function": "xmlDictLookupInternal",
+            "function_id": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9:vendor/libxml2/dict.c:696:xmlDictLookupInternal",
+            "line": 815,
+            "package": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9",
+            "source_sha256": "516f59a03a18bc92234e3e06515d598e59a56450c7c587e64be48c5cd63db8e1"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( ret , cur , len )",
+            "file": "vendor/libxml2/xmlstring.c",
+            "function": "xmlStrndup",
+            "function_id": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9:vendor/libxml2/xmlstring.c:52:xmlStrndup",
+            "line": 61,
+            "package": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9",
+            "source_sha256": "b9c11171ee7e66e49eabc91d1a6811ae257eee2a590c92daf8632c06ee736eaf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "cur",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( ret , cur , len )",
+            "file": "vendor/libxml2/xmlstring.c",
+            "function": "xmlStrndup",
+            "function_id": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9:vendor/libxml2/xmlstring.c:52:xmlStrndup",
+            "line": 61,
+            "package": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9",
+            "source_sha256": "b9c11171ee7e66e49eabc91d1a6811ae257eee2a590c92daf8632c06ee736eaf"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( & dict -> table [ 1 ] , dict -> table , ( char * ) cur - ( char * ) dict -> table )",
+            "file": "vendor/libxml2/dict.c",
+            "function": "xmlDictLookupInternal",
+            "function_id": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9:vendor/libxml2/dict.c:696:xmlDictLookupInternal",
+            "line": 812,
+            "package": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9",
+            "source_sha256": "516f59a03a18bc92234e3e06515d598e59a56450c7c587e64be48c5cd63db8e1"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "& dict -> table [ 1 ]",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "ret [ len ] = 0",
+            "file": "vendor/libxml2/xmlstring.c",
+            "function": "xmlStrndup",
+            "function_id": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9:vendor/libxml2/xmlstring.c:52:xmlStrndup",
+            "line": 62,
+            "package": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9",
+            "source_sha256": "b9c11171ee7e66e49eabc91d1a6811ae257eee2a590c92daf8632c06ee736eaf"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "strncmp ( ( char * ) entry -> name , ( char * ) name , len )",
+            "file": "vendor/libxml2/dict.c",
+            "function": "xmlDictFindEntry",
+            "function_id": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9:vendor/libxml2/dict.c:565:xmlDictFindEntry",
+            "line": 592,
+            "package": "nokogiri@1.19.4:git:8cfb9daae9ee4a0837508eab43c40fbc8c4138c9",
+            "source_sha256": "516f59a03a18bc92234e3e06515d598e59a56450c7c587e64be48c5cd63db8e1"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( char * ) entry -> name",
+              "index": 0
+            },
+            {
+              "expression": "( char * ) name",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strncmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "nokogiri",
+        "method": "new",
+        "owner": "Nokogiri::XML::Node",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "1.19.4"
+      },
+      "native_api_group": "0fc47796887533b76c44520dc02e48691d43ef00cfb8b74838d5f5a6fb79e306",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "'em'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2669,
+          "byte_start": 2626,
+          "column": 20,
+          "end_line": 75,
+          "expression": "Nokogiri::XML::Node.new('em', doc.document)",
+          "file": "spec/initializers/nokogiri_node_replace_patch_spec.rb",
+          "kind": "call",
+          "line": 75,
+          "method": "new",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/initializers/nokogiri_node_replace_patch_spec.rb#L75",
+          "source_sha256": "d6f3ee5aceccdc3e38ea7e12fde1b373a3c70b73c9a23b9b6d54302dc40c4877",
+          "unit": "spec/initializers/nokogiri_node_replace_patch_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Nokogiri::XML::Node",
+    "proof": [
+      {
+        "byte_end": 2645,
+        "byte_start": 2626,
+        "column": 20,
+        "end_line": 75,
+        "expression": "Nokogiri::XML::Node",
+        "file": "spec/initializers/nokogiri_node_replace_patch_spec.rb",
+        "kind": "expression",
+        "line": 75,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/initializers/nokogiri_node_replace_patch_spec.rb#L75",
+        "source_sha256": "d6f3ee5aceccdc3e38ea7e12fde1b373a3c70b73c9a23b9b6d54302dc40c4877",
+        "unit": "spec/initializers/nokogiri_node_replace_patch_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Nokogiri::XML::Node"
+      ]
+    ]
+  },
+  "source": {
+    "column": 20,
+    "file": "spec/initializers/nokogiri_node_replace_patch_spec.rb",
+    "line": 75,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/initializers/nokogiri_node_replace_patch_spec.rb#L75",
+    "source_sha256": "d6f3ee5aceccdc3e38ea7e12fde1b373a3c70b73c9a23b9b6d54302dc40c4877"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "'em'",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    },
+    {
+      "expression": "doc.document",
+      "index": 1,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

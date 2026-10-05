@@ -1,0 +1,140 @@
+{
+  "callsite_id": "a3d0806c5ca78e93a1273bcdea22fae6cbbc7c6d0fbfcc671dfd5a5a2ce23f34",
+  "expression": "OpenSSL::Digest.new('SHA256')",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "5ef1c86dddf169f49b4455e89ba4f874add75df194de1923c48aab91bbd6eef6",
+        "90de31f58ff0577dc8a54e1d66e1c745c3739664cd7b36629946b2dac54bddd2"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::Digest",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "f5d00e39112f35f3aac129e336d81cd0f0a424212237411e98110d015815a63b",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "'SHA256'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2304,
+          "byte_start": 2275,
+          "column": 51,
+          "end_line": 55,
+          "expression": "OpenSSL::Digest.new('SHA256')",
+          "file": "spec/support/helpers/smime_helper.rb",
+          "kind": "call",
+          "line": 55,
+          "method": "new",
+          "owner": "SmimeHelper",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/smime_helper.rb#L55",
+          "source_sha256": "2c7e0c140e7fedb33c4cc3e27797699e74e7fa6f8febfefe45757804c331f478",
+          "unit": "spec/support/helpers/smime_helper.rb:620:instance:issue"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::Digest",
+    "proof": [
+      {
+        "byte_end": 2290,
+        "byte_start": 2275,
+        "column": 51,
+        "end_line": 55,
+        "expression": "OpenSSL::Digest",
+        "file": "spec/support/helpers/smime_helper.rb",
+        "kind": "expression",
+        "line": 55,
+        "owner": "SmimeHelper",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/smime_helper.rb#L55",
+        "source_sha256": "2c7e0c140e7fedb33c4cc3e27797699e74e7fa6f8febfefe45757804c331f478",
+        "unit": "spec/support/helpers/smime_helper.rb:620:instance:issue"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::Digest"
+      ]
+    ]
+  },
+  "source": {
+    "column": 51,
+    "file": "spec/support/helpers/smime_helper.rb",
+    "line": 55,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/helpers/smime_helper.rb#L55",
+    "source_sha256": "2c7e0c140e7fedb33c4cc3e27797699e74e7fa6f8febfefe45757804c331f478"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "'SHA256'",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

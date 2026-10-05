@@ -1,0 +1,202 @@
+{
+  "callsite_id": "6054eb96f7bce834197a19f5a97c32fcf1845937b07b93e341d45468e6159ee8",
+  "expression": "OpenSSL::PKCS7.read_smime(signed_data)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "read_smime",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "0ebe2d74beaa7eadf18d3a25c4c76af9002bb60cd6cae4eb634731b84effd5d2",
+        "3c42594cd443640bb8f24cd2da0c4f83c5304cfd55731cb1435730ffd39c0b35",
+        "683c915aa7fe6ec88faaa380c782dfc0d6957c1995e8b64cc45e2217bc90f536",
+        "8cc2b4d100cc53ef93eb017784075c441e701fbfd54dd7a4b4b77ed57457f84c",
+        "b55b6264f50348c0abe50a42d637f97d8996c85600725f4ce843075fb2405cb7",
+        "dce671d50138ccf9ce8778444c4704c6239540d264577ab816e6393a520236c6"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "read_smime",
+        "owner": "OpenSSL::PKCS7",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "40d7224558fc872e577cf6260c2a034a2cacd0701d903c644bec1d851040da3c",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "signed_data",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1289,
+          "byte_start": 1251,
+          "column": 26,
+          "end_line": 29,
+          "expression": "OpenSSL::PKCS7.read_smime(signed_data)",
+          "file": "lib/gitlab/email/smime/signer.rb",
+          "kind": "call",
+          "line": 29,
+          "method": "read_smime",
+          "owner": "Gitlab::Email::Smime::Signer",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/email/smime/signer.rb#L29",
+          "source_sha256": "c9ac3f8d365f0a1e03fc4c97fd1c93aad98309206898ceea645ac4a70fe32608",
+          "unit": "lib/gitlab/email/smime/signer.rb:1011:singleton:verify_signature"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::PKCS7",
+    "proof": [
+      {
+        "byte_end": 1265,
+        "byte_start": 1251,
+        "column": 26,
+        "end_line": 29,
+        "expression": "OpenSSL::PKCS7",
+        "file": "lib/gitlab/email/smime/signer.rb",
+        "kind": "expression",
+        "line": 29,
+        "owner": "Gitlab::Email::Smime::Signer",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/email/smime/signer.rb#L29",
+        "source_sha256": "c9ac3f8d365f0a1e03fc4c97fd1c93aad98309206898ceea645ac4a70fe32608",
+        "unit": "lib/gitlab/email/smime/signer.rb:1011:singleton:verify_signature"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::PKCS7"
+      ]
+    ]
+  },
+  "source": {
+    "column": 26,
+    "file": "lib/gitlab/email/smime/signer.rb",
+    "line": 29,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/email/smime/signer.rb#L29",
+    "source_sha256": "c9ac3f8d365f0a1e03fc4c97fd1c93aad98309206898ceea645ac4a70fe32608"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "signed_data",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

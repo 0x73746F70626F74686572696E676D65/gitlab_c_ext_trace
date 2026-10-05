@@ -1,0 +1,137 @@
+{
+  "callsite_id": "af519efa636aedd19f447111585d0ecce8bebf49b311fa0e8b040107f38c08d1",
+  "expression": "GPGME::Data.from_str(@content)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "from_str",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "13c0a71ce2302927749b1e74ccbf01aa0fe3e172a89b7c446b297a8c2275ae3a"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( vbuffer )",
+            "file": "ext/gpgme/gpgme_n.c",
+            "function": "rb_s_gpgme_data_new_from_mem",
+            "function_id": "gpgme@2.0.26:ext/gpgme/gpgme_n.c:372:rb_s_gpgme_data_new_from_mem",
+            "line": 384,
+            "package": "gpgme@2.0.26",
+            "source_sha256": "8739742fc66d53c6ad01d489f8d2a817520ee6d5d0238a635911fa41d4e073b6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "vbuffer",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "gpgme",
+        "method": "gpgme_data_new_from_mem",
+        "owner": "GPGME",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          3
+        ],
+        "version": "2.0.26"
+      },
+      "native_api_group": "d04824ce0dfaff4f3a3b936810a8c6337904c25a82426aa886ea8da943356aa9",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "@content",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 1003,
+          "byte_start": 973,
+          "call_event": "af519efa636aedd19f447111585d0ecce8bebf49b311fa0e8b040107f38c08d1",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:2114:singleton:from_str",
+          "callee_argument": 0,
+          "column": 22,
+          "end_line": 31,
+          "expression": "GPGME::Data.from_str(@content)",
+          "file": "app/services/packages/debian/sign_distribution_service.rb",
+          "kind": "ruby_argument_binding",
+          "line": 31,
+          "method": "from_str",
+          "owner": "Packages::Debian::SignDistributionService",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/debian/sign_distribution_service.rb#L31",
+          "source_sha256": "867d79f32d46ea5abb8cd9774729516c8a588dbd79e70c29494651f1b49bc56c",
+          "unit": "app/services/packages/debian/sign_distribution_service.rb:306:instance:execute"
+        },
+        {
+          "byte_end": 2226,
+          "byte_start": 2166,
+          "column": 15,
+          "end_line": 71,
+          "expression": "GPGME::gpgme_data_new_from_mem(rdh, string, string.bytesize)",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/data.rb",
+          "kind": "call",
+          "line": 71,
+          "method": "gpgme_data_new_from_mem",
+          "owner": "GPGME::Data",
+          "source_package": {
+            "file": "lib/gpgme/data.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "9e0db915e052661793e4d9ff67ff9e47e03042dbff17c19f80ebc7a618ad89a4",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:2114:singleton:from_str"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "GPGME::Data",
+    "proof": [
+      {
+        "byte_end": 984,
+        "byte_start": 973,
+        "column": 22,
+        "end_line": 31,
+        "expression": "GPGME::Data",
+        "file": "app/services/packages/debian/sign_distribution_service.rb",
+        "kind": "expression",
+        "line": 31,
+        "owner": "Packages::Debian::SignDistributionService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/debian/sign_distribution_service.rb#L31",
+        "source_sha256": "867d79f32d46ea5abb8cd9774729516c8a588dbd79e70c29494651f1b49bc56c",
+        "unit": "app/services/packages/debian/sign_distribution_service.rb:306:instance:execute"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "GPGME::Data"
+      ]
+    ]
+  },
+  "source": {
+    "column": 22,
+    "file": "app/services/packages/debian/sign_distribution_service.rb",
+    "line": 31,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/debian/sign_distribution_service.rb#L31",
+    "source_sha256": "867d79f32d46ea5abb8cd9774729516c8a588dbd79e70c29494651f1b49bc56c"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "@content",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

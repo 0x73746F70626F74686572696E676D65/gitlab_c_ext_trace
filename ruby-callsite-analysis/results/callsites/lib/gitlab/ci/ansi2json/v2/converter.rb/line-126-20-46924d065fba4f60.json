@@ -1,0 +1,414 @@
+{
+  "callsite_id": "46924d065fba4f6092db11f36876b08b5bc8dc52f6fcfc0f9afd9d0135ad0389",
+  "expression": "scanner.scan(PLAIN_TEXT_RUN)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "scan",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "05337d74243dbc479354863e31ed8f7e3ce74c49376cbc0333e14895f371528f",
+        "09900edc455ed14dfc59ea589b0f22961c7a7bbe9ed15e38b166ad8bc0d83b69",
+        "1775f6d514d4776d5521371c6205b2e36443cb583d68ec02d971ffb6dd15fca2",
+        "3c432c6462a5cce68398c543d35899e990a9af198ba7cf4eee65168345500e02",
+        "4aff522d550f5b6aa0933a3ad3bdf17e6d754ffd591226fd5a3e3b8a3db0d3cb",
+        "5f7cb2e7a1102f03c92c2f32b026c77ae6b6755cb0f4ee202a3c9b96c845769e",
+        "60db256f7b49b2c6acbb75f1a99f602316c8ee688ab047cc93217a2579f1f022",
+        "61790ad5d7fc55924222ce31953ed2f32ff93a3ba769202f990f839d92bd18e4",
+        "8567f4d987c050696ed42d5f3680d3ac6749b5102452eaf90f2d5ece5b43d527",
+        "92ebd43a6c2671a278c03f113478b96a1ab922d5d71b4216cb753dde0ea10bcf",
+        "94e2c12796183715207d97d15d8b6abd5cc331863792679f425c2fc2bb7f22dd",
+        "c75927a8a1c2adbbfdc7e1836d7eb069ea7aa055f6b994e580a1004054183b9e",
+        "f50d4a1434403ea9ae7424bccf8735b342ce77cbf1f7aea1c6e23e6b16b1b21e",
+        "f7360b9f6c22d2f2493603b748e86e49cfa3fe9f1478481d1c3f6c35989bd319",
+        "fc280db38feb4c7bc3caeb69dce19ca616a0c5e05028315c04e33c494c5e3410",
+        "ffcc086839430d74ef53fc17ac349e89f6fde94c9ec70aadd2fb8ef0e6c2c406"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( pattern )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 751,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pattern",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( pattern )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 751,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pattern",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( ( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr ) , RSTRING_PTR ( pattern ) , RSTRING_LEN ( pattern ) )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 760,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr )",
+              "index": 0
+            },
+            {
+              "expression": "RSTRING_PTR ( pattern )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( ( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr ) , RSTRING_PTR ( pattern ) , RSTRING_LEN ( pattern ) )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 760,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "RSTRING_LEN ( pattern )",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( ( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr ) , RSTRING_PTR ( pattern ) , RSTRING_LEN ( pattern ) )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 760,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr )",
+              "index": 0
+            },
+            {
+              "expression": "RSTRING_PTR ( pattern )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( ( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr ) , RSTRING_PTR ( pattern ) , RSTRING_LEN ( pattern ) )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 760,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "RSTRING_LEN ( pattern )",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new ( ptr , len )",
+            "file": "ext/strscan/strscan.c",
+            "function": "str_new",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:151:str_new",
+            "line": 154,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ptr",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new ( ptr , len )",
+            "file": "ext/strscan/strscan.c",
+            "function": "str_new",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:151:str_new",
+            "line": 154,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ptr",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "regs -> end [ at ] = pos + length",
+            "file": "ext/strscan/strscan.c",
+            "function": "set_registers",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:601:set_registers",
+            "line": 615,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "regs -> end [ at ] = pos + p -> curr + length",
+            "file": "ext/strscan/strscan.c",
+            "function": "set_registers",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:601:set_registers",
+            "line": 610,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "strscan",
+        "method": "scan",
+        "owner": "StringScanner",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.1.8"
+      },
+      "native_api_group": "655bd713e6a7cf643ed9f15e9bdf2fedc8bd37283a87e64878f08d20e493acbf",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "PLAIN_TEXT_RUN",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 4003,
+          "byte_start": 3975,
+          "column": 20,
+          "end_line": 126,
+          "expression": "scanner.scan(PLAIN_TEXT_RUN)",
+          "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+          "kind": "call",
+          "line": 126,
+          "method": "scan",
+          "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L126",
+          "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+          "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:3924:instance:consume_plain_text"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "scanner",
+    "proof": [
+      {
+        "byte_end": 735,
+        "byte_start": 714,
+        "column": 24,
+        "end_line": 20,
+        "expression": "StringScanner.new('')",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "call",
+        "line": 20,
+        "method": "new",
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L20",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:547:instance:convert"
+      },
+      {
+        "byte_end": 735,
+        "byte_start": 703,
+        "column": 13,
+        "end_line": 20,
+        "expression": "@scanner = StringScanner.new('')",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 20,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L20",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:547:instance:convert"
+      },
+      {
+        "byte_end": 2871,
+        "byte_start": 2863,
+        "column": 27,
+        "end_line": 92,
+        "expression": "@scanner",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 92,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L92",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2779:instance:consume_line"
+      },
+      {
+        "byte_end": 2872,
+        "byte_start": 2849,
+        "column": 13,
+        "end_line": 92,
+        "expression": "consume_token(@scanner)",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "call",
+        "line": 92,
+        "method": "consume_token",
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L92",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2779:instance:consume_line"
+      },
+      {
+        "byte_end": 3804,
+        "byte_start": 3797,
+        "column": 36,
+        "end_line": 118,
+        "expression": "scanner",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 118,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L118",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2918:instance:consume_token"
+      },
+      {
+        "byte_end": 3805,
+        "byte_start": 3778,
+        "column": 17,
+        "end_line": 118,
+        "expression": "consume_plain_text(scanner)",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "call",
+        "line": 118,
+        "method": "consume_plain_text",
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L118",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2918:instance:consume_token"
+      },
+      {
+        "byte_end": 3982,
+        "byte_start": 3975,
+        "column": 20,
+        "end_line": 126,
+        "expression": "scanner",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 126,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L126",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:3924:instance:consume_plain_text"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "StringScanner"
+      ]
+    ]
+  },
+  "source": {
+    "column": 20,
+    "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+    "line": 126,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L126",
+    "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "PLAIN_TEXT_RUN",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Regexp"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

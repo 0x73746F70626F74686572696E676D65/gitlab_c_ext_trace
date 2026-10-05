@@ -1,0 +1,342 @@
+{
+  "callsite_id": "663c6e1fd381197741662fac4877a335a846aa5fb4ef9260e6ed34bbb596c730",
+  "expression": "GPGME::Crypto.new.verify(signature_text, signed_text: signed_text) do |verified_signature|\n          signatures << verified_signature\n        end",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "verify",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "13c0a71ce2302927749b1e74ccbf01aa0fe3e172a89b7c446b297a8c2275ae3a"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( vbuffer )",
+            "file": "ext/gpgme/gpgme_n.c",
+            "function": "rb_s_gpgme_data_new_from_mem",
+            "function_id": "gpgme@2.0.26:ext/gpgme/gpgme_n.c:372:rb_s_gpgme_data_new_from_mem",
+            "line": 384,
+            "package": "gpgme@2.0.26",
+            "source_sha256": "8739742fc66d53c6ad01d489f8d2a817520ee6d5d0238a635911fa41d4e073b6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "vbuffer",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "gpgme",
+        "method": "gpgme_data_new_from_mem",
+        "owner": "GPGME",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          3
+        ],
+        "version": "2.0.26"
+      },
+      "native_api_group": "d04824ce0dfaff4f3a3b936810a8c6337904c25a82426aa886ea8da943356aa9",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "signature_text",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 2235,
+          "byte_start": 2090,
+          "call_event": "663c6e1fd381197741662fac4877a335a846aa5fb4ef9260e6ed34bbb596c730",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/crypto.rb:10995:instance:verify",
+          "callee_argument": 0,
+          "column": 9,
+          "end_line": 81,
+          "expression": "GPGME::Crypto.new.verify(signature_text, signed_text: signed_text) do |verified_signature|\n          signatures << verified_signature\n        end",
+          "file": "lib/gitlab/gpg/signature.rb",
+          "kind": "ruby_argument_binding",
+          "line": 79,
+          "method": "verify",
+          "owner": "Gitlab::Gpg::Signature",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/gpg/signature.rb#L79",
+          "source_sha256": "a030814051b335205fb0836e46f3ccbd8e0bf1984054b4f0992fddc1adba8bc5",
+          "unit": "lib/gitlab/gpg/signature.rb:2038:instance:gpg_signatures"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 11106,
+          "byte_start": 11093,
+          "call_event": "a26e50bed58706bd4c59c6d8f387840b2d23ed2e68d50da2cdaa901c3695003a",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:1330:singleton:new",
+          "callee_argument": 0,
+          "column": 21,
+          "end_line": 309,
+          "expression": "Data.new(sig)",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/crypto.rb",
+          "kind": "ruby_argument_binding",
+          "line": 309,
+          "method": "new",
+          "owner": "GPGME::Crypto",
+          "source_package": {
+            "file": "lib/gpgme/crypto.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "1042d56d3901ce2e86387956054f97080498524516180f44af5d89047a8d8eb9",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/crypto.rb:10995:instance:verify"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 1578,
+          "byte_start": 1555,
+          "call_event": "149f6277d3370c28b8c0efc48079ad487aa2d02ca1814a2288aa752198b512c7",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:2114:singleton:from_str",
+          "callee_argument": 0,
+          "column": 11,
+          "end_line": 49,
+          "expression": "from_str(object.to_str)",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/data.rb",
+          "kind": "ruby_argument_binding",
+          "line": 49,
+          "method": "from_str",
+          "owner": "GPGME::Data",
+          "source_package": {
+            "file": "lib/gpgme/data.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "9e0db915e052661793e4d9ff67ff9e47e03042dbff17c19f80ebc7a618ad89a4",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:1330:singleton:new"
+        },
+        {
+          "byte_end": 2226,
+          "byte_start": 2166,
+          "column": 15,
+          "end_line": 71,
+          "expression": "GPGME::gpgme_data_new_from_mem(rdh, string, string.bytesize)",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/data.rb",
+          "kind": "call",
+          "line": 71,
+          "method": "gpgme_data_new_from_mem",
+          "owner": "GPGME::Data",
+          "source_package": {
+            "file": "lib/gpgme/data.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "9e0db915e052661793e4d9ff67ff9e47e03042dbff17c19f80ebc7a618ad89a4",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:2114:singleton:from_str"
+        }
+      ],
+      "via": "ruby_wrapper"
+    },
+    {
+      "c_flow_ids": [
+        "13c0a71ce2302927749b1e74ccbf01aa0fe3e172a89b7c446b297a8c2275ae3a"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( vbuffer )",
+            "file": "ext/gpgme/gpgme_n.c",
+            "function": "rb_s_gpgme_data_new_from_mem",
+            "function_id": "gpgme@2.0.26:ext/gpgme/gpgme_n.c:372:rb_s_gpgme_data_new_from_mem",
+            "line": 384,
+            "package": "gpgme@2.0.26",
+            "source_sha256": "8739742fc66d53c6ad01d489f8d2a817520ee6d5d0238a635911fa41d4e073b6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "vbuffer",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "gpgme",
+        "method": "gpgme_data_new_from_mem",
+        "owner": "GPGME",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          3
+        ],
+        "version": "2.0.26"
+      },
+      "native_api_group": "d04824ce0dfaff4f3a3b936810a8c6337904c25a82426aa886ea8da943356aa9",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "signed_text: signed_text",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "keywords",
+      "ruby_binding_path": [
+        {
+          "actual_index": 1,
+          "byte_end": 2235,
+          "byte_start": 2090,
+          "call_event": "663c6e1fd381197741662fac4877a335a846aa5fb4ef9260e6ed34bbb596c730",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/crypto.rb:10995:instance:verify",
+          "callee_argument": 1,
+          "column": 9,
+          "end_line": 81,
+          "expression": "GPGME::Crypto.new.verify(signature_text, signed_text: signed_text) do |verified_signature|\n          signatures << verified_signature\n        end",
+          "file": "lib/gitlab/gpg/signature.rb",
+          "kind": "ruby_argument_binding",
+          "line": 79,
+          "method": "verify",
+          "owner": "Gitlab::Gpg::Signature",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/gpg/signature.rb#L79",
+          "source_sha256": "a030814051b335205fb0836e46f3ccbd8e0bf1984054b4f0992fddc1adba8bc5",
+          "unit": "lib/gitlab/gpg/signature.rb:2038:instance:gpg_signatures"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 11205,
+          "byte_start": 11179,
+          "call_event": "b795a3e0b221f5c92b1e402c896a1c36dba7d2e5f91ed39f73adaaf5e9a22b76",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:1330:singleton:new",
+          "callee_argument": 0,
+          "column": 21,
+          "end_line": 311,
+          "expression": "Data.new(options[:output])",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/crypto.rb",
+          "kind": "ruby_argument_binding",
+          "line": 311,
+          "method": "new",
+          "owner": "GPGME::Crypto",
+          "source_package": {
+            "file": "lib/gpgme/crypto.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "1042d56d3901ce2e86387956054f97080498524516180f44af5d89047a8d8eb9",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/crypto.rb:10995:instance:verify"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 1578,
+          "byte_start": 1555,
+          "call_event": "149f6277d3370c28b8c0efc48079ad487aa2d02ca1814a2288aa752198b512c7",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:2114:singleton:from_str",
+          "callee_argument": 0,
+          "column": 11,
+          "end_line": 49,
+          "expression": "from_str(object.to_str)",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/data.rb",
+          "kind": "ruby_argument_binding",
+          "line": 49,
+          "method": "from_str",
+          "owner": "GPGME::Data",
+          "source_package": {
+            "file": "lib/gpgme/data.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "9e0db915e052661793e4d9ff67ff9e47e03042dbff17c19f80ebc7a618ad89a4",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:1330:singleton:new"
+        },
+        {
+          "byte_end": 2226,
+          "byte_start": 2166,
+          "column": 15,
+          "end_line": 71,
+          "expression": "GPGME::gpgme_data_new_from_mem(rdh, string, string.bytesize)",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/data.rb",
+          "kind": "call",
+          "line": 71,
+          "method": "gpgme_data_new_from_mem",
+          "owner": "GPGME::Data",
+          "source_package": {
+            "file": "lib/gpgme/data.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "9e0db915e052661793e4d9ff67ff9e47e03042dbff17c19f80ebc7a618ad89a4",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/data.rb:2114:singleton:from_str"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "GPGME::Crypto.new",
+    "proof": [
+      {
+        "byte_end": 2107,
+        "byte_start": 2090,
+        "column": 9,
+        "end_line": 79,
+        "expression": "GPGME::Crypto.new",
+        "file": "lib/gitlab/gpg/signature.rb",
+        "kind": "call",
+        "line": 79,
+        "method": "new",
+        "owner": "Gitlab::Gpg::Signature",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/gpg/signature.rb#L79",
+        "source_sha256": "a030814051b335205fb0836e46f3ccbd8e0bf1984054b4f0992fddc1adba8bc5",
+        "unit": "lib/gitlab/gpg/signature.rb:2038:instance:gpg_signatures"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "GPGME::Crypto"
+      ]
+    ]
+  },
+  "source": {
+    "column": 9,
+    "file": "lib/gitlab/gpg/signature.rb",
+    "line": 79,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/gpg/signature.rb#L79",
+    "source_sha256": "a030814051b335205fb0836e46f3ccbd8e0bf1984054b4f0992fddc1adba8bc5"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "signature_text",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ]
+      ]
+    },
+    {
+      "expression": "signed_text: signed_text",
+      "index": 1,
+      "kind": "keywords",
+      "types": [
+        [
+          "instance",
+          "Hash"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

@@ -1,0 +1,319 @@
+{
+  "callsite_id": "2852215db468591e4cc380c99d16e6c6093641eb5e04b4e3dc3feda5d862c410",
+  "expression": "PgQuery.deparse_stmt(parsed_stmt)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "deparse_stmt",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "199ba7f8c786b0780adbc67cf5544d13d06e89e505288b56f38966bca8692679",
+        "697853765c3fc6812a9da9f2eedb3aaa71083e0d1944f2fc22ddd4b6c0dec51b"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( input )",
+            "file": "ext/pg_query/pg_query_ruby.c",
+            "function": "pg_query_ruby_deparse_protobuf",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_ruby.c:187:pg_query_ruby_deparse_protobuf",
+            "line": 195,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "cb5fbeb46e03976f584581ae13efb3ec882ba082edd671a3fb44aca555a44515"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( input )",
+            "file": "ext/pg_query/pg_query_ruby.c",
+            "function": "pg_query_ruby_deparse_protobuf",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_ruby.c:187:pg_query_ruby_deparse_protobuf",
+            "line": 195,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "cb5fbeb46e03976f584581ae13efb3ec882ba082edd671a3fb44aca555a44515"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "pg_query",
+        "method": "deparse_protobuf",
+        "owner": "PgQuery",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "6.2.2"
+      },
+      "native_api_group": "5127deb993d3aadfd6f26dfd17723cee28b5170ab8ca4000f5602da2b212f5cf",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "parsed_stmt",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 1180,
+          "byte_start": 1147,
+          "call_event": "2852215db468591e4cc380c99d16e6c6093641eb5e04b4e3dc3feda5d862c410",
+          "callee": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb:1407:singleton:deparse_stmt",
+          "callee_argument": 0,
+          "column": 13,
+          "end_line": 44,
+          "expression": "PgQuery.deparse_stmt(parsed_stmt)",
+          "file": "gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb",
+          "kind": "ruby_argument_binding",
+          "line": 44,
+          "method": "deparse_stmt",
+          "owner": "Gitlab::Schema::Validation::Adapters::ForeignKeyStructureSqlAdapter",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb#L44",
+          "source_sha256": "ae0fb14359daf9a17504421c4873b453d1da619bacf4c1a65e0ff693e3023417",
+          "unit": "gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb:1118:instance:deparse_stmt"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 1560,
+          "byte_start": 1439,
+          "call_event": "511498ec14a9702b24cf84b8d99fd04c96d66a71df407149bcc85553b2fb448a",
+          "callee": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb:484:singleton:deparse",
+          "callee_argument": 0,
+          "column": 5,
+          "end_line": 42,
+          "expression": "deparse(PgQuery::ParseResult.new(version: PG_VERSION_NUM, stmts: [PgQuery::RawStmt.new(stmt: PgQuery::Node.from(stmt))]))",
+          "file": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb",
+          "kind": "ruby_argument_binding",
+          "line": 42,
+          "method": "deparse",
+          "owner": "PgQuery",
+          "source_package": {
+            "file": "lib/pg_query/deparse.rb",
+            "gem": "pg_query",
+            "package_sha256": "316c194160ccfac8af9a7aff55cdc5b2d13bdd8bd8734976c6bddc477e779b6f",
+            "source_url": "https://rubygems.org/downloads/pg_query-6.2.2.gem",
+            "version": "6.2.2"
+          },
+          "source_sha256": "73b45c6fb73fcf27b163cc41d6473b1b4102db027f3267309416548fea81607d",
+          "unit": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb:1407:singleton:deparse_stmt"
+        },
+        {
+          "byte_end": 1297,
+          "byte_start": 1255,
+          "column": 7,
+          "end_line": 36,
+          "expression": "PgQuery.deparse_protobuf(protobuf_encoded)",
+          "file": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb",
+          "kind": "call",
+          "line": 36,
+          "method": "deparse_protobuf",
+          "owner": "PgQuery",
+          "source_package": {
+            "file": "lib/pg_query/deparse.rb",
+            "gem": "pg_query",
+            "package_sha256": "316c194160ccfac8af9a7aff55cdc5b2d13bdd8bd8734976c6bddc477e779b6f",
+            "source_url": "https://rubygems.org/downloads/pg_query-6.2.2.gem",
+            "version": "6.2.2"
+          },
+          "source_sha256": "73b45c6fb73fcf27b163cc41d6473b1b4102db027f3267309416548fea81607d",
+          "unit": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb:484:singleton:deparse"
+        }
+      ],
+      "via": "ruby_wrapper"
+    },
+    {
+      "c_flow_ids": [
+        "90c2b69ea3f8f2d74605612ac675a83e74a03605c966862cc4f7ddf4dcac9800",
+        "e04fdc005197972d9355f9e78c71723e40e22bc66457e2f28b169def5f0f28da"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( input )",
+            "file": "ext/pg_query/pg_query_ruby.c",
+            "function": "pg_query_ruby_deparse_protobuf_opts",
+            "function_id": "pg_query@6.2.2:ext/pg_query/pg_query_ruby.c:208:pg_query_ruby_deparse_protobuf_opts",
+            "line": 240,
+            "package": "pg_query@6.2.2",
+            "source_sha256": "cb5fbeb46e03976f584581ae13efb3ec882ba082edd671a3fb44aca555a44515"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( input )",
+            "file": "ext/pg_query/pg_query_ruby.c",
+            "function": "pg_query_ruby_deparse_protobuf_opts",
+            "function_id": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40:ext/pg_query/pg_query_ruby.c:208:pg_query_ruby_deparse_protobuf_opts",
+            "line": 240,
+            "package": "pg_query@6.2.2:git:9a161471eb1f3e6838aa0d2e9f70f5610802dc40",
+            "source_sha256": "cb5fbeb46e03976f584581ae13efb3ec882ba082edd671a3fb44aca555a44515"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "input",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "pg_query",
+        "method": "deparse_protobuf_opts",
+        "owner": "PgQuery",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          7
+        ],
+        "version": "6.2.2"
+      },
+      "native_api_group": "79e601bc8887db0166dab09cfdc35ef10b8bf22c41741d6cf6603da3d1438c54",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "parsed_stmt",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 1180,
+          "byte_start": 1147,
+          "call_event": "2852215db468591e4cc380c99d16e6c6093641eb5e04b4e3dc3feda5d862c410",
+          "callee": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb:1407:singleton:deparse_stmt",
+          "callee_argument": 0,
+          "column": 13,
+          "end_line": 44,
+          "expression": "PgQuery.deparse_stmt(parsed_stmt)",
+          "file": "gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb",
+          "kind": "ruby_argument_binding",
+          "line": 44,
+          "method": "deparse_stmt",
+          "owner": "Gitlab::Schema::Validation::Adapters::ForeignKeyStructureSqlAdapter",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb#L44",
+          "source_sha256": "ae0fb14359daf9a17504421c4873b453d1da619bacf4c1a65e0ff693e3023417",
+          "unit": "gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb:1118:instance:deparse_stmt"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 1560,
+          "byte_start": 1439,
+          "call_event": "511498ec14a9702b24cf84b8d99fd04c96d66a71df407149bcc85553b2fb448a",
+          "callee": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb:484:singleton:deparse",
+          "callee_argument": 0,
+          "column": 5,
+          "end_line": 42,
+          "expression": "deparse(PgQuery::ParseResult.new(version: PG_VERSION_NUM, stmts: [PgQuery::RawStmt.new(stmt: PgQuery::Node.from(stmt))]))",
+          "file": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb",
+          "kind": "ruby_argument_binding",
+          "line": 42,
+          "method": "deparse",
+          "owner": "PgQuery",
+          "source_package": {
+            "file": "lib/pg_query/deparse.rb",
+            "gem": "pg_query",
+            "package_sha256": "316c194160ccfac8af9a7aff55cdc5b2d13bdd8bd8734976c6bddc477e779b6f",
+            "source_url": "https://rubygems.org/downloads/pg_query-6.2.2.gem",
+            "version": "6.2.2"
+          },
+          "source_sha256": "73b45c6fb73fcf27b163cc41d6473b1b4102db027f3267309416548fea81607d",
+          "unit": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb:1407:singleton:deparse_stmt"
+        },
+        {
+          "byte_end": 1215,
+          "byte_start": 964,
+          "column": 7,
+          "end_line": 34,
+          "expression": "PgQuery.deparse_protobuf_opts(\n        protobuf_encoded,\n        opts.pretty_print,\n        opts.comments || [],\n        opts.indent_size || 0,\n        opts.max_line_length || 0,\n        opts.trailing_newline,\n        opts.commas_start_of_line\n      )",
+          "file": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb",
+          "kind": "call",
+          "line": 26,
+          "method": "deparse_protobuf_opts",
+          "owner": "PgQuery",
+          "source_package": {
+            "file": "lib/pg_query/deparse.rb",
+            "gem": "pg_query",
+            "package_sha256": "316c194160ccfac8af9a7aff55cdc5b2d13bdd8bd8734976c6bddc477e779b6f",
+            "source_url": "https://rubygems.org/downloads/pg_query-6.2.2.gem",
+            "version": "6.2.2"
+          },
+          "source_sha256": "73b45c6fb73fcf27b163cc41d6473b1b4102db027f3267309416548fea81607d",
+          "unit": "@gem/pg_query@6.2.2/lib/pg_query/deparse.rb:484:singleton:deparse"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "PgQuery",
+    "proof": [
+      {
+        "byte_end": 1154,
+        "byte_start": 1147,
+        "column": 13,
+        "end_line": 44,
+        "expression": "PgQuery",
+        "file": "gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb",
+        "kind": "expression",
+        "line": 44,
+        "owner": "Gitlab::Schema::Validation::Adapters::ForeignKeyStructureSqlAdapter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb#L44",
+        "source_sha256": "ae0fb14359daf9a17504421c4873b453d1da619bacf4c1a65e0ff693e3023417",
+        "unit": "gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb:1118:instance:deparse_stmt"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "PgQuery"
+      ]
+    ]
+  },
+  "source": {
+    "column": 13,
+    "file": "gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb",
+    "line": 44,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-schema-validation/lib/gitlab/schema/validation/adapters/foreign_key_structure_sql_adapter.rb#L44",
+    "source_sha256": "ae0fb14359daf9a17504421c4873b453d1da619bacf4c1a65e0ff693e3023417"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "parsed_stmt",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

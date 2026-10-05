@@ -1,0 +1,163 @@
+{
+  "callsite_id": "2d729945de504b217378aebecc72f0a5976305bfe72f94150f5c15268a7d04e0",
+  "expression": "store.add_file(Gitlab::X509::Certificate.default_cert_file)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "add_file",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "921a6a9f9b5f0531572c0232bbc49b930eecb9e001df20fd9185ff0ae637c572",
+        "b1bf12e64869d01821d9e55d0e8526fc8d3eb7ce773ccc739fe8d808f7b0581f"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( file )",
+            "file": "ext/openssl/ossl_x509store.c",
+            "function": "ossl_x509store_add_file",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_x509store.c:354:ossl_x509store_add_file",
+            "line": 362,
+            "package": "openssl@3.3.3",
+            "source_sha256": "31df0dfb00ff180a881f504a6fe2bd591c2e2f0bc8d23c1e456d44c404cc63e2"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "file",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( file )",
+            "file": "ext/openssl/ossl_x509store.c",
+            "function": "ossl_x509store_add_file",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_x509store.c:354:ossl_x509store_add_file",
+            "line": 362,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "31df0dfb00ff180a881f504a6fe2bd591c2e2f0bc8d23c1e456d44c404cc63e2"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "file",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "add_file",
+        "owner": "OpenSSL::X509::Store",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "6ca614b9a7fadcf900fc159bdc6e46d116b043054f692fdef86926bfc166e65e",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "Gitlab::X509::Certificate.default_cert_file",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2032,
+          "byte_start": 1973,
+          "column": 15,
+          "end_line": 73,
+          "expression": "store.add_file(Gitlab::X509::Certificate.default_cert_file)",
+          "file": "lib/gitlab/x509/signature.rb",
+          "kind": "call",
+          "line": 73,
+          "method": "add_file",
+          "owner": "Gitlab::X509::Signature",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/x509/signature.rb#L73",
+          "source_sha256": "3ff7dc16314862271a84d813699a2283d34b67378ab92d11f5f56732b753a024",
+          "unit": "lib/gitlab/x509/signature.rb:1587:instance:cert_store"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "store",
+    "proof": [
+      {
+        "byte_end": 1683,
+        "byte_start": 1659,
+        "column": 19,
+        "end_line": 67,
+        "expression": "OpenSSL::X509::Store.new",
+        "file": "lib/gitlab/x509/signature.rb",
+        "kind": "call",
+        "line": 67,
+        "method": "new",
+        "owner": "Gitlab::X509::Signature",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/x509/signature.rb#L67",
+        "source_sha256": "3ff7dc16314862271a84d813699a2283d34b67378ab92d11f5f56732b753a024",
+        "unit": "lib/gitlab/x509/signature.rb:1587:instance:cert_store"
+      },
+      {
+        "byte_end": 1683,
+        "byte_start": 1651,
+        "column": 11,
+        "end_line": 67,
+        "expression": "store = OpenSSL::X509::Store.new",
+        "file": "lib/gitlab/x509/signature.rb",
+        "kind": "expression",
+        "line": 67,
+        "owner": "Gitlab::X509::Signature",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/x509/signature.rb#L67",
+        "source_sha256": "3ff7dc16314862271a84d813699a2283d34b67378ab92d11f5f56732b753a024",
+        "unit": "lib/gitlab/x509/signature.rb:1587:instance:cert_store"
+      },
+      {
+        "byte_end": 1978,
+        "byte_start": 1973,
+        "column": 15,
+        "end_line": 73,
+        "expression": "store",
+        "file": "lib/gitlab/x509/signature.rb",
+        "kind": "expression",
+        "line": 73,
+        "owner": "Gitlab::X509::Signature",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/x509/signature.rb#L73",
+        "source_sha256": "3ff7dc16314862271a84d813699a2283d34b67378ab92d11f5f56732b753a024",
+        "unit": "lib/gitlab/x509/signature.rb:1587:instance:cert_store"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::X509::Store"
+      ]
+    ]
+  },
+  "source": {
+    "column": 15,
+    "file": "lib/gitlab/x509/signature.rb",
+    "line": 73,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/x509/signature.rb#L73",
+    "source_sha256": "3ff7dc16314862271a84d813699a2283d34b67378ab92d11f5f56732b753a024"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "Gitlab::X509::Certificate.default_cert_file",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

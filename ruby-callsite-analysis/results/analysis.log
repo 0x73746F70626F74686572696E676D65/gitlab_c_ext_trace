@@ -1,0 +1,57 @@
+Resuming saved Ruby fixed point: 375000
+Units: 290231 API groups: 1531
+Ruby fixed point: 400000 evaluations; 109718 queued
+Ruby fixed point: 425000 evaluations; 92054 queued
+Ruby fixed point: 450000 evaluations; 72167 queued
+Ruby fixed point: 475000 evaluations; 51856 queued
+Ruby fixed point: 500000 evaluations; 27928 queued
+Ruby fixed point: 525000 evaluations; 6090 queued
+Ruby fixed point closed: 546052
+Ruby closure: 550000 evaluations; 31490 queued
+Ruby closure: 575000 evaluations; 10450 queued
+{
+  "active_normalized_flow_records": 26455,
+  "api_groups": 1531,
+  "application_callsites": 519,
+  "call_depth_limit": null,
+  "definition": "Static receiver-resolved Ruby call sites with a definitely supplied argument connected to a saved native memory-operand witness. C witnesses retain their checkpoint-snapshot status. Gem Ruby wrappers are followed by formal/actual argument bindings.",
+  "fixed_point_reached": true,
+  "function_evaluations": 586946,
+  "gem_wrapper_files": 1538,
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "gitlab_remote": "https://gitlab.com/gitlab-org/gitlab.git",
+  "gitlab_ruby_files": 54172,
+  "input_flow_records": 63076,
+  "lockfile_sha256": "97635f7410dca95ff3a1913ed4a779d9d23d3d8eeba488e969825f4b58bb9cf5",
+  "matched_c_flow_records": 1149,
+  "method_units": 290231,
+  "native_argument_bindings_per_gem": {
+    "bcrypt": 3,
+    "bigdecimal": 17,
+    "charlock_holmes": 2,
+    "commonmarker": 6,
+    "date": 3571,
+    "escape_utils": 74,
+    "ffi": 8,
+    "gpgme": 15,
+    "grpc": 12,
+    "json": 8,
+    "nokogiri": 7,
+    "oj": 39,
+    "openssl": 338,
+    "pg_query": 29,
+    "psych": 1,
+    "re2": 18,
+    "rinku": 6,
+    "ruby-magic": 1,
+    "stringio": 204,
+    "strscan": 44,
+    "version_sorter": 10,
+    "yajl-ruby": 166,
+    "zlib": 108,
+    "zstd-ruby": 4
+  },
+  "receiver_or_argument_boundaries": 791836,
+  "test_or_fixture_callsites": 1868,
+  "verified_callsites": 2387
+}

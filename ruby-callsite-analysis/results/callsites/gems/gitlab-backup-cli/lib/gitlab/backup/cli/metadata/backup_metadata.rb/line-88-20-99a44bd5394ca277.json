@@ -1,0 +1,328 @@
+{
+  "callsite_id": "99a44bd5394ca27791e16c29f6359245a7a8d96b7b01d127db47bb7e66d99522",
+  "expression": "JSON.parse(File.read(json_file), JSON_PARSE_OPTIONS)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "parse",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "31344d91622e548d8b80087f495b69bd83ec1aafc83170a3eebd5c857acb667e",
+        "3398e5dcb48a09217816b0db17c0c226c63b03ccf929f87d51a60dac95e92365",
+        "46cec5c004da648b876abdc4c3792b2d83f2d6d335fcba665a5bf824aa8769ac",
+        "817cd23b5070ee0c1fce5e77f43324e2695c79d92728da7a95085a6e0841d8d1",
+        "9679d3f40c1ade75a9635f1a37a00ed275b67fdd23a755192db23e0c8081fea6",
+        "aabdad6aeef9396ec78763b8f0e9f164de1eeb18ea51729f7f1441e33834458e",
+        "b52f6b5774ffe07f05f6114ed5bdd89d8be32ac4b5f2ca89e9ef2ad18480fecf",
+        "f50b56f558e7aefbef6abaf92853447558084f2648d5bd62df16132561479be2"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "( * outBuf ) ++",
+            "file": "ext/yajl/yajl_lex.c",
+            "function": "yajl_lex_lex",
+            "function_id": "yajl-ruby@1.4.3:ext/yajl/yajl_lex.c:482:yajl_lex_lex",
+            "line": 658,
+            "package": "yajl-ruby@1.4.3",
+            "source_sha256": "0285ff9fd572bbc17866150ce4a64da918cf3549ad4a795b46d44ef688dd6624"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "update",
+          "operand_role": "destination",
+          "sink_type": "update"
+        },
+        {
+          "call_site": {
+            "expression": "( * outBuf ) ++",
+            "file": "ext/yajl/yajl_lex.c",
+            "function": "yajl_lex_lex",
+            "function_id": "yajl-ruby@1.4.3:git:e8de283a6d64f0902740fd09e858fc3d7d803161:ext/yajl/yajl_lex.c:482:yajl_lex_lex",
+            "line": 658,
+            "package": "yajl-ruby@1.4.3:git:e8de283a6d64f0902740fd09e858fc3d7d803161",
+            "source_sha256": "0285ff9fd572bbc17866150ce4a64da918cf3549ad4a795b46d44ef688dd6624"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "update",
+          "operand_role": "destination",
+          "sink_type": "update"
+        },
+        {
+          "call_site": {
+            "expression": "hand -> callbacks -> yajl_map_key ( hand -> ctx , buf , bufLen )",
+            "file": "ext/yajl/yajl_parser.c",
+            "function": "yajl_do_parse",
+            "function_id": "yajl-ruby@1.4.3:git:e8de283a6d64f0902740fd09e858fc3d7d803161:ext/yajl/yajl_parser.c:146:yajl_do_parse",
+            "line": 365,
+            "package": "yajl-ruby@1.4.3:git:e8de283a6d64f0902740fd09e858fc3d7d803161",
+            "source_sha256": "97006ab227df3e6be283ce20a6a3c16785162788d3a3871a4619788d2b7a7044"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "hand -> ctx",
+              "index": 0
+            },
+            {
+              "expression": "buf",
+              "index": 1
+            },
+            {
+              "expression": "bufLen",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_internal_realloc",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "hand -> callbacks -> yajl_number ( hand -> ctx , ( const char * ) buf , bufLen )",
+            "file": "ext/yajl/yajl_parser.c",
+            "function": "yajl_do_parse",
+            "function_id": "yajl-ruby@1.4.3:ext/yajl/yajl_parser.c:146:yajl_do_parse",
+            "line": 268,
+            "package": "yajl-ruby@1.4.3",
+            "source_sha256": "97006ab227df3e6be283ce20a6a3c16785162788d3a3871a4619788d2b7a7044"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "hand -> ctx",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) buf",
+              "index": 1
+            },
+            {
+              "expression": "bufLen",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_internal_malloc",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( buf -> data + buf -> used , data , len )",
+            "file": "ext/yajl/yajl_buf.c",
+            "function": "yajl_buf_append",
+            "function_id": "yajl-ruby@1.4.3:ext/yajl/yajl_buf.c:158:yajl_buf_append",
+            "line": 165,
+            "package": "yajl-ruby@1.4.3",
+            "source_sha256": "563c941fb479691e12dc40f3680d315235136467cbac1f38b3a2141bacb6d7e1"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( buf -> data + buf -> used , data , len )",
+            "file": "ext/yajl/yajl_buf.c",
+            "function": "yajl_buf_append",
+            "function_id": "yajl-ruby@1.4.3:git:e8de283a6d64f0902740fd09e858fc3d7d803161:ext/yajl/yajl_buf.c:158:yajl_buf_append",
+            "line": 165,
+            "package": "yajl-ruby@1.4.3:git:e8de283a6d64f0902740fd09e858fc3d7d803161",
+            "source_sha256": "563c941fb479691e12dc40f3680d315235136467cbac1f38b3a2141bacb6d7e1"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "text [ i ] = jsonText [ start ]",
+            "file": "ext/yajl/yajl_parser.c",
+            "function": "yajl_render_error_string",
+            "function_id": "yajl-ruby@1.4.3:ext/yajl/yajl_parser.c:47:yajl_render_error_string",
+            "line": 102,
+            "package": "yajl-ruby@1.4.3",
+            "source_sha256": "97006ab227df3e6be283ce20a6a3c16785162788d3a3871a4619788d2b7a7044"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "text [ i ] = jsonText [ start ]",
+            "file": "ext/yajl/yajl_parser.c",
+            "function": "yajl_render_error_string",
+            "function_id": "yajl-ruby@1.4.3:git:e8de283a6d64f0902740fd09e858fc3d7d803161:ext/yajl/yajl_parser.c:47:yajl_render_error_string",
+            "line": 102,
+            "package": "yajl-ruby@1.4.3:git:e8de283a6d64f0902740fd09e858fc3d7d803161",
+            "source_sha256": "97006ab227df3e6be283ce20a6a3c16785162788d3a3871a4619788d2b7a7044"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "yajl-ruby",
+        "method": "parse",
+        "owner": "Yajl::Parser",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "1.4.3"
+      },
+      "native_api_group": "9d9839881ea446801127f2373753a270d59f07739e06989ba59fa4d170d86764",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "File.read(json_file)",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 2923,
+          "byte_start": 2871,
+          "call_event": "99a44bd5394ca27791e16c29f6359245a7a8d96b7b01d127db47bb7e66d99522",
+          "callee": "@gem/yajl-ruby@1.4.3/lib/yajl/json_gem/parsing.rb:291:singleton:parse",
+          "callee_argument": 0,
+          "column": 20,
+          "end_line": 88,
+          "expression": "JSON.parse(File.read(json_file), JSON_PARSE_OPTIONS)",
+          "file": "gems/gitlab-backup-cli/lib/gitlab/backup/cli/metadata/backup_metadata.rb",
+          "kind": "ruby_argument_binding",
+          "line": 88,
+          "method": "parse",
+          "owner": "Gitlab::Backup::Cli::Metadata::BackupMetadata",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-backup-cli/lib/gitlab/backup/cli/metadata/backup_metadata.rb#L88",
+          "source_sha256": "dfaae9ef8b13f67a49a8622802f56f61f92935c8243b67b36909166c5c395b44",
+          "unit": "gems/gitlab-backup-cli/lib/gitlab/backup/cli/metadata/backup_metadata.rb:2696:singleton:load!"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 383,
+          "byte_start": 354,
+          "call_event": "efe77db34dc0c7a25aa828ed07d92b7429fa7d4e52671db4d290166c3feccc8e",
+          "callee": "@gem/yajl-ruby@1.4.3/lib/yajl.rb:1376:singleton:parse",
+          "callee_argument": 0,
+          "column": 7,
+          "end_line": 13,
+          "expression": "Yajl::Parser.parse(str, opts)",
+          "file": "@gem/yajl-ruby@1.4.3/lib/yajl/json_gem/parsing.rb",
+          "kind": "ruby_argument_binding",
+          "line": 13,
+          "method": "parse",
+          "owner": "JSON",
+          "source_package": {
+            "file": "lib/yajl/json_gem/parsing.rb",
+            "gem": "yajl-ruby",
+            "package_sha256": "8c974d9c11ae07b0a3b6d26efea8407269b02e4138118fbe3ef0d2ec9724d1d2",
+            "source_url": "https://rubygems.org/downloads/yajl-ruby-1.4.3.gem",
+            "version": "1.4.3"
+          },
+          "source_sha256": "1a56c6c0bd63a0266745df9e9ab1dd9d5ff0cbb53cb368409c99deea54bde0a2",
+          "unit": "@gem/yajl-ruby@1.4.3/lib/yajl/json_gem/parsing.rb:291:singleton:parse"
+        },
+        {
+          "byte_end": 1497,
+          "byte_start": 1446,
+          "column": 7,
+          "end_line": 44,
+          "expression": "new(options).parse(str_or_io, read_bufsize, &block)",
+          "file": "@gem/yajl-ruby@1.4.3/lib/yajl.rb",
+          "kind": "call",
+          "line": 44,
+          "method": "parse",
+          "owner": "Yajl::Parser",
+          "source_package": {
+            "file": "lib/yajl.rb",
+            "gem": "yajl-ruby",
+            "package_sha256": "8c974d9c11ae07b0a3b6d26efea8407269b02e4138118fbe3ef0d2ec9724d1d2",
+            "source_url": "https://rubygems.org/downloads/yajl-ruby-1.4.3.gem",
+            "version": "1.4.3"
+          },
+          "source_sha256": "68c802cabd6272f18d04577825e4a64455070b0592a888c033b912c117f79075",
+          "unit": "@gem/yajl-ruby@1.4.3/lib/yajl.rb:1376:singleton:parse"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "JSON",
+    "proof": [
+      {
+        "byte_end": 2875,
+        "byte_start": 2871,
+        "column": 20,
+        "end_line": 88,
+        "expression": "JSON",
+        "file": "gems/gitlab-backup-cli/lib/gitlab/backup/cli/metadata/backup_metadata.rb",
+        "kind": "expression",
+        "line": 88,
+        "owner": "Gitlab::Backup::Cli::Metadata::BackupMetadata",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-backup-cli/lib/gitlab/backup/cli/metadata/backup_metadata.rb#L88",
+        "source_sha256": "dfaae9ef8b13f67a49a8622802f56f61f92935c8243b67b36909166c5c395b44",
+        "unit": "gems/gitlab-backup-cli/lib/gitlab/backup/cli/metadata/backup_metadata.rb:2696:singleton:load!"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "JSON"
+      ]
+    ]
+  },
+  "source": {
+    "column": 20,
+    "file": "gems/gitlab-backup-cli/lib/gitlab/backup/cli/metadata/backup_metadata.rb",
+    "line": 88,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-backup-cli/lib/gitlab/backup/cli/metadata/backup_metadata.rb#L88",
+    "source_sha256": "dfaae9ef8b13f67a49a8622802f56f61f92935c8243b67b36909166c5c395b44"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "File.read(json_file)",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    },
+    {
+      "expression": "JSON_PARSE_OPTIONS",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Hash"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

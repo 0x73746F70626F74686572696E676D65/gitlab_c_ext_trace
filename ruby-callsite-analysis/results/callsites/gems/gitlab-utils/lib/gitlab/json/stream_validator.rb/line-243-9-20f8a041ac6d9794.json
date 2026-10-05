@@ -1,0 +1,467 @@
+{
+  "callsite_id": "20f8a041ac6d9794213d4fa9fbc4a587510275902b31976579e705781f967a17",
+  "expression": "Oj.load(body, mode: :strict)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "load",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "01cceb950e18cf7d31bef3fe8e0709ed3a8f86f055aeec636175b338bf8540fc",
+        "19ca83ed55b13b99ea75c1774fddb0bcc457b722cdc1fbbb571ac24200d53690",
+        "238b32d5b353c8a6df5810f6d74b221e73d1a89aef5841ef2735c03b797d5012",
+        "45735f7acce5a0d756e2b5d377611a42c1a773a4a9172d2a1d1e0f8d8451972b",
+        "67e11e99a1106f175cdd071027d0e796b64ffe0c164e6774c0231af17255e78e",
+        "6b3317720e957e2accaf10a4eeb433597af74fb7e731c88014ba3a24039fd057",
+        "6f3d6fffcd8d4cc009785dfa8b48967726f4606dd4a409e9c605cfb5e68483b3",
+        "7645fb97f0e25b3c3fbcbd77d330e2161344490361ac7f8aa2633d4c54b4d959",
+        "90f8594c557c86922862be02bd291db3bf6edde8f3365e244420ab812da1b677",
+        "b32e9de741cac3fc5e112676484df3dcbad8560e088a5d3ba692ff7e585567e7",
+        "c633687b03e3975f4bb4a2060bbb217215927cc02e2c9092dd5b0a7726ac3617",
+        "c69f09928252b4dd5968069ee5f90debf6a960942fb6382d9c38a9b32bfba1ab",
+        "d07977b9e10d6181f8c27f4b21cb4a89445913b65e6445e7a83704fe3959d0dd",
+        "e82e4f6afdcda17711f5651107ddd5f3e834e3c0877a7c2db25d97489b6a333c"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* inputp = rb_str_conv_enc ( * inputp , enc , oj_utf8_encoding )",
+            "file": "ext/oj/parse.c",
+            "function": "oj_pi_set_input_str",
+            "function_id": "oj@3.17.6:ext/oj/parse.c:1153:oj_pi_set_input_str",
+            "line": 1158,
+            "package": "oj@3.17.6",
+            "source_sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* vp = value",
+            "file": "ext/oj/odd.c",
+            "function": "oj_odd_set_arg",
+            "function_id": "oj@3.17.6:ext/oj/odd.c:196:oj_odd_set_arg",
+            "line": 203,
+            "package": "oj@3.17.6",
+            "source_sha256": "f08f15350b55d2fac4ae81b74cf03cc677f7d3532f3269662ff5f1149a4c092c"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "LONG2NUM ( len )",
+            "file": "ext/oj/sparse.c",
+            "function": "oj_sparse2",
+            "function_id": "oj@3.17.6:ext/oj/sparse.c:662:oj_sparse2",
+            "line": 792,
+            "package": "oj@3.17.6",
+            "source_sha256": "92b320b17b13c98798f2dd5c955742aa3f414abd71dc0415cdf88511b80834e0"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "LONG2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( io )",
+            "file": "ext/oj/reader.c",
+            "function": "oj_reader_init",
+            "function_id": "oj@3.17.6:ext/oj/reader.c:32:oj_reader_init",
+            "line": 54,
+            "package": "oj@3.17.6",
+            "source_sha256": "dc1869c70841d865a5fcb67ca00967bc1fced236ec762c766b2c433bfca3ae5f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "io",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "TypedData_Wrap_Struct ( oj_cstack_class , & oj_stack_type , stack )",
+            "file": "ext/oj/val_stack.c",
+            "function": "oj_stack_init",
+            "function_id": "oj@3.17.6:ext/oj/val_stack.c:60:oj_stack_init",
+            "line": 84,
+            "package": "oj@3.17.6",
+            "source_sha256": "a820c6f827b290cb8bf1bcd8c624a155b4e5548bec0c4c72c76f9227519b2953"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "oj_cstack_class",
+              "index": 0
+            },
+            {
+              "expression": "& oj_stack_type",
+              "index": 1
+            },
+            {
+              "expression": "stack",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "TypedData_Wrap_Struct",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "buf [ ni -> len ] = '\\0'",
+            "file": "ext/oj/parse.c",
+            "function": "oj_num_as_value",
+            "function_id": "oj@3.17.6:ext/oj/parse.c:993:oj_num_as_value",
+            "line": 1017,
+            "package": "oj@3.17.6",
+            "source_sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( p , vp -> key , vp -> klen )",
+            "file": "ext/oj/parse.c",
+            "function": "oj_set_error_at",
+            "function_id": "oj@3.17.6:ext/oj/parse.c:1084:oj_set_error_at",
+            "line": 1124,
+            "package": "oj@3.17.6",
+            "source_sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "p",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( p , vp -> key , vp -> klen )",
+            "file": "ext/oj/parse.c",
+            "function": "oj_set_error_at",
+            "function_id": "oj@3.17.6:ext/oj/parse.c:1084:oj_set_error_at",
+            "line": 1124,
+            "package": "oj@3.17.6",
+            "source_sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "vp -> key",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( p , vp -> key , vp -> klen )",
+            "file": "ext/oj/parse.c",
+            "function": "oj_set_error_at",
+            "function_id": "oj@3.17.6:ext/oj/parse.c:1084:oj_set_error_at",
+            "line": 1124,
+            "package": "oj@3.17.6",
+            "source_sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "vp -> klen",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "snprintf ( p , end - p , \"[%ld]\" , RARRAY_LEN ( vp -> val ) )",
+            "file": "ext/oj/parse.c",
+            "function": "oj_set_error_at",
+            "function_id": "oj@3.17.6:ext/oj/parse.c:1084:oj_set_error_at",
+            "line": 1131,
+            "package": "oj@3.17.6",
+            "source_sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "RARRAY_LEN ( vp -> val )",
+              "index": 3
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "snprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "snprintf ( p , end - p , \"[%ld]\" , RARRAY_LEN ( vp -> val ) )",
+            "file": "ext/oj/parse.c",
+            "function": "oj_set_error_at",
+            "function_id": "oj@3.17.6:ext/oj/parse.c:1084:oj_set_error_at",
+            "line": 1131,
+            "package": "oj@3.17.6",
+            "source_sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "end - p",
+              "index": 1
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "snprintf",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "snprintf ( p , end - p , \"[%ld]\" , RARRAY_LEN ( vp -> val ) )",
+            "file": "ext/oj/parse.c",
+            "function": "oj_set_error_at",
+            "function_id": "oj@3.17.6:ext/oj/parse.c:1084:oj_set_error_at",
+            "line": 1131,
+            "package": "oj@3.17.6",
+            "source_sha256": "b37e3e86467fc481c47ebfdd96d0d48487f6a04ab1d4a2aad92d81a9d0ff8ae0"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "p",
+              "index": 0
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "snprintf",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strcasecmp ( \"3.3e14159265358979323846\" , ni . str )",
+            "file": "ext/oj/sparse.c",
+            "function": "read_num",
+            "function_id": "oj@3.17.6:ext/oj/sparse.c:397:read_num",
+            "line": 534,
+            "package": "oj@3.17.6",
+            "source_sha256": "92b320b17b13c98798f2dd5c955742aa3f414abd71dc0415cdf88511b80834e0"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "\"3.3e14159265358979323846\"",
+              "index": 0
+            },
+            {
+              "expression": "ni . str",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strcasecmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strncmp ( b -> key , key , len )",
+            "file": "ext/oj/intern.c",
+            "function": "oj_class_intern",
+            "function_id": "oj@3.17.6:ext/oj/intern.c:246:oj_class_intern",
+            "line": 259,
+            "package": "oj@3.17.6",
+            "source_sha256": "f5184315ab5fc4aaf1943578113f1797a01a2bcd455d411a306976e1753d62a8"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strncmp",
+          "operand_role": "length",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "oj",
+        "method": "load",
+        "owner": "Oj",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.17.6"
+      },
+      "native_api_group": "8719b2ef8535a9ff7d784cd885221f80d18b5b702280a4488b8d9d7245bb6338",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "body",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 8885,
+          "byte_start": 8857,
+          "column": 9,
+          "end_line": 243,
+          "expression": "Oj.load(body, mode: :strict)",
+          "file": "gems/gitlab-utils/lib/gitlab/json/stream_validator.rb",
+          "kind": "call",
+          "line": 243,
+          "method": "load",
+          "owner": "Gitlab::Json::StreamValidator",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-utils/lib/gitlab/json/stream_validator.rb#L243",
+          "source_sha256": "2072f6afe0310aca91cd15d85f523d5f31032909408f8e834c4a6fd2e23520b4",
+          "unit": "gems/gitlab-utils/lib/gitlab/json/stream_validator.rb:8815:instance:validate_simple_string!"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Oj",
+    "proof": [
+      {
+        "byte_end": 8859,
+        "byte_start": 8857,
+        "column": 9,
+        "end_line": 243,
+        "expression": "Oj",
+        "file": "gems/gitlab-utils/lib/gitlab/json/stream_validator.rb",
+        "kind": "expression",
+        "line": 243,
+        "owner": "Gitlab::Json::StreamValidator",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-utils/lib/gitlab/json/stream_validator.rb#L243",
+        "source_sha256": "2072f6afe0310aca91cd15d85f523d5f31032909408f8e834c4a6fd2e23520b4",
+        "unit": "gems/gitlab-utils/lib/gitlab/json/stream_validator.rb:8815:instance:validate_simple_string!"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Oj"
+      ]
+    ]
+  },
+  "source": {
+    "column": 9,
+    "file": "gems/gitlab-utils/lib/gitlab/json/stream_validator.rb",
+    "line": 243,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/gems/gitlab-utils/lib/gitlab/json/stream_validator.rb#L243",
+    "source_sha256": "2072f6afe0310aca91cd15d85f523d5f31032909408f8e834c4a6fd2e23520b4"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "body",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Hash"
+        ],
+        [
+          "instance",
+          "Integer"
+        ],
+        [
+          "instance",
+          "NilClass"
+        ],
+        [
+          "instance",
+          "String"
+        ],
+        [
+          "instance",
+          "TrueClass"
+        ],
+        [
+          "singleton",
+          "Bitbucket::ExponentialBackoff::RateLimitError"
+        ],
+        [
+          "singleton",
+          "EE::ContainerRegistry::Client::NotFoundError"
+        ],
+        [
+          "singleton",
+          "Encoding::UndefinedConversionError"
+        ],
+        [
+          "singleton",
+          "EncodingError"
+        ],
+        [
+          "singleton",
+          "Errno::EISDIR"
+        ],
+        [
+          "singleton",
+          "JSON::GeneratorError"
+        ],
+        [
+          "singleton",
+          "JSON::ParserError"
+        ],
+        [
+          "singleton",
+          "NoMethodError"
+        ],
+        [
+          "singleton",
+          "StandardError"
+        ],
+        [
+          "singleton",
+          "Zlib::GzipFile::Error"
+        ]
+      ]
+    },
+    {
+      "expression": "mode: :strict",
+      "index": 1,
+      "kind": "keywords",
+      "types": [
+        [
+          "instance",
+          "Hash"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

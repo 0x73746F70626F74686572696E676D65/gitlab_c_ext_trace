@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "captures": 22,
+      "hash_seed": "1",
+      "sha256": "b94030146716ae2da79ced8cda9d83b1f5375768c30b6e7f87df71c74f896a8b",
+      "tests": 23
+    },
+    {
+      "captures": 22,
+      "hash_seed": "918273",
+      "sha256": "b94030146716ae2da79ced8cda9d83b1f5375768c30b6e7f87df71c74f896a8b",
+      "tests": 23
+    }
+  ],
+  "scope": "Full semantic fixture suite evidence and accepted records replayed; repository fixed point is run once"
+}

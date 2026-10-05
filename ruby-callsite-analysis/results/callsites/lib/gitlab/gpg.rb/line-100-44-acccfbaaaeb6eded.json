@@ -1,0 +1,142 @@
+{
+  "callsite_id": "acccfbaaaeb6eded550ac7da51d76ab0b42eaa0264b34107f3b70e776d1309c5",
+  "expression": "GPGME::Engine.dirinfo('homedir')",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "dirinfo",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "3fe6ad71dce851f3b95bb808888062a17ba8858cad97bf0df661d695c926cc20"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( vwhat )",
+            "file": "ext/gpgme/gpgme_n.c",
+            "function": "rb_s_gpgme_get_dirinfo",
+            "function_id": "gpgme@2.0.26:ext/gpgme/gpgme_n.c:215:rb_s_gpgme_get_dirinfo",
+            "line": 218,
+            "package": "gpgme@2.0.26",
+            "source_sha256": "8739742fc66d53c6ad01d489f8d2a817520ee6d5d0238a635911fa41d4e073b6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "vwhat",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "gpgme",
+        "method": "gpgme_get_dirinfo",
+        "owner": "GPGME",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "2.0.26"
+      },
+      "native_api_group": "041e539b012e1add867c392b53d480ee73e5c497afb7e01accd24ea8b83ddc8a",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "'homedir'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 3168,
+          "byte_start": 3136,
+          "call_event": "acccfbaaaeb6eded550ac7da51d76ab0b42eaa0264b34107f3b70e776d1309c5",
+          "callee": "@gem/gpgme@2.0.26/lib/gpgme/engine.rb:2347:singleton:dirinfo",
+          "callee_argument": 0,
+          "column": 44,
+          "end_line": 100,
+          "expression": "GPGME::Engine.dirinfo('homedir')",
+          "file": "lib/gitlab/gpg.rb",
+          "kind": "ruby_argument_binding",
+          "line": 100,
+          "method": "dirinfo",
+          "owner": "Gitlab::Gpg",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/gpg.rb#L100",
+          "source_sha256": "91d495665bcc195bfb067094187607a1eb54246fa72a01ac18f159d4f8362532",
+          "unit": "lib/gitlab/gpg.rb:3072:instance:current_home_dir"
+        },
+        {
+          "byte_end": 2403,
+          "byte_start": 2373,
+          "column": 9,
+          "end_line": 83,
+          "expression": "GPGME::gpgme_get_dirinfo(what)",
+          "file": "@gem/gpgme@2.0.26/lib/gpgme/engine.rb",
+          "kind": "call",
+          "line": 83,
+          "method": "gpgme_get_dirinfo",
+          "owner": "GPGME::Engine",
+          "source_package": {
+            "file": "lib/gpgme/engine.rb",
+            "gem": "gpgme",
+            "package_sha256": "1aebfd2eb83b745341e6f416f318597568af5ad4d7d1f55bfab4f1078123abaa",
+            "source_url": "https://rubygems.org/downloads/gpgme-2.0.26.gem",
+            "version": "2.0.26"
+          },
+          "source_sha256": "a29aaf026f854803da48ca58f9aa66fb9b7559fc5ecf82c0043d67098e46d738",
+          "unit": "@gem/gpgme@2.0.26/lib/gpgme/engine.rb:2347:singleton:dirinfo"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "GPGME::Engine",
+    "proof": [
+      {
+        "byte_end": 3149,
+        "byte_start": 3136,
+        "column": 44,
+        "end_line": 100,
+        "expression": "GPGME::Engine",
+        "file": "lib/gitlab/gpg.rb",
+        "kind": "expression",
+        "line": 100,
+        "owner": "Gitlab::Gpg",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/gpg.rb#L100",
+        "source_sha256": "91d495665bcc195bfb067094187607a1eb54246fa72a01ac18f159d4f8362532",
+        "unit": "lib/gitlab/gpg.rb:3072:instance:current_home_dir"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "GPGME::Engine"
+      ]
+    ]
+  },
+  "source": {
+    "column": 44,
+    "file": "lib/gitlab/gpg.rb",
+    "line": 100,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/gpg.rb#L100",
+    "source_sha256": "91d495665bcc195bfb067094187607a1eb54246fa72a01ac18f159d4f8362532"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "'homedir'",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

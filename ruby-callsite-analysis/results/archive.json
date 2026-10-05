@@ -1,0 +1,7 @@
+{
+  "bytes": 77249874,
+  "individual_callsite_json_files": 2387,
+  "path": "ruby-callsite-analysis/packages/gitlab-gem-api-memory-callsites.tar.gz",
+  "sha256": "114c456a6ed33333da1d4ad6f9436e55e49fb89d7539aed547d55b7b302f0947",
+  "total_files": 2418
+}

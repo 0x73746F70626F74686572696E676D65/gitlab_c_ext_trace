@@ -1,0 +1,394 @@
+{
+  "callsite_id": "f2266e0faa6cc1d14dd60d7b051dc53276551878d73788fb733d479694333734",
+  "expression": "::OpenSSL::HMAC.hexdigest(\n            signature_digest,\n            signature_key,\n            message\n          )",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "hexdigest",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "40dd088ca042703f222a5248cfadf623a84654700640fabff9287b2414907846",
+        "d89f1a7bd81ee1fb6f6c020fd3e3a8c0c20ea8f35fa41559d6519fe6e4c9c55c"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( data )",
+            "file": "ext/openssl/ossl_hmac.c",
+            "function": "ossl_hmac_update",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_hmac.c:157:ossl_hmac_update",
+            "line": 162,
+            "package": "openssl@3.3.3",
+            "source_sha256": "f72ecc84bd2872b9d318843c941af3ad472e57614112a4bec3619f58afeb8832"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( data )",
+            "file": "ext/openssl/ossl_hmac.c",
+            "function": "ossl_hmac_update",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_hmac.c:157:ossl_hmac_update",
+            "line": 162,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "f72ecc84bd2872b9d318843c941af3ad472e57614112a4bec3619f58afeb8832"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "<<",
+        "owner": "OpenSSL::HMAC",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [],
+        "version": "3.3.3"
+      },
+      "native_api_group": "3b9d03ffde251a48dcfe8baeb7b69e47eff80b60b6f4300e3e82e496e4c45476",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "message",
+      "ruby_argument_index": 2,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 2,
+          "byte_end": 3385,
+          "byte_start": 3270,
+          "call_event": "f2266e0faa6cc1d14dd60d7b051dc53276551878d73788fb733d479694333734",
+          "callee": "@gem/openssl@3.3.3/lib/openssl/hmac.rb:1774:singleton:hexdigest",
+          "callee_argument": 2,
+          "column": 11,
+          "end_line": 120,
+          "expression": "::OpenSSL::HMAC.hexdigest(\n            signature_digest,\n            signature_key,\n            message\n          )",
+          "file": "lib/gitlab/ci/ansi2json/state.rb",
+          "kind": "ruby_argument_binding",
+          "line": 116,
+          "method": "hexdigest",
+          "owner": "Gitlab::Ci::Ansi2json::State",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/state.rb#L116",
+          "source_sha256": "886c71e2f5d91cd5e602969e6f63411a942eae2d4b4a35cb57b9be3670e70d17",
+          "unit": "lib/gitlab/ci/ansi2json/state.rb:3242:instance:sign"
+        },
+        {
+          "byte_end": 1859,
+          "byte_start": 1847,
+          "column": 9,
+          "end_line": 56,
+          "expression": "hmac << data",
+          "file": "@gem/openssl@3.3.3/lib/openssl/hmac.rb",
+          "kind": "call",
+          "line": 56,
+          "method": "<<",
+          "owner": "OpenSSL::HMAC",
+          "source_package": {
+            "file": "lib/openssl/hmac.rb",
+            "gem": "openssl",
+            "package_sha256": "d46902138f2987c13122fab826030a11c2bb9b8a16394215cbfc5062c5e2d335",
+            "source_url": "https://rubygems.org/downloads/openssl-3.3.3.gem",
+            "version": "3.3.3"
+          },
+          "source_sha256": "c83bf325f9dc446ea0d24daa6bd43ed5150a928b4527c7d112d5173a9b88209c",
+          "unit": "@gem/openssl@3.3.3/lib/openssl/hmac.rb:1774:singleton:hexdigest"
+        }
+      ],
+      "via": "ruby_wrapper"
+    },
+    {
+      "c_flow_ids": [
+        "651d96f7c6093978de4bf39f6e6ad8245f458e7905371a5eca96164f462ecad2",
+        "efe2e639079d72c34913f2f2d63f6b226dca88442ba73a3f232733bbcbfc9fc2"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( key )",
+            "file": "ext/openssl/ossl_hmac.c",
+            "function": "ossl_hmac_initialize",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_hmac.c:92:ossl_hmac_initialize",
+            "line": 99,
+            "package": "openssl@3.3.3",
+            "source_sha256": "f72ecc84bd2872b9d318843c941af3ad472e57614112a4bec3619f58afeb8832"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "key",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( key )",
+            "file": "ext/openssl/ossl_hmac.c",
+            "function": "ossl_hmac_initialize",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_hmac.c:92:ossl_hmac_initialize",
+            "line": 99,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "f72ecc84bd2872b9d318843c941af3ad472e57614112a4bec3619f58afeb8832"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "key",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::HMAC",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "68a0139c5a3ffa08db2b3442fd2cebfc8be10e844eba3366955a5bddc694f8c7",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "signature_key",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 1,
+          "byte_end": 3385,
+          "byte_start": 3270,
+          "call_event": "f2266e0faa6cc1d14dd60d7b051dc53276551878d73788fb733d479694333734",
+          "callee": "@gem/openssl@3.3.3/lib/openssl/hmac.rb:1774:singleton:hexdigest",
+          "callee_argument": 1,
+          "column": 11,
+          "end_line": 120,
+          "expression": "::OpenSSL::HMAC.hexdigest(\n            signature_digest,\n            signature_key,\n            message\n          )",
+          "file": "lib/gitlab/ci/ansi2json/state.rb",
+          "kind": "ruby_argument_binding",
+          "line": 116,
+          "method": "hexdigest",
+          "owner": "Gitlab::Ci::Ansi2json::State",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/state.rb#L116",
+          "source_sha256": "886c71e2f5d91cd5e602969e6f63411a942eae2d4b4a35cb57b9be3670e70d17",
+          "unit": "lib/gitlab/ci/ansi2json/state.rb:3242:instance:sign"
+        },
+        {
+          "byte_end": 1838,
+          "byte_start": 1822,
+          "column": 16,
+          "end_line": 55,
+          "expression": "new(key, digest)",
+          "file": "@gem/openssl@3.3.3/lib/openssl/hmac.rb",
+          "kind": "call",
+          "line": 55,
+          "method": "new",
+          "owner": "OpenSSL::HMAC",
+          "source_package": {
+            "file": "lib/openssl/hmac.rb",
+            "gem": "openssl",
+            "package_sha256": "d46902138f2987c13122fab826030a11c2bb9b8a16394215cbfc5062c5e2d335",
+            "source_url": "https://rubygems.org/downloads/openssl-3.3.3.gem",
+            "version": "3.3.3"
+          },
+          "source_sha256": "c83bf325f9dc446ea0d24daa6bd43ed5150a928b4527c7d112d5173a9b88209c",
+          "unit": "@gem/openssl@3.3.3/lib/openssl/hmac.rb:1774:singleton:hexdigest"
+        }
+      ],
+      "via": "ruby_wrapper"
+    },
+    {
+      "c_flow_ids": [
+        "60aacfb6d77460d6e978d711f436510dfe83c21d9e65646f9e24bcfbc977a82d",
+        "77fead3af652e616d1bc6fcb66d9d4fa8d1abe218b64c2c149cac26f0497812c"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::HMAC",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "68a0139c5a3ffa08db2b3442fd2cebfc8be10e844eba3366955a5bddc694f8c7",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "signature_digest",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 3385,
+          "byte_start": 3270,
+          "call_event": "f2266e0faa6cc1d14dd60d7b051dc53276551878d73788fb733d479694333734",
+          "callee": "@gem/openssl@3.3.3/lib/openssl/hmac.rb:1774:singleton:hexdigest",
+          "callee_argument": 0,
+          "column": 11,
+          "end_line": 120,
+          "expression": "::OpenSSL::HMAC.hexdigest(\n            signature_digest,\n            signature_key,\n            message\n          )",
+          "file": "lib/gitlab/ci/ansi2json/state.rb",
+          "kind": "ruby_argument_binding",
+          "line": 116,
+          "method": "hexdigest",
+          "owner": "Gitlab::Ci::Ansi2json::State",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/state.rb#L116",
+          "source_sha256": "886c71e2f5d91cd5e602969e6f63411a942eae2d4b4a35cb57b9be3670e70d17",
+          "unit": "lib/gitlab/ci/ansi2json/state.rb:3242:instance:sign"
+        },
+        {
+          "byte_end": 1838,
+          "byte_start": 1822,
+          "column": 16,
+          "end_line": 55,
+          "expression": "new(key, digest)",
+          "file": "@gem/openssl@3.3.3/lib/openssl/hmac.rb",
+          "kind": "call",
+          "line": 55,
+          "method": "new",
+          "owner": "OpenSSL::HMAC",
+          "source_package": {
+            "file": "lib/openssl/hmac.rb",
+            "gem": "openssl",
+            "package_sha256": "d46902138f2987c13122fab826030a11c2bb9b8a16394215cbfc5062c5e2d335",
+            "source_url": "https://rubygems.org/downloads/openssl-3.3.3.gem",
+            "version": "3.3.3"
+          },
+          "source_sha256": "c83bf325f9dc446ea0d24daa6bd43ed5150a928b4527c7d112d5173a9b88209c",
+          "unit": "@gem/openssl@3.3.3/lib/openssl/hmac.rb:1774:singleton:hexdigest"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "::OpenSSL::HMAC",
+    "proof": [
+      {
+        "byte_end": 3285,
+        "byte_start": 3270,
+        "column": 11,
+        "end_line": 116,
+        "expression": "::OpenSSL::HMAC",
+        "file": "lib/gitlab/ci/ansi2json/state.rb",
+        "kind": "expression",
+        "line": 116,
+        "owner": "Gitlab::Ci::Ansi2json::State",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/state.rb#L116",
+        "source_sha256": "886c71e2f5d91cd5e602969e6f63411a942eae2d4b4a35cb57b9be3670e70d17",
+        "unit": "lib/gitlab/ci/ansi2json/state.rb:3242:instance:sign"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::HMAC"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "lib/gitlab/ci/ansi2json/state.rb",
+    "line": 116,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/state.rb#L116",
+    "source_sha256": "886c71e2f5d91cd5e602969e6f63411a942eae2d4b4a35cb57b9be3670e70d17"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "signature_digest",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "OpenSSL::Digest"
+        ]
+      ]
+    },
+    {
+      "expression": "signature_key",
+      "index": 1,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "message",
+      "index": 2,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

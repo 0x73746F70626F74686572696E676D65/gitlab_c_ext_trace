@@ -1,0 +1,140 @@
+{
+  "callsite_id": "c668cf2f08522dfe8fe6dbf81684f2e7ef775e3d9946a81eab8ad8246b150124",
+  "expression": "OpenSSL::Digest.new('SHA1')",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "5ef1c86dddf169f49b4455e89ba4f874add75df194de1923c48aab91bbd6eef6",
+        "90de31f58ff0577dc8a54e1d66e1c745c3739664cd7b36629946b2dac54bddd2"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::Digest",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "f5d00e39112f35f3aac129e336d81cd0f0a424212237411e98110d015815a63b",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "'SHA1'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1375,
+          "byte_start": 1348,
+          "column": 17,
+          "end_line": 44,
+          "expression": "OpenSSL::Digest.new('SHA1')",
+          "file": "ee/spec/workers/virtual_registries/packages/maven/create_cache_entry_worker_spec.rb",
+          "kind": "call",
+          "line": 44,
+          "method": "new",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/workers/virtual_registries/packages/maven/create_cache_entry_worker_spec.rb#L44",
+          "source_sha256": "645888acd4af843d5be32b4e0f73eea34685c7928ee4ce46edaa34d3a56a02c2",
+          "unit": "ee/spec/workers/virtual_registries/packages/maven/create_cache_entry_worker_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::Digest",
+    "proof": [
+      {
+        "byte_end": 1363,
+        "byte_start": 1348,
+        "column": 17,
+        "end_line": 44,
+        "expression": "OpenSSL::Digest",
+        "file": "ee/spec/workers/virtual_registries/packages/maven/create_cache_entry_worker_spec.rb",
+        "kind": "expression",
+        "line": 44,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/workers/virtual_registries/packages/maven/create_cache_entry_worker_spec.rb#L44",
+        "source_sha256": "645888acd4af843d5be32b4e0f73eea34685c7928ee4ce46edaa34d3a56a02c2",
+        "unit": "ee/spec/workers/virtual_registries/packages/maven/create_cache_entry_worker_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::Digest"
+      ]
+    ]
+  },
+  "source": {
+    "column": 17,
+    "file": "ee/spec/workers/virtual_registries/packages/maven/create_cache_entry_worker_spec.rb",
+    "line": 44,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/spec/workers/virtual_registries/packages/maven/create_cache_entry_worker_spec.rb#L44",
+    "source_sha256": "645888acd4af843d5be32b4e0f73eea34685c7928ee4ce46edaa34d3a56a02c2"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "'SHA1'",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

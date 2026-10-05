@@ -1,0 +1,212 @@
+{
+  "callsite_id": "d795c1946c4776256e652ec107268fb00dc110dae4c61c5c8880fff1a41baa32",
+  "expression": "Psych::Parser.new(DepthCheck.new(MAX_FRONT_MATTER_DEPTH)).parse(front_matter)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "parse",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "0f7f39d5300dbc78ffd9c71d04ef6870a57633f80c41e64778f897042cff64bd",
+        "3791a2f8fba0abdc0bff0972949ca620920ee04d22ef13a51d99a1ae0161aa60",
+        "9739c059758bcd806c9d88c33afd45dd199e1c745cb37f590694bb724e968a05",
+        "d1b9fa912e0df4996162d7a8d4b10351ef503c5e0839580ca6d9b436d75a07c6"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( yaml )",
+            "file": "ext/psych/psych_parser.c",
+            "function": "parse",
+            "function_id": "psych@5.3.1:ext/psych/psych_parser.c:248:parse",
+            "line": 268,
+            "package": "psych@5.3.1",
+            "source_sha256": "4d2c30c25ee5d234d06e4c025f352ba69c0726bfeeab8f46da1bff4d817c7136"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "yaml",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( yaml )",
+            "file": "ext/psych/psych_parser.c",
+            "function": "parse",
+            "function_id": "psych@5.3.1:git:8345af9ffbac73aa53a9513efa222c5fa267cc48:ext/psych/psych_parser.c:248:parse",
+            "line": 268,
+            "package": "psych@5.3.1:git:8345af9ffbac73aa53a9513efa222c5fa267cc48",
+            "source_sha256": "4d2c30c25ee5d234d06e4c025f352ba69c0726bfeeab8f46da1bff4d817c7136"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "yaml",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_export_to_enc ( src , rb_utf8_encoding ( ) )",
+            "file": "ext/psych/psych_parser.c",
+            "function": "transcode_string",
+            "function_id": "psych@5.3.1:ext/psych/psych_parser.c:103:transcode_string",
+            "line": 125,
+            "package": "psych@5.3.1",
+            "source_sha256": "4d2c30c25ee5d234d06e4c025f352ba69c0726bfeeab8f46da1bff4d817c7136"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "src",
+              "index": 0
+            },
+            {
+              "expression": "rb_utf8_encoding ( )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_export_to_enc",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_export_to_enc ( src , rb_utf8_encoding ( ) )",
+            "file": "ext/psych/psych_parser.c",
+            "function": "transcode_string",
+            "function_id": "psych@5.3.1:git:8345af9ffbac73aa53a9513efa222c5fa267cc48:ext/psych/psych_parser.c:103:transcode_string",
+            "line": 125,
+            "package": "psych@5.3.1:git:8345af9ffbac73aa53a9513efa222c5fa267cc48",
+            "source_sha256": "4d2c30c25ee5d234d06e4c025f352ba69c0726bfeeab8f46da1bff4d817c7136"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "src",
+              "index": 0
+            },
+            {
+              "expression": "rb_utf8_encoding ( )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_export_to_enc",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "psych",
+        "method": "_native_parse",
+        "owner": "Psych::Parser",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          3
+        ],
+        "version": "5.3.1"
+      },
+      "native_api_group": "6f3f7105b715c4183753b7d2bd4a2024d2716c2ff50b68a47cc14fe93a903b3e",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "front_matter",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 4280,
+          "byte_start": 4203,
+          "call_event": "d795c1946c4776256e652ec107268fb00dc110dae4c61c5c8880fff1a41baa32",
+          "callee": "@gem/psych@5.3.1/lib/psych/parser.rb:1944:instance:parse",
+          "callee_argument": 0,
+          "column": 13,
+          "end_line": 112,
+          "expression": "Psych::Parser.new(DepthCheck.new(MAX_FRONT_MATTER_DEPTH)).parse(front_matter)",
+          "file": "ee/lib/gitlab/ai/catalog/skills/validator.rb",
+          "kind": "ruby_argument_binding",
+          "line": 112,
+          "method": "parse",
+          "owner": "Gitlab::Ai::Catalog::Skills::Validator",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/ai/catalog/skills/validator.rb#L112",
+          "source_sha256": "b523926bfe57158ff5910c7ccbd7dc94fcfeb31556455cc8e6d0807f19cddd3f",
+          "unit": "ee/lib/gitlab/ai/catalog/skills/validator.rb:4163:instance:too_deep?"
+        },
+        {
+          "byte_end": 2057,
+          "byte_start": 2023,
+          "column": 7,
+          "end_line": 62,
+          "expression": "_native_parse @handler, yaml, path",
+          "file": "@gem/psych@5.3.1/lib/psych/parser.rb",
+          "kind": "call",
+          "line": 62,
+          "method": "_native_parse",
+          "owner": "Psych::Parser",
+          "source_package": {
+            "file": "lib/psych/parser.rb",
+            "gem": "psych",
+            "package_sha256": "eb7a57cef10c9d70173ff74e739d843ac3b2c019a003de48447b2963d81b1974",
+            "source_url": "https://rubygems.org/downloads/psych-5.3.1.gem",
+            "version": "5.3.1"
+          },
+          "source_sha256": "2fe03afaea70edbb61332e01d53d326b72d9acda69cacb980f16226e94803a42",
+          "unit": "@gem/psych@5.3.1/lib/psych/parser.rb:1944:instance:parse"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "Psych::Parser.new(DepthCheck.new(MAX_FRONT_MATTER_DEPTH))",
+    "proof": [
+      {
+        "byte_end": 4260,
+        "byte_start": 4203,
+        "column": 13,
+        "end_line": 112,
+        "expression": "Psych::Parser.new(DepthCheck.new(MAX_FRONT_MATTER_DEPTH))",
+        "file": "ee/lib/gitlab/ai/catalog/skills/validator.rb",
+        "kind": "call",
+        "line": 112,
+        "method": "new",
+        "owner": "Gitlab::Ai::Catalog::Skills::Validator",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/ai/catalog/skills/validator.rb#L112",
+        "source_sha256": "b523926bfe57158ff5910c7ccbd7dc94fcfeb31556455cc8e6d0807f19cddd3f",
+        "unit": "ee/lib/gitlab/ai/catalog/skills/validator.rb:4163:instance:too_deep?"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "Psych::Parser"
+      ]
+    ]
+  },
+  "source": {
+    "column": 13,
+    "file": "ee/lib/gitlab/ai/catalog/skills/validator.rb",
+    "line": 112,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/ai/catalog/skills/validator.rb#L112",
+    "source_sha256": "b523926bfe57158ff5910c7ccbd7dc94fcfeb31556455cc8e6d0807f19cddd3f"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "front_matter",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

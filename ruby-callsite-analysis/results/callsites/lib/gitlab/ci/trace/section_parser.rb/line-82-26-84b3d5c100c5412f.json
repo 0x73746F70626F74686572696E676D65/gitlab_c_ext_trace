@@ -1,0 +1,385 @@
+{
+  "callsite_id": "84b3d5c100c5412faafe204c875bbdf524902b0b797ade89bcb7d8a7971f98b4",
+  "expression": "scanner.exist?(beginning_of_section_regex)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "exist?",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "080021e3367dbd35fa43845d30b38034f6400c8468062d0baafc8d86e2bf4b69",
+        "18f013278189ea00b1c9b1f2b35ce81d7e2b49388b2300e38f2414da01f3256a",
+        "239a75dbef43feeaf5aa1ecef2d5aec70362981ab3a1baffb99635e2f7f7c5c2",
+        "6afaf718ba75755530b770c658e563680a3fa83013567ee1bb2a144bb54c4799",
+        "73007d55d68d2a47f373813c81cd3dc9a13a2d8ca8fd0d7bcf4c78ba70ef1357",
+        "9f78ff19a00a2552a9c2362c2a4c95315b46cc5ee2078786ed88168e63f70e91",
+        "b0c7b148bba44cdc3159113c91a5dc333141290375c9dd21a215b527dcdc889b",
+        "b86c89d0278b5b81354789821a24af75f4b33d5cfc43e1118b0142d36afed337",
+        "c713a7cd29bd1ea0c9291a4f5461618636df79642a32a0e6781caa9682b0b848",
+        "d1765e35c205be7ce6be63ea305140390113a6707ec62eedbb44d6f6b0f6e235",
+        "db1c468afb3e610183897e12b74d4bee348ea4b134915abb2c84a264f679551a",
+        "e3d4a58fc7b8a6b25e33fe505b80e5dbf195857411a0d681347a5492cbab51af",
+        "ea3908bd1b7fb8bd337b1672a4d88529d02847910cd0d93014135884fc78bf5d",
+        "f058895ee01c21ce35fa793ee00118e7f8056ee1db7f4be645318189143b367e",
+        "f0760e198f04fe867ac4ed1829d18ca3fc252614bdb86b599a72ba211ab87175",
+        "f92d35c157c679f75dbc2f3fda21afd23917c0d047db907fcb950a48e6d52284"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( pattern )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 751,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pattern",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( pattern )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 751,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pattern",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( ( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr ) , RSTRING_PTR ( pattern ) , RSTRING_LEN ( pattern ) )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 760,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr )",
+              "index": 0
+            },
+            {
+              "expression": "RSTRING_PTR ( pattern )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( ( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr ) , RSTRING_PTR ( pattern ) , RSTRING_LEN ( pattern ) )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 760,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "RSTRING_LEN ( pattern )",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( ( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr ) , RSTRING_PTR ( pattern ) , RSTRING_LEN ( pattern ) )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 760,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr )",
+              "index": 0
+            },
+            {
+              "expression": "RSTRING_PTR ( pattern )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( ( ( RSTRING_PTR ( ( p ) -> str ) ) + ( p ) -> curr ) , RSTRING_PTR ( pattern ) , RSTRING_LEN ( pattern ) )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_do_scan",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:725:strscan_do_scan",
+            "line": 760,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "RSTRING_LEN ( pattern )",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new ( ptr , len )",
+            "file": "ext/strscan/strscan.c",
+            "function": "str_new",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:151:str_new",
+            "line": 154,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ptr",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new ( ptr , len )",
+            "file": "ext/strscan/strscan.c",
+            "function": "str_new",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:151:str_new",
+            "line": 154,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "ptr",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "regs -> end [ at ] = pos + length",
+            "file": "ext/strscan/strscan.c",
+            "function": "set_registers",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:601:set_registers",
+            "line": 615,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "regs -> end [ at ] = pos + p -> curr + length",
+            "file": "ext/strscan/strscan.c",
+            "function": "set_registers",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:601:set_registers",
+            "line": 610,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "strscan",
+        "method": "exist?",
+        "owner": "StringScanner",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.1.8"
+      },
+      "native_api_group": "6e70cd9d32fe5da472cc7e98d2fbfba07eb4dae6063108c9113379d8f9a6b5b0",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "beginning_of_section_regex",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2216,
+          "byte_start": 2174,
+          "column": 26,
+          "end_line": 82,
+          "expression": "scanner.exist?(beginning_of_section_regex)",
+          "file": "lib/gitlab/ci/trace/section_parser.rb",
+          "kind": "call",
+          "line": 82,
+          "method": "exist?",
+          "owner": "Gitlab::Ci::Trace::SectionParser",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/trace/section_parser.rb#L82",
+          "source_sha256": "e13f5939ffc664fdc211dd49423e9665b98ba7f45155a88fd62b31750e606b2f",
+          "unit": "lib/gitlab/ci/trace/section_parser.rb:2080:instance:find_next_marker"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "scanner",
+    "proof": [
+      {
+        "byte_end": 770,
+        "byte_start": 747,
+        "column": 15,
+        "end_line": 36,
+        "expression": "StringScanner.new(line)",
+        "file": "lib/gitlab/ci/trace/section_parser.rb",
+        "kind": "call",
+        "line": 36,
+        "method": "new",
+        "owner": "Gitlab::Ci::Trace::SectionParser",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/trace/section_parser.rb#L36",
+        "source_sha256": "e13f5939ffc664fdc211dd49423e9665b98ba7f45155a88fd62b31750e606b2f",
+        "unit": "lib/gitlab/ci/trace/section_parser.rb:691:instance:parse_line"
+      },
+      {
+        "byte_end": 770,
+        "byte_start": 743,
+        "column": 11,
+        "end_line": 36,
+        "expression": "s = StringScanner.new(line)",
+        "file": "lib/gitlab/ci/trace/section_parser.rb",
+        "kind": "expression",
+        "line": 36,
+        "owner": "Gitlab::Ci::Trace::SectionParser",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/trace/section_parser.rb#L36",
+        "source_sha256": "e13f5939ffc664fdc211dd49423e9665b98ba7f45155a88fd62b31750e606b2f",
+        "unit": "lib/gitlab/ci/trace/section_parser.rb:691:instance:parse_line"
+      },
+      {
+        "byte_end": 824,
+        "byte_start": 823,
+        "column": 30,
+        "end_line": 38,
+        "expression": "s",
+        "file": "lib/gitlab/ci/trace/section_parser.rb",
+        "kind": "expression",
+        "line": 38,
+        "owner": "Gitlab::Ci::Trace::SectionParser",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/trace/section_parser.rb#L38",
+        "source_sha256": "e13f5939ffc664fdc211dd49423e9665b98ba7f45155a88fd62b31750e606b2f",
+        "unit": "lib/gitlab/ci/trace/section_parser.rb:691:instance:parse_line"
+      },
+      {
+        "byte_end": 1251,
+        "byte_start": 806,
+        "column": 13,
+        "end_line": 48,
+        "expression": "find_next_marker(s) do |scanner|\n              marker_begins_at = line_start_position + scanner.pointer\n\n              if scanner.scan(Gitlab::Regex.build_trace_section_regex)\n                marker_ends_at = line_start_position + scanner.pointer\n                handle_line(scanner[1], scanner[2].to_i, scanner[3], marker_begins_at, marker_ends_at)\n                true\n              else\n                false\n              end\n            end",
+        "file": "lib/gitlab/ci/trace/section_parser.rb",
+        "kind": "call",
+        "line": 38,
+        "method": "find_next_marker",
+        "owner": "Gitlab::Ci::Trace::SectionParser",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/trace/section_parser.rb#L38",
+        "source_sha256": "e13f5939ffc664fdc211dd49423e9665b98ba7f45155a88fd62b31750e606b2f",
+        "unit": "lib/gitlab/ci/trace/section_parser.rb:691:instance:parse_line"
+      },
+      {
+        "byte_end": 2181,
+        "byte_start": 2174,
+        "column": 26,
+        "end_line": 82,
+        "expression": "scanner",
+        "file": "lib/gitlab/ci/trace/section_parser.rb",
+        "kind": "expression",
+        "line": 82,
+        "owner": "Gitlab::Ci::Trace::SectionParser",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/trace/section_parser.rb#L82",
+        "source_sha256": "e13f5939ffc664fdc211dd49423e9665b98ba7f45155a88fd62b31750e606b2f",
+        "unit": "lib/gitlab/ci/trace/section_parser.rb:2080:instance:find_next_marker"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "StringScanner"
+      ]
+    ]
+  },
+  "source": {
+    "column": 26,
+    "file": "lib/gitlab/ci/trace/section_parser.rb",
+    "line": 82,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/trace/section_parser.rb#L82",
+    "source_sha256": "e13f5939ffc664fdc211dd49423e9665b98ba7f45155a88fd62b31750e606b2f"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "beginning_of_section_regex",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Regexp"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

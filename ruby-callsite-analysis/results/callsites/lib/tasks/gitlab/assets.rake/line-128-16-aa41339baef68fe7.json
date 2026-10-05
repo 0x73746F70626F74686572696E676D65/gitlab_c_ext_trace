@@ -1,0 +1,154 @@
+{
+  "callsite_id": "aa41339baef68fe7cb8f8ec0d3cce954f6436b3ec5278fd138222969bd531bec",
+  "expression": "Zlib::GzipWriter.new(f, Zlib::BEST_COMPRESSION)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "0bcd5f714823a758e75769f46d7c66c874bee147de8a4637e0446802a88eb8c9",
+        "3d884132ba7f43b16b3563c865e01946eb5dd9fdacd848605f4e55cfda2959a5"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "initialize",
+        "owner": "Zlib::GzipWriter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "be566e19287a1076828569fcea89700216ccb0dec8a6d8bdc8ae76018aa3dc60",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "Zlib::BEST_COMPRESSION",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 4906,
+          "byte_start": 4859,
+          "column": 16,
+          "end_line": 128,
+          "expression": "Zlib::GzipWriter.new(f, Zlib::BEST_COMPRESSION)",
+          "file": "lib/tasks/gitlab/assets.rake",
+          "kind": "call",
+          "line": 128,
+          "method": "new",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/tasks/gitlab/assets.rake#L128",
+          "source_sha256": "74752d1795eaf0d45c2db3f1687626d4a5bc9a4232665000381b424936f41d78",
+          "unit": "lib/tasks/gitlab/assets.rake:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::GzipWriter",
+    "proof": [
+      {
+        "byte_end": 4875,
+        "byte_start": 4859,
+        "column": 16,
+        "end_line": 128,
+        "expression": "Zlib::GzipWriter",
+        "file": "lib/tasks/gitlab/assets.rake",
+        "kind": "expression",
+        "line": 128,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/tasks/gitlab/assets.rake#L128",
+        "source_sha256": "74752d1795eaf0d45c2db3f1687626d4a5bc9a4232665000381b424936f41d78",
+        "unit": "lib/tasks/gitlab/assets.rake:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::GzipWriter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 16,
+    "file": "lib/tasks/gitlab/assets.rake",
+    "line": 128,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/tasks/gitlab/assets.rake#L128",
+    "source_sha256": "74752d1795eaf0d45c2db3f1687626d4a5bc9a4232665000381b424936f41d78"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "f",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "Zlib::BEST_COMPRESSION",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "singleton",
+          "Zlib::BEST_COMPRESSION"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

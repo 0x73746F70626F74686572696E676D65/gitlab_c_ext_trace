@@ -1,0 +1,387 @@
+{
+  "callsite_id": "3bd9b23e429558500f4d9c27f2d0a383b3be4855fb82722c21c7bc3d86946624",
+  "expression": "Oj.dump(diff)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "dump",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "074ca886d98ee7472fd91226952428308a152288341f093ebbd7abbcabcb87b0",
+        "0c485b86555177c844b1af0ad2d708310fb5d3cb89a72923a3b11b8e9325dbdb",
+        "3574a860e02c4b5303a14abd9ec4063a5d2fc080a4a7b714f9c1190105e95183",
+        "3e72565b5d3864f12cf60dd4a8580c0ca03d06db695ccc5a30ae936ae8263b2c",
+        "48915d6309f4454d218ab8194ff42dc70bdf1e41f28b2365b471291dc2e6afb3",
+        "7d31d7fbe07dc658f2974edfa086104b47b1409a0f83349bc1ca594e5932a06c",
+        "84cc77b4d64e597ee009f85957ed405bac6dc3f405c7635023ef73a2c57a6db1",
+        "8da086d6280db58eec6e7b3b890536c45fcff90a166c8190591b227cba6b9a3e",
+        "adc832e841c005cc53a448867d7cd85c6e203dc187f9164219506653c1c5c30b",
+        "b304916ccde9c5651ba0e3bb578420c17efd5a09eebf28be3613404f30f4f44e",
+        "bd95a7171a71027b512d41242df254a06f4dd05931a3d52ed463cd62ca6c2bb8",
+        "c6e82cf1121d58483832d73acf2e07eb91b11f9d559006db7247fa5d7fa5e9b5",
+        "f3029a94e8f119c07e8fa88f906b56053e51abde3a486a308cd781671068316c",
+        "fb161f7096dfb8e61dd6ee169446e664423a48a9d57ec83bc08bfaa77b738e87"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* cache = OJ_R_ALLOC ( struct _cache8 )",
+            "file": "ext/oj/cache8.c",
+            "function": "oj_cache8_new",
+            "function_id": "oj@3.17.6:ext/oj/cache8.c:32:oj_cache8_new",
+            "line": 36,
+            "package": "oj@3.17.6",
+            "source_sha256": "d4fd5f6b2c96971f33796d2d6ffe798e6fa543da0a2b846cf6a4a03f1dca080e"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* slot = & ( cache -> buckets + ( k8 & 0x000000000000000FULL ) ) -> value",
+            "file": "ext/oj/cache8.c",
+            "function": "oj_cache8_get",
+            "function_id": "oj@3.17.6:ext/oj/cache8.c:60:oj_cache8_get",
+            "line": 74,
+            "package": "oj@3.17.6",
+            "source_sha256": "d4fd5f6b2c96971f33796d2d6ffe798e6fa543da0a2b846cf6a4a03f1dca080e"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "INT2NUM ( depth )",
+            "file": "ext/oj/dump_compat.c",
+            "function": "set_state_depth",
+            "function_id": "oj@3.17.6:ext/oj/dump_compat.c:866:set_state_depth",
+            "line": 877,
+            "package": "oj@3.17.6",
+            "source_sha256": "6cc83d96dbbcf02f01cce08206f381d273a8bfc40f16d4aac640b01ecbaa8bfd"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "depth",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "INT2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( rstr )",
+            "file": "ext/oj/oj.h",
+            "function": "oj_safe_string_convert",
+            "function_id": "oj@3.17.6:ext/oj/oj.h:386:oj_safe_string_convert",
+            "line": 388,
+            "package": "oj@3.17.6",
+            "source_sha256": "08c696cf73357fca7f54f1023ef8893764d28bbec2cbb765ca6b5adef27af82a"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rstr",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "args [ cnt ] = Qundef",
+            "file": "ext/oj/dump_compat.c",
+            "function": "dump_struct",
+            "function_id": "oj@3.17.6:ext/oj/dump_compat.c:730:dump_struct",
+            "line": 801,
+            "package": "oj@3.17.6",
+            "source_sha256": "6cc83d96dbbcf02f01cce08206f381d273a8bfc40f16d4aac640b01ecbaa8bfd"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "index",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( out -> cur , str , cnt )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_cstr",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:1121:oj_dump_cstr",
+            "line": 1224,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "cnt",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( out -> cur , str , cnt )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_cstr",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:1121:oj_dump_cstr",
+            "line": 1224,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( out -> cur , str , cnt )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_cstr",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:1121:oj_dump_cstr",
+            "line": 1227,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "out -> cur",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memset ( out -> cur , ' ' , cnt )",
+            "file": "ext/oj/dump.h",
+            "function": "fill_indent",
+            "function_id": "oj@3.17.6:ext/oj/dump.h:82:fill_indent",
+            "line": 87,
+            "package": "oj@3.17.6",
+            "source_sha256": "ed20a56263a772097d371dd9688471a1afa92a2c7939fadca475bcb46a6408b1"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "cnt",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_set",
+          "memory_operation": "memset",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memset ( out -> cur , 'A' , sizeof ( __m128i ) )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_cstr",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:1121:oj_dump_cstr",
+            "line": 1355,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "out -> cur",
+              "index": 0
+            }
+          ],
+          "memory_kind": "memory_set",
+          "memory_operation": "memset",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_time_timespec(obj)",
+            "file": "ext/oj/wab.c",
+            "function": "dump_time",
+            "function_id": "oj@3.17.6:ext/oj/wab.c:151:dump_time",
+            "line": 211,
+            "package": "oj@3.17.6",
+            "source_sha256": "25f9566eda5f6983a5be7c9635d2ae8e24a5cdbb881488157935359efa1fcc80"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_time_timespec",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "snprintf(buf, sizeof(buf), \" % . 1f \", d)",
+            "file": "ext/oj/wab.c",
+            "function": "dump_float",
+            "function_id": "oj@3.17.6:ext/oj/wab.c:79:dump_float",
+            "line": 100,
+            "package": "oj@3.17.6",
+            "source_sha256": "25f9566eda5f6983a5be7c9635d2ae8e24a5cdbb881488157935359efa1fcc80"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "d",
+              "index": 3
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "snprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "sprintf ( buf , format , ti . year , ti . mon , ti . day , ti . hour , ti . min , ti . sec , ( long ) nsec , tzsign , tzhour , tzmin )",
+            "file": "ext/oj/dump.c",
+            "function": "oj_check_circular",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:548:oj_check_circular",
+            "line": 791,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "format",
+              "index": 1
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "sprintf",
+          "operand_role": "format",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strcmp(\" 0001 \", buf + cnt - 4)",
+            "file": "ext/oj/dump.c",
+            "function": "oj_dump_float_printf",
+            "function_id": "oj@3.17.6:ext/oj/dump.c:1714:oj_dump_float_printf",
+            "line": 1742,
+            "package": "oj@3.17.6",
+            "source_sha256": "49adfa1d2cb090fb2288999ec964e476d837063df7f41eaabe78280d13df1684"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "\" 0001 \"",
+              "index": 0
+            },
+            {
+              "expression": "buf + cnt - 4",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "strcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "oj",
+        "method": "dump",
+        "owner": "Oj",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.17.6"
+      },
+      "native_api_group": "849279cf93fee6ab95b5fe13654bae719ce1b7b2a131b54c075b00c15c528583",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "diff",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 12880,
+          "byte_start": 12867,
+          "column": 20,
+          "end_line": 384,
+          "expression": "Oj.dump(diff)",
+          "file": "spec/lib/gitlab/git/diff_spec.rb",
+          "kind": "call",
+          "line": 384,
+          "method": "dump",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/git/diff_spec.rb#L384",
+          "source_sha256": "6cdced40c3bf1cb9a86b569ef458326b91e9826067560d56e237eb0ca789b5e4",
+          "unit": "spec/lib/gitlab/git/diff_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Oj",
+    "proof": [
+      {
+        "byte_end": 12869,
+        "byte_start": 12867,
+        "column": 20,
+        "end_line": 384,
+        "expression": "Oj",
+        "file": "spec/lib/gitlab/git/diff_spec.rb",
+        "kind": "expression",
+        "line": 384,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/git/diff_spec.rb#L384",
+        "source_sha256": "6cdced40c3bf1cb9a86b569ef458326b91e9826067560d56e237eb0ca789b5e4",
+        "unit": "spec/lib/gitlab/git/diff_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Oj"
+      ]
+    ]
+  },
+  "source": {
+    "column": 20,
+    "file": "spec/lib/gitlab/git/diff_spec.rb",
+    "line": 384,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/lib/gitlab/git/diff_spec.rb#L384",
+    "source_sha256": "6cdced40c3bf1cb9a86b569ef458326b91e9826067560d56e237eb0ca789b5e4"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "diff",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

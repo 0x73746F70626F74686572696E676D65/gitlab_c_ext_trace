@@ -1,0 +1,231 @@
+{
+  "callsite_id": "ca14a9f32c59f89672d42c7bfd9fa36a518d17f01a30477698935df1e50ba9a3",
+  "expression": "Zlib::GzipReader.new(input).read(MAXIMUM_BODY_SIZE + 1)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "read",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "2a8c637633d3436c542a8ec0afd8d201a61ffa390c3dad034887465a73044cd8",
+        "33f785849557ffee5b87ac9299e4fed6ed35d613ca0d8c6436c04498a421b6b2",
+        "3f9c6e7ac71271095aa9eaba9f775dd848ade6eb2fba4f63f841d2e7722cc724",
+        "8e4871264ce5c7dfb511784d5e0d60940fd76177ba972b286b83bebe5de6433e",
+        "d6d35f5cab0c27fd913c71013791b687bccc9f94dcb838c1ef8a3d84499f17b5",
+        "e2f845f78ffdd65952cde51d2d0b1fecb0b92bdf4210a6209d114b6cf3b01765"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "memcpy ( RSTRING_PTR ( dst ) , bufptr , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_shift_buffer",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:819:zstream_shift_buffer",
+            "line": 841,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( RSTRING_PTR ( dst ) , bufptr , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_shift_buffer",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:819:zstream_shift_buffer",
+            "line": 841,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( bufptr , bufptr + len , buflen )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_shift_buffer",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:819:zstream_shift_buffer",
+            "line": 845,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "bufptr + len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memmove ( bufptr , bufptr + len , buflen )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_shift_buffer",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:819:zstream_shift_buffer",
+            "line": 845,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "bufptr + len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memmove",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_resize ( dst , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_shift_buffer",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:819:zstream_shift_buffer",
+            "line": 840,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "dst",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_resize",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_resize ( dst , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_shift_buffer",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:819:zstream_shift_buffer",
+            "line": 840,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "dst",
+              "index": 0
+            },
+            {
+              "expression": "len",
+              "index": 1
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_resize",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "read",
+        "owner": "Zlib::GzipReader",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "325ba8171f2e2baeeb56018015b0050f928c50ab7bdc9632e11abdb7ad350839",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "MAXIMUM_BODY_SIZE + 1",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1711,
+          "byte_start": 1656,
+          "column": 9,
+          "end_line": 63,
+          "expression": "Zlib::GzipReader.new(input).read(MAXIMUM_BODY_SIZE + 1)",
+          "file": "lib/gitlab/middleware/compressed_json.rb",
+          "kind": "call",
+          "line": 63,
+          "method": "read",
+          "owner": "Gitlab::Middleware::CompressedJson",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/middleware/compressed_json.rb#L63",
+          "source_sha256": "0df0b65faa10f38c7d29a1a6a4bfdc25999ccd14ddaeaa781f6a7e3a61be4d1b",
+          "unit": "lib/gitlab/middleware/compressed_json.rb:1629:instance:extract"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::GzipReader.new(input)",
+    "proof": [
+      {
+        "byte_end": 1683,
+        "byte_start": 1656,
+        "column": 9,
+        "end_line": 63,
+        "expression": "Zlib::GzipReader.new(input)",
+        "file": "lib/gitlab/middleware/compressed_json.rb",
+        "kind": "call",
+        "line": 63,
+        "method": "new",
+        "owner": "Gitlab::Middleware::CompressedJson",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/middleware/compressed_json.rb#L63",
+        "source_sha256": "0df0b65faa10f38c7d29a1a6a4bfdc25999ccd14ddaeaa781f6a7e3a61be4d1b",
+        "unit": "lib/gitlab/middleware/compressed_json.rb:1629:instance:extract"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "Zlib::GzipReader"
+      ]
+    ]
+  },
+  "source": {
+    "column": 9,
+    "file": "lib/gitlab/middleware/compressed_json.rb",
+    "line": 63,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/middleware/compressed_json.rb#L63",
+    "source_sha256": "0df0b65faa10f38c7d29a1a6a4bfdc25999ccd14ddaeaa781f6a7e3a61be4d1b"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "MAXIMUM_BODY_SIZE + 1",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

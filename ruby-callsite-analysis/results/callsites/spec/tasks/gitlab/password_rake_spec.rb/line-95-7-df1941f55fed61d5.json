@@ -1,0 +1,977 @@
+{
+  "callsite_id": "df1941f55fed61d5b1e9bcf9eea56fe85e5c1550651115c5c6d532b479a33489",
+  "expression": "::BCrypt::Password.create(User.random_password, cost: stretches)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "create",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "038bec94c02c7eb77c6e0adba1065bf6fdb8233957ebdd06705c08e93fd705a7",
+        "0c034ad77e0cce8188d73daeef6dfa25f939d4beafc66e2e96c4c618cc92b71e",
+        "0c484f93a592949ed55a4efb4078d4203e3c3defa58d63f951192f3d4130aa1e",
+        "1404aa8474f3911f1dc8005744523ff7104808a7f16cef0ced169c20886fb443",
+        "43103859c69118198c508b0ef7b758e594414d3b736af57813dff310fd2c0f56",
+        "57f1816aac19cbbbfcfd9468915cc721842a7e717f83c7bb12e62ed7324bd1f2",
+        "6308093b44a51ca518ef5e572bac7d49d91d35bbc06d78532da6a5b3ff9d4edc",
+        "92234d4cdfae719bef70b3d13c8f3deef37118892224ecbba99f5df761502a38",
+        "b78a68cdbf1b606bd0227ea878847397f7691ec88588c311d6b3c2763cb9dd4e",
+        "bd3c5510968847c9d7907b643cadeb5d6cdaf3e53d37848b2c1beeb8b6691230"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "free ( salt )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_salt",
+            "function_id": "bcrypt@3.1.22:ext/mri/bcrypt_ext.c:26:bc_salt",
+            "line": 55,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "salt",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "free",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "free ( salt )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_salt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/bcrypt_ext.c:26:bc_salt",
+            "line": 55,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "salt",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "free",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "output [ 1 ] = _crypt_itoa64 [ count & 0x3f ]",
+            "file": "ext/mri/crypt_gensalt.c",
+            "function": "_crypt_gensalt_extended_rn",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/crypt_gensalt.c:52:_crypt_gensalt_extended_rn",
+            "line": 71,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "01a7c5f407936c188d679925ffc68ce66093c5f5268d556790c0cc4ee3068758"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "output [ 5 ] = '0' + count % 10",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "_crypt_gensalt_blowfish_rn",
+            "function_id": "bcrypt@3.1.22:ext/mri/crypt_blowfish.c:877:_crypt_gensalt_blowfish_rn",
+            "line": 896,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "output [ 6 ] = '$'",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "_crypt_gensalt_blowfish_rn",
+            "function_id": "bcrypt@3.1.22:ext/mri/crypt_blowfish.c:877:_crypt_gensalt_blowfish_rn",
+            "line": 897,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "output [ 8 ] = _crypt_itoa64 [ ( value >> 18 ) & 0x3f ]",
+            "file": "ext/mri/crypt_gensalt.c",
+            "function": "_crypt_gensalt_extended_rn",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/crypt_gensalt.c:52:_crypt_gensalt_extended_rn",
+            "line": 81,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "01a7c5f407936c188d679925ffc68ce66093c5f5268d556790c0cc4ee3068758"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new2 ( salt )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_salt",
+            "function_id": "bcrypt@3.1.22:ext/mri/bcrypt_ext.c:26:bc_salt",
+            "line": 51,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "salt",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new2",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new2 ( salt )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_salt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/bcrypt_ext.c:26:bc_salt",
+            "line": 51,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "salt",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new2",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strdup ( retval )",
+            "file": "ext/mri/wrapper.c",
+            "function": "crypt_gensalt_ra",
+            "function_id": "bcrypt@3.1.22:ext/mri/wrapper.c:239:crypt_gensalt_ra",
+            "line": 249,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "76e906b6062eccd6e00f0b481feb2544f8b37073323867a370063d083fc4c3e6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "retval",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "strdup",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "strdup ( retval )",
+            "file": "ext/mri/wrapper.c",
+            "function": "crypt_gensalt_ra",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/wrapper.c:239:crypt_gensalt_ra",
+            "line": 249,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "76e906b6062eccd6e00f0b481feb2544f8b37073323867a370063d083fc4c3e6"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "retval",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "strdup",
+          "operand_role": "source",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "bcrypt",
+        "method": "__bc_salt",
+        "owner": "BCrypt::Engine",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          3
+        ],
+        "version": "3.1.22"
+      },
+      "native_api_group": "7a8513839271d6c2ad50f4a7bf6f82283fe391f53411e778a09a99242d33f30e",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "cost: stretches",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "keywords",
+      "ruby_binding_path": [
+        {
+          "actual_index": 1,
+          "byte_end": 3032,
+          "byte_start": 2968,
+          "call_event": "df1941f55fed61d5b1e9bcf9eea56fe85e5c1550651115c5c6d532b479a33489",
+          "callee": "@gem/bcrypt@3.1.22/lib/bcrypt/password.rb:1636:singleton:create",
+          "callee_argument": 1,
+          "column": 7,
+          "end_line": 95,
+          "expression": "::BCrypt::Password.create(User.random_password, cost: stretches)",
+          "file": "spec/tasks/gitlab/password_rake_spec.rb",
+          "kind": "ruby_argument_binding",
+          "line": 95,
+          "method": "create",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/tasks/gitlab/password_rake_spec.rb#L95",
+          "source_sha256": "9b5da595beb697b65e9d8415946cf2048da2913889f4e372e5110bf403e81fa6",
+          "unit": "spec/tasks/gitlab/password_rake_spec.rb:2935:instance:bcrypt_hash"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 1875,
+          "byte_start": 1841,
+          "call_event": "8a9072eeb1bfc9f3519f50905024787ac4a21637c1e622e1ded774c329eb6df0",
+          "callee": "@gem/bcrypt@3.1.22/lib/bcrypt/engine.rb:2995:singleton:generate_salt",
+          "callee_argument": 0,
+          "column": 57,
+          "end_line": 46,
+          "expression": "BCrypt::Engine.generate_salt(cost)",
+          "file": "@gem/bcrypt@3.1.22/lib/bcrypt/password.rb",
+          "kind": "ruby_argument_binding",
+          "line": 46,
+          "method": "generate_salt",
+          "owner": "BCrypt::Password",
+          "source_package": {
+            "file": "lib/bcrypt/password.rb",
+            "gem": "bcrypt",
+            "package_sha256": "1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032",
+            "source_url": "https://rubygems.org/downloads/bcrypt-3.1.22.gem",
+            "version": "3.1.22"
+          },
+          "source_sha256": "92801255dac2d844bbcea36708d18cf1e354b26bd7425bcd6a6055c598d3ad92",
+          "unit": "@gem/bcrypt@3.1.22/lib/bcrypt/password.rb:1636:singleton:create"
+        },
+        {
+          "byte_end": 3319,
+          "byte_start": 3249,
+          "column": 11,
+          "end_line": 90,
+          "expression": "__bc_salt(\"$2a$\", cost, OpenSSL::Random.random_bytes(MAX_SALT_LENGTH))",
+          "file": "@gem/bcrypt@3.1.22/lib/bcrypt/engine.rb",
+          "kind": "call",
+          "line": 90,
+          "method": "__bc_salt",
+          "owner": "BCrypt::Engine",
+          "source_package": {
+            "file": "lib/bcrypt/engine.rb",
+            "gem": "bcrypt",
+            "package_sha256": "1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032",
+            "source_url": "https://rubygems.org/downloads/bcrypt-3.1.22.gem",
+            "version": "3.1.22"
+          },
+          "source_sha256": "143b6555ed79ac34f20241fa17a0f5486f87153acbb651761ee7d34913c739d6",
+          "unit": "@gem/bcrypt@3.1.22/lib/bcrypt/engine.rb:2995:singleton:generate_salt"
+        }
+      ],
+      "via": "ruby_wrapper"
+    },
+    {
+      "c_flow_ids": [
+        "031b7ed90e9cbba3493e23e524d68aa297fa7d0e22e182bc32da98fed2666ff9",
+        "0dd0fc08a55d46c3d8c0689772f8fdfe35e8438e12e1826c8da56e364b3ef650",
+        "4039ddac48f25e2b8fb1f11ab8acf90ed000f04ab43d0fa8572f82301e9676e5",
+        "46bc41cd54e316ae50fec3a941c8e6ac2aaff788a7049b65748f005ab376f269",
+        "7bd5caa79a494108b1fb601ca80a53fffad923f23a807107870998c58c723a38",
+        "8178fb35ec006f29f8042433708be93227841c60f2edc8d46bfe6e32a0af4f67",
+        "9787b295a77d1b807a842f00074d5e44944559c13bc0e7fa0675d4bf65b22578",
+        "9f9c97cf7ff2c0b866337a005abf9eba08f44db0003735152bc64c23a6d9b456",
+        "b0ee6f2ddd88412bd2d7345e9d55d8cf91462609f9ef04d443b07ee0201f4d85",
+        "fe99c497336c79cdc3899f6f7f7c3fd79992a6aa7fc905ffea7177a03a9d146f"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( key )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_crypt",
+            "function_id": "bcrypt@3.1.22:ext/mri/bcrypt_ext.c:75:bc_crypt",
+            "line": 92,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "key",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( key )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_crypt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/bcrypt_ext.c:75:bc_crypt",
+            "line": 92,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "key",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "expanded [ i ] = tmp [ bug ]",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_set_key",
+            "function_id": "bcrypt@3.1.22:ext/mri/crypt_blowfish.c:539:BF_set_key",
+            "line": 608,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "initial [ 0 ] ^= sign",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_set_key",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/crypt_blowfish.c:539:BF_set_key",
+            "line": 638,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( data . ctx . S , BF_init_state . S , sizeof ( data . ctx . S ) )",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_crypt",
+            "function_id": "bcrypt@3.1.22:ext/mri/crypt_blowfish.c:645:BF_crypt",
+            "line": 694,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data . ctx . S",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( data . ctx . S , BF_init_state . S , sizeof ( data . ctx . S ) )",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_crypt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/crypt_blowfish.c:645:BF_crypt",
+            "line": 694,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data . ctx . S",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( key )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_crypt",
+            "function_id": "bcrypt@3.1.22:ext/mri/bcrypt_ext.c:75:bc_crypt",
+            "line": 87,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "key",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( key )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_crypt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/bcrypt_ext.c:75:bc_crypt",
+            "line": 87,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "key",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "tmp [ 0 ] |= ( unsigned char ) * ptr",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_set_key",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/crypt_blowfish.c:539:BF_set_key",
+            "line": 590,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "tmp [ 1 ] |= ( BF_word_signed ) ( signed char ) * ptr",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_set_key",
+            "function_id": "bcrypt@3.1.22:ext/mri/crypt_blowfish.c:539:BF_set_key",
+            "line": 592,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "bcrypt",
+        "method": "__bc_crypt",
+        "owner": "BCrypt::Engine",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "3.1.22"
+      },
+      "native_api_group": "7aad98d9989f4256c9c22ec8ab84d4f0b6bde8a3de7fce803e4d43d04052804e",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "User.random_password",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "actual_index": 0,
+          "byte_end": 3032,
+          "byte_start": 2968,
+          "call_event": "df1941f55fed61d5b1e9bcf9eea56fe85e5c1550651115c5c6d532b479a33489",
+          "callee": "@gem/bcrypt@3.1.22/lib/bcrypt/password.rb:1636:singleton:create",
+          "callee_argument": 0,
+          "column": 7,
+          "end_line": 95,
+          "expression": "::BCrypt::Password.create(User.random_password, cost: stretches)",
+          "file": "spec/tasks/gitlab/password_rake_spec.rb",
+          "kind": "ruby_argument_binding",
+          "line": 95,
+          "method": "create",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/tasks/gitlab/password_rake_spec.rb#L95",
+          "source_sha256": "9b5da595beb697b65e9d8415946cf2048da2913889f4e372e5110bf403e81fa6",
+          "unit": "spec/tasks/gitlab/password_rake_spec.rb:2935:instance:bcrypt_hash"
+        },
+        {
+          "actual_index": 0,
+          "byte_end": 1876,
+          "byte_start": 1806,
+          "call_event": "0241353ee7c9fa4d60b542711f4b331813322062ba162520f09a4979c3412d91",
+          "callee": "@gem/bcrypt@3.1.22/lib/bcrypt/engine.rb:2069:singleton:hash_secret",
+          "callee_argument": 0,
+          "column": 22,
+          "end_line": 46,
+          "expression": "BCrypt::Engine.hash_secret(secret, BCrypt::Engine.generate_salt(cost))",
+          "file": "@gem/bcrypt@3.1.22/lib/bcrypt/password.rb",
+          "kind": "ruby_argument_binding",
+          "line": 46,
+          "method": "hash_secret",
+          "owner": "BCrypt::Password",
+          "source_package": {
+            "file": "lib/bcrypt/password.rb",
+            "gem": "bcrypt",
+            "package_sha256": "1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032",
+            "source_url": "https://rubygems.org/downloads/bcrypt-3.1.22.gem",
+            "version": "3.1.22"
+          },
+          "source_sha256": "92801255dac2d844bbcea36708d18cf1e354b26bd7425bcd6a6055c598d3ad92",
+          "unit": "@gem/bcrypt@3.1.22/lib/bcrypt/password.rb:1636:singleton:create"
+        },
+        {
+          "byte_end": 2744,
+          "byte_start": 2720,
+          "column": 13,
+          "end_line": 70,
+          "expression": "__bc_crypt(secret, salt)",
+          "file": "@gem/bcrypt@3.1.22/lib/bcrypt/engine.rb",
+          "kind": "call",
+          "line": 70,
+          "method": "__bc_crypt",
+          "owner": "BCrypt::Engine",
+          "source_package": {
+            "file": "lib/bcrypt/engine.rb",
+            "gem": "bcrypt",
+            "package_sha256": "1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032",
+            "source_url": "https://rubygems.org/downloads/bcrypt-3.1.22.gem",
+            "version": "3.1.22"
+          },
+          "source_sha256": "143b6555ed79ac34f20241fa17a0f5486f87153acbb651761ee7d34913c739d6",
+          "unit": "@gem/bcrypt@3.1.22/lib/bcrypt/engine.rb:2069:singleton:hash_secret"
+        }
+      ],
+      "via": "ruby_wrapper"
+    },
+    {
+      "c_flow_ids": [
+        "1808ec63f9864a4f5d5a4964943586c7fb035a0cc4cd9e37349d2ec0a9e847d8",
+        "47c0d4c1dfbc66cfcb36c40f7862572439a84283203149435b77ac4e3ddea959",
+        "5b39e27704139adaec313dd6bcc51b65b2f059967dc1a9df02e89df0366ee11f",
+        "60d7be7132646a8b8314170f4a8680e11b7ebe84823c73ad4d4194babaf9b8bb",
+        "8d7d4f93faeb7856477574c6c0819f80a47dcfd33717f800cdff3388770f3148",
+        "cbb1394945ccd9049f44e1acbdbfa961b3765b91cda3d3ea42ee0da085e38bf0",
+        "d65cdaf817c554104ed1b837d178a246a89c934887cc62adfb55faab2bf56f02",
+        "d9abdff1392d9cb9143435898df40d75266b388ba69f221bbf58c42782a5da63",
+        "e793f75e726fc09fc15eaf63dbeec9ed2ca2f2f90359ca476f8607a69b41bb08",
+        "e83a5f6b1f2eb8d97b949a635f7e7363debad7149505c0c7be407f1e33ab96a4",
+        "ea31318804b2071c61ee66833915813b0b9e752caf9f8bb367fdf086b413276f",
+        "fd5c5919108e8038ebdec4a3ff6d118d53280d3d4c74f9f7e95d29a96d13ff6b"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( setting )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_crypt",
+            "function_id": "bcrypt@3.1.22:ext/mri/bcrypt_ext.c:75:bc_crypt",
+            "line": 93,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "setting",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( setting )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_crypt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/bcrypt_ext.c:75:bc_crypt",
+            "line": 93,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "setting",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "expanded [ i ] = tmp [ bug ]",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_set_key",
+            "function_id": "bcrypt@3.1.22:ext/mri/crypt_blowfish.c:539:BF_set_key",
+            "line": 608,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "initial [ i ] = BF_init_state . P [ i ] ^ tmp [ bug ]",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_set_key",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/crypt_blowfish.c:539:BF_set_key",
+            "line": 609,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( data . ctx . S , BF_init_state . S , sizeof ( data . ctx . S ) )",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_crypt",
+            "function_id": "bcrypt@3.1.22:ext/mri/crypt_blowfish.c:645:BF_crypt",
+            "line": 694,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data . ctx . S",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( data . ctx . S , BF_init_state . S , sizeof ( data . ctx . S ) )",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_crypt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/crypt_blowfish.c:645:BF_crypt",
+            "line": 694,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "data . ctx . S",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( output , setting , 7 + 22 - 1 )",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_crypt",
+            "function_id": "bcrypt@3.1.22:ext/mri/crypt_blowfish.c:645:BF_crypt",
+            "line": 764,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "setting",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( output , setting , 7 + 22 - 1 )",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_crypt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/crypt_blowfish.c:645:BF_crypt",
+            "line": 764,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "setting",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "output [ 7 + 22 - 1 ] = BF_itoa64 [ ( int ) BF_atoi64 [ ( int ) setting [ 7 + 22 - 1 ] - 0x20 ] & 0x30 ]",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_crypt",
+            "function_id": "bcrypt@3.1.22:ext/mri/crypt_blowfish.c:645:BF_crypt",
+            "line": 765,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "output [ 7 + 22 - 1 ] = BF_itoa64 [ ( int ) BF_atoi64 [ ( int ) setting [ 7 + 22 - 1 ] - 0x20 ] & 0x30 ]",
+            "file": "ext/mri/crypt_blowfish.c",
+            "function": "BF_crypt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/crypt_blowfish.c:645:BF_crypt",
+            "line": 765,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "6470818d6cf44de24ae226c4f68271424f549dbf616f63fa8736f071fcf0fb97"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( setting )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_crypt",
+            "function_id": "bcrypt@3.1.22:ext/mri/bcrypt_ext.c:75:bc_crypt",
+            "line": 88,
+            "package": "bcrypt@3.1.22",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "setting",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( setting )",
+            "file": "ext/mri/bcrypt_ext.c",
+            "function": "bc_crypt",
+            "function_id": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4:ext/mri/bcrypt_ext.c:75:bc_crypt",
+            "line": 88,
+            "package": "bcrypt@3.1.22:git:831ce64cb0a9502130fa93a28bfd9527a5fa45c4",
+            "source_sha256": "3680be3601034dd174dd23a86ad9d8ba9b7e4ab34ff2812e0ad37f9d8d65caef"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "setting",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "bcrypt",
+        "method": "__bc_crypt",
+        "owner": "BCrypt::Engine",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "3.1.22"
+      },
+      "native_api_group": "7aad98d9989f4256c9c22ec8ab84d4f0b6bde8a3de7fce803e4d43d04052804e",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "cost: stretches",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "keywords",
+      "ruby_binding_path": [
+        {
+          "actual_index": 1,
+          "byte_end": 3032,
+          "byte_start": 2968,
+          "call_event": "df1941f55fed61d5b1e9bcf9eea56fe85e5c1550651115c5c6d532b479a33489",
+          "callee": "@gem/bcrypt@3.1.22/lib/bcrypt/password.rb:1636:singleton:create",
+          "callee_argument": 1,
+          "column": 7,
+          "end_line": 95,
+          "expression": "::BCrypt::Password.create(User.random_password, cost: stretches)",
+          "file": "spec/tasks/gitlab/password_rake_spec.rb",
+          "kind": "ruby_argument_binding",
+          "line": 95,
+          "method": "create",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/tasks/gitlab/password_rake_spec.rb#L95",
+          "source_sha256": "9b5da595beb697b65e9d8415946cf2048da2913889f4e372e5110bf403e81fa6",
+          "unit": "spec/tasks/gitlab/password_rake_spec.rb:2935:instance:bcrypt_hash"
+        },
+        {
+          "actual_index": 1,
+          "byte_end": 1876,
+          "byte_start": 1806,
+          "call_event": "0241353ee7c9fa4d60b542711f4b331813322062ba162520f09a4979c3412d91",
+          "callee": "@gem/bcrypt@3.1.22/lib/bcrypt/engine.rb:2069:singleton:hash_secret",
+          "callee_argument": 1,
+          "column": 22,
+          "end_line": 46,
+          "expression": "BCrypt::Engine.hash_secret(secret, BCrypt::Engine.generate_salt(cost))",
+          "file": "@gem/bcrypt@3.1.22/lib/bcrypt/password.rb",
+          "kind": "ruby_argument_binding",
+          "line": 46,
+          "method": "hash_secret",
+          "owner": "BCrypt::Password",
+          "source_package": {
+            "file": "lib/bcrypt/password.rb",
+            "gem": "bcrypt",
+            "package_sha256": "1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032",
+            "source_url": "https://rubygems.org/downloads/bcrypt-3.1.22.gem",
+            "version": "3.1.22"
+          },
+          "source_sha256": "92801255dac2d844bbcea36708d18cf1e354b26bd7425bcd6a6055c598d3ad92",
+          "unit": "@gem/bcrypt@3.1.22/lib/bcrypt/password.rb:1636:singleton:create"
+        },
+        {
+          "byte_end": 2744,
+          "byte_start": 2720,
+          "column": 13,
+          "end_line": 70,
+          "expression": "__bc_crypt(secret, salt)",
+          "file": "@gem/bcrypt@3.1.22/lib/bcrypt/engine.rb",
+          "kind": "call",
+          "line": 70,
+          "method": "__bc_crypt",
+          "owner": "BCrypt::Engine",
+          "source_package": {
+            "file": "lib/bcrypt/engine.rb",
+            "gem": "bcrypt",
+            "package_sha256": "1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032",
+            "source_url": "https://rubygems.org/downloads/bcrypt-3.1.22.gem",
+            "version": "3.1.22"
+          },
+          "source_sha256": "143b6555ed79ac34f20241fa17a0f5486f87153acbb651761ee7d34913c739d6",
+          "unit": "@gem/bcrypt@3.1.22/lib/bcrypt/engine.rb:2069:singleton:hash_secret"
+        }
+      ],
+      "via": "ruby_wrapper"
+    }
+  ],
+  "receiver": {
+    "expression": "::BCrypt::Password",
+    "proof": [
+      {
+        "byte_end": 2986,
+        "byte_start": 2968,
+        "column": 7,
+        "end_line": 95,
+        "expression": "::BCrypt::Password",
+        "file": "spec/tasks/gitlab/password_rake_spec.rb",
+        "kind": "expression",
+        "line": 95,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/tasks/gitlab/password_rake_spec.rb#L95",
+        "source_sha256": "9b5da595beb697b65e9d8415946cf2048da2913889f4e372e5110bf403e81fa6",
+        "unit": "spec/tasks/gitlab/password_rake_spec.rb:2935:instance:bcrypt_hash"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "BCrypt::Password"
+      ]
+    ]
+  },
+  "source": {
+    "column": 7,
+    "file": "spec/tasks/gitlab/password_rake_spec.rb",
+    "line": 95,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/tasks/gitlab/password_rake_spec.rb#L95",
+    "source_sha256": "9b5da595beb697b65e9d8415946cf2048da2913889f4e372e5110bf403e81fa6"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "User.random_password",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "cost: stretches",
+      "index": 1,
+      "kind": "keywords",
+      "types": [
+        [
+          "instance",
+          "Hash"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

@@ -1,0 +1,1371 @@
+{
+  "callsite_id": "819022f893e646843e733c43cba48502c8ab6b74b9b78e2ef60252751d57f1f4",
+  "expression": "FFI::Function.new(\n          # C signature:\n          # void (write_cb_t *write_cb, void *cbopaque, const char *opts)\n          #   arg1: callback function pointer (see below)\n          #   arg2: pointer to cbopaque holding additional callback data; always NULL here\n          #   arg3: options string, affects output format (text or JSON)\n          #\n          # Callback signature (write_cb_t):\n          # void (void *, const char *)\n          #   arg1: pointer to cbopaque data (see above; unused)\n          #   arg2: pointer to string buffer holding textual output\n          :void,\n          [:pointer, :pointer, :string],\n          symbol\n        )",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "00f4f6ac7d8c18ef3af474215ec773891eaf0a208d3705a0569cd55f861b0029",
+        "0d5b5420ac139e38f987809ec8113235e79a75862a1c210290cadc067af090ea",
+        "12fcac28c3582df64fa73610ad64cf3b8a1719ecebe4ab5868f202a7a43c49f7",
+        "279e4d0813a44224001e9794b633605f005ad0fec5d8f7c9dcc36f49ba6e4860",
+        "2a0c6fb97ae46f72831cea7e990faba444cc6e8fb2db98b3a5eb0d6d4c985809",
+        "39bb675be30446f2fc3f3c91fb6e36d88d78b0c7cc04d8d172364c4d5a67e4d5",
+        "474e0ce9c33a57c675490798c24e6e6c3ab1e8e608c173cbc1c2f45fe524609d",
+        "4d8a16ad281c9415e1c29c86be673877feb0a4b2366bb47cfa453d85f6e74cc5",
+        "56ebb26570a5aaed58b123aaffe2d91a7cc7c907e4ec9fe9d9e9aad3f2431748",
+        "ce17f096f9167fd16b895e289887ed1a4e8ad1e3d89accb3a23457bb0ea812c8",
+        "e58d7ae2c2d956e512af8a621839a77e13ee977c35f7aa634c3e17faed50321a",
+        "fc702e1e979b83a77a98cf76371fb0b75834143764d1e1de7e70fa1e8b5890aa"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "calloc ( nclosures , sizeof ( * list ) )",
+            "file": "ext/ffi_c/ClosurePool.c",
+            "function": "rbffi_Closure_Alloc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/ClosurePool.c:134:rbffi_Closure_Alloc",
+            "line": 156,
+            "package": "ffi@1.17.4",
+            "source_sha256": "4ea2dc69bbe84a7facffac3f6aeeba758a2caa0c68479f85e05ef03c1df5c487"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "nclosures",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( * list )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "calloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "calloc ( nclosures , sizeof ( * list ) )",
+            "file": "ext/ffi_c/ClosurePool.c",
+            "function": "rbffi_Closure_Alloc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/ClosurePool.c:134:rbffi_Closure_Alloc",
+            "line": 156,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "4ea2dc69bbe84a7facffac3f6aeeba758a2caa0c68479f85e05ef03c1df5c487"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "nclosures",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( * list )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "calloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "infoArgv [ 0 ] = rbReturnType",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 377,
+            "package": "ffi@1.17.4",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "infoArgv [ 0 ] = rbReturnType",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 377,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp + ffi_cris_trampoline_closure_offset , & codeloc , sizeof ( void * ) )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 382,
+            "package": "ffi@1.17.4",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "& codeloc",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp + ffi_cris_trampoline_closure_offset , & codeloc , sizeof ( void * ) )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 382,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "& codeloc",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp , ffi_cris_trampoline_template , 36 )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 378,
+            "package": "ffi@1.17.4",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "closure -> tramp",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp , ffi_cris_trampoline_template , 36 )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 378,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "closure -> tramp",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance ( rbOptions != Qnil ? 3 : 2 , infoArgv , rbffi_FunctionTypeClass )",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 380,
+            "package": "ffi@1.17.4",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbOptions != Qnil ? 3 : 2",
+              "index": 0
+            },
+            {
+              "expression": "infoArgv",
+              "index": 1
+            },
+            {
+              "expression": "rbffi_FunctionTypeClass",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance ( rbOptions != Qnil ? 3 : 2 , infoArgv , rbffi_FunctionTypeClass )",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 380,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbOptions != Qnil ? 3 : 2",
+              "index": 0
+            },
+            {
+              "expression": "infoArgv",
+              "index": 1
+            },
+            {
+              "expression": "rbffi_FunctionTypeClass",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "tramp [ 4 ] = ( 0x6 << 10 ) | ( 15 << 5 )",
+            "file": "ext/ffi_c/libffi/src/or1k/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/or1k/ffi.c:277:ffi_prep_closure_loc",
+            "line": 301,
+            "package": "ffi@1.17.4",
+            "source_sha256": "b59b6cd160c9843a5be5dd9ddcc80d792fec0cdfb7af3a53dd6cdf9f8b79d9e3"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "tramp [ 8 ] = ( 0x11 << 10 )",
+            "file": "ext/ffi_c/libffi/src/or1k/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/or1k/ffi.c:277:ffi_prep_closure_loc",
+            "line": 306,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "b59b6cd160c9843a5be5dd9ddcc80d792fec0cdfb7af3a53dd6cdf9f8b79d9e3"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "ffi",
+        "method": "initialize",
+        "owner": "FFI::Function",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "1.17.4"
+      },
+      "native_api_group": "f9734d244728f4ea717b1fb8758fee9afbb08cd05c02bf9ff9a2e0fbf4c021ce",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "# C signature:",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2061,
+          "byte_start": 1407,
+          "column": 9,
+          "end_line": 69,
+          "expression": "FFI::Function.new(\n          # C signature:\n          # void (write_cb_t *write_cb, void *cbopaque, const char *opts)\n          #   arg1: callback function pointer (see below)\n          #   arg2: pointer to cbopaque holding additional callback data; always NULL here\n          #   arg3: options string, affects output format (text or JSON)\n          #\n          # Callback signature (write_cb_t):\n          # void (void *, const char *)\n          #   arg1: pointer to cbopaque data (see above; unused)\n          #   arg2: pointer to string buffer holding textual output\n          :void,\n          [:pointer, :pointer, :string],\n          symbol\n        )",
+          "file": "lib/gitlab/memory/jemalloc.rb",
+          "kind": "call",
+          "line": 55,
+          "method": "new",
+          "owner": "Gitlab::Memory::Jemalloc",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/memory/jemalloc.rb#L55",
+          "source_sha256": "7f44bd21459af4cfa2bd2f8948a4f53d7cbaf44c8e502a83435426ee8df78454",
+          "unit": "lib/gitlab/memory/jemalloc.rb:1083:instance:malloc_stats_print"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "1046307ec30919d52b84f36f934c1c744853964c9201c521441744b2f4f3a8b8",
+        "12a4295527dad57b8d60cbc4004de333495e80d878327d00b639dcca3b71903e",
+        "3842abf431cab0809ca7378a5122503794f5a38f7e2ed1f143420cce3b52ff0a",
+        "38bf24448901d593ceca047e4e742c2a2d91f412c050f39bff927952066fc0a1",
+        "47988db6f44e22ac8c54a0b01cf38da300a3718a6ddcfa4f4f18bb579a13135b",
+        "5b9e920d0988000c4361ec7fb601d60ebc3c11b9a6fb657bdfc29e8c8c6f98d7",
+        "8944cf9fa8a57bad21d135d3f086e065623008015a7adaea39c592167327e298",
+        "93a39924fbbc7ed86cb804ae063b97ff072b8de2bc4bd030109be81b1a77c00f",
+        "afc79ddeed7a5f0f0e951a87f2cbcf7b702791cf49096859d673bb0ecd62cadb",
+        "d27d953f22f02f787f1a1e1cc8997d8d28c2fce5d4e4ba79fc898ee2eab017bf",
+        "fc23f9de9527e2b53e298445dd543ec7c83508dd7a167ef4a498c1a51b5829a6",
+        "fc7ab650085c2f389a117318dc2044a84cf760675ed4078e17082bd418b3fa49"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "calloc ( nclosures , sizeof ( * list ) )",
+            "file": "ext/ffi_c/ClosurePool.c",
+            "function": "rbffi_Closure_Alloc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/ClosurePool.c:134:rbffi_Closure_Alloc",
+            "line": 156,
+            "package": "ffi@1.17.4",
+            "source_sha256": "4ea2dc69bbe84a7facffac3f6aeeba758a2caa0c68479f85e05ef03c1df5c487"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "nclosures",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( * list )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "calloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "calloc ( nclosures , sizeof ( * list ) )",
+            "file": "ext/ffi_c/ClosurePool.c",
+            "function": "rbffi_Closure_Alloc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/ClosurePool.c:134:rbffi_Closure_Alloc",
+            "line": 156,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "4ea2dc69bbe84a7facffac3f6aeeba758a2caa0c68479f85e05ef03c1df5c487"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "nclosures",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( * list )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "calloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "infoArgv [ 1 ] = rbParamTypes",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 378,
+            "package": "ffi@1.17.4",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "infoArgv [ 1 ] = rbParamTypes",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 378,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp + ffi_cris_trampoline_closure_offset , & codeloc , sizeof ( void * ) )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 382,
+            "package": "ffi@1.17.4",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "& codeloc",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp + ffi_cris_trampoline_closure_offset , & codeloc , sizeof ( void * ) )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 382,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "& codeloc",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp , ffi_cris_trampoline_template , 36 )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 378,
+            "package": "ffi@1.17.4",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "closure -> tramp",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp , ffi_cris_trampoline_template , 36 )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 378,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "closure -> tramp",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance ( rbOptions != Qnil ? 3 : 2 , infoArgv , rbffi_FunctionTypeClass )",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 380,
+            "package": "ffi@1.17.4",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbOptions != Qnil ? 3 : 2",
+              "index": 0
+            },
+            {
+              "expression": "infoArgv",
+              "index": 1
+            },
+            {
+              "expression": "rbffi_FunctionTypeClass",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance ( rbOptions != Qnil ? 3 : 2 , infoArgv , rbffi_FunctionTypeClass )",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 380,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbOptions != Qnil ? 3 : 2",
+              "index": 0
+            },
+            {
+              "expression": "infoArgv",
+              "index": 1
+            },
+            {
+              "expression": "rbffi_FunctionTypeClass",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "tramp [ 4 ] = ( 0x6 << 10 ) | ( 15 << 5 )",
+            "file": "ext/ffi_c/libffi/src/or1k/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/or1k/ffi.c:277:ffi_prep_closure_loc",
+            "line": 301,
+            "package": "ffi@1.17.4",
+            "source_sha256": "b59b6cd160c9843a5be5dd9ddcc80d792fec0cdfb7af3a53dd6cdf9f8b79d9e3"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "tramp [ 8 ] = ( 0x11 << 10 )",
+            "file": "ext/ffi_c/libffi/src/or1k/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/or1k/ffi.c:277:ffi_prep_closure_loc",
+            "line": 306,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "b59b6cd160c9843a5be5dd9ddcc80d792fec0cdfb7af3a53dd6cdf9f8b79d9e3"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "ffi",
+        "method": "initialize",
+        "owner": "FFI::Function",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "1.17.4"
+      },
+      "native_api_group": "f9734d244728f4ea717b1fb8758fee9afbb08cd05c02bf9ff9a2e0fbf4c021ce",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "# void (write_cb_t *write_cb, void *cbopaque, const char *opts)",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2061,
+          "byte_start": 1407,
+          "column": 9,
+          "end_line": 69,
+          "expression": "FFI::Function.new(\n          # C signature:\n          # void (write_cb_t *write_cb, void *cbopaque, const char *opts)\n          #   arg1: callback function pointer (see below)\n          #   arg2: pointer to cbopaque holding additional callback data; always NULL here\n          #   arg3: options string, affects output format (text or JSON)\n          #\n          # Callback signature (write_cb_t):\n          # void (void *, const char *)\n          #   arg1: pointer to cbopaque data (see above; unused)\n          #   arg2: pointer to string buffer holding textual output\n          :void,\n          [:pointer, :pointer, :string],\n          symbol\n        )",
+          "file": "lib/gitlab/memory/jemalloc.rb",
+          "kind": "call",
+          "line": 55,
+          "method": "new",
+          "owner": "Gitlab::Memory::Jemalloc",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/memory/jemalloc.rb#L55",
+          "source_sha256": "7f44bd21459af4cfa2bd2f8948a4f53d7cbaf44c8e502a83435426ee8df78454",
+          "unit": "lib/gitlab/memory/jemalloc.rb:1083:instance:malloc_stats_print"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "0527ab2ec5261b74220b7b690ea9bc82cd43728c062ccc3666c9d75cb9e6c768",
+        "29d133082ed13389f31fa1974b76c7e76582cbabbe0dc754989185274698852c",
+        "2afa17e7137a9457263123c286d0f1dc503546de11c3eca4f2aa1e9b93c57caf",
+        "2f6dfd5cf70d63a8be5d88f80539a707a393e7aa157c277654d2238ae6ab4ad9",
+        "4be9cc1f743dbd965c3ffae4de1116e5967eb00461763e72a8340e5add1dc225",
+        "4d8ac7f8a8dd68a12c35e012c48f6922723e77cffef1b98754d217cd10855069",
+        "4e25ca650c16a49a5384556f96a98a78f80e61491c57cc50be29028d2c7122b7",
+        "5262012ee0b9c9715e7d2e761b9a71b262dcdb97bc0b85ab4f94809c728c292e",
+        "78e6634bf2ca287663d9d901f7ba8773904ff1ab045b03a0c27d32af901c7978",
+        "8bb31695cacd983eaa5c372beb9e659c6ecd50d305ba0f23520fbac46a51f97d",
+        "d836446fb1bb572439e591927b94a5e80731faf75bf47ff76ffe42ecb4db75b1",
+        "e175986a64de365aedf49f6b51d10c2990f1cf6bdfed698b838129f9af317df9"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "calloc ( nclosures , sizeof ( * list ) )",
+            "file": "ext/ffi_c/ClosurePool.c",
+            "function": "rbffi_Closure_Alloc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/ClosurePool.c:134:rbffi_Closure_Alloc",
+            "line": 156,
+            "package": "ffi@1.17.4",
+            "source_sha256": "4ea2dc69bbe84a7facffac3f6aeeba758a2caa0c68479f85e05ef03c1df5c487"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "nclosures",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( * list )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "calloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "calloc ( nclosures , sizeof ( * list ) )",
+            "file": "ext/ffi_c/ClosurePool.c",
+            "function": "rbffi_Closure_Alloc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/ClosurePool.c:134:rbffi_Closure_Alloc",
+            "line": 156,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "4ea2dc69bbe84a7facffac3f6aeeba758a2caa0c68479f85e05ef03c1df5c487"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "nclosures",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( * list )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "calloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "infoArgv [ 2 ] = rbOptions",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 379,
+            "package": "ffi@1.17.4",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "infoArgv [ 2 ] = rbOptions",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 379,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp + ffi_cris_trampoline_closure_offset , & codeloc , sizeof ( void * ) )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 382,
+            "package": "ffi@1.17.4",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "& codeloc",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp + ffi_cris_trampoline_closure_offset , & codeloc , sizeof ( void * ) )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 382,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "& codeloc",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp , ffi_cris_trampoline_template , 36 )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 378,
+            "package": "ffi@1.17.4",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "closure -> tramp",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp , ffi_cris_trampoline_template , 36 )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 378,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "closure -> tramp",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance ( rbOptions != Qnil ? 3 : 2 , infoArgv , rbffi_FunctionTypeClass )",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 380,
+            "package": "ffi@1.17.4",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbOptions != Qnil ? 3 : 2",
+              "index": 0
+            },
+            {
+              "expression": "infoArgv",
+              "index": 1
+            },
+            {
+              "expression": "rbffi_FunctionTypeClass",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance ( rbOptions != Qnil ? 3 : 2 , infoArgv , rbffi_FunctionTypeClass )",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 380,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbOptions != Qnil ? 3 : 2",
+              "index": 0
+            },
+            {
+              "expression": "infoArgv",
+              "index": 1
+            },
+            {
+              "expression": "rbffi_FunctionTypeClass",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "tramp [ 4 ] = ( 0x6 << 10 ) | ( 15 << 5 )",
+            "file": "ext/ffi_c/libffi/src/or1k/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/or1k/ffi.c:277:ffi_prep_closure_loc",
+            "line": 301,
+            "package": "ffi@1.17.4",
+            "source_sha256": "b59b6cd160c9843a5be5dd9ddcc80d792fec0cdfb7af3a53dd6cdf9f8b79d9e3"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "tramp [ 8 ] = ( 0x11 << 10 )",
+            "file": "ext/ffi_c/libffi/src/or1k/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/or1k/ffi.c:277:ffi_prep_closure_loc",
+            "line": 306,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "b59b6cd160c9843a5be5dd9ddcc80d792fec0cdfb7af3a53dd6cdf9f8b79d9e3"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "ffi",
+        "method": "initialize",
+        "owner": "FFI::Function",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "1.17.4"
+      },
+      "native_api_group": "f9734d244728f4ea717b1fb8758fee9afbb08cd05c02bf9ff9a2e0fbf4c021ce",
+      "native_argument_index": 2,
+      "ruby_argument_expression": "#   arg1: callback function pointer (see below)",
+      "ruby_argument_index": 2,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2061,
+          "byte_start": 1407,
+          "column": 9,
+          "end_line": 69,
+          "expression": "FFI::Function.new(\n          # C signature:\n          # void (write_cb_t *write_cb, void *cbopaque, const char *opts)\n          #   arg1: callback function pointer (see below)\n          #   arg2: pointer to cbopaque holding additional callback data; always NULL here\n          #   arg3: options string, affects output format (text or JSON)\n          #\n          # Callback signature (write_cb_t):\n          # void (void *, const char *)\n          #   arg1: pointer to cbopaque data (see above; unused)\n          #   arg2: pointer to string buffer holding textual output\n          :void,\n          [:pointer, :pointer, :string],\n          symbol\n        )",
+          "file": "lib/gitlab/memory/jemalloc.rb",
+          "kind": "call",
+          "line": 55,
+          "method": "new",
+          "owner": "Gitlab::Memory::Jemalloc",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/memory/jemalloc.rb#L55",
+          "source_sha256": "7f44bd21459af4cfa2bd2f8948a4f53d7cbaf44c8e502a83435426ee8df78454",
+          "unit": "lib/gitlab/memory/jemalloc.rb:1083:instance:malloc_stats_print"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "04d29b99e3ef2fc9596011a16bc13095008da16b920d03088ac19499577f1cb3",
+        "1d4a33b65d8627407847abb6153a59998e627688a958de84fdf238101311cc03",
+        "1d63616b03fad3302157650a138103e74b2730f6cb2d2b56390265eaf07d0e98",
+        "223c09d72070836997ba48a5275b96666d451defc76f92bd77eac2ce95c55c87",
+        "29784d2cff9a2c3209e68f8ae31c4f09cf0bdef9f93abcdd47b6400b252eed1b",
+        "3c59f31eafad7260436713d7f5ff5b4faec1dfd7769bcb34bf3f868018929482",
+        "46fc81fff11791e69ca175a8e3e45c55c8888dcba561ad840aeb291007131f38",
+        "47b41c88a58126384e2327414c114f6ba4f4ca49a4e87d7842294af8fb0d7f27",
+        "6509f3a9cee1a2b1faedaa58890677a9f5ddab19f98d2b3e4dcb0f3d6a01efb0",
+        "7070ff6796f43b367acc100f6adfc5107382f0a8da736c81272d19960c19a71f",
+        "847961fe212489d31aefaed4adca0b11853f388b623dc8289e32503617e9cd87",
+        "a7ceb92ee78b7549674887eedcddbc3836124b07e15613f26a183baca2947c27"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "calloc ( nclosures , sizeof ( * list ) )",
+            "file": "ext/ffi_c/ClosurePool.c",
+            "function": "rbffi_Closure_Alloc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/ClosurePool.c:134:rbffi_Closure_Alloc",
+            "line": 156,
+            "package": "ffi@1.17.4",
+            "source_sha256": "4ea2dc69bbe84a7facffac3f6aeeba758a2caa0c68479f85e05ef03c1df5c487"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "nclosures",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( * list )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "calloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "calloc ( nclosures , sizeof ( * list ) )",
+            "file": "ext/ffi_c/ClosurePool.c",
+            "function": "rbffi_Closure_Alloc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/ClosurePool.c:134:rbffi_Closure_Alloc",
+            "line": 156,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "4ea2dc69bbe84a7facffac3f6aeeba758a2caa0c68479f85e05ef03c1df5c487"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "nclosures",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( * list )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "calloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "infoArgv [ 2 ] = rbOptions",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 379,
+            "package": "ffi@1.17.4",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "infoArgv [ 2 ] = rbOptions",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 379,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp + ffi_cris_trampoline_closure_offset , & codeloc , sizeof ( void * ) )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 382,
+            "package": "ffi@1.17.4",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "& codeloc",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp + ffi_cris_trampoline_closure_offset , & codeloc , sizeof ( void * ) )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 382,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "& codeloc",
+              "index": 1
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp , ffi_cris_trampoline_template , 36 )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 378,
+            "package": "ffi@1.17.4",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "closure -> tramp",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcpy ( closure -> tramp , ffi_cris_trampoline_template , 36 )",
+            "file": "ext/ffi_c/libffi/src/cris/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/cris/ffi.c:366:ffi_prep_closure_loc",
+            "line": 378,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "958eeb4f9b1d07d3aa2d7b9d26ee61b04ad749ffea393a8f0446ba45377ad650"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "closure -> tramp",
+              "index": 0
+            }
+          ],
+          "memory_kind": "copy",
+          "memory_operation": "memcpy",
+          "operand_role": "destination",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance ( rbOptions != Qnil ? 3 : 2 , infoArgv , rbffi_FunctionTypeClass )",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 380,
+            "package": "ffi@1.17.4",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbOptions != Qnil ? 3 : 2",
+              "index": 0
+            },
+            {
+              "expression": "infoArgv",
+              "index": 1
+            },
+            {
+              "expression": "rbffi_FunctionTypeClass",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance ( rbOptions != Qnil ? 3 : 2 , infoArgv , rbffi_FunctionTypeClass )",
+            "file": "ext/ffi_c/Function.c",
+            "function": "function_initialize",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/Function.c:346:function_initialize",
+            "line": 380,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "e1404ec0050f5824c05d60122893440bdd224eae3fdba19685fc593806a5b160"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rbOptions != Qnil ? 3 : 2",
+              "index": 0
+            },
+            {
+              "expression": "infoArgv",
+              "index": 1
+            },
+            {
+              "expression": "rbffi_FunctionTypeClass",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "tramp [ 4 ] = ( 0x6 << 10 ) | ( 15 << 5 )",
+            "file": "ext/ffi_c/libffi/src/or1k/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:ext/ffi_c/libffi/src/or1k/ffi.c:277:ffi_prep_closure_loc",
+            "line": 301,
+            "package": "ffi@1.17.4",
+            "source_sha256": "b59b6cd160c9843a5be5dd9ddcc80d792fec0cdfb7af3a53dd6cdf9f8b79d9e3"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "tramp [ 8 ] = ( 0x11 << 10 )",
+            "file": "ext/ffi_c/libffi/src/or1k/ffi.c",
+            "function": "ffi_prep_closure_loc",
+            "function_id": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618:ext/ffi_c/libffi/src/or1k/ffi.c:277:ffi_prep_closure_loc",
+            "line": 306,
+            "package": "ffi@1.17.4:git:949809c4dafcc157769bd6126cfe6921ab0ba618",
+            "source_sha256": "b59b6cd160c9843a5be5dd9ddcc80d792fec0cdfb7af3a53dd6cdf9f8b79d9e3"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "ffi",
+        "method": "initialize",
+        "owner": "FFI::Function",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "1.17.4"
+      },
+      "native_api_group": "f9734d244728f4ea717b1fb8758fee9afbb08cd05c02bf9ff9a2e0fbf4c021ce",
+      "native_argument_index": 3,
+      "ruby_argument_expression": "#   arg2: pointer to cbopaque holding additional callback data; always NULL here",
+      "ruby_argument_index": 3,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2061,
+          "byte_start": 1407,
+          "column": 9,
+          "end_line": 69,
+          "expression": "FFI::Function.new(\n          # C signature:\n          # void (write_cb_t *write_cb, void *cbopaque, const char *opts)\n          #   arg1: callback function pointer (see below)\n          #   arg2: pointer to cbopaque holding additional callback data; always NULL here\n          #   arg3: options string, affects output format (text or JSON)\n          #\n          # Callback signature (write_cb_t):\n          # void (void *, const char *)\n          #   arg1: pointer to cbopaque data (see above; unused)\n          #   arg2: pointer to string buffer holding textual output\n          :void,\n          [:pointer, :pointer, :string],\n          symbol\n        )",
+          "file": "lib/gitlab/memory/jemalloc.rb",
+          "kind": "call",
+          "line": 55,
+          "method": "new",
+          "owner": "Gitlab::Memory::Jemalloc",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/memory/jemalloc.rb#L55",
+          "source_sha256": "7f44bd21459af4cfa2bd2f8948a4f53d7cbaf44c8e502a83435426ee8df78454",
+          "unit": "lib/gitlab/memory/jemalloc.rb:1083:instance:malloc_stats_print"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "FFI::Function",
+    "proof": [
+      {
+        "byte_end": 1420,
+        "byte_start": 1407,
+        "column": 9,
+        "end_line": 55,
+        "expression": "FFI::Function",
+        "file": "lib/gitlab/memory/jemalloc.rb",
+        "kind": "expression",
+        "line": 55,
+        "owner": "Gitlab::Memory::Jemalloc",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/memory/jemalloc.rb#L55",
+        "source_sha256": "7f44bd21459af4cfa2bd2f8948a4f53d7cbaf44c8e502a83435426ee8df78454",
+        "unit": "lib/gitlab/memory/jemalloc.rb:1083:instance:malloc_stats_print"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "FFI::Function"
+      ]
+    ]
+  },
+  "source": {
+    "column": 9,
+    "file": "lib/gitlab/memory/jemalloc.rb",
+    "line": 55,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/memory/jemalloc.rb#L55",
+    "source_sha256": "7f44bd21459af4cfa2bd2f8948a4f53d7cbaf44c8e502a83435426ee8df78454"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "# C signature:",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "# void (write_cb_t *write_cb, void *cbopaque, const char *opts)",
+      "index": 1,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "#   arg1: callback function pointer (see below)",
+      "index": 2,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "#   arg2: pointer to cbopaque holding additional callback data; always NULL here",
+      "index": 3,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "#   arg3: options string, affects output format (text or JSON)",
+      "index": 4,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "#",
+      "index": 5,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "# Callback signature (write_cb_t):",
+      "index": 6,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "# void (void *, const char *)",
+      "index": 7,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "#   arg1: pointer to cbopaque data (see above; unused)",
+      "index": 8,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "#   arg2: pointer to string buffer holding textual output",
+      "index": 9,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": ":void",
+      "index": 10,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Symbol"
+        ]
+      ]
+    },
+    {
+      "expression": "[:pointer, :pointer, :string]",
+      "index": 11,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Array"
+        ]
+      ]
+    },
+    {
+      "expression": "symbol",
+      "index": 12,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

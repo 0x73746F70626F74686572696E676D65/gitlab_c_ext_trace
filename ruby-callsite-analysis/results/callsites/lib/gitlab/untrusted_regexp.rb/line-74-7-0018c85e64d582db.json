@@ -1,0 +1,219 @@
+{
+  "callsite_id": "0018c85e64d582dbf7945c458a133916d4d2937fe1bdaeab25df7869ca56a14b",
+  "expression": "scan_regexp.match(text)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "match",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "027acb83901b3298b616a66345b614558305e315ea42094c30c6b67581a57fef",
+        "5df33da00081ba69f03a822f10667429358be89938ebda23b0bfdb1f1f7f48c6",
+        "7f8c71f1ed54fdb87396d62db9007eef10020d755babfb0adc5ca43c4f4666df",
+        "81af09daa25ba5b33b4f99a7448d347082b8da0c12408e47560eb12377319055",
+        "9db5713e66392702020af4c58a95f1851cf3e08be0aa7284ffe406bb6423e308",
+        "bf137a2c8ac0ffb259172461284067ccfabc2c7bf7612e0b82b5297bef759fed"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( text )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_regexp_match",
+            "function_id": "re2@2.27.0:ext/re2/re2.cc:1884:re2_regexp_match",
+            "line": 1892,
+            "package": "re2@2.27.0",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "text",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( text )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_regexp_match",
+            "function_id": "re2@2.27.0:git:b0fe138a3bbff1fd0f0790854838a58e31a443e6:ext/re2/re2.cc:1884:re2_regexp_match",
+            "line": 1892,
+            "package": "re2@2.27.0:git:b0fe138a3bbff1fd0f0790854838a58e31a443e6",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "text",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( text )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_regexp_match",
+            "function_id": "re2@2.27.0:ext/re2/re2.cc:1884:re2_regexp_match",
+            "line": 1893,
+            "package": "re2@2.27.0",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "text",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new_frozen ( text )",
+            "file": "ext/re2/re2.cc",
+            "function": "re2_regexp_match",
+            "function_id": "re2@2.27.0:git:b0fe138a3bbff1fd0f0790854838a58e31a443e6:ext/re2/re2.cc:1884:re2_regexp_match",
+            "line": 1893,
+            "package": "re2@2.27.0:git:b0fe138a3bbff1fd0f0790854838a58e31a443e6",
+            "source_sha256": "348f0f53feb9891f96d146eb51eea6e45aaf5bdadbc78baf38f2651bc5b63392"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "text",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new_frozen",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "re2",
+        "method": "match",
+        "owner": "RE2::Regexp",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "2.27.0"
+      },
+      "native_api_group": "f4ffda20d1864523b433426a26a58f50e9e4f540a72cde02442377bc58f5d2d8",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "text",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2246,
+          "byte_start": 2223,
+          "column": 7,
+          "end_line": 74,
+          "expression": "scan_regexp.match(text)",
+          "file": "lib/gitlab/untrusted_regexp.rb",
+          "kind": "call",
+          "line": 74,
+          "method": "match",
+          "owner": "Gitlab::UntrustedRegexp",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L74",
+          "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+          "unit": "lib/gitlab/untrusted_regexp.rb:2201:instance:match"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "scan_regexp",
+    "proof": [
+      {
+        "byte_end": 4057,
+        "byte_start": 4015,
+        "column": 9,
+        "end_line": 133,
+        "expression": "RE2::Regexp.new('(' + regexp.source + ')')",
+        "file": "lib/gitlab/untrusted_regexp.rb",
+        "kind": "call",
+        "line": 133,
+        "method": "new",
+        "owner": "Gitlab::UntrustedRegexp",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L133",
+        "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+        "unit": "lib/gitlab/untrusted_regexp.rb:3932:instance:initialize_scan_regexp"
+      },
+      {
+        "byte_end": 1113,
+        "byte_start": 1091,
+        "column": 22,
+        "end_line": 29,
+        "expression": "initialize_scan_regexp",
+        "file": "lib/gitlab/untrusted_regexp.rb",
+        "kind": "call",
+        "line": 29,
+        "method": "initialize_scan_regexp",
+        "owner": "Gitlab::UntrustedRegexp",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L29",
+        "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+        "unit": "lib/gitlab/untrusted_regexp.rb:921:instance:initialize"
+      },
+      {
+        "byte_end": 1113,
+        "byte_start": 1076,
+        "column": 7,
+        "end_line": 29,
+        "expression": "@scan_regexp = initialize_scan_regexp",
+        "file": "lib/gitlab/untrusted_regexp.rb",
+        "kind": "expression",
+        "line": 29,
+        "owner": "Gitlab::UntrustedRegexp",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L29",
+        "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666",
+        "unit": "lib/gitlab/untrusted_regexp.rb:921:instance:initialize"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "RE2::Regexp"
+      ]
+    ]
+  },
+  "source": {
+    "column": 7,
+    "file": "lib/gitlab/untrusted_regexp.rb",
+    "line": 74,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/untrusted_regexp.rb#L74",
+    "source_sha256": "b8469132695a3ac92f96f78e642c554b7a39a01785e5837941936fea1a361666"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "text",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ],
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

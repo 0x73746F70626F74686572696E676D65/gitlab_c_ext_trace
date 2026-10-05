@@ -1,0 +1,373 @@
+{
+  "callsite_id": "943b11fe9a74e9cd614b3f4bfea8b4bfabcd19221f0788b4f7e0a3ecf561b05b",
+  "expression": "::OpenSSL.fixed_length_secure_compare(signature, expected_signature)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "fixed_length_secure_compare",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "0ba217513665aaa61839626142ff2994ea2f10558d1898265e1a022ff2f86464",
+        "13825cdb58f935ee8125a464c284d840d368568aa85313102c54c833701747b6",
+        "49314cbb37ae85f0064a871d888518e0e231bebbe7329cb484722f8437250c76",
+        "77a57f7d1e13aa57430f9515568b36053d9e6dbec0d0458b59cc8496d0edf808",
+        "af224773b8d0afe8cab3d80fbc6cb0a7c558f2b753b8b0257f5e9cca30244522",
+        "f27a855789766ee72106b190185371081da664d2323192ca5204b2269d479ada"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "CRYPTO_memcmp ( p1 , p2 , len1 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 580,
+            "package": "openssl@3.3.3",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len1",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "CRYPTO_memcmp",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "CRYPTO_memcmp ( p1 , p2 , len1 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 580,
+            "package": "openssl@3.3.3",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "p1",
+              "index": 0
+            },
+            {
+              "expression": "p2",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "CRYPTO_memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "CRYPTO_memcmp ( p1 , p2 , len1 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 580,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "len1",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "CRYPTO_memcmp",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "CRYPTO_memcmp ( p1 , p2 , len1 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 580,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "p1",
+              "index": 0
+            },
+            {
+              "expression": "p2",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "CRYPTO_memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( str1 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 571,
+            "package": "openssl@3.3.3",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str1",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( str1 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 571,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str1",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "fixed_length_secure_compare",
+        "owner": "OpenSSL",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "a245e3ef68453d6fd6be971462d0db65265a0ec174fb0615fa57d42bf32a4c4a",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "signature",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 4110,
+          "byte_start": 4042,
+          "column": 13,
+          "end_line": 138,
+          "expression": "::OpenSSL.fixed_length_secure_compare(signature, expected_signature)",
+          "file": "lib/gitlab/ci/ansi2json/state.rb",
+          "kind": "call",
+          "line": 138,
+          "method": "fixed_length_secure_compare",
+          "owner": "Gitlab::Ci::Ansi2json::State",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/state.rb#L138",
+          "source_sha256": "886c71e2f5d91cd5e602969e6f63411a942eae2d4b4a35cb57b9be3670e70d17",
+          "unit": "lib/gitlab/ci/ansi2json/state.rb:3881:instance:valid_signature?"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "0be872017cbc5fd7956bfe15439ae4428035d2c6013864b6d0c0e759700c5836",
+        "29f9227f6753a10be9c42dffec31f6b135495c099a891c1527d1ea74de960dba",
+        "2ff73485d37fcfbdb78f3ffdb2efbdad45884e7683289b833fce40f8c220b968",
+        "a1cde317f70dfd578a9c4f69a70f58f204b48476b1ccd3a8a44c2157eb2fa10b"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "CRYPTO_memcmp ( p1 , p2 , len1 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 580,
+            "package": "openssl@3.3.3",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "p1",
+              "index": 0
+            },
+            {
+              "expression": "p2",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "CRYPTO_memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "CRYPTO_memcmp ( p1 , p2 , len1 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 580,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "p1",
+              "index": 0
+            },
+            {
+              "expression": "p2",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "CRYPTO_memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( str2 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 572,
+            "package": "openssl@3.3.3",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str2",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValuePtr ( str2 )",
+            "file": "ext/openssl/ossl.c",
+            "function": "ossl_crypto_fixed_length_secure_compare",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl.c:568:ossl_crypto_fixed_length_secure_compare",
+            "line": 572,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "1a0db90c63c1a8ec19bff81b60464c5ab726855a97a61b3f36c8cc5103359df5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str2",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValuePtr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "fixed_length_secure_compare",
+        "owner": "OpenSSL",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          2
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "a245e3ef68453d6fd6be971462d0db65265a0ec174fb0615fa57d42bf32a4c4a",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "expected_signature",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 4110,
+          "byte_start": 4042,
+          "column": 13,
+          "end_line": 138,
+          "expression": "::OpenSSL.fixed_length_secure_compare(signature, expected_signature)",
+          "file": "lib/gitlab/ci/ansi2json/state.rb",
+          "kind": "call",
+          "line": 138,
+          "method": "fixed_length_secure_compare",
+          "owner": "Gitlab::Ci::Ansi2json::State",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/state.rb#L138",
+          "source_sha256": "886c71e2f5d91cd5e602969e6f63411a942eae2d4b4a35cb57b9be3670e70d17",
+          "unit": "lib/gitlab/ci/ansi2json/state.rb:3881:instance:valid_signature?"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "::OpenSSL",
+    "proof": [
+      {
+        "byte_end": 4051,
+        "byte_start": 4042,
+        "column": 13,
+        "end_line": 138,
+        "expression": "::OpenSSL",
+        "file": "lib/gitlab/ci/ansi2json/state.rb",
+        "kind": "expression",
+        "line": 138,
+        "owner": "Gitlab::Ci::Ansi2json::State",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/state.rb#L138",
+        "source_sha256": "886c71e2f5d91cd5e602969e6f63411a942eae2d4b4a35cb57b9be3670e70d17",
+        "unit": "lib/gitlab/ci/ansi2json/state.rb:3881:instance:valid_signature?"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL"
+      ]
+    ]
+  },
+  "source": {
+    "column": 13,
+    "file": "lib/gitlab/ci/ansi2json/state.rb",
+    "line": 138,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/state.rb#L138",
+    "source_sha256": "886c71e2f5d91cd5e602969e6f63411a942eae2d4b4a35cb57b9be3670e70d17"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "signature",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "expected_signature",
+      "index": 1,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

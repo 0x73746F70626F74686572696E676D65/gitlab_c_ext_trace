@@ -1,0 +1,287 @@
+{
+  "callsite_id": "5bae75c231909e263b44d3147e8cce3052e14f45190f05297bf9c84dc1a90c97",
+  "expression": "DateTime.parse(old_time)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "parse",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "66094b02c6f5a9754600e1f5dc258b9154904239c7b1e4b13be32aa92fdeafce",
+        "79411febaba131d12bb0ee7ebf0ba585c9d6d696fd6ac1168f217fa3743d8f06"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "argv2 [ 2 ] = opt",
+            "file": "ext/date/date_core.c",
+            "function": "datetime_s_parse",
+            "function_id": "date@3.5.1:ext/date/date_core.c:8422:datetime_s_parse",
+            "line": 8443,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "argv2 [ 2 ] = opt",
+            "file": "ext/date/date_core.c",
+            "function": "datetime_s_parse",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:8422:datetime_s_parse",
+            "line": 8443,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "parse",
+        "owner": "DateTime",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "7bac7329b3959da512ec481cb95634d8f2cdfb54b34ed98e994e397f3c1ff17b",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "old_time",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2137,
+          "byte_start": 2113,
+          "column": 16,
+          "end_line": 64,
+          "expression": "DateTime.parse(old_time)",
+          "file": "ee/app/services/ci/minutes/track_live_consumption_service.rb",
+          "kind": "call",
+          "line": 64,
+          "method": "parse",
+          "owner": "Ci::Minutes::TrackLiveConsumptionService",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/ci/minutes/track_live_consumption_service.rb#L64",
+          "source_sha256": "a0660197f46bf8ec1f38d5ba719eeba54959d91a0de78d3f2b378e02484891ed",
+          "unit": "ee/app/services/ci/minutes/track_live_consumption_service.rb:1772:instance:time_last_tracked_consumption!"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "153dbd71c0896d60a3c2d0cf8ac5840f8ef303c70fde461a8f8a0f9be7852b92",
+        "185be0d3a20ca38830c75f27b8ef38b34e418997da40ed76bf5b62dce4be69e4",
+        "29aa3293c7ae2d6833946529f87735d49ce83a179ae738e46f7d144e3d2c6009",
+        "5e225d468bcf7e26756abd5505392e524f8c0a7da92f7e16d924f07167fb31cb",
+        "7c5fa2968ba8e9e3236e1c84f4baa29db64a8406b583569ab7805a7077b51ca0",
+        "a68dffb32eb22077d2b5ffea2b4c3e6c1cd1f9bac67ceb106ddec16a99d934de"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/date/date_core.c",
+            "function": "check_limit",
+            "function_id": "date@3.5.1:ext/date/date_core.c:4467:check_limit",
+            "line": 4471,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/date/date_core.c",
+            "function": "check_limit",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:4467:check_limit",
+            "line": 4471,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "argv2 [ 0 ] = str",
+            "file": "ext/date/date_core.c",
+            "function": "datetime_s_parse",
+            "function_id": "date@3.5.1:ext/date/date_core.c:8422:datetime_s_parse",
+            "line": 8441,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "argv2 [ 0 ] = str",
+            "file": "ext/date/date_core.c",
+            "function": "datetime_s_parse",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:8422:datetime_s_parse",
+            "line": 8441,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_dup ( str )",
+            "file": "ext/date/date_parse.c",
+            "function": "date__parse",
+            "function_id": "date@3.5.1:ext/date/date_parse.c:2139:date__parse",
+            "line": 2163,
+            "package": "date@3.5.1",
+            "source_sha256": "c95ed43dd24d92c70a4a51ed5fed445a1362a9cf5b31efa8e7368ef7867377fb"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_dup",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_dup ( str )",
+            "file": "ext/date/date_parse.c",
+            "function": "date__parse",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_parse.c:2139:date__parse",
+            "line": 2163,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c95ed43dd24d92c70a4a51ed5fed445a1362a9cf5b31efa8e7368ef7867377fb"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_dup",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "parse",
+        "owner": "DateTime",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "7bac7329b3959da512ec481cb95634d8f2cdfb54b34ed98e994e397f3c1ff17b",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "old_time",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2137,
+          "byte_start": 2113,
+          "column": 16,
+          "end_line": 64,
+          "expression": "DateTime.parse(old_time)",
+          "file": "ee/app/services/ci/minutes/track_live_consumption_service.rb",
+          "kind": "call",
+          "line": 64,
+          "method": "parse",
+          "owner": "Ci::Minutes::TrackLiveConsumptionService",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/ci/minutes/track_live_consumption_service.rb#L64",
+          "source_sha256": "a0660197f46bf8ec1f38d5ba719eeba54959d91a0de78d3f2b378e02484891ed",
+          "unit": "ee/app/services/ci/minutes/track_live_consumption_service.rb:1772:instance:time_last_tracked_consumption!"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "DateTime",
+    "proof": [
+      {
+        "byte_end": 2121,
+        "byte_start": 2113,
+        "column": 16,
+        "end_line": 64,
+        "expression": "DateTime",
+        "file": "ee/app/services/ci/minutes/track_live_consumption_service.rb",
+        "kind": "expression",
+        "line": 64,
+        "owner": "Ci::Minutes::TrackLiveConsumptionService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/ci/minutes/track_live_consumption_service.rb#L64",
+        "source_sha256": "a0660197f46bf8ec1f38d5ba719eeba54959d91a0de78d3f2b378e02484891ed",
+        "unit": "ee/app/services/ci/minutes/track_live_consumption_service.rb:1772:instance:time_last_tracked_consumption!"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "DateTime"
+      ]
+    ]
+  },
+  "source": {
+    "column": 16,
+    "file": "ee/app/services/ci/minutes/track_live_consumption_service.rb",
+    "line": 64,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/app/services/ci/minutes/track_live_consumption_service.rb#L64",
+    "source_sha256": "a0660197f46bf8ec1f38d5ba719eeba54959d91a0de78d3f2b378e02484891ed"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "old_time",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

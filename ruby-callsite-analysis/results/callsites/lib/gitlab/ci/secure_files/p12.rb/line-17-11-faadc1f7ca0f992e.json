@@ -1,0 +1,300 @@
+{
+  "callsite_id": "faadc1f7ca0f992e5fc4a1a42b0b3bbd11dce2a7d6fad3643efc1f47c2e766b4",
+  "expression": "OpenSSL::PKCS12.new(@filedata, @password)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "25821ca08ee1dbc35e0179b43a2ce70f395b379d2cebc43eb9f25908b51cd20c",
+        "3d66551ae8e6d8c5737c718e8a7e52232026746a05b7bb673e0e198662591f06",
+        "5d6a2cf19480eccfead9a25e44e281050569ed95578b3096b7eb99188ea57f53",
+        "6c1d813a098bfe9420c6b0550b0be62f068c94015bfdc84c6566cf422c0dfc3e",
+        "d843e1688ac257fac919b736bda22e56543ee7180ca7776978cbdf56901c8c80",
+        "fc3540d4b574cac9cb9392ad94d7a60442cc82b5d0236b9e3f5e30d679f7510b"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::PKCS12",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "ed12d70d0f13574ff19bf917f43902559472eefc0cad31fb9fcfaa6e626e12bd",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "@filedata",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 374,
+          "byte_start": 333,
+          "column": 11,
+          "end_line": 17,
+          "expression": "OpenSSL::PKCS12.new(@filedata, @password)",
+          "file": "lib/gitlab/ci/secure_files/p12.rb",
+          "kind": "call",
+          "line": 17,
+          "method": "new",
+          "owner": "Gitlab::Ci::SecureFiles::P12",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/secure_files/p12.rb#L17",
+          "source_sha256": "5ef9ed134145f099cc6c3cb0501f98064405808c338f65bae56917d72cd92acf",
+          "unit": "lib/gitlab/ci/secure_files/p12.rb:302:instance:certificate_data"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "24de83d1d06d3098d4646e48aa160c0c36e2773c367ee38d62e6d92a6c4ce0da",
+        "b096bc246449036bbaeddf4e49b6cdee2b671700c15457d1b6f18fe774ce6c6e"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( pass )",
+            "file": "ext/openssl/ossl_pkcs12.c",
+            "function": "ossl_pkcs12_initialize",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_pkcs12.c:184:ossl_pkcs12_initialize",
+            "line": 197,
+            "package": "openssl@3.3.3",
+            "source_sha256": "17892285559068ee3f4c94bdbbb8e4e53d2182d4d7f12ee0e0b8e827e0f84c9b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pass",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( pass )",
+            "file": "ext/openssl/ossl_pkcs12.c",
+            "function": "ossl_pkcs12_initialize",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_pkcs12.c:184:ossl_pkcs12_initialize",
+            "line": 197,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "17892285559068ee3f4c94bdbbb8e4e53d2182d4d7f12ee0e0b8e827e0f84c9b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "pass",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::PKCS12",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "ed12d70d0f13574ff19bf917f43902559472eefc0cad31fb9fcfaa6e626e12bd",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "@password",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 374,
+          "byte_start": 333,
+          "column": 11,
+          "end_line": 17,
+          "expression": "OpenSSL::PKCS12.new(@filedata, @password)",
+          "file": "lib/gitlab/ci/secure_files/p12.rb",
+          "kind": "call",
+          "line": 17,
+          "method": "new",
+          "owner": "Gitlab::Ci::SecureFiles::P12",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/secure_files/p12.rb#L17",
+          "source_sha256": "5ef9ed134145f099cc6c3cb0501f98064405808c338f65bae56917d72cd92acf",
+          "unit": "lib/gitlab/ci/secure_files/p12.rb:302:instance:certificate_data"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::PKCS12",
+    "proof": [
+      {
+        "byte_end": 348,
+        "byte_start": 333,
+        "column": 11,
+        "end_line": 17,
+        "expression": "OpenSSL::PKCS12",
+        "file": "lib/gitlab/ci/secure_files/p12.rb",
+        "kind": "expression",
+        "line": 17,
+        "owner": "Gitlab::Ci::SecureFiles::P12",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/secure_files/p12.rb#L17",
+        "source_sha256": "5ef9ed134145f099cc6c3cb0501f98064405808c338f65bae56917d72cd92acf",
+        "unit": "lib/gitlab/ci/secure_files/p12.rb:302:instance:certificate_data"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::PKCS12"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "lib/gitlab/ci/secure_files/p12.rb",
+    "line": 17,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/secure_files/p12.rb#L17",
+    "source_sha256": "5ef9ed134145f099cc6c3cb0501f98064405808c338f65bae56917d72cd92acf"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "@filedata",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    },
+    {
+      "expression": "@password",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

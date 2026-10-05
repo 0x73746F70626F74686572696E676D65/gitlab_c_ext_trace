@@ -1,0 +1,335 @@
+{
+  "callsite_id": "38a51ddcfd816145a56cb8bc2b93d9f4854fc74ee137c93c6550a6972f41a54e",
+  "expression": "DateTime.new(2020, 1, 1)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "43c13827add3f209e5c265d075a605da4099445ea2094e3618ac6ff03c840bf8",
+        "90787ca011be2a7f999c4964b1d18b582b3c429027b978d6bb10e50a619d7baa"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* ry = FIX2INT ( y )",
+            "file": "ext/date/date_core.c",
+            "function": "valid_civil_p",
+            "function_id": "date@3.5.1:ext/date/date_core.c:2238:valid_civil_p",
+            "line": 2255,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* ry = FIX2INT ( y )",
+            "file": "ext/date/date_core.c",
+            "function": "valid_civil_p",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:2238:valid_civil_p",
+            "line": 2255,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "new",
+        "owner": "DateTime",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "f3f90a22012befe02eb43bb22b0719ead26bd21e6fb2b5f3c2d643bd8dbf11f5",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "2020",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 54505,
+          "byte_start": 54481,
+          "column": 17,
+          "end_line": 1536,
+          "expression": "DateTime.new(2020, 1, 1)",
+          "file": "spec/requests/api/repositories_spec.rb",
+          "kind": "call",
+          "line": 1536,
+          "method": "new",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/requests/api/repositories_spec.rb#L1536",
+          "source_sha256": "5d00758d3757baedc3180f8c6b30f7aeb949592851742e30e8f5c0154945ea95",
+          "unit": "spec/requests/api/repositories_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "426978d9d840c75d1eb6fa4aa3997f9a4dec7ac002581db24b4547398c41eaf8",
+        "4d4c2600faadec9236493c992cce3b8abc1fe945dfc2945c1172f211a31d2bd8"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* rm = m",
+            "file": "ext/date/date_core.c",
+            "function": "c_valid_gregorian_p",
+            "function_id": "date@3.5.1:ext/date/date_core.c:747:c_valid_gregorian_p",
+            "line": 761,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rm = m",
+            "file": "ext/date/date_core.c",
+            "function": "c_valid_gregorian_p",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:747:c_valid_gregorian_p",
+            "line": 761,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "new",
+        "owner": "DateTime",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "f3f90a22012befe02eb43bb22b0719ead26bd21e6fb2b5f3c2d643bd8dbf11f5",
+      "native_argument_index": 1,
+      "ruby_argument_expression": "1",
+      "ruby_argument_index": 1,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 54505,
+          "byte_start": 54481,
+          "column": 17,
+          "end_line": 1536,
+          "expression": "DateTime.new(2020, 1, 1)",
+          "file": "spec/requests/api/repositories_spec.rb",
+          "kind": "call",
+          "line": 1536,
+          "method": "new",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/requests/api/repositories_spec.rb#L1536",
+          "source_sha256": "5d00758d3757baedc3180f8c6b30f7aeb949592851742e30e8f5c0154945ea95",
+          "unit": "spec/requests/api/repositories_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    },
+    {
+      "c_flow_ids": [
+        "65708964c30b70b622efbdbf2fb8f6c69891208a66f1b2a0291529b91656c81d",
+        "a0adf35d91215cfc0ef102ceb93c2be58629bb5e3df3cb6b82bea8d97f99b673",
+        "bc40c23196157cab289a727f06e8e6e86829d030388ad3b095ad867276c101f0",
+        "c1bb05ffce0263a36682c876cb2e9fa535f4c2df97896e5245156819d84627e4"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* rd = d",
+            "file": "ext/date/date_core.c",
+            "function": "c_valid_gregorian_p",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:747:c_valid_gregorian_p",
+            "line": 762,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rd = d",
+            "file": "ext/date/date_core.c",
+            "function": "c_valid_julian_p",
+            "function_id": "date@3.5.1:ext/date/date_core.c:728:c_valid_julian_p",
+            "line": 743,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rdom = ( int ) dom",
+            "file": "ext/date/date_core.c",
+            "function": "c_jd_to_civil",
+            "function_id": "date@3.5.1:ext/date/date_core.c:526:c_jd_to_civil",
+            "line": 553,
+            "package": "date@3.5.1",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* rdom = ( int ) dom",
+            "file": "ext/date/date_core.c",
+            "function": "c_jd_to_civil",
+            "function_id": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282:ext/date/date_core.c:526:c_jd_to_civil",
+            "line": 553,
+            "package": "date@3.5.1:git:2b5442d85a97859a680eb4be20c6e1a28f3af282",
+            "source_sha256": "c924c97b67cbe87cb1d1f48197547bfd5d0ecc2007bab5788505908a6b744aa5"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        }
+      ],
+      "native_api": {
+        "gem": "date",
+        "method": "new",
+        "owner": "DateTime",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.5.1"
+      },
+      "native_api_group": "f3f90a22012befe02eb43bb22b0719ead26bd21e6fb2b5f3c2d643bd8dbf11f5",
+      "native_argument_index": 2,
+      "ruby_argument_expression": "1",
+      "ruby_argument_index": 2,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 54505,
+          "byte_start": 54481,
+          "column": 17,
+          "end_line": 1536,
+          "expression": "DateTime.new(2020, 1, 1)",
+          "file": "spec/requests/api/repositories_spec.rb",
+          "kind": "call",
+          "line": 1536,
+          "method": "new",
+          "owner": "",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/requests/api/repositories_spec.rb#L1536",
+          "source_sha256": "5d00758d3757baedc3180f8c6b30f7aeb949592851742e30e8f5c0154945ea95",
+          "unit": "spec/requests/api/repositories_spec.rb:0:singleton:<file-body>"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "DateTime",
+    "proof": [
+      {
+        "byte_end": 54489,
+        "byte_start": 54481,
+        "column": 17,
+        "end_line": 1536,
+        "expression": "DateTime",
+        "file": "spec/requests/api/repositories_spec.rb",
+        "kind": "expression",
+        "line": 1536,
+        "owner": "",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/requests/api/repositories_spec.rb#L1536",
+        "source_sha256": "5d00758d3757baedc3180f8c6b30f7aeb949592851742e30e8f5c0154945ea95",
+        "unit": "spec/requests/api/repositories_spec.rb:0:singleton:<file-body>"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "DateTime"
+      ]
+    ]
+  },
+  "source": {
+    "column": 17,
+    "file": "spec/requests/api/repositories_spec.rb",
+    "line": 1536,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/requests/api/repositories_spec.rb#L1536",
+    "source_sha256": "5d00758d3757baedc3180f8c6b30f7aeb949592851742e30e8f5c0154945ea95"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "2020",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Integer"
+        ]
+      ]
+    },
+    {
+      "expression": "1",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Integer"
+        ]
+      ]
+    },
+    {
+      "expression": "1",
+      "index": 2,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Integer"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": true
+}

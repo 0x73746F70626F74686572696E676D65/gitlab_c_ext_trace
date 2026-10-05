@@ -1,0 +1,207 @@
+{
+  "callsite_id": "96a260b6549afddf21b8ff49e756ccd63343f769936987b1e686f68a766a0b8a",
+  "expression": "OpenSSL::ASN1.decode(asn_san.value[1].value)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "decode",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "4db17fbaad4cdb0ed22f407d671ddcc45dcc41c34c9cb1a32e4dc39de78563c1",
+        "652e7a4a10a9f9dca9294962344a927080246f06e557034a3ad46247a15eae62",
+        "6c991ae1aab657a9209363fd509d57e3aac542dd45c7543fdc0b988719e5d8d8",
+        "7b0f838d325dad863d298a0d64d0e6fbbf81493a11700a9706bc2c874cc5592d",
+        "80713c598fc5d5b5e84bb2c23818e3aeeadaa00d315793c8ccba0f790dd7ae17",
+        "8504ebd8f6b9d8999bb4a2f804162e6ce1c215a5f043d38d9dc2931d81c09f64"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* pp += hlen",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "ossl_asn1_decode0",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_asn1.c:839:ossl_asn1_decode0",
+            "line": 880,
+            "package": "openssl@3.3.3",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pp += hlen",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "ossl_asn1_decode0",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_asn1.c:839:ossl_asn1_decode0",
+            "line": 880,
+            "package": "openssl@3.3.3",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "LONG2NUM ( hlen )",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "ossl_asn1_decode0",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_asn1.c:839:ossl_asn1_decode0",
+            "line": 871,
+            "package": "openssl@3.3.3",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "hlen",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "LONG2NUM",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "ossl_asn1_decode",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_asn1.c:963:ossl_asn1_decode",
+            "line": 972,
+            "package": "openssl@3.3.3",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "args [ 3 ] = { value , INT2NUM ( tag ) , tc }",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "int_ossl_asn1_decode0_prim",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_asn1.c:713:int_ossl_asn1_decode0_prim",
+            "line": 779,
+            "package": "openssl@3.3.3",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "declaration",
+          "operand_role": "value",
+          "sink_type": "declaration"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_new4 ( StringValue ( obj ) )",
+            "file": "ext/openssl/ossl_asn1.c",
+            "function": "ossl_asn1_decode",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_asn1.c:963:ossl_asn1_decode",
+            "line": 972,
+            "package": "openssl@3.3.3",
+            "source_sha256": "5c39a1d3b3d9a7a439eeb1dccdb35fff7e46e4c8819151eadca127fae8bc7876"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "StringValue ( obj )",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_new4",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "decode",
+        "owner": "OpenSSL::ASN1",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "d0e5c3a5c8342d1039debdb1c13e01601c43c5e51ff260cf38b9a56efa2b7dc2",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "asn_san.value[1].value",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2169,
+          "byte_start": 2125,
+          "column": 32,
+          "end_line": 55,
+          "expression": "OpenSSL::ASN1.decode(asn_san.value[1].value)",
+          "file": "ee/lib/gitlab/auth/smartcard/san_extension.rb",
+          "kind": "call",
+          "line": 55,
+          "method": "decode",
+          "owner": "Gitlab::Auth::Smartcard::SANExtension",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/auth/smartcard/san_extension.rb#L55",
+          "source_sha256": "2a18999cd63ac77a33e54cc011ae5a3a51398dd7b35c0d6dc770b833b21b8cc3",
+          "unit": "ee/lib/gitlab/auth/smartcard/san_extension.rb:1661:instance:subject_alternate_email_identities"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::ASN1",
+    "proof": [
+      {
+        "byte_end": 2138,
+        "byte_start": 2125,
+        "column": 32,
+        "end_line": 55,
+        "expression": "OpenSSL::ASN1",
+        "file": "ee/lib/gitlab/auth/smartcard/san_extension.rb",
+        "kind": "expression",
+        "line": 55,
+        "owner": "Gitlab::Auth::Smartcard::SANExtension",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/auth/smartcard/san_extension.rb#L55",
+        "source_sha256": "2a18999cd63ac77a33e54cc011ae5a3a51398dd7b35c0d6dc770b833b21b8cc3",
+        "unit": "ee/lib/gitlab/auth/smartcard/san_extension.rb:1661:instance:subject_alternate_email_identities"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::ASN1"
+      ]
+    ]
+  },
+  "source": {
+    "column": 32,
+    "file": "ee/lib/gitlab/auth/smartcard/san_extension.rb",
+    "line": 55,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/auth/smartcard/san_extension.rb#L55",
+    "source_sha256": "2a18999cd63ac77a33e54cc011ae5a3a51398dd7b35c0d6dc770b833b21b8cc3"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "asn_san.value[1].value",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

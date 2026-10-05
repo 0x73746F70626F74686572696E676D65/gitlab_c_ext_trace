@@ -1,0 +1,140 @@
+{
+  "callsite_id": "e94093c2cd7c6dde49e49863253b50f95e0edcbe7122e4534838263ac99a1a85",
+  "expression": "OpenSSL::X509::Name.new([])",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "a32b39524a0103ab920f582790b34fb8620be97fc3a0fb3933468b8f250594e3",
+        "f5686149b1793971befa75f539001ac521b7c4cf0105b7e734c69b81ed8a1c38"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/openssl/ossl_x509name.c",
+            "function": "ossl_x509name_initialize",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_x509name.c:146:ossl_x509name_initialize",
+            "line": 168,
+            "package": "openssl@3.3.3",
+            "source_sha256": "d5f3a7d5c569302e31bafdb7a24c7a1dff1f02cc0ef159bd360eadca7fa19f5d"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/openssl/ossl_x509name.c",
+            "function": "ossl_x509name_initialize",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_x509name.c:146:ossl_x509name_initialize",
+            "line": 168,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "d5f3a7d5c569302e31bafdb7a24c7a1dff1f02cc0ef159bd360eadca7fa19f5d"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::X509::Name",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "5025418d230230b76cb8c394ede54db0f2499a66da79b0de52ddbca0f1901b7c",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "[]",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1295,
+          "byte_start": 1268,
+          "column": 29,
+          "end_line": 40,
+          "expression": "OpenSSL::X509::Name.new([])",
+          "file": "lib/supply_chain/root_ca_driver.rb",
+          "kind": "call",
+          "line": 40,
+          "method": "new",
+          "owner": "SupplyChain::RootCaDriver",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/root_ca_driver.rb#L40",
+          "source_sha256": "0cd6076009de25bb7306ce280d44b27b8981f9cace3fd983ebf1bc4e6721398d",
+          "unit": "lib/supply_chain/root_ca_driver.rb:949:instance:generate_leaf_certificate"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::X509::Name",
+    "proof": [
+      {
+        "byte_end": 1287,
+        "byte_start": 1268,
+        "column": 29,
+        "end_line": 40,
+        "expression": "OpenSSL::X509::Name",
+        "file": "lib/supply_chain/root_ca_driver.rb",
+        "kind": "expression",
+        "line": 40,
+        "owner": "SupplyChain::RootCaDriver",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/root_ca_driver.rb#L40",
+        "source_sha256": "0cd6076009de25bb7306ce280d44b27b8981f9cace3fd983ebf1bc4e6721398d",
+        "unit": "lib/supply_chain/root_ca_driver.rb:949:instance:generate_leaf_certificate"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::X509::Name"
+      ]
+    ]
+  },
+  "source": {
+    "column": 29,
+    "file": "lib/supply_chain/root_ca_driver.rb",
+    "line": 40,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/supply_chain/root_ca_driver.rb#L40",
+    "source_sha256": "0cd6076009de25bb7306ce280d44b27b8981f9cace3fd983ebf1bc4e6721398d"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "[]",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Array"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

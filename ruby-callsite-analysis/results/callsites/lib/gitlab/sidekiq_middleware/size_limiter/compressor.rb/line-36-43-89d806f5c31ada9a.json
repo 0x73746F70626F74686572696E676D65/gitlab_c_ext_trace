@@ -1,0 +1,324 @@
+{
+  "callsite_id": "89d806f5c31ada9a1e5388f8e859609dc1f60b21a858d234205da1f36146f1ae",
+  "expression": "Zlib::Inflate.inflate(Base64.strict_decode64(job['args'].first))",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "inflate",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "40a689dadd08444cdf22dcabdf5650cc85734fec8453b5018aeca5e1355565c4",
+        "55978dbf88878920b43b29a46b1bc1623e2c1f1b3d405877851c440d91a823f0",
+        "7d53a450632419a8a729aa80fd466c16f944b3631e050ba6873f3d3310ecc1a9",
+        "84f5459f29187845761ad821900c2ad35f5c746953311cb859aab84c761fd804",
+        "8523c54903165ed2fca76a43bad90d6e6d41fb1bb11a9e393c9031b10b989708",
+        "beb1b0957d87b1611260d557a007fb771b8166738314a19be4b0f33382709fa0",
+        "c558982c83d1d40070f9dad1c2930cc75b33e760a66175b50a23aeb28900e77e",
+        "d5dd9deb5e29a6781fba84d3a578e13f814db0bfdae8ad2fde501cf7ea522d67",
+        "dc51249048601e072248c239c3d707f249488aec972c30039e4c0ea158ea8581",
+        "f258cc5ceb68d505211d6882ebbf2413b0b9e8771abf4559affc5f0ed9ba6dcc"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( src )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_inflate_s_inflate",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:2093:rb_inflate_s_inflate",
+            "line": 2100,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "src",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( src )",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_inflate_s_inflate",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:2093:rb_inflate_s_inflate",
+            "line": 2100,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "src",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "args [ 1 ] = src",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_inflate_s_inflate",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:2093:rb_inflate_s_inflate",
+            "line": 2109,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "args [ 1 ] = src",
+            "file": "ext/zlib/zlib.c",
+            "function": "rb_inflate_s_inflate",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:2093:rb_inflate_s_inflate",
+            "line": 2109,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_sprintf ( \"unknown zlib error %d: %s\" , err , msg )",
+            "file": "ext/zlib/zlib.c",
+            "function": "raise_zlib_error",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:318:raise_zlib_error",
+            "line": 354,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "err",
+              "index": 1
+            },
+            {
+              "expression": "msg",
+              "index": 2
+            }
+          ],
+          "memory_kind": "format_buffer",
+          "memory_operation": "rb_sprintf",
+          "operand_role": "data",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_cat ( z -> input , ( const char * ) src , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 894,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> input",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) src",
+              "index": 1
+            },
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_cat",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_str_buf_cat ( z -> input , ( const char * ) src , len )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_append_input",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:883:zstream_append_input",
+            "line": 890,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> input",
+              "index": 0
+            },
+            {
+              "expression": "( const char * ) src",
+              "index": 1
+            },
+            {
+              "expression": "len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_str_buf_cat",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_uint2inum ( z -> stream . adler )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_run_try",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:1128:zstream_run_try",
+            "line": 1189,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> stream . adler",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "rb_uint2inum",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_uint2inum ( z -> stream . adler )",
+            "file": "ext/zlib/zlib.c",
+            "function": "zstream_run_try",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:1128:zstream_run_try",
+            "line": 1189,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "z -> stream . adler",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_conversion",
+          "memory_operation": "rb_uint2inum",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "inflate",
+        "owner": "Zlib::Inflate",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "e7e2dc48d18e87ec2ec206596510e785e4dc74c9615d0d35dd8a04099404d26d",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "Base64.strict_decode64(job['args'].first)",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1190,
+          "byte_start": 1126,
+          "column": 43,
+          "end_line": 36,
+          "expression": "Zlib::Inflate.inflate(Base64.strict_decode64(job['args'].first))",
+          "file": "lib/gitlab/sidekiq_middleware/size_limiter/compressor.rb",
+          "kind": "call",
+          "line": 36,
+          "method": "inflate",
+          "owner": "Gitlab::SidekiqMiddleware::SizeLimiter::Compressor",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/sidekiq_middleware/size_limiter/compressor.rb#L36",
+          "source_sha256": "131318ebb9805ccd3bf1faaa866502570d3b8ebf2150faaac05e5d656a99e432",
+          "unit": "lib/gitlab/sidekiq_middleware/size_limiter/compressor.rb:929:singleton:decompress"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::Inflate",
+    "proof": [
+      {
+        "byte_end": 1139,
+        "byte_start": 1126,
+        "column": 43,
+        "end_line": 36,
+        "expression": "Zlib::Inflate",
+        "file": "lib/gitlab/sidekiq_middleware/size_limiter/compressor.rb",
+        "kind": "expression",
+        "line": 36,
+        "owner": "Gitlab::SidekiqMiddleware::SizeLimiter::Compressor",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/sidekiq_middleware/size_limiter/compressor.rb#L36",
+        "source_sha256": "131318ebb9805ccd3bf1faaa866502570d3b8ebf2150faaac05e5d656a99e432",
+        "unit": "lib/gitlab/sidekiq_middleware/size_limiter/compressor.rb:929:singleton:decompress"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::Inflate"
+      ]
+    ]
+  },
+  "source": {
+    "column": 43,
+    "file": "lib/gitlab/sidekiq_middleware/size_limiter/compressor.rb",
+    "line": 36,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/sidekiq_middleware/size_limiter/compressor.rb#L36",
+    "source_sha256": "131318ebb9805ccd3bf1faaa866502570d3b8ebf2150faaac05e5d656a99e432"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "Base64.strict_decode64(job['args'].first)",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

@@ -1,0 +1,269 @@
+{
+  "callsite_id": "5c53d00fd377b872611fe79981dab58436241614c3c9493344fab6683b19c5fd",
+  "expression": "p7.verify(nil, OpenSSL::X509::Store.new, nil, OpenSSL::PKCS7::NOVERIFY)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "verify",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "122af6277a568bfa9aba21cbcd72db2b985fa6e8f915dc3ba6be8b5addcb4bb2",
+        "1dcffbfd3f5dd47c9c4df98c8067c4e1c0313b3b8c56134afdd0560a92cab87d",
+        "2eab213186247ba31a074db954f638789db4b1390fc8241d4363f951b4f6ed26",
+        "4a9bd3cef77dbbc09844440d5a8cd2cb94298113b6fdf4bfb75fc68f5d025c81",
+        "54dc8c0c5e32a0b4d269058da32b038041a4608ea0caa902145b7cdfcd8e9647",
+        "69e5be45ac9c3058883761314963ac56dc0c7a433d03cb5053117adb2e0acdea"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "* pobj = obj",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 24,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( obj )",
+            "file": "ext/openssl/ossl_bio.c",
+            "function": "ossl_obj2bio",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_bio.c:12:ossl_obj2bio",
+            "line": 20,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ff367f229b52ebfd7678dc9d050a4cd8e68d739ef9379f42d22c37742f22d05b"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "verify",
+        "owner": "OpenSSL::PKCS7",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "f7d897de94d0ea7b759e6f092c6d77e1b13dd96661229b2d9ca3fd4f422dfe11",
+      "native_argument_index": 2,
+      "ruby_argument_expression": "nil",
+      "ruby_argument_index": 2,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 436,
+          "byte_start": 365,
+          "column": 11,
+          "end_line": 18,
+          "expression": "p7.verify(nil, OpenSSL::X509::Store.new, nil, OpenSSL::PKCS7::NOVERIFY)",
+          "file": "lib/gitlab/ci/secure_files/mobile_provision.rb",
+          "kind": "call",
+          "line": 18,
+          "method": "verify",
+          "owner": "Gitlab::Ci::SecureFiles::MobileProvision",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/secure_files/mobile_provision.rb#L18",
+          "source_sha256": "9d5ea25fab0a86b88ad178a05f745838f43c77dab2a9fd2556a9b5d6055e2645",
+          "unit": "lib/gitlab/ci/secure_files/mobile_provision.rb:292:instance:decoded_plist"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "p7",
+    "proof": [
+      {
+        "byte_end": 354,
+        "byte_start": 325,
+        "column": 16,
+        "end_line": 17,
+        "expression": "OpenSSL::PKCS7.new(@filedata)",
+        "file": "lib/gitlab/ci/secure_files/mobile_provision.rb",
+        "kind": "call",
+        "line": 17,
+        "method": "new",
+        "owner": "Gitlab::Ci::SecureFiles::MobileProvision",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/secure_files/mobile_provision.rb#L17",
+        "source_sha256": "9d5ea25fab0a86b88ad178a05f745838f43c77dab2a9fd2556a9b5d6055e2645",
+        "unit": "lib/gitlab/ci/secure_files/mobile_provision.rb:292:instance:decoded_plist"
+      },
+      {
+        "byte_end": 354,
+        "byte_start": 320,
+        "column": 11,
+        "end_line": 17,
+        "expression": "p7 = OpenSSL::PKCS7.new(@filedata)",
+        "file": "lib/gitlab/ci/secure_files/mobile_provision.rb",
+        "kind": "expression",
+        "line": 17,
+        "owner": "Gitlab::Ci::SecureFiles::MobileProvision",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/secure_files/mobile_provision.rb#L17",
+        "source_sha256": "9d5ea25fab0a86b88ad178a05f745838f43c77dab2a9fd2556a9b5d6055e2645",
+        "unit": "lib/gitlab/ci/secure_files/mobile_provision.rb:292:instance:decoded_plist"
+      },
+      {
+        "byte_end": 367,
+        "byte_start": 365,
+        "column": 11,
+        "end_line": 18,
+        "expression": "p7",
+        "file": "lib/gitlab/ci/secure_files/mobile_provision.rb",
+        "kind": "expression",
+        "line": 18,
+        "owner": "Gitlab::Ci::SecureFiles::MobileProvision",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/secure_files/mobile_provision.rb#L18",
+        "source_sha256": "9d5ea25fab0a86b88ad178a05f745838f43c77dab2a9fd2556a9b5d6055e2645",
+        "unit": "lib/gitlab/ci/secure_files/mobile_provision.rb:292:instance:decoded_plist"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::PKCS7"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "lib/gitlab/ci/secure_files/mobile_provision.rb",
+    "line": 18,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/secure_files/mobile_provision.rb#L18",
+    "source_sha256": "9d5ea25fab0a86b88ad178a05f745838f43c77dab2a9fd2556a9b5d6055e2645"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "nil",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ]
+      ]
+    },
+    {
+      "expression": "OpenSSL::X509::Store.new",
+      "index": 1,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "OpenSSL::X509::Store"
+        ]
+      ]
+    },
+    {
+      "expression": "nil",
+      "index": 2,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ]
+      ]
+    },
+    {
+      "expression": "OpenSSL::PKCS7::NOVERIFY",
+      "index": 3,
+      "kind": "positional",
+      "types": [
+        [
+          "singleton",
+          "OpenSSL::PKCS7::NOVERIFY"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

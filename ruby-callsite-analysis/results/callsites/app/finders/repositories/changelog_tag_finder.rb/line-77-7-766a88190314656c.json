@@ -1,0 +1,238 @@
+{
+  "callsite_id": "766a88190314656c96cd1b7584a196a1e7a2537f9e21ccc28d8a506e79ee6c15",
+  "expression": "VersionSorter.sort!(versions)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "sort!",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "339fa02286986a843fa5a5fcd9f32923698c69fbd631671b8084a0f4be5214d2",
+        "532f77a3bf3c49c3e08239b26ba56d3447a3a67b47c6f49d9c7f9112ef145e67",
+        "88166a2971cd5ac645e6fad85a144e1a598c555ca1cabfeba0f10827e7b45775",
+        "a23cc3825a6a4f88854a2d172c719fac04274115d1e1c107dfbf71a67fbd252d",
+        "ce8e9747678c32ac2f9e98055464a23a18a993c419f974da4ba970e201cf4cfe",
+        "d5812f104394ba0bf6f715730649d7188c4f9c492c8801ea2619dc7884bf0988",
+        "fbc9d25fc2ea672ce5b985dd381300abb4454ad65611363ce2eae49a110432be"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( rb_version_string )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 199,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rb_version_string",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "context -> versions [ i ] = parse_version_number ( StringValueCStr ( rb_version_string ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 199,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_version_ptr [ i ] = context -> versions [ i ] -> rb_version",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 207,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_version_ptr [ i ] = context -> versions [ i ] -> rb_version",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 207,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "xcalloc ( length , sizeof ( struct version_number * ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:213:rb_version_sort_1",
+            "line": 229,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "length",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( struct version_number * )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "xcalloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xfree ( context . versions )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:213:rb_version_sort_1",
+            "line": 237,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context . versions",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "xfree",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xrealloc ( version , ( sizeof ( struct version_number ) + sizeof ( union version_comp ) * new_size ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "grow_version_number",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:103:grow_version_number",
+            "line": 106,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "version",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "xrealloc",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "version_sorter",
+        "method": "sort!",
+        "owner": "VersionSorter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "2.3.0"
+      },
+      "native_api_group": "e9fec106f8a3ad800d440d659cd9888f8911dd13f6cb3589eeb59f85c05f92ba",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "versions",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2767,
+          "byte_start": 2738,
+          "column": 7,
+          "end_line": 77,
+          "expression": "VersionSorter.sort!(versions)",
+          "file": "app/finders/repositories/changelog_tag_finder.rb",
+          "kind": "call",
+          "line": 77,
+          "method": "sort!",
+          "owner": "Repositories::ChangelogTagFinder",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/finders/repositories/changelog_tag_finder.rb#L77",
+          "source_sha256": "749b36d3ed25717ba18fc058452c5da21ec20a910a86884a784094f4b6e6bf00",
+          "unit": "app/finders/repositories/changelog_tag_finder.rb:997:instance:execute"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "VersionSorter",
+    "proof": [
+      {
+        "byte_end": 2751,
+        "byte_start": 2738,
+        "column": 7,
+        "end_line": 77,
+        "expression": "VersionSorter",
+        "file": "app/finders/repositories/changelog_tag_finder.rb",
+        "kind": "expression",
+        "line": 77,
+        "owner": "Repositories::ChangelogTagFinder",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/finders/repositories/changelog_tag_finder.rb#L77",
+        "source_sha256": "749b36d3ed25717ba18fc058452c5da21ec20a910a86884a784094f4b6e6bf00",
+        "unit": "app/finders/repositories/changelog_tag_finder.rb:997:instance:execute"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "VersionSorter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 7,
+    "file": "app/finders/repositories/changelog_tag_finder.rb",
+    "line": 77,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/finders/repositories/changelog_tag_finder.rb#L77",
+    "source_sha256": "749b36d3ed25717ba18fc058452c5da21ec20a910a86884a784094f4b6e6bf00"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "versions",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "Array"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

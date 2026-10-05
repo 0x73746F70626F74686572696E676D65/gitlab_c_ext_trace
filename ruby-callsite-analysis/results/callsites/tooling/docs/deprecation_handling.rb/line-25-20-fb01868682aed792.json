@@ -1,0 +1,255 @@
+{
+  "callsite_id": "fb01868682aed79296ff41916517dba842cd7b9795c02b8e5468365e93f250e4",
+  "expression": "VersionSorter.rsort(milestones)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "rsort",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "0c4d48940973cede6f658b7f3ee960c460cf50bcf5320a062c1e54d2501f52a8",
+        "1de4e6876231cec599c4aa3d638a3be5bb2580514bfac4723e2cefaf21cd5d3b",
+        "21f5bcbce837c666c08905ca0dd7c94579c006a12748e9584d10e17bb682c2ed",
+        "2dcce7bd7ebc73f2efb214bda05305e851b93f660b2e57045847137a9223bd1a",
+        "2e25a40ccfcad09a22b8ff2299bf4a39a522bda168271130a2b63d41ba271d61",
+        "3f63bd1b90c39d0f363869f2b12d9cba24b6d18a5a16838429a4ff2ad533c885",
+        "7bdf87b41a9b3968114a312e6b5d2d4599dd315c6fc5991eb6a436fe34f204e3",
+        "7d58975331d6c0ec3f2f362b9c461e066f3f704beca7e1032aa1b1580ba99d8d"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( rb_version_string )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 199,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rb_version_string",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "context -> versions [ i ] = parse_version_number ( StringValueCStr ( rb_version_string ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 199,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_ary_dup ( rb_versions )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_r",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:252:rb_version_sort_r",
+            "line": 255,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "rb_versions",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_ary_dup",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_version_ptr [ i ] = context -> versions [ i ] -> rb_version",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 207,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_version_ptr [ i ] = context -> versions [ i ] -> rb_version",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1_cb",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:182:rb_version_sort_1_cb",
+            "line": 207,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "value",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "xcalloc ( length , sizeof ( struct version_number * ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:213:rb_version_sort_1",
+            "line": 229,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "length",
+              "index": 0
+            },
+            {
+              "expression": "sizeof ( struct version_number * )",
+              "index": 1
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "xcalloc",
+          "operand_role": "size",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xfree ( context . versions )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "rb_version_sort_1",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:213:rb_version_sort_1",
+            "line": 237,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "context . versions",
+              "index": 0
+            }
+          ],
+          "memory_kind": "release",
+          "memory_operation": "xfree",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "xrealloc ( version , ( sizeof ( struct version_number ) + sizeof ( union version_comp ) * new_size ) )",
+            "file": "ext/version_sorter/version_sorter.c",
+            "function": "grow_version_number",
+            "function_id": "version_sorter@2.3.0:ext/version_sorter/version_sorter.c:103:grow_version_number",
+            "line": 106,
+            "package": "version_sorter@2.3.0",
+            "source_sha256": "16a24c80c75605eeb2ed14b20a406166d05ba53d3cb5d51f77fb3e5f119ead24"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "version",
+              "index": 0
+            }
+          ],
+          "memory_kind": "allocation",
+          "memory_operation": "xrealloc",
+          "operand_role": "pointer",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "version_sorter",
+        "method": "rsort",
+        "owner": "VersionSorter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "2.3.0"
+      },
+      "native_api_group": "f87ef7e1318bc17a5588fbb96ed3f49aba5efd1aa4ccf20e54ebfecfe44f0ce1",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "milestones",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 793,
+          "byte_start": 762,
+          "column": 20,
+          "end_line": 25,
+          "expression": "VersionSorter.rsort(milestones)",
+          "file": "tooling/docs/deprecation_handling.rb",
+          "kind": "call",
+          "line": 25,
+          "method": "rsort",
+          "owner": "Docs::DeprecationHandling",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/tooling/docs/deprecation_handling.rb#L25",
+          "source_sha256": "a314439ca6e9c629a5a549ed2aa9e2348ed876212760f38354881246e77ca40b",
+          "unit": "tooling/docs/deprecation_handling.rb:366:instance:render"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "VersionSorter",
+    "proof": [
+      {
+        "byte_end": 775,
+        "byte_start": 762,
+        "column": 20,
+        "end_line": 25,
+        "expression": "VersionSorter",
+        "file": "tooling/docs/deprecation_handling.rb",
+        "kind": "expression",
+        "line": 25,
+        "owner": "Docs::DeprecationHandling",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/tooling/docs/deprecation_handling.rb#L25",
+        "source_sha256": "a314439ca6e9c629a5a549ed2aa9e2348ed876212760f38354881246e77ca40b",
+        "unit": "tooling/docs/deprecation_handling.rb:366:instance:render"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "VersionSorter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 20,
+    "file": "tooling/docs/deprecation_handling.rb",
+    "line": 25,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/tooling/docs/deprecation_handling.rb#L25",
+    "source_sha256": "a314439ca6e9c629a5a549ed2aa9e2348ed876212760f38354881246e77ca40b"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "milestones",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}

@@ -1,0 +1,140 @@
+{
+  "callsite_id": "dc0d139d5d06accd194c943aca3a985ee03226f873088dfaa2acbf6e75a6023d",
+  "expression": "OpenSSL::Digest.new('SHA256')",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "new",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "5ef1c86dddf169f49b4455e89ba4f874add75df194de1923c48aab91bbd6eef6",
+        "90de31f58ff0577dc8a54e1d66e1c745c3739664cd7b36629946b2dac54bddd2"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "construction": "Class.new passes these actual arguments to the new instance native initialize",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( obj )",
+            "file": "ext/openssl/ossl_digest.c",
+            "function": "ossl_evp_get_digestbyname",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_digest.c:44:ossl_evp_get_digestbyname",
+            "line": 51,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ef8b20cdb656c8251209eb8b6202f0ee9b0230b43a2579642a3dc33c0ad85ddc"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "obj",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "initialize",
+        "owner": "OpenSSL::Digest",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "f5d00e39112f35f3aac129e336d81cd0f0a424212237411e98110d015815a63b",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "'SHA256'",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2005,
+          "byte_start": 1976,
+          "column": 17,
+          "end_line": 57,
+          "expression": "OpenSSL::Digest.new('SHA256')",
+          "file": "app/services/packages/nuget/symbols/extract_signature_and_checksum_service.rb",
+          "kind": "call",
+          "line": 57,
+          "method": "new",
+          "owner": "Packages::Nuget::Symbols::ExtractSignatureAndChecksumService",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/nuget/symbols/extract_signature_and_checksum_service.rb#L57",
+          "source_sha256": "3b4d1cd0c626461fadf18ce33b5230e42c86a4ad13d6f10a074ef58c7b6fddb6",
+          "unit": "app/services/packages/nuget/symbols/extract_signature_and_checksum_service.rb:1947:instance:checksum"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "OpenSSL::Digest",
+    "proof": [
+      {
+        "byte_end": 1991,
+        "byte_start": 1976,
+        "column": 17,
+        "end_line": 57,
+        "expression": "OpenSSL::Digest",
+        "file": "app/services/packages/nuget/symbols/extract_signature_and_checksum_service.rb",
+        "kind": "expression",
+        "line": 57,
+        "owner": "Packages::Nuget::Symbols::ExtractSignatureAndChecksumService",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/nuget/symbols/extract_signature_and_checksum_service.rb#L57",
+        "source_sha256": "3b4d1cd0c626461fadf18ce33b5230e42c86a4ad13d6f10a074ef58c7b6fddb6",
+        "unit": "app/services/packages/nuget/symbols/extract_signature_and_checksum_service.rb:1947:instance:checksum"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "OpenSSL::Digest"
+      ]
+    ]
+  },
+  "source": {
+    "column": 17,
+    "file": "app/services/packages/nuget/symbols/extract_signature_and_checksum_service.rb",
+    "line": 57,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/app/services/packages/nuget/symbols/extract_signature_and_checksum_service.rb#L57",
+    "source_sha256": "3b4d1cd0c626461fadf18ce33b5230e42c86a4ad13d6f10a074ef58c7b6fddb6"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "'SHA256'",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "String"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

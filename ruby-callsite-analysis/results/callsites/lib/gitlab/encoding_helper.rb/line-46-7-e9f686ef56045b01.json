@@ -1,0 +1,204 @@
+{
+  "callsite_id": "e9f686ef56045b0183ec631a2623a6245a8c767207071175647b31743b467ad8",
+  "expression": "CharlockHolmes::EncodingDetector.new(limit).detect(data)",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "detect",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "22f272567891cba6b31a69d3b8bd73795ac1f50443d4bde6ab37da8946d73461",
+        "24dd593b3f68c6eaa134427751ebab7089a5a4a6d0cbc1b51df0750f201aa465",
+        "d3f0191c68bde0264ecf3be01557163f49d37beadc3595fd7e7fc0ea2b6a88c0",
+        "f8a4c0ce244a3090ecded8e21770a95fec9fd961902682c2bfec673549758c34"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "memchr ( buf , 0 , buf_len )",
+            "file": "ext/charlock_holmes/encoding_detector.c",
+            "function": "detect_binary_content",
+            "function_id": "charlock_holmes@0.7.9:ext/charlock_holmes/encoding_detector.c:80:detect_binary_content",
+            "line": 148,
+            "package": "charlock_holmes@0.7.9",
+            "source_sha256": "e08431ecb97ca57ef97926ae0688286a1d5362b1ef92a8f7309672dfe1e3cab9"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf_len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memchr",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memchr ( buf , 0 , buf_len )",
+            "file": "ext/charlock_holmes/encoding_detector.c",
+            "function": "detect_binary_content",
+            "function_id": "charlock_holmes@0.7.9:git:c8d07d3e96a786b39056caf309e3cb24f8f59770:ext/charlock_holmes/encoding_detector.c:80:detect_binary_content",
+            "line": 148,
+            "package": "charlock_holmes@0.7.9:git:c8d07d3e96a786b39056caf309e3cb24f8f59770",
+            "source_sha256": "e08431ecb97ca57ef97926ae0688286a1d5362b1ef92a8f7309672dfe1e3cab9"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf_len",
+              "index": 2
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memchr",
+          "operand_role": "length",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( buf , \"GIF89a\" , 6 )",
+            "file": "ext/charlock_holmes/encoding_detector.c",
+            "function": "detect_binary_content",
+            "function_id": "charlock_holmes@0.7.9:ext/charlock_holmes/encoding_detector.c:80:detect_binary_content",
+            "line": 106,
+            "package": "charlock_holmes@0.7.9",
+            "source_sha256": "e08431ecb97ca57ef97926ae0688286a1d5362b1ef92a8f7309672dfe1e3cab9"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf",
+              "index": 0
+            },
+            {
+              "expression": "\"GIF89a\"",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "memcmp ( buf , \"\\xff\\xfe\\0\\0\" , 4 )",
+            "file": "ext/charlock_holmes/encoding_detector.c",
+            "function": "detect_binary_content",
+            "function_id": "charlock_holmes@0.7.9:git:c8d07d3e96a786b39056caf309e3cb24f8f59770:ext/charlock_holmes/encoding_detector.c:80:detect_binary_content",
+            "line": 122,
+            "package": "charlock_holmes@0.7.9:git:c8d07d3e96a786b39056caf309e3cb24f8f59770",
+            "source_sha256": "e08431ecb97ca57ef97926ae0688286a1d5362b1ef92a8f7309672dfe1e3cab9"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "buf",
+              "index": 0
+            },
+            {
+              "expression": "\"\\xff\\xfe\\0\\0\"",
+              "index": 1
+            }
+          ],
+          "memory_kind": "memory_read",
+          "memory_operation": "memcmp",
+          "operand_role": "source",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "charlock_holmes",
+        "method": "detect",
+        "owner": "CharlockHolmes::EncodingDetector",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "0.7.9"
+      },
+      "native_api_group": "323ed21fc075ef8e31fc9670b0ad2039ede3ef401c8fd658813591ce66f25db7",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "data",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 1797,
+          "byte_start": 1741,
+          "column": 7,
+          "end_line": 46,
+          "expression": "CharlockHolmes::EncodingDetector.new(limit).detect(data)",
+          "file": "lib/gitlab/encoding_helper.rb",
+          "kind": "call",
+          "line": 46,
+          "method": "detect",
+          "owner": "Gitlab::EncodingHelper",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/encoding_helper.rb#L46",
+          "source_sha256": "a3372d62183aa5fdf5b768e1535c8868a0681100f4a18e6032b22cf541f46533",
+          "unit": "lib/gitlab/encoding_helper.rb:1616:instance:detect_encoding"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "CharlockHolmes::EncodingDetector.new(limit)",
+    "proof": [
+      {
+        "byte_end": 1784,
+        "byte_start": 1741,
+        "column": 7,
+        "end_line": 46,
+        "expression": "CharlockHolmes::EncodingDetector.new(limit)",
+        "file": "lib/gitlab/encoding_helper.rb",
+        "kind": "call",
+        "line": 46,
+        "method": "new",
+        "owner": "Gitlab::EncodingHelper",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/encoding_helper.rb#L46",
+        "source_sha256": "a3372d62183aa5fdf5b768e1535c8868a0681100f4a18e6032b22cf541f46533",
+        "unit": "lib/gitlab/encoding_helper.rb:1616:instance:detect_encoding"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "CharlockHolmes::EncodingDetector"
+      ]
+    ]
+  },
+  "source": {
+    "column": 7,
+    "file": "lib/gitlab/encoding_helper.rb",
+    "line": 46,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/encoding_helper.rb#L46",
+    "source_sha256": "a3372d62183aa5fdf5b768e1535c8868a0681100f4a18e6032b22cf541f46533"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "data",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ],
+        [
+          "instance",
+          "String"
+        ],
+        [
+          "singleton",
+          "ArgumentError"
+        ],
+        [
+          "singleton",
+          "StandardError"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

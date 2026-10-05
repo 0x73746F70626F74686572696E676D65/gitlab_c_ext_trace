@@ -1,0 +1,176 @@
+{
+  "callsite_id": "2d86dc0d6599af97ff0357ff5cfc08561d357717ca492e827fbafadfa89e4e67",
+  "expression": "cipher.auth_tag",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "auth_tag=",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "24fb2cbe354408508ca4a1e51bba20e06c7a572b91fecaa76b76cf194b824f2c",
+        "774af1439983c85bdfed16504e9b29bbd4cc37f5c5ac748b8c8998299efd5ecc"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( vtag )",
+            "file": "ext/openssl/ossl_cipher.c",
+            "function": "ossl_cipher_set_auth_tag",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_cipher.c:649:ossl_cipher_set_auth_tag",
+            "line": 656,
+            "package": "openssl@3.3.3",
+            "source_sha256": "791365c984bfafbc9f4ab27a357709d15f66abfd37c230463bd71aa0e93ce55f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "vtag",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( vtag )",
+            "file": "ext/openssl/ossl_cipher.c",
+            "function": "ossl_cipher_set_auth_tag",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_cipher.c:649:ossl_cipher_set_auth_tag",
+            "line": 656,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "791365c984bfafbc9f4ab27a357709d15f66abfd37c230463bd71aa0e93ce55f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "vtag",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "auth_tag=",
+        "owner": "OpenSSL::Cipher",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "d7488eea90bd2c46792f1d877fd03427d26f1f5d3136c0679f3044c5c215975f",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "auth_tag",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2069,
+          "byte_start": 2054,
+          "column": 11,
+          "end_line": 73,
+          "expression": "cipher.auth_tag",
+          "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+          "kind": "call",
+          "line": 73,
+          "method": "auth_tag=",
+          "owner": "Gitlab::Geo::Oauth::LogoutState",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L73",
+          "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3",
+          "unit": "ee/lib/gitlab/geo/oauth/logout_state.rb:1781:instance:with_cipher"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "cipher",
+    "proof": [
+      {
+        "byte_end": 1866,
+        "byte_start": 1832,
+        "column": 20,
+        "end_line": 67,
+        "expression": "OpenSSL::Cipher.new('AES-256-GCM')",
+        "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+        "kind": "call",
+        "line": 67,
+        "method": "new",
+        "owner": "Gitlab::Geo::Oauth::LogoutState",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L67",
+        "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3",
+        "unit": "ee/lib/gitlab/geo/oauth/logout_state.rb:1781:instance:with_cipher"
+      },
+      {
+        "byte_end": 1866,
+        "byte_start": 1823,
+        "column": 11,
+        "end_line": 67,
+        "expression": "cipher = OpenSSL::Cipher.new('AES-256-GCM')",
+        "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+        "kind": "expression",
+        "line": 67,
+        "owner": "Gitlab::Geo::Oauth::LogoutState",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L67",
+        "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3",
+        "unit": "ee/lib/gitlab/geo/oauth/logout_state.rb:1781:instance:with_cipher"
+      },
+      {
+        "byte_end": 2060,
+        "byte_start": 2054,
+        "column": 11,
+        "end_line": 73,
+        "expression": "cipher",
+        "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+        "kind": "expression",
+        "line": 73,
+        "owner": "Gitlab::Geo::Oauth::LogoutState",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L73",
+        "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3",
+        "unit": "ee/lib/gitlab/geo/oauth/logout_state.rb:1781:instance:with_cipher"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::Cipher"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "ee/lib/gitlab/geo/oauth/logout_state.rb",
+    "line": 73,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/geo/oauth/logout_state.rb#L73",
+    "source_sha256": "501af71e78ba05c840314912af0d85a6b3a92ca6a6be722654df3ce5a73330c3"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "auth_tag",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ],
+        [
+          "singleton",
+          "ArgumentError"
+        ],
+        [
+          "singleton",
+          "NoMethodError"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

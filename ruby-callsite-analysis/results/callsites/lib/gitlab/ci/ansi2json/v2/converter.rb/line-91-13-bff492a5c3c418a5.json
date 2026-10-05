@@ -1,0 +1,168 @@
+{
+  "callsite_id": "bff492a5c3c418a533cf1e811c91896922337401125e342f5e216250a12e379a",
+  "expression": "@scanner.string",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "string=",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "3e90a8b8bc8234c75d5e9133afebfca98ae48e4b5464216f066e6f595f93f81b",
+        "aa91b7f487573ba4f701709ef77ca6bf6891ac78b93a259b5511f20f6a65baad"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_set_string",
+            "function_id": "strscan@3.1.8:ext/strscan/strscan.c:488:strscan_set_string",
+            "line": 493,
+            "package": "strscan@3.1.8",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValue ( str )",
+            "file": "ext/strscan/strscan.c",
+            "function": "strscan_set_string",
+            "function_id": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf:ext/strscan/strscan.c:488:strscan_set_string",
+            "line": 493,
+            "package": "strscan@3.1.8:git:26163aa3d5b857c0ba21802e87ebc119b798c4bf",
+            "source_sha256": "b511e4207a227bf86b45713959cb0e2a3123e0c5b40ff4f917db73e086daaa2f"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "str",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValue",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "strscan",
+        "method": "string=",
+        "owner": "StringScanner",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.1.8"
+      },
+      "native_api_group": "753c92e4074cb8605a04df64c3e86c8aa5f4e04a7ea464325239ec59708b766b",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "line",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2829,
+          "byte_start": 2814,
+          "column": 13,
+          "end_line": 91,
+          "expression": "@scanner.string",
+          "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+          "kind": "call",
+          "line": 91,
+          "method": "string=",
+          "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L91",
+          "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+          "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2779:instance:consume_line"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "@scanner",
+    "proof": [
+      {
+        "byte_end": 735,
+        "byte_start": 714,
+        "column": 24,
+        "end_line": 20,
+        "expression": "StringScanner.new('')",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "call",
+        "line": 20,
+        "method": "new",
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L20",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:547:instance:convert"
+      },
+      {
+        "byte_end": 735,
+        "byte_start": 703,
+        "column": 13,
+        "end_line": 20,
+        "expression": "@scanner = StringScanner.new('')",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 20,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L20",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:547:instance:convert"
+      },
+      {
+        "byte_end": 2822,
+        "byte_start": 2814,
+        "column": 13,
+        "end_line": 91,
+        "expression": "@scanner",
+        "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+        "kind": "expression",
+        "line": 91,
+        "owner": "Gitlab::Ci::Ansi2json::V2::Converter",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L91",
+        "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3",
+        "unit": "lib/gitlab/ci/ansi2json/v2/converter.rb:2779:instance:consume_line"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "StringScanner"
+      ]
+    ]
+  },
+  "source": {
+    "column": 13,
+    "file": "lib/gitlab/ci/ansi2json/v2/converter.rb",
+    "line": 91,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/lib/gitlab/ci/ansi2json/v2/converter.rb#L91",
+    "source_sha256": "c6414303075f1400897b7cdebb9186734e7e7cbb2dcc18c1a2b73436e3ea87b3"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "line",
+      "index": 0,
+      "kind": "positional",
+      "types": [
+        [
+          "instance",
+          "NilClass"
+        ]
+      ]
+    }
+  ],
+  "test_or_fixture": false
+}

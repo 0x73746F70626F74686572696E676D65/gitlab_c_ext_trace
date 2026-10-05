@@ -1,0 +1,192 @@
+{
+  "callsite_id": "54c1768f88e7b235968534d00d8feb31e30c65527e4c7c51e479cf8191ca4c2d",
+  "expression": "Zlib::GzipWriter.open(log_file) do |gz|\n            pg = connection.raw_connection\n\n            pg.exec('SET statement_timeout TO 0;')\n\n            # The Postgres log (pglog.csv) is shared by every database in the\n            # cluster, so scope each pass to the current connection's database.\n            # Without this filter every connection re-parses (and re-fingerprints)\n            # the entire cluster-wide log, tripling the work in a decomposed setup.\n            #\n            # This is intentionally a plain streaming scan with no DISTINCT or\n            # ORDER BY: sorting the parsed log makes Postgres materialize it into\n            # pgsql_tmp temp files, which has exhausted the disk on CI runners in\n            # query-heavy jobs (background migrations). Deduplication happens in\n            # Ruby below, which only accumulates small sets of distinct\n            # query_ids/texts rather than the full log.\n            pg.send_query_params(<<~SQL.squish, [connection.current_database])\n              SELECT\n                  m.message->>'Query Text' as query,\n                  m.message->'Plan' as plan,\n                  m.query_id\n              FROM (\n                  SELECT\n                      substring(message from '\\{.*$')::jsonb AS message,\n                      query_id\n                  FROM pglog\n                  WHERE database_name = $1 AND message LIKE '%{%'\n              ) m;\n            SQL\n\n            pg.set_single_row_mode\n            pg.get_result.stream_each do |row|\n              query_id = row['query_id']\n              query = row['query']\n\n              # Cheap first-level deduplication, mirroring what DISTINCT ON did\n              # database-side: one row per non-zero query_id (queries sharing a\n              # normalized shape), and one row per exact query text for\n              # query_id=0 rows (where Postgres could not compute an id). This\n              # keeps expensive PgQuery.fingerprint calls proportional to the\n              # number of distinct queries rather than total query executions.\n              if query_id.to_i == 0\n                next unless seen_queries.add?(query)\n              else\n                next unless seen_query_ids.add?(query_id)\n              end\n\n              fingerprint = PgQuery.fingerprint(query)\n              next unless fingerprints.add?(fingerprint)\n\n              plan = Gitlab::Json.parse(row['plan'])\n\n              output = {\n                query_id: query_id,\n                query: query,\n                plan: plan,\n                fingerprint: fingerprint,\n                normalized: PgQuery.normalize(query)\n              }\n\n              gz.puts Gitlab::Json.generate(output)\n            end\n\n            puts \"auto_explain log contains #{fingerprints.size} entries for #{connection_name}, writing to #{log_file}\"\n            puts \"took #{Time.now - recording_start}\"\n          end",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "open",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "39645497e35d3c925310b7b3fc5f6bb247e1a542784f0058e1ab7ef759a02527",
+        "48d3476c38e80cd952ce49f59dbcb1624e7cd58e877935cb356cc5a4f527a1c9",
+        "629ef034c266ac8320d803c114d2c1a90e0bdf309d815392270707cad5a28402",
+        "756b20e0db252636e9fad4a9499fdb557ab5ad6c74437f3fb11cca6b3fd93411"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "argv [ 0 ] = io",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_s_open",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3305:gzfile_s_open",
+            "line": 3313,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "argv [ 0 ] = io",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_s_open",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3305:gzfile_s_open",
+            "line": 3313,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [],
+          "memory_kind": "buffer_store",
+          "memory_operation": "assignment",
+          "operand_role": "destination",
+          "sink_type": "assignment"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "rb_class_new_instance_kw ( argc , argv , klass , RB_PASS_CALLED_KEYWORDS )",
+            "file": "ext/zlib/zlib.c",
+            "function": "gzfile_wrap",
+            "function_id": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644:ext/zlib/zlib.c:3250:gzfile_wrap",
+            "line": 3268,
+            "package": "zlib@3.2.3:git:899f9fdb801062a3f2714b242f57477aabeca644",
+            "source_sha256": "44d03d339a90425c8320a20f066a697f145a5ab0acbd5f63ae37479065087656"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "argc",
+              "index": 0
+            },
+            {
+              "expression": "argv",
+              "index": 1
+            },
+            {
+              "expression": "klass",
+              "index": 2
+            },
+            {
+              "expression": "RB_PASS_CALLED_KEYWORDS",
+              "index": 3
+            }
+          ],
+          "memory_kind": "ruby_memory",
+          "memory_operation": "rb_class_new_instance_kw",
+          "operand_role": "argument",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "zlib",
+        "method": "open",
+        "owner": "Zlib::GzipWriter",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          -1
+        ],
+        "version": "3.2.3"
+      },
+      "native_api_group": "747b763be08f2dfa5c4964ca948433644d7c34f5adc005dc5a50728adce18214",
+      "native_argument_index": "*",
+      "ruby_argument_expression": "log_file",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 5340,
+          "byte_start": 2438,
+          "column": 11,
+          "end_line": 139,
+          "expression": "Zlib::GzipWriter.open(log_file) do |gz|\n            pg = connection.raw_connection\n\n            pg.exec('SET statement_timeout TO 0;')\n\n            # The Postgres log (pglog.csv) is shared by every database in the\n            # cluster, so scope each pass to the current connection's database.\n            # Without this filter every connection re-parses (and re-fingerprints)\n            # the entire cluster-wide log, tripling the work in a decomposed setup.\n            #\n            # This is intentionally a plain streaming scan with no DISTINCT or\n            # ORDER BY: sorting the parsed log makes Postgres materialize it into\n            # pgsql_tmp temp files, which has exhausted the disk on CI runners in\n            # query-heavy jobs (background migrations). Deduplication happens in\n            # Ruby below, which only accumulates small sets of distinct\n            # query_ids/texts rather than the full log.\n            pg.send_query_params(<<~SQL.squish, [connection.current_database])\n              SELECT\n                  m.message->>'Query Text' as query,\n                  m.message->'Plan' as plan,\n                  m.query_id\n              FROM (\n                  SELECT\n                      substring(message from '\\{.*$')::jsonb AS message,\n                      query_id\n                  FROM pglog\n                  WHERE database_name = $1 AND message LIKE '%{%'\n              ) m;\n            SQL\n\n            pg.set_single_row_mode\n            pg.get_result.stream_each do |row|\n              query_id = row['query_id']\n              query = row['query']\n\n              # Cheap first-level deduplication, mirroring what DISTINCT ON did\n              # database-side: one row per non-zero query_id (queries sharing a\n              # normalized shape), and one row per exact query text for\n              # query_id=0 rows (where Postgres could not compute an id). This\n              # keeps expensive PgQuery.fingerprint calls proportional to the\n              # number of distinct queries rather than total query executions.\n              if query_id.to_i == 0\n                next unless seen_queries.add?(query)\n              else\n                next unless seen_query_ids.add?(query_id)\n              end\n\n              fingerprint = PgQuery.fingerprint(query)\n              next unless fingerprints.add?(fingerprint)\n\n              plan = Gitlab::Json.parse(row['plan'])\n\n              output = {\n                query_id: query_id,\n                query: query,\n                plan: plan,\n                fingerprint: fingerprint,\n                normalized: PgQuery.normalize(query)\n              }\n\n              gz.puts Gitlab::Json.generate(output)\n            end\n\n            puts \"auto_explain log contains #{fingerprints.size} entries for #{connection_name}, writing to #{log_file}\"\n            puts \"took #{Time.now - recording_start}\"\n          end",
+          "file": "spec/support/database/auto_explain.rb",
+          "kind": "call",
+          "line": 74,
+          "method": "open",
+          "owner": "AutoExplain",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/database/auto_explain.rb#L74",
+          "source_sha256": "66fe4beb94dcbfdd581ec18d6c432e246c7ec93c743bf99fd02267ba152c776a",
+          "unit": "spec/support/database/auto_explain.rb:490:singleton:record"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "Zlib::GzipWriter",
+    "proof": [
+      {
+        "byte_end": 2454,
+        "byte_start": 2438,
+        "column": 11,
+        "end_line": 74,
+        "expression": "Zlib::GzipWriter",
+        "file": "spec/support/database/auto_explain.rb",
+        "kind": "expression",
+        "line": 74,
+        "owner": "AutoExplain",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/database/auto_explain.rb#L74",
+        "source_sha256": "66fe4beb94dcbfdd581ec18d6c432e246c7ec93c743bf99fd02267ba152c776a",
+        "unit": "spec/support/database/auto_explain.rb:490:singleton:record"
+      }
+    ],
+    "types": [
+      [
+        "singleton",
+        "Zlib::GzipWriter"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "spec/support/database/auto_explain.rb",
+    "line": 74,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/spec/support/database/auto_explain.rb#L74",
+    "source_sha256": "66fe4beb94dcbfdd581ec18d6c432e246c7ec93c743bf99fd02267ba152c776a"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "log_file",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": true
+}

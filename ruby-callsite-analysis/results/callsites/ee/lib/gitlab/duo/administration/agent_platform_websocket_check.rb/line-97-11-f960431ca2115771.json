@@ -1,0 +1,163 @@
+{
+  "callsite_id": "f960431ca211577159de639039384085fdae5121c127f1b2813b1a59052cf920",
+  "expression": "ssl.hostname",
+  "gitlab_commit": "c65829f5f51e046dc09fb16a66545ff099d58a5c",
+  "method": "hostname=",
+  "native_flows": [
+    {
+      "c_flow_ids": [
+        "04f83820f39220e9dff1b996107d803d64127ee6a3baf5dbc77d8d50eb013136",
+        "b1dd6c8e7575cfc2ef3b74bf116b3073f4a661dc1af3c0095738ad437f08edc6"
+      ],
+      "c_flow_library": "c-flow-library/*.jsonl (join by flow_id)",
+      "complete_c_chain_archive": "argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz (chain filename is c_flow_id + .json)",
+      "memory_call_sites": [
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( arg )",
+            "file": "ext/openssl/ossl_ssl.c",
+            "function": "ossl_ssl_set_hostname",
+            "function_id": "openssl@3.3.3:ext/openssl/ossl_ssl.c:2379:ossl_ssl_set_hostname",
+            "line": 2388,
+            "package": "openssl@3.3.3",
+            "source_sha256": "ee2006e7d3174710f8f89e215bcdcb4da46b7519e566398b54c4a5e76b5fc5e7"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "arg",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        },
+        {
+          "call_site": {
+            "expression": "StringValueCStr ( arg )",
+            "file": "ext/openssl/ossl_ssl.c",
+            "function": "ossl_ssl_set_hostname",
+            "function_id": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890:ext/openssl/ossl_ssl.c:2379:ossl_ssl_set_hostname",
+            "line": 2388,
+            "package": "openssl@3.3.3:git:9720a7644cbb46735460993b2091ce4a08c10890",
+            "source_sha256": "ee2006e7d3174710f8f89e215bcdcb4da46b7519e566398b54c4a5e76b5fc5e7"
+          },
+          "call_site_parameters": [
+            {
+              "expression": "arg",
+              "index": 0
+            }
+          ],
+          "memory_kind": "ruby_coercion",
+          "memory_operation": "StringValueCStr",
+          "operand_role": "value",
+          "sink_type": "call"
+        }
+      ],
+      "native_api": {
+        "gem": "openssl",
+        "method": "hostname=",
+        "owner": "OpenSSL::SSL::SSLSocket",
+        "receiver_resolution": "recorded_receiver",
+        "registration_arities": [
+          1
+        ],
+        "version": "3.3.3"
+      },
+      "native_api_group": "bb41c5b293938ac4fea86998383664a6174f233b3f6ae430869db3157ab03551",
+      "native_argument_index": 0,
+      "ruby_argument_expression": "uri.host",
+      "ruby_argument_index": 0,
+      "ruby_argument_kind": "positional",
+      "ruby_binding_path": [
+        {
+          "byte_end": 2810,
+          "byte_start": 2798,
+          "column": 11,
+          "end_line": 97,
+          "expression": "ssl.hostname",
+          "file": "ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb",
+          "kind": "call",
+          "line": 97,
+          "method": "hostname=",
+          "owner": "Gitlab::Duo::Administration::AgentPlatformWebsocketCheck",
+          "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb#L97",
+          "source_sha256": "4c0ab9a013629ef3af790325f9d25aeefe1c4c44eba2dd3e3c0d4f12cce0d2ba",
+          "unit": "ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb:2592:instance:tls_socket"
+        }
+      ],
+      "via": "native_direct"
+    }
+  ],
+  "receiver": {
+    "expression": "ssl",
+    "proof": [
+      {
+        "byte_end": 2787,
+        "byte_start": 2734,
+        "column": 17,
+        "end_line": 96,
+        "expression": "OpenSSL::SSL::SSLSocket.new(tcp_socket(uri), context)",
+        "file": "ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb",
+        "kind": "call",
+        "line": 96,
+        "method": "new",
+        "owner": "Gitlab::Duo::Administration::AgentPlatformWebsocketCheck",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb#L96",
+        "source_sha256": "4c0ab9a013629ef3af790325f9d25aeefe1c4c44eba2dd3e3c0d4f12cce0d2ba",
+        "unit": "ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb:2592:instance:tls_socket"
+      },
+      {
+        "byte_end": 2787,
+        "byte_start": 2728,
+        "column": 11,
+        "end_line": 96,
+        "expression": "ssl = OpenSSL::SSL::SSLSocket.new(tcp_socket(uri), context)",
+        "file": "ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb",
+        "kind": "expression",
+        "line": 96,
+        "owner": "Gitlab::Duo::Administration::AgentPlatformWebsocketCheck",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb#L96",
+        "source_sha256": "4c0ab9a013629ef3af790325f9d25aeefe1c4c44eba2dd3e3c0d4f12cce0d2ba",
+        "unit": "ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb:2592:instance:tls_socket"
+      },
+      {
+        "byte_end": 2801,
+        "byte_start": 2798,
+        "column": 11,
+        "end_line": 97,
+        "expression": "ssl",
+        "file": "ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb",
+        "kind": "expression",
+        "line": 97,
+        "owner": "Gitlab::Duo::Administration::AgentPlatformWebsocketCheck",
+        "source_permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb#L97",
+        "source_sha256": "4c0ab9a013629ef3af790325f9d25aeefe1c4c44eba2dd3e3c0d4f12cce0d2ba",
+        "unit": "ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb:2592:instance:tls_socket"
+      }
+    ],
+    "types": [
+      [
+        "instance",
+        "OpenSSL::SSL::SSLSocket"
+      ]
+    ]
+  },
+  "source": {
+    "column": 11,
+    "file": "ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb",
+    "line": 97,
+    "permalink": "https://gitlab.com/gitlab-org/gitlab/-/blob/c65829f5f51e046dc09fb16a66545ff099d58a5c/ee/lib/gitlab/duo/administration/agent_platform_websocket_check.rb#L97",
+    "source_sha256": "4c0ab9a013629ef3af790325f9d25aeefe1c4c44eba2dd3e3c0d4f12cce0d2ba"
+  },
+  "supplied_arguments": [
+    {
+      "expression": "uri.host",
+      "index": 0,
+      "kind": "positional",
+      "types": []
+    }
+  ],
+  "test_or_fixture": false
+}
