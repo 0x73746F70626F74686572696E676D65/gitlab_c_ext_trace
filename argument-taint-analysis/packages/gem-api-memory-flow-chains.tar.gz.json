@@ -1,0 +1,23 @@
+{
+  "archive_bytes": 99911098,
+  "archive_sha256": "dd32e6f4f09edc2b1658c678e1be5966fdb4138dc889604be0b2898cab35c73c",
+  "chain_files": 63076,
+  "contents": "One JSON file per saved API/argument/operand flow. Each embeds the entire event chain, pinned source hashes, source lines, registration and C entrypoint citations. These package existing checkpoint facts.",
+  "distinct_apis_ignoring_version": 1719,
+  "events_cited": 61476,
+  "fixed_point_reached": false,
+  "format_version": 1,
+  "indices": "argument_index, call_site_parameters.index and binding.formal_index are zero-based; source lines are one-based.",
+  "input_sha256": {
+    "gem-api-memory-flow-events.jsonl": "c537c9ce9be9387d71e1da11778915bbac95d73880f84b6d96317be745b3e456",
+    "gem-api-memory-flow-snapshot.json": "e0c4138aa65e92b6ceb46312fa54553d3f25cfbd1da332bbc611b2dd3e461b95",
+    "gem-api-memory-flows/part-0001.jsonl": "4b9e3d0d3ed6913d6725c9698c2bdb4adfef34ca9fce07fe96c987810b25638b",
+    "gem-api-memory-flows/part-0002.jsonl": "6a3945abf4ceecbfc249f5efa81922585d761eaa6d7ca97e280c937e67993794",
+    "gem-api-memory-flows/part-0003.jsonl": "2e71b4fdc69aed39a1085c777179b6d54d12a8d8d0e48ac105418ca092b02ce8",
+    "gem-api-memory-flows/part-0004.jsonl": "8785df25a94a896221638be354389cb851df1e41b51c29441cab855fdda3a2af",
+    "source-manifest.json": "89889081627841538362827a76d4c40b17453a85260e93a5050b3ec691068ae3"
+  },
+  "native_primitive_chain_files": 33080,
+  "snapshot_status": "interrupted_checkpoint_snapshot",
+  "source_files_cited": 1803
+}

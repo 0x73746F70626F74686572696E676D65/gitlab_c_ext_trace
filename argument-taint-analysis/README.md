@@ -21,6 +21,30 @@ contains 33,080 flow records for 1,012 API identities. The deepest saved witness
 has 78 call bindings. These are saved checkpoint counts; 19,653 function updates
 were still pending.
 
+## Per-chain archive
+
+`packages/gem-api-memory-flow-chains.tar.gz` contains a directory with one JSON
+file for each of the 63,076 saved flow records. Every file embeds the ordered
+chain and its source paths, one-based lines, original source-line text, SHA256s,
+registration and C entrypoint citations, and Git commit permalinks where available.
+The original record's event-ID vector can be reconstructed from `flow[*].id`.
+All other original fields are preserved. `index.jsonl` maps API names to chain
+files; the archive's `SHA256SUMS` checks each payload. It retains the interrupted
+checkpoint status from the input snapshot.
+
+The adjacent `.tar.gz.json` records the archive digest and input identities;
+`.tar.gz.validation.json` records checks of every chain, binding and checksum.
+
+```sh
+python argument-taint-analysis/scripts/package_flows.py \
+  --results argument-taint-analysis/results \
+  --archive argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz
+python argument-taint-analysis/scripts/verify_flow_package.py \
+  argument-taint-analysis/packages/gem-api-memory-flow-chains.tar.gz
+```
+
+## Snapshot JSON files
+
 - `results/gem-api-memory-flow-apis.json`: the API identities with saved flows.
 - `results/gem-api-memory-flows/part-*.jsonl`: every saved explicit API argument flow
   into a memory operand, with call-site locations, parameter indices/expressions

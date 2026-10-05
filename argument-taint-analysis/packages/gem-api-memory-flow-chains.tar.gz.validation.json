@@ -1,0 +1,20 @@
+{
+  "archive_bytes": 99911098,
+  "archive_sha256": "dd32e6f4f09edc2b1658c678e1be5966fdb4138dc889604be0b2898cab35c73c",
+  "chain_files_verified": 63076,
+  "checks": [
+    "one JSON per saved flow",
+    "exact original record identity",
+    "all event IDs and ordered steps",
+    "every source citation and line",
+    "callee/formal bindings",
+    "call-site and call-depth joins",
+    "complete API index",
+    "all payload SHA256s",
+    "snapshot counts retained"
+  ],
+  "native_chain_files_verified": 33080,
+  "payload_checksums_verified": 63081,
+  "source_files_cited": 1803,
+  "status": "passed"
+}
