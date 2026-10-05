@@ -1,0 +1,443 @@
+{
+  "id": "ep_d4c21ffa1e5225653a84a7da",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/*repository_path/gitlab-lfs/objects/*oid/*size/authorize",
+  "http_methods": [
+    "PUT"
+  ],
+  "controller": "Repositories::LfsStorageController",
+  "controller_path": "repositories/lfs_storage",
+  "action": "upload_authorize",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_20457b3d8a2e440be2827715",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_0df41568a68742029617801f",
+      "ev_a3ad527783afd4d1f0e21100",
+      "ev_86fc522175880393683dc64b",
+      "ev_7c06d4a6e3ac5fc6fd0e3804",
+      "ev_69ed15ad1cfa848bd8882781",
+      "ev_848988f0619c9a5fa732c10d",
+      "ev_4b92aee50c90a202f53c77e1",
+      "ev_06990d110997270b435148dc",
+      "ev_4e0a5e70a75be688a3d412c4",
+      "ev_524547323ac7c1c632664428",
+      "ev_e904f3a044a89f5014ab2ffc",
+      "ev_6b786d4c1d5e018d017764a9",
+      "ev_40bc24bfe017190169a20951",
+      "ev_2b25998d911eaa8bdedb2c4e",
+      "ev_486d7cc131318084c42d0f5f",
+      "ev_53b0ffa153da1c128653f85e",
+      "ev_0ab394836abef520be3ed244",
+      "ev_ca04244adc99acd6fb7e6ecb",
+      "ev_1f1c24bf2576d1e2313c8261"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 44,
+      "expression": "constraints(repository_path: Gitlab::PathRegex.repository_git_route_regex) do",
+      "file": "config/routes/git_http.rb",
+      "kind": "route_constraint",
+      "line": 4
+    },
+    {
+      "end_line": 42,
+      "expression": "{ oid: /[a-f0-9]{64}/ }",
+      "file": "config/routes/git_http.rb",
+      "kind": "route_constraint",
+      "line": 35
+    },
+    {
+      "end_line": 41,
+      "expression": "constraints(size: /[0-9]+/) do",
+      "file": "config/routes/git_http.rb",
+      "kind": "route_constraint",
+      "line": 38
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 39,
+    "file": "config/routes/git_http.rb",
+    "line": 39
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 46,
+      "file": "app/controllers/repositories/lfs_storage_controller.rb",
+      "line": 29,
+      "owner": "Repositories::LfsStorageController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/git_http.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_0df41568a68742029617801f",
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 54,
+      "method": "authenticate_user",
+      "owner": "Repositories::GitHttpClientController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0df41568a68742029617801f"
+      }
+    },
+    {
+      "id": "ev_a3ad527783afd4d1f0e21100",
+      "callback": "authenticate_user",
+      "conditional": false,
+      "end_line": 23,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 23,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a3ad527783afd4d1f0e21100"
+      }
+    },
+    {
+      "id": "ev_86fc522175880393683dc64b",
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 131,
+      "method": "parse_repo_path",
+      "owner": "Repositories::GitHttpClientController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_86fc522175880393683dc64b"
+      }
+    },
+    {
+      "id": "ev_7c06d4a6e3ac5fc6fd0e3804",
+      "callback": "parse_repo_path",
+      "conditional": false,
+      "end_line": 23,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 23,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_7c06d4a6e3ac5fc6fd0e3804"
+      }
+    },
+    {
+      "id": "ev_69ed15ad1cfa848bd8882781",
+      "callback": "set_current_organization",
+      "conditional": false,
+      "end_line": 23,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 23,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_69ed15ad1cfa848bd8882781"
+      }
+    },
+    {
+      "id": "ev_848988f0619c9a5fa732c10d",
+      "callback": "set_current_ip_address",
+      "conditional": false,
+      "end_line": 29,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 29,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_848988f0619c9a5fa732c10d"
+      }
+    },
+    {
+      "id": "ev_4b92aee50c90a202f53c77e1",
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 165,
+      "method": "bypass_admin_mode!",
+      "owner": "Repositories::GitHttpClientController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4b92aee50c90a202f53c77e1"
+      }
+    },
+    {
+      "id": "ev_06990d110997270b435148dc",
+      "callback": "bypass_admin_mode!",
+      "conditional": true,
+      "end_line": 32,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 32,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_06990d110997270b435148dc"
+      }
+    },
+    {
+      "id": "ev_4e0a5e70a75be688a3d412c4",
+      "callback": "@block:ee/app/controllers/ee/repositories/git_http_client_controller.rb:52",
+      "conditional": false,
+      "end_line": 54,
+      "file": "ee/app/controllers/ee/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 52,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4e0a5e70a75be688a3d412c4"
+      }
+    },
+    {
+      "id": "ev_524547323ac7c1c632664428",
+      "file": "app/controllers/concerns/lfs_request.rb",
+      "kind": "auth_method_reviewed",
+      "line": 58,
+      "method": "require_lfs_enabled!",
+      "owner": "LfsRequest",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_524547323ac7c1c632664428"
+      }
+    },
+    {
+      "id": "ev_e904f3a044a89f5014ab2ffc",
+      "callback": "require_lfs_enabled!",
+      "conditional": false,
+      "end_line": 23,
+      "file": "app/controllers/concerns/lfs_request.rb",
+      "kind": "active_callback",
+      "line": 23,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e904f3a044a89f5014ab2ffc"
+      }
+    },
+    {
+      "id": "ev_6b786d4c1d5e018d017764a9",
+      "file": "app/controllers/concerns/lfs_request.rb",
+      "kind": "auth_method_reviewed",
+      "line": 71,
+      "method": "lfs_check_access!",
+      "owner": "LfsRequest",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_6b786d4c1d5e018d017764a9"
+      }
+    },
+    {
+      "id": "ev_40bc24bfe017190169a20951",
+      "callback": "lfs_check_access!",
+      "conditional": false,
+      "end_line": 24,
+      "file": "app/controllers/concerns/lfs_request.rb",
+      "kind": "active_callback",
+      "line": 24,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_40bc24bfe017190169a20951"
+      }
+    },
+    {
+      "id": "ev_2b25998d911eaa8bdedb2c4e",
+      "file": "app/controllers/concerns/lfs_request.rb",
+      "kind": "auth_method_reviewed",
+      "line": 30,
+      "method": "check_organization_maintenance_mode!",
+      "owner": "LfsRequest",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_2b25998d911eaa8bdedb2c4e"
+      }
+    },
+    {
+      "id": "ev_486d7cc131318084c42d0f5f",
+      "callback": "check_organization_maintenance_mode!",
+      "conditional": false,
+      "end_line": 25,
+      "file": "app/controllers/concerns/lfs_request.rb",
+      "kind": "active_callback",
+      "line": 25,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_486d7cc131318084c42d0f5f"
+      }
+    },
+    {
+      "id": "ev_53b0ffa153da1c128653f85e",
+      "file": "app/controllers/concerns/workhorse_authenticatable.rb",
+      "kind": "auth_method_reviewed",
+      "line": 36,
+      "method": "verify_workhorse_api!",
+      "owner": "WorkhorseAuthenticatable",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_53b0ffa153da1c128653f85e"
+      }
+    },
+    {
+      "id": "ev_0ab394836abef520be3ed244",
+      "callback": "verify_workhorse_api!",
+      "conditional": false,
+      "end_line": 9,
+      "file": "app/controllers/concerns/workhorse_request.rb",
+      "kind": "active_callback",
+      "line": 9,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0ab394836abef520be3ed244"
+      }
+    },
+    {
+      "id": "ev_ca04244adc99acd6fb7e6ecb",
+      "file": "app/controllers/repositories/lfs_storage_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 29,
+      "method": "upload_authorize",
+      "owner": "Repositories::LfsStorageController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ca04244adc99acd6fb7e6ecb"
+      }
+    },
+    {
+      "id": "ev_1f1c24bf2576d1e2313c8261",
+      "action": "upload_authorize",
+      "controller": "Repositories::LfsStorageController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1f1c24bf2576d1e2313c8261"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "authenticate_user",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 23,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 23
+      }
+    },
+    {
+      "conditional": false,
+      "name": "parse_repo_path",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 23,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 23
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_current_organization",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 23,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 23
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_current_ip_address",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 29,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 29
+      }
+    },
+    {
+      "conditional": true,
+      "name": "bypass_admin_mode!",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 32,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 32
+      }
+    },
+    {
+      "conditional": false,
+      "name": "@block:ee/app/controllers/ee/repositories/git_http_client_controller.rb:52",
+      "owner": "EE::Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 54,
+        "file": "ee/app/controllers/ee/repositories/git_http_client_controller.rb",
+        "line": 52
+      }
+    },
+    {
+      "conditional": false,
+      "name": "require_lfs_enabled!",
+      "owner": "LfsRequest",
+      "source": {
+        "end_line": 23,
+        "file": "app/controllers/concerns/lfs_request.rb",
+        "line": 23
+      }
+    },
+    {
+      "conditional": false,
+      "name": "lfs_check_access!",
+      "owner": "LfsRequest",
+      "source": {
+        "end_line": 24,
+        "file": "app/controllers/concerns/lfs_request.rb",
+        "line": 24
+      }
+    },
+    {
+      "conditional": false,
+      "name": "check_organization_maintenance_mode!",
+      "owner": "LfsRequest",
+      "source": {
+        "end_line": 25,
+        "file": "app/controllers/concerns/lfs_request.rb",
+        "line": 25
+      }
+    },
+    {
+      "conditional": false,
+      "name": "verify_workhorse_api!",
+      "owner": "WorkhorseRequest",
+      "source": {
+        "end_line": 9,
+        "file": "app/controllers/concerns/workhorse_request.rb",
+        "line": 9
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/46611",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

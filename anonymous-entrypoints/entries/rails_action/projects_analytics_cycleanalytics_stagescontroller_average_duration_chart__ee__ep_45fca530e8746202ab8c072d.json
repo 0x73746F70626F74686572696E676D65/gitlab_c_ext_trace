@@ -1,0 +1,477 @@
+{
+  "id": "ep_45fca530e8746202ab8c072d",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/*namespace_id/:project_id/-/analytics/value_stream_analytics/value_streams/:value_stream_id/stages/:id/average_duration_chart",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Projects::Analytics::CycleAnalytics::StagesController",
+  "controller_path": "projects/analytics/cycle_analytics/stages",
+  "action": "average_duration_chart",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_fdacda5bcc36ab94a83b6a81",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_a79a1dd79609f70d56cfcaa3",
+      "ev_4f8a149ab20eaa7b4e8138f4",
+      "ev_db49b135fdaf0f6fe06e1503",
+      "ev_37c48e9fa0f6e5708b546b57",
+      "ev_a0feff7d1555051df920a1bc",
+      "ev_c13867f00baa412f4056f7bb",
+      "ev_ae6c7e248f2a7f0a8268a762",
+      "ev_4cf871737892a744fa88c8c6",
+      "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "ev_4f4b321e3d4e44c53cdcffdf",
+      "ev_3e6645310db39693440e7e45",
+      "ev_f6854d7d1709e831b14c5dfe",
+      "ev_3a6a5062156efad40f9c2ad6",
+      "ev_aaab30b1c011d5d37087ff0e",
+      "ev_f9a5cd201def251c72c82e2c",
+      "ev_2f2b03bbfe17c61700265bea",
+      "ev_575508cce013be1b96809779",
+      "ev_dfbb2c66401aad479391de2f",
+      "ev_65ed1db3519cbea674f5017b",
+      "ev_cb9de2068f8affec5e2ab0b5",
+      "ev_471089a17ebcc58b08da1b17",
+      "ev_b4ede859b592c23e2cc02b4d",
+      "ev_e9723eddc5703cc39f5ca788"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "end_line": 220,
+      "expression": "constraints(::Projects::ProjectUrlConstraint.new) do",
+      "file": "ee/config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 3
+    },
+    {
+      "end_line": 218,
+      "expression": "{ project_id: Gitlab::PathRegex.project_route_regex }",
+      "file": "ee/config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 9
+    },
+    {
+      "ability": "read_project",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "ability": "read_cycle_analytics",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 135,
+    "file": "ee/config/routes/project.rb",
+    "line": 135
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 26,
+      "file": "ee/app/controllers/concerns/ee/analytics/cycle_analytics/stage_actions.rb",
+      "line": 11,
+      "owner": "EE::Analytics::CycleAnalytics::StageActions"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "ee/config/routes/project.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_a79a1dd79609f70d56cfcaa3",
+      "ability": "read_project",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "anonymous_permission",
+      "line": 37,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a79a1dd79609f70d56cfcaa3"
+      }
+    },
+    {
+      "id": "ev_4f8a149ab20eaa7b4e8138f4",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 104,
+      "resource_scope": "group",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4f8a149ab20eaa7b4e8138f4"
+      }
+    },
+    {
+      "id": "ev_db49b135fdaf0f6fe06e1503",
+      "callback": "project",
+      "conditional": false,
+      "end_line": 11,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 11,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_db49b135fdaf0f6fe06e1503"
+      }
+    },
+    {
+      "id": "ev_37c48e9fa0f6e5708b546b57",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 57,
+      "method": "repository",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_37c48e9fa0f6e5708b546b57"
+      }
+    },
+    {
+      "id": "ev_a0feff7d1555051df920a1bc",
+      "callback": "repository",
+      "conditional": false,
+      "end_line": 12,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a0feff7d1555051df920a1bc"
+      }
+    },
+    {
+      "id": "ev_c13867f00baa412f4056f7bb",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 127,
+      "method": "enforce_step_up_auth_for_namespace",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c13867f00baa412f4056f7bb"
+      }
+    },
+    {
+      "id": "ev_ae6c7e248f2a7f0a8268a762",
+      "callback": "enforce_step_up_auth_for_namespace",
+      "conditional": false,
+      "end_line": 17,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 17,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ae6c7e248f2a7f0a8268a762"
+      }
+    },
+    {
+      "id": "ev_4cf871737892a744fa88c8c6",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 139,
+      "method": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4cf871737892a744fa88c8c6"
+      }
+    },
+    {
+      "id": "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "callback": "set_project_markdown_flags",
+      "conditional": false,
+      "end_line": 19,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 19,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5fe44b01d3ae5e9d4b1e2e9b"
+      }
+    },
+    {
+      "id": "ev_4f4b321e3d4e44c53cdcffdf",
+      "file": "app/controllers/concerns/cycle_analytics_params.rb",
+      "kind": "auth_method_reviewed",
+      "line": 75,
+      "method": "validate_params",
+      "owner": "CycleAnalyticsParams",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4f4b321e3d4e44c53cdcffdf"
+      }
+    },
+    {
+      "id": "ev_3e6645310db39693440e7e45",
+      "callback": "validate_params",
+      "conditional": false,
+      "end_line": 13,
+      "file": "app/controllers/concerns/analytics/cycle_analytics/stage_actions.rb",
+      "kind": "active_callback",
+      "line": 13,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_3e6645310db39693440e7e45"
+      }
+    },
+    {
+      "id": "ev_f6854d7d1709e831b14c5dfe",
+      "file": "ee/app/controllers/ee/projects/analytics/cycle_analytics/stages_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 20,
+      "method": "authorize_stage",
+      "owner": "EE::Projects::Analytics::CycleAnalytics::StagesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_f6854d7d1709e831b14c5dfe"
+      }
+    },
+    {
+      "id": "ev_3a6a5062156efad40f9c2ad6",
+      "file": "app/controllers/projects/analytics/cycle_analytics/stages_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 44,
+      "method": "authorize_stage",
+      "owner": "Projects::Analytics::CycleAnalytics::StagesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_3a6a5062156efad40f9c2ad6"
+      }
+    },
+    {
+      "id": "ev_aaab30b1c011d5d37087ff0e",
+      "callback": "authorize_stage",
+      "conditional": false,
+      "end_line": 14,
+      "file": "app/controllers/concerns/analytics/cycle_analytics/stage_actions.rb",
+      "kind": "active_callback",
+      "line": 14,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_aaab30b1c011d5d37087ff0e"
+      }
+    },
+    {
+      "id": "ev_f9a5cd201def251c72c82e2c",
+      "ability": "read_cycle_analytics",
+      "kind": "anonymous_permission",
+      "method": "authorize_read_cycle_analytics!",
+      "owner": "Projects::Analytics::CycleAnalytics::StagesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_f9a5cd201def251c72c82e2c"
+      }
+    },
+    {
+      "id": "ev_2f2b03bbfe17c61700265bea",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 45,
+      "resource_scope": "project",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_2f2b03bbfe17c61700265bea"
+      }
+    },
+    {
+      "id": "ev_575508cce013be1b96809779",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "dynamic_authorizer_convention",
+      "line": 74,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_575508cce013be1b96809779"
+      }
+    },
+    {
+      "id": "ev_dfbb2c66401aad479391de2f",
+      "callback": "authorize_read_cycle_analytics!",
+      "conditional": false,
+      "end_line": 11,
+      "file": "app/controllers/projects/analytics/cycle_analytics/stages_controller.rb",
+      "kind": "active_callback",
+      "line": 11,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_dfbb2c66401aad479391de2f"
+      }
+    },
+    {
+      "id": "ev_65ed1db3519cbea674f5017b",
+      "file": "ee/app/controllers/ee/projects/analytics/cycle_analytics/stages_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 16,
+      "method": "only_default_value_stream_is_allowed!",
+      "owner": "EE::Projects::Analytics::CycleAnalytics::StagesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_65ed1db3519cbea674f5017b"
+      }
+    },
+    {
+      "id": "ev_cb9de2068f8affec5e2ab0b5",
+      "file": "app/controllers/projects/analytics/cycle_analytics/stages_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 28,
+      "method": "only_default_value_stream_is_allowed!",
+      "owner": "Projects::Analytics::CycleAnalytics::StagesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_cb9de2068f8affec5e2ab0b5"
+      }
+    },
+    {
+      "id": "ev_471089a17ebcc58b08da1b17",
+      "callback": "only_default_value_stream_is_allowed!",
+      "conditional": false,
+      "end_line": 12,
+      "file": "app/controllers/projects/analytics/cycle_analytics/stages_controller.rb",
+      "kind": "active_callback",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_471089a17ebcc58b08da1b17"
+      }
+    },
+    {
+      "id": "ev_b4ede859b592c23e2cc02b4d",
+      "file": "ee/app/controllers/concerns/ee/analytics/cycle_analytics/stage_actions.rb",
+      "kind": "auth_method_reviewed",
+      "line": 11,
+      "method": "average_duration_chart",
+      "owner": "EE::Analytics::CycleAnalytics::StageActions",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_b4ede859b592c23e2cc02b4d"
+      }
+    },
+    {
+      "id": "ev_e9723eddc5703cc39f5ca788",
+      "action": "average_duration_chart",
+      "controller": "Projects::Analytics::CycleAnalytics::StagesController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e9723eddc5703cc39f5ca788"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "project",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 11,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 11
+      }
+    },
+    {
+      "conditional": false,
+      "name": "repository",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 12,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 12
+      }
+    },
+    {
+      "conditional": false,
+      "name": "enforce_step_up_auth_for_namespace",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 17,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 17
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 19,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 19
+      }
+    },
+    {
+      "conditional": false,
+      "name": "validate_params",
+      "owner": "Analytics::CycleAnalytics::StageActions",
+      "source": {
+        "end_line": 13,
+        "file": "app/controllers/concerns/analytics/cycle_analytics/stage_actions.rb",
+        "line": 13
+      }
+    },
+    {
+      "conditional": false,
+      "name": "authorize_stage",
+      "owner": "Analytics::CycleAnalytics::StageActions",
+      "source": {
+        "end_line": 14,
+        "file": "app/controllers/concerns/analytics/cycle_analytics/stage_actions.rb",
+        "line": 14
+      }
+    },
+    {
+      "conditional": false,
+      "name": "authorize_read_cycle_analytics!",
+      "owner": "Projects::Analytics::CycleAnalytics::StagesController",
+      "source": {
+        "end_line": 11,
+        "file": "app/controllers/projects/analytics/cycle_analytics/stages_controller.rb",
+        "line": 11
+      }
+    },
+    {
+      "conditional": false,
+      "name": "only_default_value_stream_is_allowed!",
+      "owner": "Projects::Analytics::CycleAnalytics::StagesController",
+      "source": {
+        "end_line": 12,
+        "file": "app/controllers/projects/analytics/cycle_analytics/stages_controller.rb",
+        "line": 12
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/47828",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

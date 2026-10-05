@@ -1,0 +1,132 @@
+{
+  "id": "ep_7844208fdb1326724e792517",
+  "type": "graphql_field",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/graphql",
+  "http_methods": [
+    "GET",
+    "POST"
+  ],
+  "graphql": {
+    "field": "preparedAt",
+    "generated_result_steps": [],
+    "operation": "query",
+    "resolver_class": "Types::MergeRequestType",
+    "resolver_expression": "",
+    "resolver_method": "prepared_at",
+    "result_type_expression": "Types::TimeType",
+    "result_types": [
+      "Types::TimeType"
+    ],
+    "ruby_field": "prepared_at",
+    "schema_path": [
+      "mergeRequest",
+      "preparedAt"
+    ],
+    "type": "MergeRequest"
+  },
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_839780f97aa22e9fd6c7559c",
+      "ev_a84b6ca7558b72992f14468b",
+      "ev_6a00e45564da9495b388bb7e"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "ability": "read_merge_request",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 357,
+    "file": "app/graphql/types/merge_request_type.rb",
+    "line": 356
+  },
+  "registration_status": "static_result_type_path",
+  "transport_entrypoint_ids": [
+    "ep_b206c7c54e0311ad534bef03"
+  ],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_839780f97aa22e9fd6c7559c",
+      "ability": "read_merge_request",
+      "end_line": 357,
+      "file": "app/graphql/types/merge_request_type.rb",
+      "kind": "anonymous_permission",
+      "line": 356,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_839780f97aa22e9fd6c7559c"
+      }
+    },
+    {
+      "id": "ev_a84b6ca7558b72992f14468b",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 72,
+      "resource_scope": "group",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a84b6ca7558b72992f14468b"
+      }
+    },
+    {
+      "id": "ev_6a00e45564da9495b388bb7e",
+      "entrypoint_ids": [
+        "ep_b206c7c54e0311ad534bef03"
+      ],
+      "kind": "graphql_http_transport_auth",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_6a00e45564da9495b388bb7e"
+      }
+    }
+  ],
+  "transport_registrations": [
+    {
+      "id": "ep_b206c7c54e0311ad534bef03",
+      "type": "rails_action",
+      "edition": "ce",
+      "path": "/api/graphql",
+      "http_methods": [
+        "GET",
+        "POST"
+      ],
+      "registration": {
+        "end_line": 4,
+        "file": "config/routes/api.rb",
+        "line": 4
+      },
+      "registration_status": "static_route",
+      "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f"
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/10154",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

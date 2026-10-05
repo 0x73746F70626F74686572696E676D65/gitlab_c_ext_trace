@@ -1,0 +1,90 @@
+{
+  "id": "ep_da10744172e1920bca26c80d",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/oauth/geo/callback",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Oauth::GeoAuthController",
+  "controller_path": "oauth/geo_auth",
+  "action": "callback",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_4f53cda18c2baa0c0354bb5f",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_6769b0b98598973184777e8a",
+      "ev_83b2d7413d7495477b524a00"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 6,
+    "file": "ee/config/routes/oauth.rb",
+    "line": 6
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 30,
+      "file": "ee/app/controllers/oauth/geo_auth_controller.rb",
+      "line": 16,
+      "owner": "Oauth::GeoAuthController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "ee/config/routes/oauth.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_6769b0b98598973184777e8a",
+      "file": "ee/app/controllers/oauth/geo_auth_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 16,
+      "method": "callback",
+      "owner": "Oauth::GeoAuthController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_6769b0b98598973184777e8a"
+      }
+    },
+    {
+      "id": "ev_83b2d7413d7495477b524a00",
+      "action": "callback",
+      "controller": "Oauth::GeoAuthController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_83b2d7413d7495477b524a00"
+      }
+    }
+  ],
+  "callback_pipeline": [],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/49619",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

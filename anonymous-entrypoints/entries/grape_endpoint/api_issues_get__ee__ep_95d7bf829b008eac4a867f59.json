@@ -1,0 +1,83 @@
+{
+  "id": "ep_95d7bf829b008eac4a867f59",
+  "type": "grape_endpoint",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/v4/projects/:id/issues/:issue_iid/participants",
+  "http_methods": [
+    "GET"
+  ],
+  "class": "API::Issues",
+  "action": "GET",
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_803e8694987b8e0dac972d50",
+      "ev_03c36358da49d7ad7b63d86d"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 620,
+    "file": "lib/api/issues.rb",
+    "line": 615
+  },
+  "registration_status": "mounted_grape_endpoint",
+  "mount_chain": [
+    {
+      "class": "API::Issues",
+      "end_line": 328,
+      "file": "lib/api/api.rb",
+      "line": 328
+    }
+  ],
+  "registration_bindings": {},
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_803e8694987b8e0dac972d50",
+      "file": "lib/api/helpers.rb",
+      "kind": "verb_dependent_auth",
+      "line": 397,
+      "method": "authenticate_non_get!",
+      "verb": "GET",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_803e8694987b8e0dac972d50"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/17965",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

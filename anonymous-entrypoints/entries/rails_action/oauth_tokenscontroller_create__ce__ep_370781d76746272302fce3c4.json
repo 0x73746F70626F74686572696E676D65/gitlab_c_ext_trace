@@ -1,0 +1,319 @@
+{
+  "id": "ep_370781d76746272302fce3c4",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/oauth/token",
+  "http_methods": [
+    "OPTIONS"
+  ],
+  "controller": "Oauth::TokensController",
+  "controller_path": "oauth/tokens",
+  "action": "create",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_99f6dd7847cb36025f3f4786",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_e1dc277588a5babd9ea867de",
+      "ev_85b13b34b34efd4a375c6b74",
+      "ev_1169bde169f40342cfd476cb",
+      "ev_496660e1015718b39673f9e4",
+      "ev_03a6ebe11ec6df5cd4ea2662",
+      "ev_743116a9f41ccf0ffc7ac099",
+      "ev_45a02e50fb11f04f45c1d103",
+      "ev_5001ce0a34317a12f91e04b2",
+      "ev_28cd62c6c2a613f5b62a6b26",
+      "ev_80fb215471fe61bb59b1ed38",
+      "ev_3d4684f81b7752a522dbcf3a",
+      "ev_85af7a684d30a6dd1b58e744",
+      "ev_4597b2cf2e33f47d720522ae",
+      "ev_5e9d033b376f7e4d6a5dae6e"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 90,
+    "file": "config/routes.rb",
+    "line": 90
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 31,
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "line": 18,
+      "owner": "Oauth::TokensController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_e1dc277588a5babd9ea867de",
+      "callback": "enforce_content_type",
+      "conditional": true,
+      "end_line": 9,
+      "file": "external/doorkeeper-5.9.3/app/controllers/doorkeeper/application_metal_controller.rb",
+      "kind": "active_callback",
+      "line": 8,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e1dc277588a5babd9ea867de"
+      }
+    },
+    {
+      "id": "ev_85b13b34b34efd4a375c6b74",
+      "file": "app/controllers/concerns/enforces_two_factor_authentication.rb",
+      "kind": "auth_method_reviewed",
+      "line": 21,
+      "method": "check_two_factor_requirement",
+      "owner": "EnforcesTwoFactorAuthentication",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_85b13b34b34efd4a375c6b74"
+      }
+    },
+    {
+      "id": "ev_1169bde169f40342cfd476cb",
+      "callback": "check_two_factor_requirement",
+      "conditional": false,
+      "end_line": 14,
+      "file": "app/controllers/concerns/enforces_two_factor_authentication.rb",
+      "kind": "active_callback",
+      "line": 14,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1169bde169f40342cfd476cb"
+      }
+    },
+    {
+      "id": "ev_496660e1015718b39673f9e4",
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 96,
+      "method": "explain_missing_dynamic_client",
+      "owner": "Oauth::TokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_496660e1015718b39673f9e4"
+      }
+    },
+    {
+      "id": "ev_03a6ebe11ec6df5cd4ea2662",
+      "callback": "explain_missing_dynamic_client",
+      "conditional": false,
+      "end_line": 13,
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 13,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03a6ebe11ec6df5cd4ea2662"
+      }
+    },
+    {
+      "id": "ev_743116a9f41ccf0ffc7ac099",
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 117,
+      "method": "validate_pkce_for_dynamic_applications",
+      "owner": "Oauth::TokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_743116a9f41ccf0ffc7ac099"
+      }
+    },
+    {
+      "id": "ev_45a02e50fb11f04f45c1d103",
+      "callback": "validate_pkce_for_dynamic_applications",
+      "conditional": false,
+      "end_line": 14,
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 14,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_45a02e50fb11f04f45c1d103"
+      }
+    },
+    {
+      "id": "ev_5001ce0a34317a12f91e04b2",
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 129,
+      "method": "track_short_pkce_verifier",
+      "owner": "Oauth::TokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5001ce0a34317a12f91e04b2"
+      }
+    },
+    {
+      "id": "ev_28cd62c6c2a613f5b62a6b26",
+      "callback": "track_short_pkce_verifier",
+      "conditional": false,
+      "end_line": 15,
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 15,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_28cd62c6c2a613f5b62a6b26"
+      }
+    },
+    {
+      "id": "ev_80fb215471fe61bb59b1ed38",
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 35,
+      "method": "enforce_organization_maintenance_mode",
+      "owner": "Oauth::TokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_80fb215471fe61bb59b1ed38"
+      }
+    },
+    {
+      "id": "ev_3d4684f81b7752a522dbcf3a",
+      "callback": "enforce_organization_maintenance_mode",
+      "conditional": false,
+      "end_line": 16,
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 16,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_3d4684f81b7752a522dbcf3a"
+      }
+    },
+    {
+      "id": "ev_85af7a684d30a6dd1b58e744",
+      "file": "app/controllers/oauth/tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 18,
+      "method": "create",
+      "owner": "Oauth::TokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_85af7a684d30a6dd1b58e744"
+      }
+    },
+    {
+      "id": "ev_4597b2cf2e33f47d720522ae",
+      "file": "external/doorkeeper-5.9.3/app/controllers/doorkeeper/tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 11,
+      "method": "create",
+      "owner": "Doorkeeper::TokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4597b2cf2e33f47d720522ae"
+      }
+    },
+    {
+      "id": "ev_5e9d033b376f7e4d6a5dae6e",
+      "action": "create",
+      "controller": "Oauth::TokensController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5e9d033b376f7e4d6a5dae6e"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": true,
+      "name": "enforce_content_type",
+      "owner": "Doorkeeper::ApplicationMetalController",
+      "source": {
+        "end_line": 9,
+        "file": "external/doorkeeper-5.9.3/app/controllers/doorkeeper/application_metal_controller.rb",
+        "line": 8
+      }
+    },
+    {
+      "conditional": false,
+      "name": "check_two_factor_requirement",
+      "owner": "EnforcesTwoFactorAuthentication",
+      "source": {
+        "end_line": 14,
+        "file": "app/controllers/concerns/enforces_two_factor_authentication.rb",
+        "line": 14
+      }
+    },
+    {
+      "conditional": false,
+      "name": "explain_missing_dynamic_client",
+      "owner": "Oauth::TokensController",
+      "source": {
+        "end_line": 13,
+        "file": "app/controllers/oauth/tokens_controller.rb",
+        "line": 13
+      }
+    },
+    {
+      "conditional": false,
+      "name": "validate_pkce_for_dynamic_applications",
+      "owner": "Oauth::TokensController",
+      "source": {
+        "end_line": 14,
+        "file": "app/controllers/oauth/tokens_controller.rb",
+        "line": 14
+      }
+    },
+    {
+      "conditional": false,
+      "name": "track_short_pkce_verifier",
+      "owner": "Oauth::TokensController",
+      "source": {
+        "end_line": 15,
+        "file": "app/controllers/oauth/tokens_controller.rb",
+        "line": 15
+      }
+    },
+    {
+      "conditional": false,
+      "name": "enforce_organization_maintenance_mode",
+      "owner": "Oauth::TokensController",
+      "source": {
+        "end_line": 16,
+        "file": "app/controllers/oauth/tokens_controller.rb",
+        "line": 16
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16680",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "id": "ep_1924c82b5c10e9ec8801ee6b",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/explore/projects/topics/:topic_name",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Explore::ProjectsController",
+  "controller_path": "explore/projects",
+  "action": "topic",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_e6641606592fb32a2fa46d4c",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_ef08105d6596598fc4f68627",
+      "ev_2769abee21f6c6347c6fd703",
+      "ev_0f5f91910f2deec9b10fe18d",
+      "ev_2c64b91217633bd9a41bf75d",
+      "ev_107d70ecaba8935ab0186e5a",
+      "ev_d8f6dc1da56d449b66be1412"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 10,
+    "file": "config/routes/explore.rb",
+    "line": 10
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 42,
+      "file": "app/controllers/explore/projects_controller.rb",
+      "line": 28,
+      "owner": "Explore::ProjectsController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/explore.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_ef08105d6596598fc4f68627",
+      "file": "app/controllers/concerns/params_backward_compatibility.rb",
+      "kind": "auth_method_reviewed",
+      "line": 6,
+      "method": "set_non_archived_param",
+      "owner": "ParamsBackwardCompatibility",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ef08105d6596598fc4f68627"
+      }
+    },
+    {
+      "id": "ev_2769abee21f6c6347c6fd703",
+      "callback": "set_non_archived_param",
+      "conditional": false,
+      "end_line": 13,
+      "file": "app/controllers/explore/projects_controller.rb",
+      "kind": "active_callback",
+      "line": 13,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_2769abee21f6c6347c6fd703"
+      }
+    },
+    {
+      "id": "ev_0f5f91910f2deec9b10fe18d",
+      "file": "app/controllers/explore/projects_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 115,
+      "method": "set_sorting",
+      "owner": "Explore::ProjectsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0f5f91910f2deec9b10fe18d"
+      }
+    },
+    {
+      "id": "ev_2c64b91217633bd9a41bf75d",
+      "callback": "set_sorting",
+      "conditional": false,
+      "end_line": 14,
+      "file": "app/controllers/explore/projects_controller.rb",
+      "kind": "active_callback",
+      "line": 14,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_2c64b91217633bd9a41bf75d"
+      }
+    },
+    {
+      "id": "ev_107d70ecaba8935ab0186e5a",
+      "file": "app/controllers/explore/projects_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 28,
+      "method": "topic",
+      "owner": "Explore::ProjectsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_107d70ecaba8935ab0186e5a"
+      }
+    },
+    {
+      "id": "ev_d8f6dc1da56d449b66be1412",
+      "action": "topic",
+      "controller": "Explore::ProjectsController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_d8f6dc1da56d449b66be1412"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "set_non_archived_param",
+      "owner": "Explore::ProjectsController",
+      "source": {
+        "end_line": 13,
+        "file": "app/controllers/explore/projects_controller.rb",
+        "line": 13
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_sorting",
+      "owner": "Explore::ProjectsController",
+      "source": {
+        "end_line": 14,
+        "file": "app/controllers/explore/projects_controller.rb",
+        "line": 14
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/47289",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

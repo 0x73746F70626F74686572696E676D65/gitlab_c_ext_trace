@@ -1,0 +1,142 @@
+{
+  "id": "ep_4a27e836898d545e45308262",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/chaos/kill",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "ChaosController",
+  "controller_path": "chaos",
+  "action": "kill",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_7d632180e22a386ff079a4c9",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_dff5d5291e44c42a16524a0b",
+      "ev_54f4ee03c3ecb5d9c22d8b21",
+      "ev_92f18a8f0eecdb976d2ad7fd",
+      "ev_69a09aba39ce3ae8e8c4949e"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "end_line": 230,
+      "expression": "ENV['GITLAB_CHAOS_SECRET'] || Rails.env.development? || Rails.env.test?",
+      "file": "config/routes.rb",
+      "kind": "registration_condition",
+      "line": 220,
+      "negated": false
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 226,
+    "file": "config/routes.rb",
+    "line": 226
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 24,
+      "file": "app/controllers/chaos_controller.rb",
+      "line": 22,
+      "owner": "ChaosController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_dff5d5291e44c42a16524a0b",
+      "file": "app/controllers/chaos_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 51,
+      "method": "validate_chaos_secret",
+      "owner": "ChaosController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_dff5d5291e44c42a16524a0b"
+      }
+    },
+    {
+      "id": "ev_54f4ee03c3ecb5d9c22d8b21",
+      "callback": "validate_chaos_secret",
+      "conditional": true,
+      "end_line": 4,
+      "file": "app/controllers/chaos_controller.rb",
+      "kind": "active_callback",
+      "line": 4,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_54f4ee03c3ecb5d9c22d8b21"
+      }
+    },
+    {
+      "id": "ev_92f18a8f0eecdb976d2ad7fd",
+      "file": "app/controllers/chaos_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 22,
+      "method": "kill",
+      "owner": "ChaosController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_92f18a8f0eecdb976d2ad7fd"
+      }
+    },
+    {
+      "id": "ev_69a09aba39ce3ae8e8c4949e",
+      "action": "kill",
+      "controller": "ChaosController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_69a09aba39ce3ae8e8c4949e"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": true,
+      "name": "validate_chaos_secret",
+      "owner": "ChaosController",
+      "source": {
+        "end_line": 4,
+        "file": "app/controllers/chaos_controller.rb",
+        "line": 4
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/48599",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

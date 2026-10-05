@@ -1,0 +1,90 @@
+{
+  "id": "ep_3e8b69ea789cfb32362c516e",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/-/profile/slack/slack_link",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Profiles::SlacksController",
+  "controller_path": "profiles/slacks",
+  "action": "slack_link",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_4f53cda18c2baa0c0354bb5f",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_cc2a1717175da1ab0681cb76",
+      "ev_adb8c1789f1aa5b87b6bfe88"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 40,
+    "file": "config/routes/profile.rb",
+    "line": 40
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 22,
+      "file": "app/controllers/profiles/slacks_controller.rb",
+      "line": 17,
+      "owner": "Profiles::SlacksController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/profile.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_cc2a1717175da1ab0681cb76",
+      "file": "app/controllers/profiles/slacks_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 17,
+      "method": "slack_link",
+      "owner": "Profiles::SlacksController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_cc2a1717175da1ab0681cb76"
+      }
+    },
+    {
+      "id": "ev_adb8c1789f1aa5b87b6bfe88",
+      "action": "slack_link",
+      "controller": "Profiles::SlacksController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_adb8c1789f1aa5b87b6bfe88"
+      }
+    }
+  ],
+  "callback_pipeline": [],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/14893",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

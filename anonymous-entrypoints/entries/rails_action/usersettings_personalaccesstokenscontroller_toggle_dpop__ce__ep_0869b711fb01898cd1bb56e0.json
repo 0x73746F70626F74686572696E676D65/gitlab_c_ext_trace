@@ -1,0 +1,145 @@
+{
+  "id": "ep_0869b711fb01898cd1bb56e0",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/user_settings/personal_access_tokens/toggle_dpop",
+  "http_methods": [
+    "PUT"
+  ],
+  "controller": "UserSettings::PersonalAccessTokensController",
+  "controller_path": "user_settings/personal_access_tokens",
+  "action": "toggle_dpop",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_bb2946b6c8873844443bef0f",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_d4cdf47c65cce4b3de5f9c65",
+      "ev_1568b0865f1415a23c5d58a1",
+      "ev_0dd40842577287f12e930b89",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_5649c5b5f09d8e7069e816dc"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 22,
+    "file": "config/routes/user_settings.rb",
+    "line": 22
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 81,
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "line": 66,
+      "owner": "UserSettings::PersonalAccessTokensController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/user_settings.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_d4cdf47c65cce4b3de5f9c65",
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 154,
+      "method": "check_personal_access_tokens_enabled",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_d4cdf47c65cce4b3de5f9c65"
+      }
+    },
+    {
+      "id": "ev_1568b0865f1415a23c5d58a1",
+      "callback": "check_personal_access_tokens_enabled",
+      "conditional": false,
+      "end_line": 9,
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 9,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1568b0865f1415a23c5d58a1"
+      }
+    },
+    {
+      "id": "ev_0dd40842577287f12e930b89",
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 66,
+      "method": "toggle_dpop",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0dd40842577287f12e930b89"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_5649c5b5f09d8e7069e816dc",
+      "action": "toggle_dpop",
+      "controller": "UserSettings::PersonalAccessTokensController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5649c5b5f09d8e7069e816dc"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "check_personal_access_tokens_enabled",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "source": {
+        "end_line": 9,
+        "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+        "line": 9
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16323",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

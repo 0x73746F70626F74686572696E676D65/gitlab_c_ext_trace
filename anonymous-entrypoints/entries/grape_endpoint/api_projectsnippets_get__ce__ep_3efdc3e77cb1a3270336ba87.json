@@ -1,0 +1,58 @@
+{
+  "id": "ep_3efdc3e77cb1a3270336ba87",
+  "type": "grape_endpoint",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/v4/projects/:id/snippets/:snippet_id/files/:ref/:file_path/raw",
+  "http_methods": [
+    "GET"
+  ],
+  "class": "API::ProjectSnippets",
+  "action": "GET",
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 240,
+    "file": "lib/api/project_snippets.rb",
+    "line": 235
+  },
+  "registration_status": "mounted_grape_endpoint",
+  "mount_chain": [
+    {
+      "class": "API::ProjectSnippets",
+      "end_line": 369,
+      "file": "lib/api/api.rb",
+      "line": 369
+    }
+  ],
+  "registration_bindings": {},
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/1039",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

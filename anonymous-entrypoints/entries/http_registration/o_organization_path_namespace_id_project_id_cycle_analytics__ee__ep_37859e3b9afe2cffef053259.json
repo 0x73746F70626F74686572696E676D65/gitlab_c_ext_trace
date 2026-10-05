@@ -1,0 +1,92 @@
+{
+  "id": "ep_37859e3b9afe2cffef053259",
+  "type": "http_registration",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/*namespace_id/:project_id/-/cycle_analytics",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": null,
+  "controller_path": null,
+  "action": null,
+  "handler_kind": "redirect",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_6b94109d00dcf778c52e570b"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "end_line": 718,
+      "expression": "constraints(Projects::ProjectUrlConstraint.new) do",
+      "file": "config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 3
+    },
+    {
+      "end_line": 691,
+      "expression": "{ project_id: Gitlab::PathRegex.project_route_regex }",
+      "file": "config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 22
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 287,
+    "file": "config/routes/project.rb",
+    "line": 287
+  },
+  "registration_status": "static_route",
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/project.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_6b94109d00dcf778c52e570b",
+      "kind": "route_redirect_no_auth_scope",
+      "source": {
+        "end_line": 287,
+        "file": "config/routes/project.rb",
+        "line": 287
+      },
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_6b94109d00dcf778c52e570b"
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/45778",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

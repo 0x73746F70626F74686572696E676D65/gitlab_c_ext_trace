@@ -1,0 +1,175 @@
+{
+  "id": "ep_08bebd3d86eb6aac20c63880",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/-/security/projects",
+  "http_methods": [
+    "POST"
+  ],
+  "controller": "Security::ProjectsController",
+  "controller_path": "security/projects",
+  "action": "create",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_bca4208dd9e903c9b8e9ea87",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_c9508bb24c796dd2b3c5a4af",
+      "ev_1eaaa20d7ab47b48500cdfac",
+      "ev_a4ca7eb7349c7a260971c3c0",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_5cf060a9acffb07e2d1b0d4b",
+      "ev_e75400f88e0f39b7b1121b81",
+      "ev_aee4af6843c8188559397064"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 9,
+    "file": "ee/config/routes/security.rb",
+    "line": 9
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 25,
+      "file": "ee/app/controllers/security/projects_controller.rb",
+      "line": 17,
+      "owner": "Security::ProjectsController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "ee/config/routes/security.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_c9508bb24c796dd2b3c5a4af",
+      "file": "ee/app/controllers/concerns/security_dashboards_permissions.rb",
+      "kind": "auth_method_reviewed",
+      "line": 19,
+      "method": "ensure_security_dashboard_feature_enabled!",
+      "owner": "SecurityDashboardsPermissions",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c9508bb24c796dd2b3c5a4af"
+      }
+    },
+    {
+      "id": "ev_1eaaa20d7ab47b48500cdfac",
+      "callback": "ensure_security_dashboard_feature_enabled!",
+      "conditional": false,
+      "end_line": 13,
+      "file": "ee/app/controllers/concerns/security_dashboards_permissions.rb",
+      "kind": "active_callback",
+      "line": 13,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1eaaa20d7ab47b48500cdfac"
+      }
+    },
+    {
+      "id": "ev_a4ca7eb7349c7a260971c3c0",
+      "file": "ee/app/controllers/concerns/security_dashboards_permissions.rb",
+      "kind": "auth_method_reviewed",
+      "line": 23,
+      "method": "authorize_read_security_dashboard!",
+      "owner": "SecurityDashboardsPermissions",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a4ca7eb7349c7a260971c3c0"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_5cf060a9acffb07e2d1b0d4b",
+      "callback": "authorize_read_security_dashboard!",
+      "conditional": false,
+      "end_line": 14,
+      "file": "ee/app/controllers/concerns/security_dashboards_permissions.rb",
+      "kind": "active_callback",
+      "line": 14,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5cf060a9acffb07e2d1b0d4b"
+      }
+    },
+    {
+      "id": "ev_e75400f88e0f39b7b1121b81",
+      "file": "ee/app/controllers/security/projects_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 17,
+      "method": "create",
+      "owner": "Security::ProjectsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e75400f88e0f39b7b1121b81"
+      }
+    },
+    {
+      "id": "ev_aee4af6843c8188559397064",
+      "action": "create",
+      "controller": "Security::ProjectsController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_aee4af6843c8188559397064"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "ensure_security_dashboard_feature_enabled!",
+      "owner": "SecurityDashboardsPermissions",
+      "source": {
+        "end_line": 13,
+        "file": "ee/app/controllers/concerns/security_dashboards_permissions.rb",
+        "line": 13
+      }
+    },
+    {
+      "conditional": false,
+      "name": "authorize_read_security_dashboard!",
+      "owner": "SecurityDashboardsPermissions",
+      "source": {
+        "end_line": 14,
+        "file": "ee/app/controllers/concerns/security_dashboards_permissions.rb",
+        "line": 14
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/46819",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

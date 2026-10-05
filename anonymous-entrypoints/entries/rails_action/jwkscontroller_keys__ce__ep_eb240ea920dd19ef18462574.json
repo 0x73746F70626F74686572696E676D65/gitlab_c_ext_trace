@@ -1,0 +1,114 @@
+{
+  "id": "ep_eb240ea920dd19ef18462574",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/oauth/discovery/keys",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "JwksController",
+  "controller_path": "jwks",
+  "action": "keys",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_3bb13ea883df7b25114d18c2",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_e1dc277588a5babd9ea867de",
+      "ev_5316570739d36a50a1ce7433",
+      "ev_52eeb59bd8a4ede032ebe28e"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 60,
+    "file": "config/routes.rb",
+    "line": 55
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 22,
+      "file": "app/controllers/jwks_controller.rb",
+      "line": 18,
+      "owner": "JwksController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_e1dc277588a5babd9ea867de",
+      "callback": "enforce_content_type",
+      "conditional": true,
+      "end_line": 9,
+      "file": "external/doorkeeper-5.9.3/app/controllers/doorkeeper/application_metal_controller.rb",
+      "kind": "active_callback",
+      "line": 8,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e1dc277588a5babd9ea867de"
+      }
+    },
+    {
+      "id": "ev_5316570739d36a50a1ce7433",
+      "file": "app/controllers/jwks_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 18,
+      "method": "keys",
+      "owner": "JwksController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5316570739d36a50a1ce7433"
+      }
+    },
+    {
+      "id": "ev_52eeb59bd8a4ede032ebe28e",
+      "action": "keys",
+      "controller": "JwksController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_52eeb59bd8a4ede032ebe28e"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": true,
+      "name": "enforce_content_type",
+      "owner": "Doorkeeper::ApplicationMetalController",
+      "source": {
+        "end_line": 9,
+        "file": "external/doorkeeper-5.9.3/app/controllers/doorkeeper/application_metal_controller.rb",
+        "line": 8
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16783",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "ep_f8a5642434b6fb06e99615c7",
+  "type": "middleware_endpoint",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/-/health",
+  "http_methods": [
+    "ANY"
+  ],
+  "class": "Gitlab::Middleware::BasicHealthCheck",
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_c987d854a0bec688761cb960"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "client_ip_allowlist",
+      "setting": "Settings.monitoring.ip_whitelist"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "file": "lib/gitlab/middleware/basic_health_check.rb",
+    "line": 17
+  },
+  "registration_status": "literal_middleware_path",
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_c987d854a0bec688761cb960",
+      "file": "lib/gitlab/middleware/basic_health_check.rb",
+      "kind": "network_allowlist_without_login",
+      "line": 35,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c987d854a0bec688761cb960"
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/45827",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

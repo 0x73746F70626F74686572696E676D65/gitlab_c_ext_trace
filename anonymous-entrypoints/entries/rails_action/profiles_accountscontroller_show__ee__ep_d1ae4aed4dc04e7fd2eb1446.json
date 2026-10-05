@@ -1,0 +1,97 @@
+{
+  "id": "ep_d1ae4aed4dc04e7fd2eb1446",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/profile/account",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Profiles::AccountsController",
+  "controller_path": "profiles/accounts",
+  "action": "show",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_4f53cda18c2baa0c0354bb5f",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_b269abc55ddc49bda0be1529",
+      "ev_6196941e51667cea849af0c8"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 23,
+    "file": "config/routes/profile.rb",
+    "line": 18
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 12,
+      "file": "app/controllers/profiles/accounts_controller.rb",
+      "line": 10,
+      "owner": "Profiles::AccountsController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/profile.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_b269abc55ddc49bda0be1529",
+      "file": "app/controllers/profiles/accounts_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 10,
+      "method": "show",
+      "owner": "Profiles::AccountsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_b269abc55ddc49bda0be1529"
+      }
+    },
+    {
+      "id": "ev_6196941e51667cea849af0c8",
+      "action": "show",
+      "controller": "Profiles::AccountsController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_6196941e51667cea849af0c8"
+      }
+    }
+  ],
+  "callback_pipeline": [],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/48717",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

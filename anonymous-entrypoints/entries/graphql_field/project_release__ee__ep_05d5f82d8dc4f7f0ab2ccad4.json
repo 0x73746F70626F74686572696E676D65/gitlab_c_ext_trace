@@ -1,0 +1,172 @@
+{
+  "id": "ep_05d5f82d8dc4f7f0ab2ccad4",
+  "type": "graphql_field",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/graphql",
+  "http_methods": [
+    "GET",
+    "POST"
+  ],
+  "graphql": {
+    "field": "release",
+    "generated_result_steps": [],
+    "operation": "query",
+    "resolver_class": "Resolvers::ReleasesResolver",
+    "resolver_expression": "Resolvers::ReleasesResolver.single",
+    "resolver_method": "release",
+    "result_type_expression": "Types::ReleaseType",
+    "result_types": [
+      "Types::ReleaseType"
+    ],
+    "ruby_field": "release",
+    "schema_path": [
+      "duoWorkflowRecentSessionProjects",
+      "release"
+    ],
+    "type": "Project"
+  },
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_84c6dad75dc12eb5c8726ac0",
+      "ev_4683d916d1e10a081eb45be7",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_c6a62f4a935c40b538584e20",
+      "ev_4f8a149ab20eaa7b4e8138f4",
+      "ev_4a5bf4c26c7ecdde7dc7ef98"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "ability": "read_release",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "ability": "read_project",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 667,
+    "file": "app/graphql/types/project_type.rb",
+    "line": 663
+  },
+  "registration_status": "static_result_type_path",
+  "transport_entrypoint_ids": [
+    "ep_57bb3078a9bd79dd45c7f3a9"
+  ],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_84c6dad75dc12eb5c8726ac0",
+      "ability": "read_release",
+      "end_line": 667,
+      "file": "app/graphql/types/project_type.rb",
+      "kind": "anonymous_permission",
+      "line": 663,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_84c6dad75dc12eb5c8726ac0"
+      }
+    },
+    {
+      "id": "ev_4683d916d1e10a081eb45be7",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 108,
+      "resource_scope": "project",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4683d916d1e10a081eb45be7"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_c6a62f4a935c40b538584e20",
+      "ability": "read_project",
+      "end_line": 667,
+      "file": "app/graphql/types/project_type.rb",
+      "kind": "anonymous_permission",
+      "line": 663,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c6a62f4a935c40b538584e20"
+      }
+    },
+    {
+      "id": "ev_4f8a149ab20eaa7b4e8138f4",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 104,
+      "resource_scope": "group",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4f8a149ab20eaa7b4e8138f4"
+      }
+    },
+    {
+      "id": "ev_4a5bf4c26c7ecdde7dc7ef98",
+      "entrypoint_ids": [
+        "ep_57bb3078a9bd79dd45c7f3a9"
+      ],
+      "kind": "graphql_http_transport_auth",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4a5bf4c26c7ecdde7dc7ef98"
+      }
+    }
+  ],
+  "transport_registrations": [
+    {
+      "id": "ep_57bb3078a9bd79dd45c7f3a9",
+      "type": "rails_action",
+      "edition": "ee",
+      "path": "/api/graphql",
+      "http_methods": [
+        "GET",
+        "POST"
+      ],
+      "registration": {
+        "end_line": 4,
+        "file": "config/routes/api.rb",
+        "line": 4
+      },
+      "registration_status": "static_route",
+      "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f"
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/29436",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "ep_1d29c8855272675d0633eee9",
+  "type": "grape_endpoint",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/v4/internal/ci/job_router/jobs/request",
+  "http_methods": [
+    "POST"
+  ],
+  "class": "API::Internal::Ci::JobRouter",
+  "action": "POST",
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_66a788fd9b167deeab65b7a0",
+      "ev_c73bf9f1cda41ac47b3c2a09"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 94,
+    "file": "lib/api/internal/ci/job_router.rb",
+    "line": 82
+  },
+  "registration_status": "mounted_grape_endpoint",
+  "mount_chain": [
+    {
+      "class": "API::Internal::Ci::JobRouter",
+      "end_line": 473,
+      "file": "lib/api/api.rb",
+      "line": 473
+    }
+  ],
+  "registration_bindings": {},
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_66a788fd9b167deeab65b7a0",
+      "file": "lib/api/helpers/kas_helpers.rb",
+      "kind": "auth_method_reviewed",
+      "line": 8,
+      "method": "authenticate_gitlab_kas_request!",
+      "owner": "API::Helpers::KasHelpers",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_66a788fd9b167deeab65b7a0"
+      }
+    },
+    {
+      "id": "ev_c73bf9f1cda41ac47b3c2a09",
+      "file": "lib/api/ci/helpers/runner.rb",
+      "kind": "auth_method_reviewed",
+      "line": 16,
+      "method": "authenticate_runner!",
+      "owner": "API::Ci::Helpers::Runner",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c73bf9f1cda41ac47b3c2a09"
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/395",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

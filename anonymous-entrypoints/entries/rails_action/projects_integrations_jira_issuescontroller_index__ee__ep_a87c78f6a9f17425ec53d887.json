@@ -1,0 +1,386 @@
+{
+  "id": "ep_a87c78f6a9f17425ec53d887",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/*namespace_id/:project_id/-/integrations/jira/issues",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Projects::Integrations::Jira::IssuesController",
+  "controller_path": "projects/integrations/jira/issues",
+  "action": "index",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_74d38cb9604ca6c51601d100",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_a79a1dd79609f70d56cfcaa3",
+      "ev_4f8a149ab20eaa7b4e8138f4",
+      "ev_db49b135fdaf0f6fe06e1503",
+      "ev_37c48e9fa0f6e5708b546b57",
+      "ev_a0feff7d1555051df920a1bc",
+      "ev_c13867f00baa412f4056f7bb",
+      "ev_ae6c7e248f2a7f0a8268a762",
+      "ev_4cf871737892a744fa88c8c6",
+      "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "ev_f1331e7358d7e7c7a6bbe227",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_06c0e5b56f96528f37a0eab8",
+      "ev_af4009d01a8d50d550098082",
+      "ev_c924906c5135036fe189f46a",
+      "ev_b5e6d667dae4a335019e3698",
+      "ev_f2e71d5868aac8c4bafc678a",
+      "ev_b6b138edba1dba32e3aa4973",
+      "ev_e3262b06b7d8c1edc471e9fe"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "end_line": 220,
+      "expression": "constraints(::Projects::ProjectUrlConstraint.new) do",
+      "file": "ee/config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 3
+    },
+    {
+      "end_line": 218,
+      "expression": "{ project_id: Gitlab::PathRegex.project_route_regex }",
+      "file": "ee/config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 9
+    },
+    {
+      "ability": "read_project",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 159,
+    "file": "ee/config/routes/project.rb",
+    "line": 159
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 31,
+      "file": "ee/app/controllers/projects/integrations/jira/issues_controller.rb",
+      "line": 24,
+      "owner": "Projects::Integrations::Jira::IssuesController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "ee/config/routes/project.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_a79a1dd79609f70d56cfcaa3",
+      "ability": "read_project",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "anonymous_permission",
+      "line": 37,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a79a1dd79609f70d56cfcaa3"
+      }
+    },
+    {
+      "id": "ev_4f8a149ab20eaa7b4e8138f4",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 104,
+      "resource_scope": "group",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4f8a149ab20eaa7b4e8138f4"
+      }
+    },
+    {
+      "id": "ev_db49b135fdaf0f6fe06e1503",
+      "callback": "project",
+      "conditional": false,
+      "end_line": 11,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 11,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_db49b135fdaf0f6fe06e1503"
+      }
+    },
+    {
+      "id": "ev_37c48e9fa0f6e5708b546b57",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 57,
+      "method": "repository",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_37c48e9fa0f6e5708b546b57"
+      }
+    },
+    {
+      "id": "ev_a0feff7d1555051df920a1bc",
+      "callback": "repository",
+      "conditional": false,
+      "end_line": 12,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a0feff7d1555051df920a1bc"
+      }
+    },
+    {
+      "id": "ev_c13867f00baa412f4056f7bb",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 127,
+      "method": "enforce_step_up_auth_for_namespace",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c13867f00baa412f4056f7bb"
+      }
+    },
+    {
+      "id": "ev_ae6c7e248f2a7f0a8268a762",
+      "callback": "enforce_step_up_auth_for_namespace",
+      "conditional": false,
+      "end_line": 17,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 17,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ae6c7e248f2a7f0a8268a762"
+      }
+    },
+    {
+      "id": "ev_4cf871737892a744fa88c8c6",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 139,
+      "method": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4cf871737892a744fa88c8c6"
+      }
+    },
+    {
+      "id": "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "callback": "set_project_markdown_flags",
+      "conditional": false,
+      "end_line": 19,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 19,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5fe44b01d3ae5e9d4b1e2e9b"
+      }
+    },
+    {
+      "id": "ev_f1331e7358d7e7c7a6bbe227",
+      "file": "ee/app/controllers/concerns/ee/record_user_last_activity.rb",
+      "kind": "auth_method_reviewed",
+      "line": 9,
+      "method": "set_user_last_activity",
+      "owner": "EE::RecordUserLastActivity",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_f1331e7358d7e7c7a6bbe227"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_06c0e5b56f96528f37a0eab8",
+      "file": "app/controllers/concerns/record_user_last_activity.rb",
+      "kind": "auth_method_reviewed",
+      "line": 19,
+      "method": "set_user_last_activity",
+      "owner": "RecordUserLastActivity",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_06c0e5b56f96528f37a0eab8"
+      }
+    },
+    {
+      "id": "ev_af4009d01a8d50d550098082",
+      "end_line": 22,
+      "expression": "return unless current_user",
+      "file": "app/controllers/concerns/record_user_last_activity.rb",
+      "kind": "anonymous_early_return",
+      "line": 22,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_af4009d01a8d50d550098082"
+      }
+    },
+    {
+      "id": "ev_c924906c5135036fe189f46a",
+      "callback": "set_user_last_activity",
+      "conditional": false,
+      "end_line": 15,
+      "file": "app/controllers/concerns/record_user_last_activity.rb",
+      "kind": "active_callback",
+      "line": 15,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c924906c5135036fe189f46a"
+      }
+    },
+    {
+      "id": "ev_b5e6d667dae4a335019e3698",
+      "file": "ee/app/controllers/projects/integrations/jira/issues_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 141,
+      "method": "check_feature_enabled!",
+      "owner": "Projects::Integrations::Jira::IssuesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_b5e6d667dae4a335019e3698"
+      }
+    },
+    {
+      "id": "ev_f2e71d5868aac8c4bafc678a",
+      "callback": "check_feature_enabled!",
+      "conditional": false,
+      "end_line": 18,
+      "file": "ee/app/controllers/projects/integrations/jira/issues_controller.rb",
+      "kind": "active_callback",
+      "line": 18,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_f2e71d5868aac8c4bafc678a"
+      }
+    },
+    {
+      "id": "ev_b6b138edba1dba32e3aa4973",
+      "file": "ee/app/controllers/projects/integrations/jira/issues_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 24,
+      "method": "index",
+      "owner": "Projects::Integrations::Jira::IssuesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_b6b138edba1dba32e3aa4973"
+      }
+    },
+    {
+      "id": "ev_e3262b06b7d8c1edc471e9fe",
+      "action": "index",
+      "controller": "Projects::Integrations::Jira::IssuesController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e3262b06b7d8c1edc471e9fe"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "project",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 11,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 11
+      }
+    },
+    {
+      "conditional": false,
+      "name": "repository",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 12,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 12
+      }
+    },
+    {
+      "conditional": false,
+      "name": "enforce_step_up_auth_for_namespace",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 17,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 17
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 19,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 19
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_user_last_activity",
+      "owner": "RecordUserLastActivity",
+      "source": {
+        "end_line": 15,
+        "file": "app/controllers/concerns/record_user_last_activity.rb",
+        "line": 15
+      }
+    },
+    {
+      "conditional": false,
+      "name": "check_feature_enabled!",
+      "owner": "Projects::Integrations::Jira::IssuesController",
+      "source": {
+        "end_line": 18,
+        "file": "ee/app/controllers/projects/integrations/jira/issues_controller.rb",
+        "line": 18
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/48047",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

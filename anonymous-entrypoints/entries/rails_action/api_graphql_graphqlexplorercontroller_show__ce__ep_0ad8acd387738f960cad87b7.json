@@ -1,0 +1,128 @@
+{
+  "id": "ep_0ad8acd387738f960cad87b7",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/-/graphql-explorer",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "API::Graphql::GraphqlExplorerController",
+  "controller_path": "api/graphql/graphql_explorer",
+  "action": "show",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_f5ee7162f205a6ab1b1fbd65",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_e0a111cde9ed8056d5fd9405",
+      "ev_8914d4dd3677ab7c646146c2",
+      "ev_a4230525b289b454c7b3a631",
+      "ev_0fb51fbcb8f9c32295f8327f"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 6,
+    "file": "config/routes/api.rb",
+    "line": 6
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 12,
+      "file": "app/controllers/api/graphql/graphql_explorer_controller.rb",
+      "line": 9,
+      "owner": "API::Graphql::GraphqlExplorerController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/api.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_e0a111cde9ed8056d5fd9405",
+      "file": "app/controllers/concerns/with_performance_bar.rb",
+      "kind": "auth_method_reviewed",
+      "line": 12,
+      "method": "set_peek_enabled_for_current_request",
+      "owner": "WithPerformanceBar",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e0a111cde9ed8056d5fd9405"
+      }
+    },
+    {
+      "id": "ev_8914d4dd3677ab7c646146c2",
+      "callback": "set_peek_enabled_for_current_request",
+      "conditional": false,
+      "end_line": 7,
+      "file": "app/controllers/concerns/with_performance_bar.rb",
+      "kind": "active_callback",
+      "line": 7,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_8914d4dd3677ab7c646146c2"
+      }
+    },
+    {
+      "id": "ev_a4230525b289b454c7b3a631",
+      "file": "app/controllers/api/graphql/graphql_explorer_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 9,
+      "method": "show",
+      "owner": "API::Graphql::GraphqlExplorerController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a4230525b289b454c7b3a631"
+      }
+    },
+    {
+      "id": "ev_0fb51fbcb8f9c32295f8327f",
+      "action": "show",
+      "controller": "API::Graphql::GraphqlExplorerController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0fb51fbcb8f9c32295f8327f"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "set_peek_enabled_for_current_request",
+      "owner": "WithPerformanceBar",
+      "source": {
+        "end_line": 7,
+        "file": "app/controllers/concerns/with_performance_bar.rb",
+        "line": 7
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/14804",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

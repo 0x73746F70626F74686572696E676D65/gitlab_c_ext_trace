@@ -1,0 +1,125 @@
+{
+  "id": "ep_d8a32a70ba4aa2686541ea61",
+  "type": "graphql_field",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/graphql",
+  "http_methods": [
+    "GET",
+    "POST"
+  ],
+  "graphql": {
+    "field": "sourceXid",
+    "generated_result_steps": [],
+    "operation": "query",
+    "resolver_class": "Types::PackageMetadata::AdvisoryType",
+    "resolver_expression": "",
+    "resolver_method": "source_xid",
+    "result_type_expression": "Types::PackageMetadata::AdvisorySourceEnum",
+    "result_types": [
+      "Types::PackageMetadata::AdvisorySourceEnum"
+    ],
+    "ruby_field": "source_xid",
+    "schema_path": [
+      "packageMetadataAdvisory",
+      "sourceXid"
+    ],
+    "type": "PackageMetadataAdvisory"
+  },
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_9b4b8264ba09107a38494f8c",
+      "ev_4a5bf4c26c7ecdde7dc7ef98"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 24,
+    "file": "ee/app/graphql/types/package_metadata/advisory_type.rb",
+    "line": 24
+  },
+  "registration_status": "static_result_type_path",
+  "transport_entrypoint_ids": [
+    "ep_57bb3078a9bd79dd45c7f3a9"
+  ],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_9b4b8264ba09107a38494f8c",
+      "file": "ee/app/graphql/resolvers/package_metadata/advisory_resolver.rb",
+      "kind": "auth_method_reviewed",
+      "line": 35,
+      "method": "verify_rate_limit!",
+      "owner": "Resolvers::PackageMetadata::AdvisoryResolver",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_9b4b8264ba09107a38494f8c"
+      }
+    },
+    {
+      "id": "ev_4a5bf4c26c7ecdde7dc7ef98",
+      "entrypoint_ids": [
+        "ep_57bb3078a9bd79dd45c7f3a9"
+      ],
+      "kind": "graphql_http_transport_auth",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4a5bf4c26c7ecdde7dc7ef98"
+      }
+    }
+  ],
+  "transport_registrations": [
+    {
+      "id": "ep_57bb3078a9bd79dd45c7f3a9",
+      "type": "rails_action",
+      "edition": "ee",
+      "path": "/api/graphql",
+      "http_methods": [
+        "GET",
+        "POST"
+      ],
+      "registration": {
+        "end_line": 4,
+        "file": "config/routes/api.rb",
+        "line": 4
+      },
+      "registration_status": "static_route",
+      "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f"
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/39840",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

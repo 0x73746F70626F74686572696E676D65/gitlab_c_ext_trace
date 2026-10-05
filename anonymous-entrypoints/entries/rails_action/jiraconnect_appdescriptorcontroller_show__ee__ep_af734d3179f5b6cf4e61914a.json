@@ -1,0 +1,135 @@
+{
+  "id": "ep_af734d3179f5b6cf4e61914a",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/jira_connect/app_descriptor",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "JiraConnect::AppDescriptorController",
+  "controller_path": "jira_connect/app_descriptor",
+  "action": "show",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_76eb797cb1fcba0f62b0b265",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_43229a7af4bd53109e39a98c",
+      "ev_44a299f4252bb40098728666",
+      "ev_87b060ccd9bbd7a7d3adf85e",
+      "ev_004d8d7bc65e2c95c4cc8023"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 7,
+    "file": "config/routes/jira_connect.rb",
+    "line": 7
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 42,
+      "file": "app/controllers/jira_connect/app_descriptor_controller.rb",
+      "line": 13,
+      "owner": "JiraConnect::AppDescriptorController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/jira_connect.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_43229a7af4bd53109e39a98c",
+      "file": "ee/app/controllers/ee/jira_connect/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 14,
+      "method": "check_if_blocked_by_settings",
+      "owner": "EE::JiraConnect::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_43229a7af4bd53109e39a98c"
+      }
+    },
+    {
+      "id": "ev_44a299f4252bb40098728666",
+      "callback": "check_if_blocked_by_settings",
+      "conditional": false,
+      "end_line": 9,
+      "file": "ee/app/controllers/ee/jira_connect/application_controller.rb",
+      "kind": "active_callback",
+      "line": 9,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_44a299f4252bb40098728666"
+      }
+    },
+    {
+      "id": "ev_87b060ccd9bbd7a7d3adf85e",
+      "file": "app/controllers/jira_connect/app_descriptor_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 13,
+      "method": "show",
+      "owner": "JiraConnect::AppDescriptorController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_87b060ccd9bbd7a7d3adf85e"
+      }
+    },
+    {
+      "id": "ev_004d8d7bc65e2c95c4cc8023",
+      "action": "show",
+      "controller": "JiraConnect::AppDescriptorController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_004d8d7bc65e2c95c4cc8023"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "check_if_blocked_by_settings",
+      "owner": "EE::JiraConnect::ApplicationController",
+      "source": {
+        "end_line": 9,
+        "file": "ee/app/controllers/ee/jira_connect/application_controller.rb",
+        "line": 9
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/48680",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

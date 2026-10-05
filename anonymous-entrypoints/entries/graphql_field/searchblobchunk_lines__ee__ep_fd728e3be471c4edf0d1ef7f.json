@@ -1,0 +1,166 @@
+{
+  "id": "ep_fd728e3be471c4edf0d1ef7f",
+  "type": "graphql_field",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/graphql",
+  "http_methods": [
+    "GET",
+    "POST"
+  ],
+  "graphql": {
+    "field": "lines",
+    "generated_result_steps": [],
+    "operation": "query",
+    "resolver_class": "Types::Search::Blob::ChunkType",
+    "resolver_expression": "",
+    "resolver_method": "lines",
+    "result_type_expression": "[::Types::Search::Blob::LineType]",
+    "result_types": [
+      "Types::Search::Blob::LineType"
+    ],
+    "ruby_field": "lines",
+    "schema_path": [
+      "blobSearch",
+      "files",
+      "chunks",
+      "lines"
+    ],
+    "type": "SearchBlobChunk"
+  },
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_58a892af81d06070f1f1580b",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_e57a217ec8c3ae6fb97be5bf",
+      "ev_5fa940e92fae6fbcf4ddc0a9",
+      "ev_ebe5fc29c80d3cb5eb15ae71",
+      "ev_4a5bf4c26c7ecdde7dc7ef98"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 12,
+    "file": "ee/app/graphql/types/search/blob/chunk_type.rb",
+    "line": 11
+  },
+  "registration_status": "static_result_type_path",
+  "transport_entrypoint_ids": [
+    "ep_57bb3078a9bd79dd45c7f3a9"
+  ],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_58a892af81d06070f1f1580b",
+      "file": "app/graphql/resolvers/concerns/search/search_rate_limitable.rb",
+      "kind": "auth_method_reviewed",
+      "line": 9,
+      "method": "verify_search_rate_limit!",
+      "owner": "Search::SearchRateLimitable",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_58a892af81d06070f1f1580b"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_e57a217ec8c3ae6fb97be5bf",
+      "file": "ee/app/graphql/resolvers/search/blob/blob_search_resolver.rb",
+      "kind": "auth_method_reviewed",
+      "line": 67,
+      "method": "verify_repository_ref!",
+      "owner": "Resolvers::Search::Blob::BlobSearchResolver",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e57a217ec8c3ae6fb97be5bf"
+      }
+    },
+    {
+      "id": "ev_5fa940e92fae6fbcf4ddc0a9",
+      "file": "ee/app/graphql/resolvers/search/blob/blob_search_resolver.rb",
+      "kind": "auth_method_reviewed",
+      "line": 74,
+      "method": "verify_global_search_is_allowed!",
+      "owner": "Resolvers::Search::Blob::BlobSearchResolver",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5fa940e92fae6fbcf4ddc0a9"
+      }
+    },
+    {
+      "id": "ev_ebe5fc29c80d3cb5eb15ae71",
+      "file": "ee/app/graphql/resolvers/search/blob/blob_search_resolver.rb",
+      "kind": "auth_method_reviewed",
+      "line": 81,
+      "method": "verify_search_is_zoekt!",
+      "owner": "Resolvers::Search::Blob::BlobSearchResolver",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ebe5fc29c80d3cb5eb15ae71"
+      }
+    },
+    {
+      "id": "ev_4a5bf4c26c7ecdde7dc7ef98",
+      "entrypoint_ids": [
+        "ep_57bb3078a9bd79dd45c7f3a9"
+      ],
+      "kind": "graphql_http_transport_auth",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4a5bf4c26c7ecdde7dc7ef98"
+      }
+    }
+  ],
+  "transport_registrations": [
+    {
+      "id": "ep_57bb3078a9bd79dd45c7f3a9",
+      "type": "rails_action",
+      "edition": "ee",
+      "path": "/api/graphql",
+      "http_methods": [
+        "GET",
+        "POST"
+      ],
+      "registration": {
+        "end_line": 4,
+        "file": "config/routes/api.rb",
+        "line": 4
+      },
+      "registration_status": "static_route",
+      "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f"
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/22197",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

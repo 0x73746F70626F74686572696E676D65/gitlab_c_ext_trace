@@ -1,0 +1,140 @@
+{
+  "id": "ep_35e6d6163a704707d252b40d",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/-/liveness",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "HealthController",
+  "controller_path": "health",
+  "action": "liveness",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_6205d9910074a6ca9a440d87",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_d0dcf8bc5c2da591b3d10757",
+      "ev_55fb6c55177639d7b912d88c",
+      "ev_243b358b246543a03e738f7f",
+      "ev_f5869021d432e8f85bda9735",
+      "ev_1dac252b3047ab11a1d420d3"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 157,
+    "file": "config/routes.rb",
+    "line": 157
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 27,
+      "file": "app/controllers/health_controller.rb",
+      "line": 24,
+      "owner": "HealthController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_d0dcf8bc5c2da591b3d10757",
+      "file": "app/controllers/concerns/requires_allowlisted_monitoring_client.rb",
+      "kind": "auth_method_reviewed",
+      "line": 12,
+      "method": "validate_ip_allowlisted_or_valid_token!",
+      "owner": "RequiresAllowlistedMonitoringClient",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_d0dcf8bc5c2da591b3d10757"
+      }
+    },
+    {
+      "id": "ev_55fb6c55177639d7b912d88c",
+      "file": "app/controllers/concerns/requires_allowlisted_monitoring_client.rb",
+      "kind": "auth_method_reviewed",
+      "line": 32,
+      "method": "valid_token?",
+      "owner": "RequiresAllowlistedMonitoringClient",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_55fb6c55177639d7b912d88c"
+      }
+    },
+    {
+      "id": "ev_243b358b246543a03e738f7f",
+      "callback": "validate_ip_allowlisted_or_valid_token!",
+      "conditional": false,
+      "end_line": 7,
+      "file": "app/controllers/concerns/requires_allowlisted_monitoring_client.rb",
+      "kind": "active_callback",
+      "line": 7,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_243b358b246543a03e738f7f"
+      }
+    },
+    {
+      "id": "ev_f5869021d432e8f85bda9735",
+      "file": "app/controllers/health_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 24,
+      "method": "liveness",
+      "owner": "HealthController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_f5869021d432e8f85bda9735"
+      }
+    },
+    {
+      "id": "ev_1dac252b3047ab11a1d420d3",
+      "action": "liveness",
+      "controller": "HealthController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1dac252b3047ab11a1d420d3"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "validate_ip_allowlisted_or_valid_token!",
+      "owner": "RequiresAllowlistedMonitoringClient",
+      "source": {
+        "end_line": 7,
+        "file": "app/controllers/concerns/requires_allowlisted_monitoring_client.rb",
+        "line": 7
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/46743",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

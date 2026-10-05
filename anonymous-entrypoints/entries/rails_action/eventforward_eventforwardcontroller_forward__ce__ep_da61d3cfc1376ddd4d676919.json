@@ -1,0 +1,168 @@
+{
+  "id": "ep_da61d3cfc1376ddd4d676919",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/collect_events",
+  "http_methods": [
+    "POST"
+  ],
+  "controller": "EventForward::EventForwardController",
+  "controller_path": "event_forward/event_forward",
+  "action": "forward",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_9cb7d639e7f4c2deda6e1dbb",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_e06022bfc36b33e83cde3f93",
+      "ev_ae925606845c2d97398ab1e2",
+      "ev_87f2042100c1fefdd8d002ba",
+      "ev_f0c4c39006583f9c674d0549",
+      "ev_1a605915873e8a357354a94b",
+      "ev_28f2302a4849f3bdd9a57963"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 286,
+    "file": "config/routes.rb",
+    "line": 286
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 17,
+      "file": "app/controllers/event_forward/event_forward_controller.rb",
+      "line": 14,
+      "owner": "EventForward::EventForwardController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_e06022bfc36b33e83cde3f93",
+      "kind": "optional_authentication",
+      "method": "authenticate_sessionless_user!",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e06022bfc36b33e83cde3f93"
+      }
+    },
+    {
+      "id": "ev_ae925606845c2d97398ab1e2",
+      "callback": "authenticate_sessionless_user!",
+      "conditional": true,
+      "end_line": 11,
+      "file": "app/controllers/event_forward/event_forward_controller.rb",
+      "kind": "active_callback",
+      "line": 11,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ae925606845c2d97398ab1e2"
+      }
+    },
+    {
+      "id": "ev_87f2042100c1fefdd8d002ba",
+      "file": "app/controllers/event_forward/event_forward_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 24,
+      "method": "prevent_session_extension",
+      "owner": "EventForward::EventForwardController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_87f2042100c1fefdd8d002ba"
+      }
+    },
+    {
+      "id": "ev_f0c4c39006583f9c674d0549",
+      "callback": "prevent_session_extension",
+      "conditional": false,
+      "end_line": 12,
+      "file": "app/controllers/event_forward/event_forward_controller.rb",
+      "kind": "active_callback",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_f0c4c39006583f9c674d0549"
+      }
+    },
+    {
+      "id": "ev_1a605915873e8a357354a94b",
+      "file": "app/controllers/event_forward/event_forward_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 14,
+      "method": "forward",
+      "owner": "EventForward::EventForwardController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1a605915873e8a357354a94b"
+      }
+    },
+    {
+      "id": "ev_28f2302a4849f3bdd9a57963",
+      "action": "forward",
+      "controller": "EventForward::EventForwardController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_28f2302a4849f3bdd9a57963"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": true,
+      "name": "authenticate_sessionless_user!",
+      "owner": "EventForward::EventForwardController",
+      "source": {
+        "end_line": 11,
+        "file": "app/controllers/event_forward/event_forward_controller.rb",
+        "line": 11
+      }
+    },
+    {
+      "conditional": false,
+      "name": "prevent_session_extension",
+      "owner": "EventForward::EventForwardController",
+      "source": {
+        "end_line": 12,
+        "file": "app/controllers/event_forward/event_forward_controller.rb",
+        "line": 12
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16163",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

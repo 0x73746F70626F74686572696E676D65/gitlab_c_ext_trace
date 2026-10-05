@@ -1,0 +1,343 @@
+{
+  "id": "ep_04f25bded0cd558c4fe50df9",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/*namespace_id/:project_id/uploads/:secret/:filename",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Projects::UploadsController",
+  "controller_path": "projects/uploads",
+  "action": "show",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_a0100f4863162c30e68a4497",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_a79a1dd79609f70d56cfcaa3",
+      "ev_4f8a149ab20eaa7b4e8138f4",
+      "ev_90f23e5ad74619e49f5b6a3c",
+      "ev_37c48e9fa0f6e5708b546b57",
+      "ev_e2ab18bed9257c527c2a78f7",
+      "ev_4cf871737892a744fa88c8c6",
+      "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "ev_f567c6e4709ca6f1f9a6825a",
+      "ev_801648ccc60241e847b93e13",
+      "ev_53b0ffa153da1c128653f85e",
+      "ev_0ab394836abef520be3ed244",
+      "ev_04bac2963abfd42ea015b28d",
+      "ev_506a14f74f566eb265a90b41",
+      "ev_2d1a5372a68aeac78d2649d3",
+      "ev_6b12eeb7ba57a9e17e0c982e"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 718,
+      "expression": "constraints(Projects::ProjectUrlConstraint.new) do",
+      "file": "config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 3
+    },
+    {
+      "end_line": 691,
+      "expression": "{ project_id: Gitlab::PathRegex.project_route_regex }",
+      "file": "config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 22
+    },
+    {
+      "ability": "read_project",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 622,
+    "file": "config/routes/project.rb",
+    "line": 622
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 78,
+      "file": "app/controllers/concerns/uploads_actions.rb",
+      "line": 49,
+      "owner": "UploadsActions"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/project.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_a79a1dd79609f70d56cfcaa3",
+      "ability": "read_project",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "anonymous_permission",
+      "line": 37,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a79a1dd79609f70d56cfcaa3"
+      }
+    },
+    {
+      "id": "ev_4f8a149ab20eaa7b4e8138f4",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 104,
+      "resource_scope": "group",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4f8a149ab20eaa7b4e8138f4"
+      }
+    },
+    {
+      "id": "ev_90f23e5ad74619e49f5b6a3c",
+      "callback": "project",
+      "conditional": true,
+      "end_line": 11,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 11,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_90f23e5ad74619e49f5b6a3c"
+      }
+    },
+    {
+      "id": "ev_37c48e9fa0f6e5708b546b57",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 57,
+      "method": "repository",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_37c48e9fa0f6e5708b546b57"
+      }
+    },
+    {
+      "id": "ev_e2ab18bed9257c527c2a78f7",
+      "callback": "repository",
+      "conditional": true,
+      "end_line": 12,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e2ab18bed9257c527c2a78f7"
+      }
+    },
+    {
+      "id": "ev_4cf871737892a744fa88c8c6",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 139,
+      "method": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4cf871737892a744fa88c8c6"
+      }
+    },
+    {
+      "id": "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "callback": "set_project_markdown_flags",
+      "conditional": false,
+      "end_line": 19,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 19,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5fe44b01d3ae5e9d4b1e2e9b"
+      }
+    },
+    {
+      "id": "ev_f567c6e4709ca6f1f9a6825a",
+      "file": "app/controllers/concerns/uploads_actions.rb",
+      "kind": "auth_method_reviewed",
+      "line": 115,
+      "method": "set_request_format_from_path_extension",
+      "owner": "UploadsActions",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_f567c6e4709ca6f1f9a6825a"
+      }
+    },
+    {
+      "id": "ev_801648ccc60241e847b93e13",
+      "callback": "set_request_format_from_path_extension",
+      "conditional": false,
+      "end_line": 21,
+      "file": "app/controllers/concerns/uploads_actions.rb",
+      "kind": "active_callback",
+      "line": 21,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_801648ccc60241e847b93e13"
+      }
+    },
+    {
+      "id": "ev_53b0ffa153da1c128653f85e",
+      "file": "app/controllers/concerns/workhorse_authenticatable.rb",
+      "kind": "auth_method_reviewed",
+      "line": 36,
+      "method": "verify_workhorse_api!",
+      "owner": "WorkhorseAuthenticatable",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_53b0ffa153da1c128653f85e"
+      }
+    },
+    {
+      "id": "ev_0ab394836abef520be3ed244",
+      "callback": "verify_workhorse_api!",
+      "conditional": false,
+      "end_line": 9,
+      "file": "app/controllers/concerns/workhorse_request.rb",
+      "kind": "active_callback",
+      "line": 9,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0ab394836abef520be3ed244"
+      }
+    },
+    {
+      "id": "ev_04bac2963abfd42ea015b28d",
+      "file": "app/controllers/projects/uploads_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 26,
+      "method": "disallow_new_uploads!",
+      "owner": "Projects::UploadsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_04bac2963abfd42ea015b28d"
+      }
+    },
+    {
+      "id": "ev_506a14f74f566eb265a90b41",
+      "callback": "disallow_new_uploads!",
+      "conditional": false,
+      "end_line": 19,
+      "file": "app/controllers/projects/uploads_controller.rb",
+      "kind": "active_callback",
+      "line": 19,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_506a14f74f566eb265a90b41"
+      }
+    },
+    {
+      "id": "ev_2d1a5372a68aeac78d2649d3",
+      "file": "app/controllers/concerns/uploads_actions.rb",
+      "kind": "auth_method_reviewed",
+      "line": 49,
+      "method": "show",
+      "owner": "UploadsActions",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_2d1a5372a68aeac78d2649d3"
+      }
+    },
+    {
+      "id": "ev_6b12eeb7ba57a9e17e0c982e",
+      "action": "show",
+      "controller": "Projects::UploadsController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_6b12eeb7ba57a9e17e0c982e"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": true,
+      "name": "project",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 11,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 11
+      }
+    },
+    {
+      "conditional": true,
+      "name": "repository",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 12,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 12
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 19,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 19
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_request_format_from_path_extension",
+      "owner": "UploadsActions",
+      "source": {
+        "end_line": 21,
+        "file": "app/controllers/concerns/uploads_actions.rb",
+        "line": 21
+      }
+    },
+    {
+      "conditional": false,
+      "name": "verify_workhorse_api!",
+      "owner": "WorkhorseRequest",
+      "source": {
+        "end_line": 9,
+        "file": "app/controllers/concerns/workhorse_request.rb",
+        "line": 9
+      }
+    },
+    {
+      "conditional": false,
+      "name": "disallow_new_uploads!",
+      "owner": "Projects::UploadsController",
+      "source": {
+        "end_line": 19,
+        "file": "app/controllers/projects/uploads_controller.rb",
+        "line": 19
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/14750",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

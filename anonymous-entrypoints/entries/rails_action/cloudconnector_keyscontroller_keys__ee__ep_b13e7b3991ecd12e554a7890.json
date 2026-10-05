@@ -1,0 +1,97 @@
+{
+  "id": "ep_b13e7b3991ecd12e554a7890",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/cloud_connector/keys",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "CloudConnector::KeysController",
+  "controller_path": "cloud_connector/keys",
+  "action": "keys",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_4f53cda18c2baa0c0354bb5f",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_776302f14dcd1afad4dbb308",
+      "ev_9a7b2d534cc3390b727ca74f"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 6,
+    "file": "ee/config/routes/cloud_connector.rb",
+    "line": 6
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 18,
+      "file": "ee/app/controllers/cloud_connector/keys_controller.rb",
+      "line": 11,
+      "owner": "CloudConnector::KeysController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "ee/config/routes/cloud_connector.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_776302f14dcd1afad4dbb308",
+      "file": "ee/app/controllers/cloud_connector/keys_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 11,
+      "method": "keys",
+      "owner": "CloudConnector::KeysController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_776302f14dcd1afad4dbb308"
+      }
+    },
+    {
+      "id": "ev_9a7b2d534cc3390b727ca74f",
+      "action": "keys",
+      "controller": "CloudConnector::KeysController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_9a7b2d534cc3390b727ca74f"
+      }
+    }
+  ],
+  "callback_pipeline": [],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/48603",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

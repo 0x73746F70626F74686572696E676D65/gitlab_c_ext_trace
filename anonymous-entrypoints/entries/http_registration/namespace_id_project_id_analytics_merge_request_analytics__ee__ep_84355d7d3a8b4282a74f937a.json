@@ -1,0 +1,85 @@
+{
+  "id": "ep_84355d7d3a8b4282a74f937a",
+  "type": "http_registration",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/*namespace_id/:project_id/-/analytics/merge_request_analytics",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": null,
+  "controller_path": null,
+  "action": null,
+  "handler_kind": "redirect",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_64ba4207609981ce5ac2ba6d"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 220,
+      "expression": "constraints(::Projects::ProjectUrlConstraint.new) do",
+      "file": "ee/config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 3
+    },
+    {
+      "end_line": 218,
+      "expression": "{ project_id: Gitlab::PathRegex.project_route_regex }",
+      "file": "ee/config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 9
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 130,
+    "file": "ee/config/routes/project.rb",
+    "line": 130
+  },
+  "registration_status": "static_route",
+  "draw_chain": [
+    "config/routes.rb",
+    "ee/config/routes/project.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_64ba4207609981ce5ac2ba6d",
+      "kind": "route_redirect_no_auth_scope",
+      "source": {
+        "end_line": 130,
+        "file": "ee/config/routes/project.rb",
+        "line": 130
+      },
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_64ba4207609981ce5ac2ba6d"
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/45712",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

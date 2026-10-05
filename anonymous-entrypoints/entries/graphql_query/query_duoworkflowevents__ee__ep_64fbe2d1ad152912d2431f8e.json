@@ -1,0 +1,116 @@
+{
+  "id": "ep_64fbe2d1ad152912d2431f8e",
+  "type": "graphql_query",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/graphql",
+  "http_methods": [
+    "GET",
+    "POST"
+  ],
+  "graphql": {
+    "field": "duoWorkflowEvents",
+    "generated_result_steps": [
+      "nodes"
+    ],
+    "operation": "query",
+    "resolver_class": "Resolvers::Ai::DuoWorkflows::WorkflowEventsResolver",
+    "resolver_expression": "::Resolvers::Ai::DuoWorkflows::WorkflowEventsResolver",
+    "resolver_method": "duo_workflow_events",
+    "result_type_expression": "::Types::Ai::DuoWorkflows::WorkflowEventType.connection_type",
+    "result_types": [
+      "Types::Ai::DuoWorkflows::WorkflowEventType"
+    ],
+    "ruby_field": "duo_workflow_events",
+    "schema_path": [
+      "duoWorkflowEvents"
+    ],
+    "type": "Query"
+  },
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_50d93041744b70b008f47c5f",
+      "ev_4a5bf4c26c7ecdde7dc7ef98"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 278,
+    "file": "ee/app/graphql/ee/types/query_type.rb",
+    "line": 272
+  },
+  "registration_status": "root_schema_registration",
+  "transport_entrypoint_ids": [
+    "ep_57bb3078a9bd79dd45c7f3a9"
+  ],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_50d93041744b70b008f47c5f",
+      "end_line": 23,
+      "expression": "return ::Ai::DuoWorkflows::Checkpoint.none unless current_user",
+      "file": "ee/app/graphql/resolvers/ai/duo_workflows/workflow_events_resolver.rb",
+      "kind": "anonymous_early_return",
+      "line": 23,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_50d93041744b70b008f47c5f"
+      }
+    },
+    {
+      "id": "ev_4a5bf4c26c7ecdde7dc7ef98",
+      "entrypoint_ids": [
+        "ep_57bb3078a9bd79dd45c7f3a9"
+      ],
+      "kind": "graphql_http_transport_auth",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4a5bf4c26c7ecdde7dc7ef98"
+      }
+    }
+  ],
+  "transport_registrations": [
+    {
+      "id": "ep_57bb3078a9bd79dd45c7f3a9",
+      "type": "rails_action",
+      "edition": "ee",
+      "path": "/api/graphql",
+      "http_methods": [
+        "GET",
+        "POST"
+      ],
+      "registration": {
+        "end_line": 4,
+        "file": "config/routes/api.rb",
+        "line": 4
+      },
+      "registration_status": "static_route",
+      "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f"
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/45551",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

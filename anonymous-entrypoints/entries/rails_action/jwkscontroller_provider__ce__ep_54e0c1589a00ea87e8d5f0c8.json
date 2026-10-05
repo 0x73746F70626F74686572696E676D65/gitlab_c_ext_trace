@@ -1,0 +1,134 @@
+{
+  "id": "ep_54e0c1589a00ea87e8d5f0c8",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/.well-known/openid-configuration",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "JwksController",
+  "controller_path": "jwks",
+  "action": "provider",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_3bb13ea883df7b25114d18c2",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_e1dc277588a5babd9ea867de",
+      "ev_e411b2879068ff3c27c132e5",
+      "ev_aad192b6b614dd435ff5af10",
+      "ev_89bb4f0cd4acabeaea3f00ea"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 60,
+    "file": "config/routes.rb",
+    "line": 55
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 41,
+      "file": "app/controllers/jwks_controller.rb",
+      "line": 24,
+      "owner": "JwksController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_e1dc277588a5babd9ea867de",
+      "callback": "enforce_content_type",
+      "conditional": true,
+      "end_line": 9,
+      "file": "external/doorkeeper-5.9.3/app/controllers/doorkeeper/application_metal_controller.rb",
+      "kind": "active_callback",
+      "line": 8,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e1dc277588a5babd9ea867de"
+      }
+    },
+    {
+      "id": "ev_e411b2879068ff3c27c132e5",
+      "file": "app/controllers/jwks_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 24,
+      "method": "provider",
+      "owner": "JwksController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e411b2879068ff3c27c132e5"
+      }
+    },
+    {
+      "id": "ev_aad192b6b614dd435ff5af10",
+      "file": "external/doorkeeper-openid_connect-1.10.5/app/controllers/doorkeeper/openid_connect/discovery_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 12,
+      "method": "provider",
+      "owner": "Doorkeeper::OpenidConnect::DiscoveryController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_aad192b6b614dd435ff5af10"
+      }
+    },
+    {
+      "id": "ev_89bb4f0cd4acabeaea3f00ea",
+      "action": "provider",
+      "controller": "JwksController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_89bb4f0cd4acabeaea3f00ea"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": true,
+      "name": "enforce_content_type",
+      "owner": "Doorkeeper::ApplicationMetalController",
+      "source": {
+        "end_line": 9,
+        "file": "external/doorkeeper-5.9.3/app/controllers/doorkeeper/application_metal_controller.rb",
+        "line": 8
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16354",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

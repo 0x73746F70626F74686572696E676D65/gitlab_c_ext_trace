@@ -1,0 +1,277 @@
+{
+  "id": "ep_efe034d8acdaea477c4d8feb",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/user_settings/personal_access_tokens",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "UserSettings::PersonalAccessTokensController",
+  "controller_path": "user_settings/personal_access_tokens",
+  "action": "index",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_72cce8ef3ab0ed84f379529e",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_d4cdf47c65cce4b3de5f9c65",
+      "ev_1568b0865f1415a23c5d58a1",
+      "ev_be195f6eaa8d3bfe94861304",
+      "ev_5ac12489e0f7ccb179b96617",
+      "ev_55f4447aa859f64004b5ddaf",
+      "ev_d22389ac3895b3bb837581d5",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_81f382af154cdc8a6759474b",
+      "ev_e06022bfc36b33e83cde3f93",
+      "ev_4ac1f89c7c5688ac962bf208",
+      "ev_8994df8edf96edc68104ea24",
+      "ev_9cfd3ac2987ccdb12b25f292"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 28,
+    "file": "config/routes/user_settings.rb",
+    "line": 21
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 40,
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "line": 22,
+      "owner": "UserSettings::PersonalAccessTokensController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/user_settings.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_d4cdf47c65cce4b3de5f9c65",
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 154,
+      "method": "check_personal_access_tokens_enabled",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_d4cdf47c65cce4b3de5f9c65"
+      }
+    },
+    {
+      "id": "ev_1568b0865f1415a23c5d58a1",
+      "callback": "check_personal_access_tokens_enabled",
+      "conditional": false,
+      "end_line": 9,
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 9,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1568b0865f1415a23c5d58a1"
+      }
+    },
+    {
+      "id": "ev_be195f6eaa8d3bfe94861304",
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 93,
+      "method": "set_access_token_params",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_be195f6eaa8d3bfe94861304"
+      }
+    },
+    {
+      "id": "ev_5ac12489e0f7ccb179b96617",
+      "callback": "set_access_token_params",
+      "conditional": false,
+      "end_line": 12,
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5ac12489e0f7ccb179b96617"
+      }
+    },
+    {
+      "id": "ev_55f4447aa859f64004b5ddaf",
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 89,
+      "method": "set_hide_search_settings",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_55f4447aa859f64004b5ddaf"
+      }
+    },
+    {
+      "id": "ev_d22389ac3895b3bb837581d5",
+      "callback": "set_hide_search_settings",
+      "conditional": false,
+      "end_line": 13,
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 13,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_d22389ac3895b3bb837581d5"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_81f382af154cdc8a6759474b",
+      "callback": "@block:app/controllers/user_settings/personal_access_tokens_controller.rb:14",
+      "conditional": false,
+      "end_line": 16,
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 14,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_81f382af154cdc8a6759474b"
+      }
+    },
+    {
+      "id": "ev_e06022bfc36b33e83cde3f93",
+      "kind": "optional_authentication",
+      "method": "authenticate_sessionless_user!",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e06022bfc36b33e83cde3f93"
+      }
+    },
+    {
+      "id": "ev_4ac1f89c7c5688ac962bf208",
+      "callback": "@block:app/controllers/user_settings/personal_access_tokens_controller.rb:18",
+      "conditional": false,
+      "end_line": 20,
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "active_callback",
+      "line": 18,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4ac1f89c7c5688ac962bf208"
+      }
+    },
+    {
+      "id": "ev_8994df8edf96edc68104ea24",
+      "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 22,
+      "method": "index",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_8994df8edf96edc68104ea24"
+      }
+    },
+    {
+      "id": "ev_9cfd3ac2987ccdb12b25f292",
+      "action": "index",
+      "controller": "UserSettings::PersonalAccessTokensController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_9cfd3ac2987ccdb12b25f292"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "check_personal_access_tokens_enabled",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "source": {
+        "end_line": 9,
+        "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+        "line": 9
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_access_token_params",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "source": {
+        "end_line": 12,
+        "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+        "line": 12
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_hide_search_settings",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "source": {
+        "end_line": 13,
+        "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+        "line": 13
+      }
+    },
+    {
+      "conditional": false,
+      "name": "@block:app/controllers/user_settings/personal_access_tokens_controller.rb:14",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "source": {
+        "end_line": 16,
+        "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+        "line": 14
+      }
+    },
+    {
+      "conditional": false,
+      "name": "@block:app/controllers/user_settings/personal_access_tokens_controller.rb:18",
+      "owner": "UserSettings::PersonalAccessTokensController",
+      "source": {
+        "end_line": 20,
+        "file": "app/controllers/user_settings/personal_access_tokens_controller.rb",
+        "line": 18
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16320",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

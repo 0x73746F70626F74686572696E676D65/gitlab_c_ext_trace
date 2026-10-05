@@ -1,0 +1,245 @@
+{
+  "id": "ep_0f0a98394e81fe587430f8a1",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/jira_connect/subscriptions(.:format)",
+  "http_methods": [
+    "OPTIONS"
+  ],
+  "controller": "JiraConnect::SubscriptionsController",
+  "controller_path": "jira_connect/subscriptions",
+  "action": "index",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_e6905eca04e441da82eec67d",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_bdf59b9e346416acb0611e50",
+      "ev_8d64ac442c108823346894ec",
+      "ev_c397f6289d59f6f30594ff51",
+      "ev_2259783b69b4e5dc96feb2eb",
+      "ev_649e0f51c1033e9bd5ddbc01",
+      "ev_545999d6e55f8a123926850a",
+      "ev_81843dfdea3ac399a8ee2c93",
+      "ev_2395df079192bcfad4748296",
+      "ev_672916d7ac215a51dd6fa4a0",
+      "ev_fe668eff801b778c4182b688"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 94,
+    "file": "config/routes.rb",
+    "line": 94
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 43,
+      "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+      "line": 34,
+      "owner": "JiraConnect::SubscriptionsController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_bdf59b9e346416acb0611e50",
+      "file": "app/controllers/jira_connect/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 16,
+      "method": "verify_atlassian_jwt!",
+      "owner": "JiraConnect::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_bdf59b9e346416acb0611e50"
+      }
+    },
+    {
+      "id": "ev_8d64ac442c108823346894ec",
+      "callback": "verify_atlassian_jwt!",
+      "conditional": false,
+      "end_line": 8,
+      "file": "app/controllers/jira_connect/application_controller.rb",
+      "kind": "active_callback",
+      "line": 8,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_8d64ac442c108823346894ec"
+      }
+    },
+    {
+      "id": "ev_c397f6289d59f6f30594ff51",
+      "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 70,
+      "method": "allow_rendering_in_iframe",
+      "owner": "JiraConnect::SubscriptionsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c397f6289d59f6f30594ff51"
+      }
+    },
+    {
+      "id": "ev_2259783b69b4e5dc96feb2eb",
+      "callback": "allow_rendering_in_iframe",
+      "conditional": false,
+      "end_line": 30,
+      "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+      "kind": "active_callback",
+      "line": 30,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_2259783b69b4e5dc96feb2eb"
+      }
+    },
+    {
+      "id": "ev_649e0f51c1033e9bd5ddbc01",
+      "file": "app/controllers/jira_connect/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 22,
+      "method": "verify_qsh_claim!",
+      "owner": "JiraConnect::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_649e0f51c1033e9bd5ddbc01"
+      }
+    },
+    {
+      "id": "ev_545999d6e55f8a123926850a",
+      "callback": "verify_qsh_claim!",
+      "conditional": false,
+      "end_line": 31,
+      "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+      "kind": "active_callback",
+      "line": 31,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_545999d6e55f8a123926850a"
+      }
+    },
+    {
+      "id": "ev_81843dfdea3ac399a8ee2c93",
+      "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 57,
+      "method": "allow_self_managed_content_security_policy",
+      "owner": "JiraConnect::SubscriptionsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_81843dfdea3ac399a8ee2c93"
+      }
+    },
+    {
+      "id": "ev_2395df079192bcfad4748296",
+      "callback": "allow_self_managed_content_security_policy",
+      "conditional": false,
+      "end_line": 32,
+      "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+      "kind": "active_callback",
+      "line": 32,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_2395df079192bcfad4748296"
+      }
+    },
+    {
+      "id": "ev_672916d7ac215a51dd6fa4a0",
+      "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 34,
+      "method": "index",
+      "owner": "JiraConnect::SubscriptionsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_672916d7ac215a51dd6fa4a0"
+      }
+    },
+    {
+      "id": "ev_fe668eff801b778c4182b688",
+      "action": "index",
+      "controller": "JiraConnect::SubscriptionsController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_fe668eff801b778c4182b688"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "verify_atlassian_jwt!",
+      "owner": "JiraConnect::ApplicationController",
+      "source": {
+        "end_line": 8,
+        "file": "app/controllers/jira_connect/application_controller.rb",
+        "line": 8
+      }
+    },
+    {
+      "conditional": false,
+      "name": "allow_rendering_in_iframe",
+      "owner": "JiraConnect::SubscriptionsController",
+      "source": {
+        "end_line": 30,
+        "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+        "line": 30
+      }
+    },
+    {
+      "conditional": false,
+      "name": "verify_qsh_claim!",
+      "owner": "JiraConnect::SubscriptionsController",
+      "source": {
+        "end_line": 31,
+        "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+        "line": 31
+      }
+    },
+    {
+      "conditional": false,
+      "name": "allow_self_managed_content_security_policy",
+      "owner": "JiraConnect::SubscriptionsController",
+      "source": {
+        "end_line": 32,
+        "file": "app/controllers/jira_connect/subscriptions_controller.rb",
+        "line": 32
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16215",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

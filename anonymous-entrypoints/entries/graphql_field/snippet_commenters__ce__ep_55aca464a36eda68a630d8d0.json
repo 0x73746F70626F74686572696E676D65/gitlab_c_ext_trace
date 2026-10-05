@@ -1,0 +1,135 @@
+{
+  "id": "ep_55aca464a36eda68a630d8d0",
+  "type": "graphql_field",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/graphql",
+  "http_methods": [
+    "GET",
+    "POST"
+  ],
+  "graphql": {
+    "field": "commenters",
+    "generated_result_steps": [
+      "nodes"
+    ],
+    "operation": "query",
+    "resolver_class": "Types::SnippetType",
+    "resolver_expression": "",
+    "resolver_method": "commenters",
+    "result_type_expression": "Types::UserType.connection_type",
+    "result_types": [
+      "Types::UserType"
+    ],
+    "ruby_field": "commenters",
+    "schema_path": [
+      "snippets",
+      "nodes",
+      "commenters"
+    ],
+    "type": "Snippet"
+  },
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_a93e70630e0af7f0091b8978",
+      "ev_088db71cd9b41a7af95e3e3c",
+      "ev_6a00e45564da9495b388bb7e"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "ability": "read_snippet",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 12,
+    "file": "app/graphql/types/notes/noteable_interface.rb",
+    "line": 12
+  },
+  "registration_status": "static_result_type_path",
+  "transport_entrypoint_ids": [
+    "ep_b206c7c54e0311ad534bef03"
+  ],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_a93e70630e0af7f0091b8978",
+      "ability": "read_snippet",
+      "end_line": 12,
+      "file": "app/graphql/types/notes/noteable_interface.rb",
+      "kind": "anonymous_permission",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a93e70630e0af7f0091b8978"
+      }
+    },
+    {
+      "id": "ev_088db71cd9b41a7af95e3e3c",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 121,
+      "resource_scope": "project",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_088db71cd9b41a7af95e3e3c"
+      }
+    },
+    {
+      "id": "ev_6a00e45564da9495b388bb7e",
+      "entrypoint_ids": [
+        "ep_b206c7c54e0311ad534bef03"
+      ],
+      "kind": "graphql_http_transport_auth",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_6a00e45564da9495b388bb7e"
+      }
+    }
+  ],
+  "transport_registrations": [
+    {
+      "id": "ep_b206c7c54e0311ad534bef03",
+      "type": "rails_action",
+      "edition": "ce",
+      "path": "/api/graphql",
+      "http_methods": [
+        "GET",
+        "POST"
+      ],
+      "registration": {
+        "end_line": 4,
+        "file": "config/routes/api.rb",
+        "line": 4
+      },
+      "registration_status": "static_route",
+      "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f"
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/12970",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

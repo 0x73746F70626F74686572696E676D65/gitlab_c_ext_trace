@@ -1,0 +1,128 @@
+{
+  "id": "ep_3911e1f87774cb76cc8ff1fe",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/-/jira_connect/branches/route",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "JiraConnect::BranchesController",
+  "controller_path": "jira_connect/branches",
+  "action": "route",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_dedf3c54e93034ca5322d81d",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_bdf59b9e346416acb0611e50",
+      "ev_8d64ac442c108823346894ec",
+      "ev_46911b1ca5cf66b155364d8c",
+      "ev_4801ea5d06c61c6ab09a68cb"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 17,
+    "file": "config/routes/jira_connect.rb",
+    "line": 17
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 21,
+      "file": "app/controllers/jira_connect/branches_controller.rb",
+      "line": 13,
+      "owner": "JiraConnect::BranchesController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/jira_connect.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_bdf59b9e346416acb0611e50",
+      "file": "app/controllers/jira_connect/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 16,
+      "method": "verify_atlassian_jwt!",
+      "owner": "JiraConnect::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_bdf59b9e346416acb0611e50"
+      }
+    },
+    {
+      "id": "ev_8d64ac442c108823346894ec",
+      "callback": "verify_atlassian_jwt!",
+      "conditional": false,
+      "end_line": 8,
+      "file": "app/controllers/jira_connect/application_controller.rb",
+      "kind": "active_callback",
+      "line": 8,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_8d64ac442c108823346894ec"
+      }
+    },
+    {
+      "id": "ev_46911b1ca5cf66b155364d8c",
+      "file": "app/controllers/jira_connect/branches_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 13,
+      "method": "route",
+      "owner": "JiraConnect::BranchesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_46911b1ca5cf66b155364d8c"
+      }
+    },
+    {
+      "id": "ev_4801ea5d06c61c6ab09a68cb",
+      "action": "route",
+      "controller": "JiraConnect::BranchesController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4801ea5d06c61c6ab09a68cb"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "verify_atlassian_jwt!",
+      "owner": "JiraConnect::ApplicationController",
+      "source": {
+        "end_line": 8,
+        "file": "app/controllers/jira_connect/application_controller.rb",
+        "line": 8
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/14832",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

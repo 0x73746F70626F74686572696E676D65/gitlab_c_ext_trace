@@ -1,0 +1,146 @@
+{
+  "id": "ep_908909d02b904e8eabc9c711",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/profile/preferences",
+  "http_methods": [
+    "PATCH",
+    "PUT"
+  ],
+  "controller": "Profiles::PreferencesController",
+  "controller_path": "profiles/preferences",
+  "action": "update",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_a755d1c0421900bd7cce50e3",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_b8c003444ad5683d0ac2b876",
+      "ev_0c03814b4b77adc26775e42a",
+      "ev_5bed5e688b05dd1d9e5e7a87",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_1921c08013bdf8caf752f4c9"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 44,
+    "file": "config/routes/profile.rb",
+    "line": 44
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 28,
+      "file": "app/controllers/profiles/preferences_controller.rb",
+      "line": 15,
+      "owner": "Profiles::PreferencesController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/profile.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_b8c003444ad5683d0ac2b876",
+      "file": "app/controllers/profiles/preferences_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 32,
+      "method": "user",
+      "owner": "Profiles::PreferencesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_b8c003444ad5683d0ac2b876"
+      }
+    },
+    {
+      "id": "ev_0c03814b4b77adc26775e42a",
+      "callback": "user",
+      "conditional": false,
+      "end_line": 6,
+      "file": "app/controllers/profiles/preferences_controller.rb",
+      "kind": "active_callback",
+      "line": 6,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0c03814b4b77adc26775e42a"
+      }
+    },
+    {
+      "id": "ev_5bed5e688b05dd1d9e5e7a87",
+      "file": "app/controllers/profiles/preferences_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 15,
+      "method": "update",
+      "owner": "Profiles::PreferencesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5bed5e688b05dd1d9e5e7a87"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_1921c08013bdf8caf752f4c9",
+      "action": "update",
+      "controller": "Profiles::PreferencesController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1921c08013bdf8caf752f4c9"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "user",
+      "owner": "Profiles::PreferencesController",
+      "source": {
+        "end_line": 6,
+        "file": "app/controllers/profiles/preferences_controller.rb",
+        "line": 6
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16260",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

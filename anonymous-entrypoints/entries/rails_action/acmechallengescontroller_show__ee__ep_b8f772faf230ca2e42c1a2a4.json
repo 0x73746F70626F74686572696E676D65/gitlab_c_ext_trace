@@ -1,0 +1,96 @@
+{
+  "id": "ep_b8f772faf230ca2e42c1a2a4",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/-/acme-challenge",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "AcmeChallengesController",
+  "controller_path": "acme_challenges",
+  "action": "show",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_4f53cda18c2baa0c0354bb5f",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_2513df5724caae47742442dc",
+      "ev_22c7df30e770b36181e0fd08"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 167,
+    "file": "config/routes.rb",
+    "line": 167
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 10,
+      "file": "app/controllers/acme_challenges_controller.rb",
+      "line": 4,
+      "owner": "AcmeChallengesController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_2513df5724caae47742442dc",
+      "file": "app/controllers/acme_challenges_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 4,
+      "method": "show",
+      "owner": "AcmeChallengesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_2513df5724caae47742442dc"
+      }
+    },
+    {
+      "id": "ev_22c7df30e770b36181e0fd08",
+      "action": "show",
+      "controller": "AcmeChallengesController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_22c7df30e770b36181e0fd08"
+      }
+    }
+  ],
+  "callback_pipeline": [],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/48578",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

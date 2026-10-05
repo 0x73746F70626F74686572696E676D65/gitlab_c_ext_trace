@@ -1,0 +1,165 @@
+{
+  "id": "ep_49dcd08e088776c4aba41b9c",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/-/jira_connect/workspaces/search",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "JiraConnect::WorkspacesController",
+  "controller_path": "jira_connect/workspaces",
+  "action": "search",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_5c0ef021bb9c80c53d89a97f",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_bdf59b9e346416acb0611e50",
+      "ev_8d64ac442c108823346894ec",
+      "ev_43229a7af4bd53109e39a98c",
+      "ev_44a299f4252bb40098728666",
+      "ev_024f6da4aa782c3ab94677b7",
+      "ev_87cf28dd0215b57324af6e7d"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 24,
+    "file": "config/routes/jira_connect.rb",
+    "line": 24
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 10,
+      "file": "app/controllers/jira_connect/workspaces_controller.rb",
+      "line": 7,
+      "owner": "JiraConnect::WorkspacesController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/jira_connect.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_bdf59b9e346416acb0611e50",
+      "file": "app/controllers/jira_connect/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 16,
+      "method": "verify_atlassian_jwt!",
+      "owner": "JiraConnect::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_bdf59b9e346416acb0611e50"
+      }
+    },
+    {
+      "id": "ev_8d64ac442c108823346894ec",
+      "callback": "verify_atlassian_jwt!",
+      "conditional": false,
+      "end_line": 8,
+      "file": "app/controllers/jira_connect/application_controller.rb",
+      "kind": "active_callback",
+      "line": 8,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_8d64ac442c108823346894ec"
+      }
+    },
+    {
+      "id": "ev_43229a7af4bd53109e39a98c",
+      "file": "ee/app/controllers/ee/jira_connect/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 14,
+      "method": "check_if_blocked_by_settings",
+      "owner": "EE::JiraConnect::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_43229a7af4bd53109e39a98c"
+      }
+    },
+    {
+      "id": "ev_44a299f4252bb40098728666",
+      "callback": "check_if_blocked_by_settings",
+      "conditional": false,
+      "end_line": 9,
+      "file": "ee/app/controllers/ee/jira_connect/application_controller.rb",
+      "kind": "active_callback",
+      "line": 9,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_44a299f4252bb40098728666"
+      }
+    },
+    {
+      "id": "ev_024f6da4aa782c3ab94677b7",
+      "file": "app/controllers/jira_connect/workspaces_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 7,
+      "method": "search",
+      "owner": "JiraConnect::WorkspacesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_024f6da4aa782c3ab94677b7"
+      }
+    },
+    {
+      "id": "ev_87cf28dd0215b57324af6e7d",
+      "action": "search",
+      "controller": "JiraConnect::WorkspacesController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_87cf28dd0215b57324af6e7d"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "verify_atlassian_jwt!",
+      "owner": "JiraConnect::ApplicationController",
+      "source": {
+        "end_line": 8,
+        "file": "app/controllers/jira_connect/application_controller.rb",
+        "line": 8
+      }
+    },
+    {
+      "conditional": false,
+      "name": "check_if_blocked_by_settings",
+      "owner": "EE::JiraConnect::ApplicationController",
+      "source": {
+        "end_line": 9,
+        "file": "ee/app/controllers/ee/jira_connect/application_controller.rb",
+        "line": 9
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/46739",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "id": "ep_d37d8500dd85be56474028b8",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/oauth/token/info",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Oauth::TokenInfoController",
+  "controller_path": "oauth/token_info",
+  "action": "show",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_c8aff82c93e79cfc3fbbe024",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_e1dc277588a5babd9ea867de",
+      "ev_85b13b34b34efd4a375c6b74",
+      "ev_1169bde169f40342cfd476cb",
+      "ev_7adf95945873660dcc764c89",
+      "ev_a7730560caacf6cf58b2f152"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 46,
+    "file": "config/routes.rb",
+    "line": 40
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 20,
+      "file": "app/controllers/oauth/token_info_controller.rb",
+      "line": 6,
+      "owner": "Oauth::TokenInfoController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_e1dc277588a5babd9ea867de",
+      "callback": "enforce_content_type",
+      "conditional": true,
+      "end_line": 9,
+      "file": "external/doorkeeper-5.9.3/app/controllers/doorkeeper/application_metal_controller.rb",
+      "kind": "active_callback",
+      "line": 8,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e1dc277588a5babd9ea867de"
+      }
+    },
+    {
+      "id": "ev_85b13b34b34efd4a375c6b74",
+      "file": "app/controllers/concerns/enforces_two_factor_authentication.rb",
+      "kind": "auth_method_reviewed",
+      "line": 21,
+      "method": "check_two_factor_requirement",
+      "owner": "EnforcesTwoFactorAuthentication",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_85b13b34b34efd4a375c6b74"
+      }
+    },
+    {
+      "id": "ev_1169bde169f40342cfd476cb",
+      "callback": "check_two_factor_requirement",
+      "conditional": false,
+      "end_line": 14,
+      "file": "app/controllers/concerns/enforces_two_factor_authentication.rb",
+      "kind": "active_callback",
+      "line": 14,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1169bde169f40342cfd476cb"
+      }
+    },
+    {
+      "id": "ev_7adf95945873660dcc764c89",
+      "file": "app/controllers/oauth/token_info_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 6,
+      "method": "show",
+      "owner": "Oauth::TokenInfoController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_7adf95945873660dcc764c89"
+      }
+    },
+    {
+      "id": "ev_a7730560caacf6cf58b2f152",
+      "action": "show",
+      "controller": "Oauth::TokenInfoController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a7730560caacf6cf58b2f152"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": true,
+      "name": "enforce_content_type",
+      "owner": "Doorkeeper::ApplicationMetalController",
+      "source": {
+        "end_line": 9,
+        "file": "external/doorkeeper-5.9.3/app/controllers/doorkeeper/application_metal_controller.rb",
+        "line": 8
+      }
+    },
+    {
+      "conditional": false,
+      "name": "check_two_factor_requirement",
+      "owner": "EnforcesTwoFactorAuthentication",
+      "source": {
+        "end_line": 14,
+        "file": "app/controllers/concerns/enforces_two_factor_authentication.rb",
+        "line": 14
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16790",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

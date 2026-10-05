@@ -1,0 +1,468 @@
+{
+  "id": "ep_717d33c3b81d6e4b8078d447",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/*repository_path/info/refs",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Repositories::GitHttpController",
+  "controller_path": "repositories/git_http",
+  "action": "info_refs",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_b9bdbe644e66b5dc46285636",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_6ae83073752321f5c273b000",
+      "ev_50fe326f875826a581cd6e80",
+      "ev_0df41568a68742029617801f",
+      "ev_a3ad527783afd4d1f0e21100",
+      "ev_86fc522175880393683dc64b",
+      "ev_7c06d4a6e3ac5fc6fd0e3804",
+      "ev_69ed15ad1cfa848bd8882781",
+      "ev_848988f0619c9a5fa732c10d",
+      "ev_4b92aee50c90a202f53c77e1",
+      "ev_06990d110997270b435148dc",
+      "ev_4e0a5e70a75be688a3d412c4",
+      "ev_53b0ffa153da1c128653f85e",
+      "ev_0ab394836abef520be3ed244",
+      "ev_5564283318e9185fb83e05d5",
+      "ev_72224381d365b7c83d2cc510",
+      "ev_562323654e0790f206e4798b",
+      "ev_26a007085170c3ef042f1f9c",
+      "ev_e410e83669d9e673242798f2",
+      "ev_3892c0c31f7e35bcf4d07394",
+      "ev_1aa5ca01e56fba2c34f635b0",
+      "ev_cfe587dbfd5d39bd61d3dfbb",
+      "ev_501c2448c5d2b187d415571d"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 44,
+      "expression": "constraints(repository_path: Gitlab::PathRegex.repository_git_route_regex) do",
+      "file": "config/routes/git_http.rb",
+      "kind": "route_constraint",
+      "line": 4
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 8,
+    "file": "config/routes/git_http.rb",
+    "line": 8
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 21,
+      "file": "ee/app/controllers/ee/repositories/git_http_controller.rb",
+      "line": 17,
+      "owner": "EE::Repositories::GitHttpController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/git_http.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_6ae83073752321f5c273b000",
+      "file": "ee/app/controllers/ee/repositories/git_http_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 137,
+      "method": "authenticate_user",
+      "owner": "EE::Repositories::GitHttpController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_6ae83073752321f5c273b000"
+      }
+    },
+    {
+      "id": "ev_50fe326f875826a581cd6e80",
+      "file": "app/controllers/repositories/git_http_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 62,
+      "method": "authenticate_user",
+      "owner": "Repositories::GitHttpController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_50fe326f875826a581cd6e80"
+      }
+    },
+    {
+      "id": "ev_0df41568a68742029617801f",
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 54,
+      "method": "authenticate_user",
+      "owner": "Repositories::GitHttpClientController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0df41568a68742029617801f"
+      }
+    },
+    {
+      "id": "ev_a3ad527783afd4d1f0e21100",
+      "callback": "authenticate_user",
+      "conditional": false,
+      "end_line": 23,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 23,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a3ad527783afd4d1f0e21100"
+      }
+    },
+    {
+      "id": "ev_86fc522175880393683dc64b",
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 131,
+      "method": "parse_repo_path",
+      "owner": "Repositories::GitHttpClientController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_86fc522175880393683dc64b"
+      }
+    },
+    {
+      "id": "ev_7c06d4a6e3ac5fc6fd0e3804",
+      "callback": "parse_repo_path",
+      "conditional": false,
+      "end_line": 23,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 23,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_7c06d4a6e3ac5fc6fd0e3804"
+      }
+    },
+    {
+      "id": "ev_69ed15ad1cfa848bd8882781",
+      "callback": "set_current_organization",
+      "conditional": false,
+      "end_line": 23,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 23,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_69ed15ad1cfa848bd8882781"
+      }
+    },
+    {
+      "id": "ev_848988f0619c9a5fa732c10d",
+      "callback": "set_current_ip_address",
+      "conditional": false,
+      "end_line": 29,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 29,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_848988f0619c9a5fa732c10d"
+      }
+    },
+    {
+      "id": "ev_4b92aee50c90a202f53c77e1",
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 165,
+      "method": "bypass_admin_mode!",
+      "owner": "Repositories::GitHttpClientController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4b92aee50c90a202f53c77e1"
+      }
+    },
+    {
+      "id": "ev_06990d110997270b435148dc",
+      "callback": "bypass_admin_mode!",
+      "conditional": true,
+      "end_line": 32,
+      "file": "app/controllers/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 32,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_06990d110997270b435148dc"
+      }
+    },
+    {
+      "id": "ev_4e0a5e70a75be688a3d412c4",
+      "callback": "@block:ee/app/controllers/ee/repositories/git_http_client_controller.rb:52",
+      "conditional": false,
+      "end_line": 54,
+      "file": "ee/app/controllers/ee/repositories/git_http_client_controller.rb",
+      "kind": "active_callback",
+      "line": 52,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4e0a5e70a75be688a3d412c4"
+      }
+    },
+    {
+      "id": "ev_53b0ffa153da1c128653f85e",
+      "file": "app/controllers/concerns/workhorse_authenticatable.rb",
+      "kind": "auth_method_reviewed",
+      "line": 36,
+      "method": "verify_workhorse_api!",
+      "owner": "WorkhorseAuthenticatable",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_53b0ffa153da1c128653f85e"
+      }
+    },
+    {
+      "id": "ev_0ab394836abef520be3ed244",
+      "callback": "verify_workhorse_api!",
+      "conditional": false,
+      "end_line": 9,
+      "file": "app/controllers/concerns/workhorse_request.rb",
+      "kind": "active_callback",
+      "line": 9,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0ab394836abef520be3ed244"
+      }
+    },
+    {
+      "id": "ev_5564283318e9185fb83e05d5",
+      "file": "app/controllers/repositories/git_http_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 101,
+      "method": "ensure_ssh_git_http_authenticated",
+      "owner": "Repositories::GitHttpController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5564283318e9185fb83e05d5"
+      }
+    },
+    {
+      "id": "ev_72224381d365b7c83d2cc510",
+      "callback": "ensure_ssh_git_http_authenticated",
+      "conditional": true,
+      "end_line": 10,
+      "file": "app/controllers/repositories/git_http_controller.rb",
+      "kind": "active_callback",
+      "line": 10,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_72224381d365b7c83d2cc510"
+      }
+    },
+    {
+      "id": "ev_562323654e0790f206e4798b",
+      "file": "app/controllers/repositories/git_http_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 197,
+      "method": "access_check",
+      "owner": "Repositories::GitHttpController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_562323654e0790f206e4798b"
+      }
+    },
+    {
+      "id": "ev_26a007085170c3ef042f1f9c",
+      "callback": "access_check",
+      "conditional": false,
+      "end_line": 11,
+      "file": "app/controllers/repositories/git_http_controller.rb",
+      "kind": "active_callback",
+      "line": 11,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_26a007085170c3ef042f1f9c"
+      }
+    },
+    {
+      "id": "ev_e410e83669d9e673242798f2",
+      "file": "app/controllers/repositories/git_http_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 58,
+      "method": "deny_head_requests",
+      "owner": "Repositories::GitHttpController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e410e83669d9e673242798f2"
+      }
+    },
+    {
+      "id": "ev_3892c0c31f7e35bcf4d07394",
+      "callback": "deny_head_requests",
+      "conditional": false,
+      "end_line": 12,
+      "file": "app/controllers/repositories/git_http_controller.rb",
+      "kind": "active_callback",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_3892c0c31f7e35bcf4d07394"
+      }
+    },
+    {
+      "id": "ev_1aa5ca01e56fba2c34f635b0",
+      "file": "ee/app/controllers/ee/repositories/git_http_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 17,
+      "method": "info_refs",
+      "owner": "EE::Repositories::GitHttpController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1aa5ca01e56fba2c34f635b0"
+      }
+    },
+    {
+      "id": "ev_cfe587dbfd5d39bd61d3dfbb",
+      "file": "app/controllers/repositories/git_http_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 28,
+      "method": "info_refs",
+      "owner": "Repositories::GitHttpController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_cfe587dbfd5d39bd61d3dfbb"
+      }
+    },
+    {
+      "id": "ev_501c2448c5d2b187d415571d",
+      "action": "info_refs",
+      "controller": "Repositories::GitHttpController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_501c2448c5d2b187d415571d"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "authenticate_user",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 23,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 23
+      }
+    },
+    {
+      "conditional": false,
+      "name": "parse_repo_path",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 23,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 23
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_current_organization",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 23,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 23
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_current_ip_address",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 29,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 29
+      }
+    },
+    {
+      "conditional": true,
+      "name": "bypass_admin_mode!",
+      "owner": "Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 32,
+        "file": "app/controllers/repositories/git_http_client_controller.rb",
+        "line": 32
+      }
+    },
+    {
+      "conditional": false,
+      "name": "@block:ee/app/controllers/ee/repositories/git_http_client_controller.rb:52",
+      "owner": "EE::Repositories::GitHttpClientController",
+      "source": {
+        "end_line": 54,
+        "file": "ee/app/controllers/ee/repositories/git_http_client_controller.rb",
+        "line": 52
+      }
+    },
+    {
+      "conditional": false,
+      "name": "verify_workhorse_api!",
+      "owner": "WorkhorseRequest",
+      "source": {
+        "end_line": 9,
+        "file": "app/controllers/concerns/workhorse_request.rb",
+        "line": 9
+      }
+    },
+    {
+      "conditional": true,
+      "name": "ensure_ssh_git_http_authenticated",
+      "owner": "Repositories::GitHttpController",
+      "source": {
+        "end_line": 10,
+        "file": "app/controllers/repositories/git_http_controller.rb",
+        "line": 10
+      }
+    },
+    {
+      "conditional": false,
+      "name": "access_check",
+      "owner": "Repositories::GitHttpController",
+      "source": {
+        "end_line": 11,
+        "file": "app/controllers/repositories/git_http_controller.rb",
+        "line": 11
+      }
+    },
+    {
+      "conditional": false,
+      "name": "deny_head_requests",
+      "owner": "Repositories::GitHttpController",
+      "source": {
+        "end_line": 12,
+        "file": "app/controllers/repositories/git_http_controller.rb",
+        "line": 12
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/46624",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

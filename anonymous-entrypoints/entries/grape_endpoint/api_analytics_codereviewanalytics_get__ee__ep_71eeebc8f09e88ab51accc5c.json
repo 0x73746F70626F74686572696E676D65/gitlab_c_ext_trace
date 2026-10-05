@@ -1,0 +1,100 @@
+{
+  "id": "ep_71eeebc8f09e88ab51accc5c",
+  "type": "grape_endpoint",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/v4/analytics/code_review",
+  "http_methods": [
+    "GET"
+  ],
+  "class": "API::Analytics::CodeReviewAnalytics",
+  "action": "GET",
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_4cb77c4b4156e750f67f27ab",
+      "ev_404a068fb94c0f8f3e950e64",
+      "ev_03c36358da49d7ad7b63d86d"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "ability": "read_code_review_analytics",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 66,
+    "file": "ee/lib/api/analytics/code_review_analytics.rb",
+    "line": 57
+  },
+  "registration_status": "mounted_grape_endpoint",
+  "mount_chain": [
+    {
+      "class": "API::Analytics::CodeReviewAnalytics",
+      "end_line": 74,
+      "file": "ee/lib/ee/api/api.rb",
+      "line": 74
+    }
+  ],
+  "registration_bindings": {},
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_4cb77c4b4156e750f67f27ab",
+      "ability": "read_code_review_analytics",
+      "end_line": 58,
+      "file": "ee/lib/api/analytics/code_review_analytics.rb",
+      "kind": "anonymous_permission",
+      "line": 58,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4cb77c4b4156e750f67f27ab"
+      }
+    },
+    {
+      "id": "ev_404a068fb94c0f8f3e950e64",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 32,
+      "resource_scope": "project",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_404a068fb94c0f8f3e950e64"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/17036",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "id": "ep_64927ed1e464ef014bbd769d",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/-/user_settings/integration_accounts/new",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Profiles::ChatNamesController",
+  "controller_path": "profiles/chat_names",
+  "action": "new",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_85dbe0a9b7ee8ddaa9a0a2ae",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_e878455604e0c33e8e58340c",
+      "ev_759bcf25ab6d441ac74eea61",
+      "ev_829a9a3960bcdbc3daf6c5c9",
+      "ev_e665c543e2a495c8a030d590",
+      "ev_b0feca85fc1c1aabe1c21080",
+      "ev_fbaa7988a4900a3f5f9ac9f8",
+      "ev_42c74cba0cc9a4b174e0020e",
+      "ev_dd7024dc0b9fd194e9d0d7e7"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 46,
+    "file": "config/routes/user_settings.rb",
+    "line": 42
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 18,
+      "file": "app/controllers/profiles/chat_names_controller.rb",
+      "line": 16,
+      "owner": "Profiles::ChatNamesController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/user_settings.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_e878455604e0c33e8e58340c",
+      "file": "app/controllers/profiles/chat_names_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 68,
+      "method": "chat_name_token",
+      "owner": "Profiles::ChatNamesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e878455604e0c33e8e58340c"
+      }
+    },
+    {
+      "id": "ev_759bcf25ab6d441ac74eea61",
+      "callback": "chat_name_token",
+      "conditional": false,
+      "end_line": 6,
+      "file": "app/controllers/profiles/chat_names_controller.rb",
+      "kind": "active_callback",
+      "line": 6,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_759bcf25ab6d441ac74eea61"
+      }
+    },
+    {
+      "id": "ev_829a9a3960bcdbc3daf6c5c9",
+      "file": "app/controllers/profiles/chat_names_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 64,
+      "method": "chat_name_params",
+      "owner": "Profiles::ChatNamesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_829a9a3960bcdbc3daf6c5c9"
+      }
+    },
+    {
+      "id": "ev_e665c543e2a495c8a030d590",
+      "callback": "chat_name_params",
+      "conditional": false,
+      "end_line": 7,
+      "file": "app/controllers/profiles/chat_names_controller.rb",
+      "kind": "active_callback",
+      "line": 7,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e665c543e2a495c8a030d590"
+      }
+    },
+    {
+      "id": "ev_b0feca85fc1c1aabe1c21080",
+      "file": "app/controllers/profiles/chat_names_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 56,
+      "method": "set_hide_search_settings",
+      "owner": "Profiles::ChatNamesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_b0feca85fc1c1aabe1c21080"
+      }
+    },
+    {
+      "id": "ev_fbaa7988a4900a3f5f9ac9f8",
+      "callback": "set_hide_search_settings",
+      "conditional": false,
+      "end_line": 8,
+      "file": "app/controllers/profiles/chat_names_controller.rb",
+      "kind": "active_callback",
+      "line": 8,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_fbaa7988a4900a3f5f9ac9f8"
+      }
+    },
+    {
+      "id": "ev_42c74cba0cc9a4b174e0020e",
+      "file": "app/controllers/profiles/chat_names_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 16,
+      "method": "new",
+      "owner": "Profiles::ChatNamesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_42c74cba0cc9a4b174e0020e"
+      }
+    },
+    {
+      "id": "ev_dd7024dc0b9fd194e9d0d7e7",
+      "action": "new",
+      "controller": "Profiles::ChatNamesController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_dd7024dc0b9fd194e9d0d7e7"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "chat_name_token",
+      "owner": "Profiles::ChatNamesController",
+      "source": {
+        "end_line": 6,
+        "file": "app/controllers/profiles/chat_names_controller.rb",
+        "line": 6
+      }
+    },
+    {
+      "conditional": false,
+      "name": "chat_name_params",
+      "owner": "Profiles::ChatNamesController",
+      "source": {
+        "end_line": 7,
+        "file": "app/controllers/profiles/chat_names_controller.rb",
+        "line": 7
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_hide_search_settings",
+      "owner": "Profiles::ChatNamesController",
+      "source": {
+        "end_line": 8,
+        "file": "app/controllers/profiles/chat_names_controller.rb",
+        "line": 8
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/46875",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

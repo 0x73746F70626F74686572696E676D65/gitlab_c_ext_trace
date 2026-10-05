@@ -1,0 +1,199 @@
+{
+  "id": "ep_3fc7f4226bcd8ba3f94bbbfa",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/-/profile/update_username",
+  "http_methods": [
+    "PUT"
+  ],
+  "controller": "ProfilesController",
+  "controller_path": "profiles",
+  "action": "update_username",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_539412960559811bb71f6658",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_9df3ae39bd5738525c03e096",
+      "ev_e0f1d27a6deec877f7659a3e",
+      "ev_920d983e98c32549fe30dca3",
+      "ev_3a43ae7aa9d36aded0179042",
+      "ev_3c74a25ce88d45da999788ca",
+      "ev_97d6164b0401f36ecaf27e1c",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_7e710a7ac2b84f7a72fcf93f"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 14,
+    "file": "config/routes/profile.rb",
+    "line": 14
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 60,
+      "file": "app/controllers/profiles_controller.rb",
+      "line": 44,
+      "owner": "ProfilesController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/profile.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_9df3ae39bd5738525c03e096",
+      "file": "app/controllers/profiles_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 64,
+      "method": "user",
+      "owner": "ProfilesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_9df3ae39bd5738525c03e096"
+      }
+    },
+    {
+      "id": "ev_e0f1d27a6deec877f7659a3e",
+      "callback": "user",
+      "conditional": false,
+      "end_line": 8,
+      "file": "app/controllers/profiles_controller.rb",
+      "kind": "active_callback",
+      "line": 8,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e0f1d27a6deec877f7659a3e"
+      }
+    },
+    {
+      "id": "ev_920d983e98c32549fe30dca3",
+      "file": "app/controllers/profiles_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 68,
+      "method": "authorize_change_username!",
+      "owner": "ProfilesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_920d983e98c32549fe30dca3"
+      }
+    },
+    {
+      "id": "ev_3a43ae7aa9d36aded0179042",
+      "callback": "authorize_change_username!",
+      "conditional": false,
+      "end_line": 9,
+      "file": "app/controllers/profiles_controller.rb",
+      "kind": "active_callback",
+      "line": 9,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_3a43ae7aa9d36aded0179042"
+      }
+    },
+    {
+      "id": "ev_3c74a25ce88d45da999788ca",
+      "callback": "@block:app/controllers/profiles_controller.rb:10",
+      "conditional": false,
+      "end_line": 12,
+      "file": "app/controllers/profiles_controller.rb",
+      "kind": "active_callback",
+      "line": 10,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_3c74a25ce88d45da999788ca"
+      }
+    },
+    {
+      "id": "ev_97d6164b0401f36ecaf27e1c",
+      "file": "app/controllers/profiles_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 44,
+      "method": "update_username",
+      "owner": "ProfilesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_97d6164b0401f36ecaf27e1c"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_7e710a7ac2b84f7a72fcf93f",
+      "action": "update_username",
+      "controller": "ProfilesController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_7e710a7ac2b84f7a72fcf93f"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "user",
+      "owner": "ProfilesController",
+      "source": {
+        "end_line": 8,
+        "file": "app/controllers/profiles_controller.rb",
+        "line": 8
+      }
+    },
+    {
+      "conditional": false,
+      "name": "authorize_change_username!",
+      "owner": "ProfilesController",
+      "source": {
+        "end_line": 9,
+        "file": "app/controllers/profiles_controller.rb",
+        "line": 9
+      }
+    },
+    {
+      "conditional": false,
+      "name": "@block:app/controllers/profiles_controller.rb:10",
+      "owner": "ProfilesController",
+      "source": {
+        "end_line": 12,
+        "file": "app/controllers/profiles_controller.rb",
+        "line": 10
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/46808",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

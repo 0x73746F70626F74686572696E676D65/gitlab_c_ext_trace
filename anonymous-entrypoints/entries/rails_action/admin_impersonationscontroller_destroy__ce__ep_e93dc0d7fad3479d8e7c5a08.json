@@ -1,0 +1,176 @@
+{
+  "id": "ep_e93dc0d7fad3479d8e7c5a08",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/admin/impersonation",
+  "http_methods": [
+    "DELETE"
+  ],
+  "controller": "Admin::ImpersonationsController",
+  "controller_path": "admin/impersonations",
+  "action": "destroy",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_b887bd6b03f75425ab30e922",
+    "classification": "unauthenticated",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_58acddad095d87f828c7c44d",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_b23e17c062d870e7a3fe3af1",
+      "ev_619385e3ba379a0154ad9ebf",
+      "ev_32cfbba2c9fd11ef4162a31f",
+      "ev_d31e3cd54bd430af31f229e0",
+      "ev_0ca11f423c0aea2ccc233422"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 46,
+    "file": "config/routes/instance_admin.rb",
+    "line": 46
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 12,
+      "file": "app/controllers/admin/impersonations_controller.rb",
+      "line": 9,
+      "owner": "Admin::ImpersonationsController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/admin.rb",
+    "config/routes/instance_admin.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_58acddad095d87f828c7c44d",
+      "file": "app/controllers/concerns/enforces_step_up_authentication.rb",
+      "kind": "auth_method_reviewed",
+      "line": 22,
+      "method": "enforce_step_up_authentication",
+      "owner": "EnforcesStepUpAuthentication",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_58acddad095d87f828c7c44d"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_b23e17c062d870e7a3fe3af1",
+      "callback": "enforce_step_up_authentication",
+      "conditional": false,
+      "end_line": 17,
+      "file": "app/controllers/concerns/enforces_step_up_authentication.rb",
+      "kind": "active_callback",
+      "line": 17,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_b23e17c062d870e7a3fe3af1"
+      }
+    },
+    {
+      "id": "ev_619385e3ba379a0154ad9ebf",
+      "file": "app/controllers/admin/impersonations_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 16,
+      "method": "authenticate_impersonator!",
+      "owner": "Admin::ImpersonationsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_619385e3ba379a0154ad9ebf"
+      }
+    },
+    {
+      "id": "ev_32cfbba2c9fd11ef4162a31f",
+      "callback": "authenticate_impersonator!",
+      "conditional": false,
+      "end_line": 5,
+      "file": "app/controllers/admin/impersonations_controller.rb",
+      "kind": "active_callback",
+      "line": 5,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_32cfbba2c9fd11ef4162a31f"
+      }
+    },
+    {
+      "id": "ev_d31e3cd54bd430af31f229e0",
+      "file": "app/controllers/admin/impersonations_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 9,
+      "method": "destroy",
+      "owner": "Admin::ImpersonationsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_d31e3cd54bd430af31f229e0"
+      }
+    },
+    {
+      "id": "ev_0ca11f423c0aea2ccc233422",
+      "action": "destroy",
+      "controller": "Admin::ImpersonationsController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0ca11f423c0aea2ccc233422"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "enforce_step_up_authentication",
+      "owner": "EnforcesStepUpAuthentication",
+      "source": {
+        "end_line": 17,
+        "file": "app/controllers/concerns/enforces_step_up_authentication.rb",
+        "line": 17
+      }
+    },
+    {
+      "conditional": false,
+      "name": "authenticate_impersonator!",
+      "owner": "Admin::ImpersonationsController",
+      "source": {
+        "end_line": 5,
+        "file": "app/controllers/admin/impersonations_controller.rb",
+        "line": 5
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/15105",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

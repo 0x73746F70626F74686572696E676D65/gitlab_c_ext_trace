@@ -1,0 +1,297 @@
+{
+  "id": "ep_4fbf8464fa82db290d2a939f",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/*namespace_id/:project_id/prometheus/alerts/notify",
+  "http_methods": [
+    "POST"
+  ],
+  "controller": "Projects::Alerting::NotificationsController",
+  "controller_path": "projects/alerting/notifications",
+  "action": "create",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_b93bc96d5b80f4ee81acbf89",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_37c48e9fa0f6e5708b546b57",
+      "ev_1acb9034ce83304d608e9c6d",
+      "ev_c13867f00baa412f4056f7bb",
+      "ev_ae6c7e248f2a7f0a8268a762",
+      "ev_4cf871737892a744fa88c8c6",
+      "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "ev_667def2dd62f4ca6b01b5df2",
+      "ev_b9f1cfadaf29736afd22f95d",
+      "ev_289075f16ba39746391581ee",
+      "ev_380f331f5d857424a21cc65d",
+      "ev_080e37e4573c82445cca9ee9",
+      "ev_05b5334ee7476b00b80ba510"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 718,
+      "expression": "constraints(Projects::ProjectUrlConstraint.new) do",
+      "file": "config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 3
+    },
+    {
+      "end_line": 691,
+      "expression": "{ project_id: Gitlab::PathRegex.project_route_regex }",
+      "file": "config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 22
+    },
+    {
+      "end_line": 578,
+      "expression": "{ id: /\\d+/ }",
+      "file": "config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 576
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 577,
+    "file": "config/routes/project.rb",
+    "line": 577
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 30,
+      "file": "app/controllers/projects/alerting/notifications_controller.rb",
+      "line": 20,
+      "owner": "Projects::Alerting::NotificationsController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/project.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_37c48e9fa0f6e5708b546b57",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 57,
+      "method": "repository",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_37c48e9fa0f6e5708b546b57"
+      }
+    },
+    {
+      "id": "ev_1acb9034ce83304d608e9c6d",
+      "callback": "repository",
+      "conditional": false,
+      "end_line": 15,
+      "file": "app/controllers/projects/alerting/notifications_controller.rb",
+      "kind": "active_callback",
+      "line": 15,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1acb9034ce83304d608e9c6d"
+      }
+    },
+    {
+      "id": "ev_c13867f00baa412f4056f7bb",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 127,
+      "method": "enforce_step_up_auth_for_namespace",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c13867f00baa412f4056f7bb"
+      }
+    },
+    {
+      "id": "ev_ae6c7e248f2a7f0a8268a762",
+      "callback": "enforce_step_up_auth_for_namespace",
+      "conditional": false,
+      "end_line": 17,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 17,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ae6c7e248f2a7f0a8268a762"
+      }
+    },
+    {
+      "id": "ev_4cf871737892a744fa88c8c6",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 139,
+      "method": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4cf871737892a744fa88c8c6"
+      }
+    },
+    {
+      "id": "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "callback": "set_project_markdown_flags",
+      "conditional": false,
+      "end_line": 19,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 19,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5fe44b01d3ae5e9d4b1e2e9b"
+      }
+    },
+    {
+      "id": "ev_667def2dd62f4ca6b01b5df2",
+      "file": "app/controllers/concerns/incident_management_feature_flag.rb",
+      "kind": "auth_method_reviewed",
+      "line": 8,
+      "method": "check_incidents_feature_flag",
+      "owner": "IncidentManagementFeatureFlag",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_667def2dd62f4ca6b01b5df2"
+      }
+    },
+    {
+      "id": "ev_b9f1cfadaf29736afd22f95d",
+      "callback": "check_incidents_feature_flag",
+      "conditional": false,
+      "end_line": 13,
+      "file": "app/controllers/projects/alerting/notifications_controller.rb",
+      "kind": "active_callback",
+      "line": 13,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_b9f1cfadaf29736afd22f95d"
+      }
+    },
+    {
+      "id": "ev_289075f16ba39746391581ee",
+      "file": "app/controllers/projects/alerting/notifications_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 34,
+      "method": "project_without_auth",
+      "owner": "Projects::Alerting::NotificationsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_289075f16ba39746391581ee"
+      }
+    },
+    {
+      "id": "ev_380f331f5d857424a21cc65d",
+      "callback": "project_without_auth",
+      "conditional": false,
+      "end_line": 15,
+      "file": "app/controllers/projects/alerting/notifications_controller.rb",
+      "kind": "active_callback",
+      "line": 15,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_380f331f5d857424a21cc65d"
+      }
+    },
+    {
+      "id": "ev_080e37e4573c82445cca9ee9",
+      "file": "app/controllers/projects/alerting/notifications_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 20,
+      "method": "create",
+      "owner": "Projects::Alerting::NotificationsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_080e37e4573c82445cca9ee9"
+      }
+    },
+    {
+      "id": "ev_05b5334ee7476b00b80ba510",
+      "action": "create",
+      "controller": "Projects::Alerting::NotificationsController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_05b5334ee7476b00b80ba510"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "repository",
+      "owner": "Projects::Alerting::NotificationsController",
+      "source": {
+        "end_line": 15,
+        "file": "app/controllers/projects/alerting/notifications_controller.rb",
+        "line": 15
+      }
+    },
+    {
+      "conditional": false,
+      "name": "enforce_step_up_auth_for_namespace",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 17,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 17
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 19,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 19
+      }
+    },
+    {
+      "conditional": false,
+      "name": "check_incidents_feature_flag",
+      "owner": "Projects::Alerting::NotificationsController",
+      "source": {
+        "end_line": 13,
+        "file": "app/controllers/projects/alerting/notifications_controller.rb",
+        "line": 13
+      }
+    },
+    {
+      "conditional": false,
+      "name": "project_without_auth",
+      "owner": "Projects::Alerting::NotificationsController",
+      "source": {
+        "end_line": 15,
+        "file": "app/controllers/projects/alerting/notifications_controller.rb",
+        "line": 15
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/46587",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

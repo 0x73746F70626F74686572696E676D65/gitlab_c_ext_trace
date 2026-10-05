@@ -1,0 +1,637 @@
+{
+  "id": "ep_dcafb52e7cde24ff6f19a0e4",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/*namespace_id/:project_id/-/merge_requests/:id/commits",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Projects::MergeRequestsController",
+  "controller_path": "projects/merge_requests",
+  "action": "commits",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_e3bf480c76223f630d63417a",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_a79a1dd79609f70d56cfcaa3",
+      "ev_4f8a149ab20eaa7b4e8138f4",
+      "ev_db49b135fdaf0f6fe06e1503",
+      "ev_37c48e9fa0f6e5708b546b57",
+      "ev_a0feff7d1555051df920a1bc",
+      "ev_c13867f00baa412f4056f7bb",
+      "ev_ae6c7e248f2a7f0a8268a762",
+      "ev_4cf871737892a744fa88c8c6",
+      "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "ev_fba0b8e1f10cdb6a43049d9c",
+      "ev_ff0390bbc0d67a7daaccb161",
+      "ev_3f99ca94290220ee1ccccbb6",
+      "ev_e5a393f29c62b49b88465a25",
+      "ev_a84b6ca7558b72992f14468b",
+      "ev_03c36358da49d7ad7b63d86d",
+      "ev_94e51a1c098d8e1386fe00c0",
+      "ev_305f834d65aa4b896f1ab785",
+      "ev_575508cce013be1b96809779",
+      "ev_8096769c908fbbaf0107a07e",
+      "ev_35464265484141ae0c3b1cab",
+      "ev_f1331e7358d7e7c7a6bbe227",
+      "ev_06c0e5b56f96528f37a0eab8",
+      "ev_af4009d01a8d50d550098082",
+      "ev_c924906c5135036fe189f46a",
+      "ev_e1705d78feef7593698374e5",
+      "ev_4d14f3510d58d6c8dbe57d6e",
+      "ev_362d80c02e026220bc424194",
+      "ev_c9ec3b9328d660f79752d862",
+      "ev_1e4899ecde389f32f25d0281",
+      "ev_8e31be9542868e6a1e973de0",
+      "ev_466b8ed5300344d0a23f0a74"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "end_line": 718,
+      "expression": "constraints(Projects::ProjectUrlConstraint.new) do",
+      "file": "config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 3
+    },
+    {
+      "end_line": 691,
+      "expression": "{ project_id: Gitlab::PathRegex.project_route_regex }",
+      "file": "config/routes/project.rb",
+      "kind": "route_constraint",
+      "line": 22
+    },
+    {
+      "end_line": 82,
+      "expression": "{ id: /\\d+/ }",
+      "file": "config/routes/merge_requests.rb",
+      "kind": "route_constraint",
+      "line": 3
+    },
+    {
+      "end_line": 36,
+      "expression": "->(req) { req.format == :json }",
+      "file": "config/routes/merge_requests.rb",
+      "kind": "route_constraint",
+      "line": 27
+    },
+    {
+      "ability": "read_project",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "ability": "read_merge_request",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 28,
+    "file": "config/routes/merge_requests.rb",
+    "line": 28
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 158,
+      "file": "app/controllers/projects/merge_requests_controller.rb",
+      "line": 126,
+      "owner": "Projects::MergeRequestsController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/project.rb",
+    "config/routes/merge_requests.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_a79a1dd79609f70d56cfcaa3",
+      "ability": "read_project",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "anonymous_permission",
+      "line": 37,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a79a1dd79609f70d56cfcaa3"
+      }
+    },
+    {
+      "id": "ev_4f8a149ab20eaa7b4e8138f4",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 104,
+      "resource_scope": "group",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4f8a149ab20eaa7b4e8138f4"
+      }
+    },
+    {
+      "id": "ev_db49b135fdaf0f6fe06e1503",
+      "callback": "project",
+      "conditional": false,
+      "end_line": 11,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 11,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_db49b135fdaf0f6fe06e1503"
+      }
+    },
+    {
+      "id": "ev_37c48e9fa0f6e5708b546b57",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 57,
+      "method": "repository",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_37c48e9fa0f6e5708b546b57"
+      }
+    },
+    {
+      "id": "ev_a0feff7d1555051df920a1bc",
+      "callback": "repository",
+      "conditional": false,
+      "end_line": 12,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a0feff7d1555051df920a1bc"
+      }
+    },
+    {
+      "id": "ev_c13867f00baa412f4056f7bb",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 127,
+      "method": "enforce_step_up_auth_for_namespace",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c13867f00baa412f4056f7bb"
+      }
+    },
+    {
+      "id": "ev_ae6c7e248f2a7f0a8268a762",
+      "callback": "enforce_step_up_auth_for_namespace",
+      "conditional": false,
+      "end_line": 17,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 17,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ae6c7e248f2a7f0a8268a762"
+      }
+    },
+    {
+      "id": "ev_4cf871737892a744fa88c8c6",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 139,
+      "method": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4cf871737892a744fa88c8c6"
+      }
+    },
+    {
+      "id": "ev_5fe44b01d3ae5e9d4b1e2e9b",
+      "callback": "set_project_markdown_flags",
+      "conditional": false,
+      "end_line": 19,
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "active_callback",
+      "line": 19,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_5fe44b01d3ae5e9d4b1e2e9b"
+      }
+    },
+    {
+      "id": "ev_fba0b8e1f10cdb6a43049d9c",
+      "file": "app/controllers/projects/merge_requests/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 59,
+      "method": "check_merge_requests_available!",
+      "owner": "Projects::MergeRequests::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_fba0b8e1f10cdb6a43049d9c"
+      }
+    },
+    {
+      "id": "ev_ff0390bbc0d67a7daaccb161",
+      "callback": "check_merge_requests_available!",
+      "conditional": false,
+      "end_line": 4,
+      "file": "app/controllers/projects/merge_requests/application_controller.rb",
+      "kind": "active_callback",
+      "line": 4,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ff0390bbc0d67a7daaccb161"
+      }
+    },
+    {
+      "id": "ev_3f99ca94290220ee1ccccbb6",
+      "file": "app/controllers/projects/merge_requests/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 67,
+      "method": "merge_request",
+      "owner": "Projects::MergeRequests::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_3f99ca94290220ee1ccccbb6"
+      }
+    },
+    {
+      "id": "ev_e5a393f29c62b49b88465a25",
+      "ability": "read_merge_request",
+      "end_line": 72,
+      "file": "app/controllers/projects/merge_requests/application_controller.rb",
+      "kind": "anonymous_permission",
+      "line": 72,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e5a393f29c62b49b88465a25"
+      }
+    },
+    {
+      "id": "ev_a84b6ca7558b72992f14468b",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 72,
+      "resource_scope": "group",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_a84b6ca7558b72992f14468b"
+      }
+    },
+    {
+      "id": "ev_03c36358da49d7ad7b63d86d",
+      "kind": "optional_authentication",
+      "method": "current_user",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_03c36358da49d7ad7b63d86d"
+      }
+    },
+    {
+      "id": "ev_94e51a1c098d8e1386fe00c0",
+      "callback": "merge_request",
+      "conditional": false,
+      "end_line": 5,
+      "file": "app/controllers/projects/merge_requests/application_controller.rb",
+      "kind": "active_callback",
+      "line": 5,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_94e51a1c098d8e1386fe00c0"
+      }
+    },
+    {
+      "id": "ev_305f834d65aa4b896f1ab785",
+      "ability": "read_merge_request",
+      "kind": "anonymous_permission",
+      "method": "authorize_read_merge_request!",
+      "owner": "Projects::MergeRequestsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_305f834d65aa4b896f1ab785"
+      }
+    },
+    {
+      "id": "ev_575508cce013be1b96809779",
+      "file": "app/controllers/projects/application_controller.rb",
+      "kind": "dynamic_authorizer_convention",
+      "line": 74,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_575508cce013be1b96809779"
+      }
+    },
+    {
+      "id": "ev_8096769c908fbbaf0107a07e",
+      "callback": "authorize_read_merge_request!",
+      "conditional": false,
+      "end_line": 6,
+      "file": "app/controllers/projects/merge_requests/application_controller.rb",
+      "kind": "active_callback",
+      "line": 6,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_8096769c908fbbaf0107a07e"
+      }
+    },
+    {
+      "id": "ev_35464265484141ae0c3b1cab",
+      "callback": "@block:app/controllers/projects/merge_requests/application_controller.rb:12",
+      "conditional": false,
+      "end_line": 14,
+      "file": "app/controllers/projects/merge_requests/application_controller.rb",
+      "kind": "active_callback",
+      "line": 12,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_35464265484141ae0c3b1cab"
+      }
+    },
+    {
+      "id": "ev_f1331e7358d7e7c7a6bbe227",
+      "file": "ee/app/controllers/concerns/ee/record_user_last_activity.rb",
+      "kind": "auth_method_reviewed",
+      "line": 9,
+      "method": "set_user_last_activity",
+      "owner": "EE::RecordUserLastActivity",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_f1331e7358d7e7c7a6bbe227"
+      }
+    },
+    {
+      "id": "ev_06c0e5b56f96528f37a0eab8",
+      "file": "app/controllers/concerns/record_user_last_activity.rb",
+      "kind": "auth_method_reviewed",
+      "line": 19,
+      "method": "set_user_last_activity",
+      "owner": "RecordUserLastActivity",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_06c0e5b56f96528f37a0eab8"
+      }
+    },
+    {
+      "id": "ev_af4009d01a8d50d550098082",
+      "end_line": 22,
+      "expression": "return unless current_user",
+      "file": "app/controllers/concerns/record_user_last_activity.rb",
+      "kind": "anonymous_early_return",
+      "line": 22,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_af4009d01a8d50d550098082"
+      }
+    },
+    {
+      "id": "ev_c924906c5135036fe189f46a",
+      "callback": "set_user_last_activity",
+      "conditional": false,
+      "end_line": 15,
+      "file": "app/controllers/concerns/record_user_last_activity.rb",
+      "kind": "active_callback",
+      "line": 15,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c924906c5135036fe189f46a"
+      }
+    },
+    {
+      "id": "ev_e1705d78feef7593698374e5",
+      "file": "app/controllers/concerns/sourcegraph_decorator.rb",
+      "kind": "auth_method_reviewed",
+      "line": 22,
+      "method": "push_sourcegraph_gon",
+      "owner": "SourcegraphDecorator",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e1705d78feef7593698374e5"
+      }
+    },
+    {
+      "id": "ev_4d14f3510d58d6c8dbe57d6e",
+      "callback": "push_sourcegraph_gon",
+      "conditional": true,
+      "end_line": 7,
+      "file": "app/controllers/concerns/sourcegraph_decorator.rb",
+      "kind": "active_callback",
+      "line": 7,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4d14f3510d58d6c8dbe57d6e"
+      }
+    },
+    {
+      "id": "ev_362d80c02e026220bc424194",
+      "callback": "@block:app/controllers/projects/merge_requests_controller.rb:49",
+      "conditional": false,
+      "end_line": 52,
+      "file": "app/controllers/projects/merge_requests_controller.rb",
+      "kind": "active_callback",
+      "line": 49,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_362d80c02e026220bc424194"
+      }
+    },
+    {
+      "id": "ev_c9ec3b9328d660f79752d862",
+      "file": "ee/app/controllers/concerns/ee/issuable_actions.rb",
+      "kind": "auth_method_reviewed",
+      "line": 23,
+      "method": "set_application_context!",
+      "owner": "EE::IssuableActions",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c9ec3b9328d660f79752d862"
+      }
+    },
+    {
+      "id": "ev_1e4899ecde389f32f25d0281",
+      "callback": "set_application_context!",
+      "conditional": false,
+      "end_line": 27,
+      "file": "ee/app/controllers/ee/projects/merge_requests_controller.rb",
+      "kind": "active_callback",
+      "line": 27,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_1e4899ecde389f32f25d0281"
+      }
+    },
+    {
+      "id": "ev_8e31be9542868e6a1e973de0",
+      "file": "app/controllers/projects/merge_requests_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 126,
+      "method": "commits",
+      "owner": "Projects::MergeRequestsController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_8e31be9542868e6a1e973de0"
+      }
+    },
+    {
+      "id": "ev_466b8ed5300344d0a23f0a74",
+      "action": "commits",
+      "controller": "Projects::MergeRequestsController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_466b8ed5300344d0a23f0a74"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "project",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 11,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 11
+      }
+    },
+    {
+      "conditional": false,
+      "name": "repository",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 12,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 12
+      }
+    },
+    {
+      "conditional": false,
+      "name": "enforce_step_up_auth_for_namespace",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 17,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 17
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_project_markdown_flags",
+      "owner": "Projects::ApplicationController",
+      "source": {
+        "end_line": 19,
+        "file": "app/controllers/projects/application_controller.rb",
+        "line": 19
+      }
+    },
+    {
+      "conditional": false,
+      "name": "check_merge_requests_available!",
+      "owner": "Projects::MergeRequests::ApplicationController",
+      "source": {
+        "end_line": 4,
+        "file": "app/controllers/projects/merge_requests/application_controller.rb",
+        "line": 4
+      }
+    },
+    {
+      "conditional": false,
+      "name": "merge_request",
+      "owner": "Projects::MergeRequests::ApplicationController",
+      "source": {
+        "end_line": 5,
+        "file": "app/controllers/projects/merge_requests/application_controller.rb",
+        "line": 5
+      }
+    },
+    {
+      "conditional": false,
+      "name": "authorize_read_merge_request!",
+      "owner": "Projects::MergeRequests::ApplicationController",
+      "source": {
+        "end_line": 6,
+        "file": "app/controllers/projects/merge_requests/application_controller.rb",
+        "line": 6
+      }
+    },
+    {
+      "conditional": false,
+      "name": "@block:app/controllers/projects/merge_requests/application_controller.rb:12",
+      "owner": "Projects::MergeRequests::ApplicationController",
+      "source": {
+        "end_line": 14,
+        "file": "app/controllers/projects/merge_requests/application_controller.rb",
+        "line": 12
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_user_last_activity",
+      "owner": "RecordUserLastActivity",
+      "source": {
+        "end_line": 15,
+        "file": "app/controllers/concerns/record_user_last_activity.rb",
+        "line": 15
+      }
+    },
+    {
+      "conditional": true,
+      "name": "push_sourcegraph_gon",
+      "owner": "SourcegraphDecorator",
+      "source": {
+        "end_line": 7,
+        "file": "app/controllers/concerns/sourcegraph_decorator.rb",
+        "line": 7
+      }
+    },
+    {
+      "conditional": false,
+      "name": "@block:app/controllers/projects/merge_requests_controller.rb:49",
+      "owner": "Projects::MergeRequestsController",
+      "source": {
+        "end_line": 52,
+        "file": "app/controllers/projects/merge_requests_controller.rb",
+        "line": 49
+      }
+    },
+    {
+      "conditional": false,
+      "name": "set_application_context!",
+      "owner": "EE::Projects::MergeRequestsController",
+      "source": {
+        "end_line": 27,
+        "file": "ee/app/controllers/ee/projects/merge_requests_controller.rb",
+        "line": 27
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/48139",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

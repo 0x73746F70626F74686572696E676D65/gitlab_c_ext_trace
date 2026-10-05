@@ -1,0 +1,78 @@
+{
+  "id": "ep_45cb94333fa48da7fbab3125",
+  "type": "http_registration",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/*repository_path/info/refs",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": null,
+  "controller_path": null,
+  "action": null,
+  "handler_kind": "redirect",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_617ea642df404159e94f2911"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 68,
+      "expression": "constraints(repository_path: Gitlab::PathRegex.repository_route_regex) do",
+      "file": "config/routes/git_http.rb",
+      "kind": "route_constraint",
+      "line": 60
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 67,
+    "file": "config/routes/git_http.rb",
+    "line": 67
+  },
+  "registration_status": "static_route",
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/git_http.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_617ea642df404159e94f2911",
+      "kind": "route_redirect_no_auth_scope",
+      "source": {
+        "end_line": 67,
+        "file": "config/routes/git_http.rb",
+        "line": 67
+      },
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_617ea642df404159e94f2911"
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/45729",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "ep_233b85ee144665f70f6ec680",
+  "type": "grape_endpoint",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/api/v4/projects/:id/packages/rpm/repodata/*file_name",
+  "http_methods": [
+    "GET"
+  ],
+  "class": "API::RpmProjectPackages",
+  "action": "GET",
+  "response_kind": "application",
+  "anonymous_access": true,
+  "auth": {
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_399b02dc8c178c8db575514d",
+      "ev_b28f5c0d94c86fb3e960231a",
+      "ev_bb92263ccade42f78bac1e0a",
+      "ev_0b4b79d16f3fa98c6a80437d"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "ability": "read_package",
+      "kind": "public_resource_policy",
+      "requirement": "Public resource and applicable policy/feature/settings permit anonymous access"
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 52,
+    "file": "lib/api/rpm_project_packages.rb",
+    "line": 43
+  },
+  "registration_status": "mounted_grape_endpoint",
+  "mount_chain": [
+    {
+      "class": "API::RpmProjectPackages",
+      "end_line": 382,
+      "file": "lib/api/api.rb",
+      "line": 382
+    }
+  ],
+  "registration_bindings": {},
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_399b02dc8c178c8db575514d",
+      "file": "lib/api/helpers/packages_helpers.rb",
+      "kind": "auth_method_reviewed",
+      "line": 11,
+      "method": "require_packages_enabled!",
+      "owner": "API::Helpers::PackagesHelpers",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_399b02dc8c178c8db575514d"
+      }
+    },
+    {
+      "id": "ev_b28f5c0d94c86fb3e960231a",
+      "file": "lib/api/helpers/packages_helpers.rb",
+      "kind": "auth_method_reviewed",
+      "line": 23,
+      "method": "authorize_read_package!",
+      "owner": "API::Helpers::PackagesHelpers",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_b28f5c0d94c86fb3e960231a"
+      }
+    },
+    {
+      "id": "ev_bb92263ccade42f78bac1e0a",
+      "ability": "read_package",
+      "end_line": 24,
+      "file": "lib/api/helpers/packages_helpers.rb",
+      "kind": "anonymous_permission",
+      "line": 24,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_bb92263ccade42f78bac1e0a"
+      }
+    },
+    {
+      "id": "ev_0b4b79d16f3fa98c6a80437d",
+      "file": "config/authz/roles/public_anonymous.yml",
+      "kind": "public_policy_role",
+      "line": 101,
+      "resource_scope": "group",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_0b4b79d16f3fa98c6a80437d"
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/860",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

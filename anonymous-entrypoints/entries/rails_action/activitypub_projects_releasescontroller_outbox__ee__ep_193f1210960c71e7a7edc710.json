@@ -1,0 +1,156 @@
+{
+  "id": "ep_193f1210960c71e7a7edc710",
+  "type": "rails_action",
+  "edition": "ee",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/*namespace_id/:project_id/-/releases/outbox",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "ActivityPub::Projects::ReleasesController",
+  "controller_path": "activity_pub/projects/releases",
+  "action": "outbox",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_2976a5cee27b21a0fd3d41f7",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_ca89730333a3f393f044ea6f",
+      "ev_e5f6442f87e1c9254d0313da",
+      "ev_ef65c3a5f7772cac1042050e",
+      "ev_c0d1205300d1c24135204f39"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "end_line": 32,
+      "expression": "constraints(Integrations::ActivityPubConstraint.new) do",
+      "file": "config/routes/activity_pub.rb",
+      "kind": "route_constraint",
+      "line": 3
+    },
+    {
+      "end_line": 30,
+      "expression": "constraints(Projects::ProjectUrlConstraint.new) do",
+      "file": "config/routes/activity_pub.rb",
+      "kind": "route_constraint",
+      "line": 5
+    },
+    {
+      "end_line": 28,
+      "expression": "{ project_id: Gitlab::PathRegex.project_route_regex }",
+      "file": "config/routes/activity_pub.rb",
+      "kind": "route_constraint",
+      "line": 14
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 23,
+    "file": "config/routes/activity_pub.rb",
+    "line": 23
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 32,
+      "file": "app/controllers/activity_pub/projects/releases_controller.rb",
+      "line": 29,
+      "owner": "ActivityPub::Projects::ReleasesController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/activity_pub.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_ca89730333a3f393f044ea6f",
+      "file": "app/controllers/activity_pub/application_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 25,
+      "method": "ensure_feature_flag",
+      "owner": "ActivityPub::ApplicationController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ca89730333a3f393f044ea6f"
+      }
+    },
+    {
+      "id": "ev_e5f6442f87e1c9254d0313da",
+      "callback": "ensure_feature_flag",
+      "conditional": false,
+      "end_line": 7,
+      "file": "app/controllers/activity_pub/application_controller.rb",
+      "kind": "active_callback",
+      "line": 7,
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_e5f6442f87e1c9254d0313da"
+      }
+    },
+    {
+      "id": "ev_ef65c3a5f7772cac1042050e",
+      "file": "app/controllers/activity_pub/projects/releases_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 29,
+      "method": "outbox",
+      "owner": "ActivityPub::Projects::ReleasesController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ef65c3a5f7772cac1042050e"
+      }
+    },
+    {
+      "id": "ev_c0d1205300d1c24135204f39",
+      "action": "outbox",
+      "controller": "ActivityPub::Projects::ReleasesController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_c0d1205300d1c24135204f39"
+      }
+    }
+  ],
+  "callback_pipeline": [
+    {
+      "conditional": false,
+      "name": "ensure_feature_flag",
+      "owner": "ActivityPub::ApplicationController",
+      "source": {
+        "end_line": 7,
+        "file": "app/controllers/activity_pub/application_controller.rb",
+        "line": 7
+      }
+    }
+  ],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/48324",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}

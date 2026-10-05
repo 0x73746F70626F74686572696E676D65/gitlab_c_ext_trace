@@ -1,0 +1,97 @@
+{
+  "id": "ep_527fd486d317849ef6b93f1a",
+  "type": "rails_action",
+  "edition": "ce",
+  "gitlab_commit_sha": "d75e5afaa21d45bc04139d4a538ea5954be1ef4f",
+  "path": "/o/:organization_path/explore/catalog",
+  "http_methods": [
+    "GET"
+  ],
+  "controller": "Explore::CatalogController",
+  "controller_path": "explore/catalog",
+  "action": "index",
+  "anonymous_access": true,
+  "auth": {
+    "callback_pipeline_id": "cb_4f53cda18c2baa0c0354bb5f",
+    "classification": "conditional_anonymous",
+    "confidence": "source_supported",
+    "evidence_ids": [
+      "ev_4c0d14e21d329bec28449515",
+      "ev_ee8acf77b28b2b891cd1634c"
+    ],
+    "gap_ids": [],
+    "runtime_verified": false
+  },
+  "conditions": [
+    {
+      "end_line": 419,
+      "expression": "{\n        organization_path: Gitlab::PathRegex.organization_route_regex\n      }",
+      "file": "config/routes.rb",
+      "kind": "route_constraint",
+      "line": 407
+    },
+    {
+      "kind": "deployment",
+      "requirement": "Ordinary routing, enabled features, valid request and deployed edition/configuration"
+    },
+    {
+      "kind": "url_prefix",
+      "requirement": "Prepend the configured installation URL prefix to main-listener paths",
+      "setting": "Gitlab.config.gitlab.relative_url_root"
+    }
+  ],
+  "registration": {
+    "end_line": 22,
+    "file": "config/routes/explore.rb",
+    "line": 22
+  },
+  "registration_status": "static_route",
+  "action_sources": [
+    {
+      "end_line": 16,
+      "file": "app/controllers/explore/catalog_controller.rb",
+      "line": 14,
+      "owner": "Explore::CatalogController"
+    }
+  ],
+  "draw_chain": [
+    "config/routes.rb",
+    "config/routes/explore.rb"
+  ],
+  "route_auth_scopes": [],
+  "evidence_scope": "source declarations and bounded auth-control review; not deployed reachability proof",
+  "authentication_evidence": [
+    {
+      "id": "ev_4c0d14e21d329bec28449515",
+      "file": "app/controllers/explore/catalog_controller.rb",
+      "kind": "auth_method_reviewed",
+      "line": 14,
+      "method": "index",
+      "owner": "Explore::CatalogController",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_4c0d14e21d329bec28449515"
+      }
+    },
+    {
+      "id": "ev_ee8acf77b28b2b891cd1634c",
+      "action": "index",
+      "controller": "Explore::CatalogController",
+      "kind": "registered_action_and_callbacks_reviewed",
+      "saved_evidence_reference": {
+        "file": "unauthenticated_entrypoints/evidence.json",
+        "json_pointer": "/evidence/ev_ee8acf77b28b2b891cd1634c"
+      }
+    }
+  ],
+  "callback_pipeline": [],
+  "provenance": {
+    "source_repository_commit": "aa54fa64d003d6d0c88b0558a4f8ea62a1aa830a",
+    "inventory_file": "unauthenticated_entrypoints/entrypoints.json",
+    "inventory_sha256": "42d4832ec7ad1de6921f459361c88602e076c4e735997416764c557930caced5",
+    "inventory_json_pointer": "/entrypoints/16400",
+    "evidence_file": "unauthenticated_entrypoints/evidence.json",
+    "evidence_sha256": "6109892690e162fdcb61329d4fdcba9f3036e14b2662aa66e59a6cfe1ff426ef",
+    "export_scope": "existing source-supported metadata; no new authentication or reachability analysis"
+  }
+}
