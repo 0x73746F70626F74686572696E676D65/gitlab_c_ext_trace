@@ -23,3 +23,33 @@ Install the pinned Python parser dependencies in `scripts/requirements.txt`. Res
 Use a GitLab checkout at the recorded commit containing all tracked `.rb`, `.rake`, `.ru` files and `Gemfile.lock`. Run `PYTHON_BIN=/path/to/python scripts/run.sh /path/to/gitlab`. Source hashes and witness hashes are independently checked by `validate.py`. `package_results.py` creates the stable tar.gz of individual callsite JSONs and shared lookup/provenance files.
 
 The matcher does not use method-name matches as receiver proof. Other installed gems' C registrations do not replace a separately defined Ruby wrapper merely because a namespace/method name coincides. Unresolved receiver types, conflicting dispatch targets and missing flow arguments do not produce accepted records.
+
+## Sources for application and library review
+
+`packages/gitlab-app-lib-gem-memory-review-sources.tar.gz` selects only saved
+callsites under `app/`, `lib/`, `ee/app/`, and `ee/lib/`: **374 callsites** and
+their **900 C witnesses**, across **21 gems** and **40 published/Git source
+variants**. It contains full original files, preserving line numbers and hashes,
+rather than extracting function snippets. The 1,432 source files include all
+171 files cited by the selected C chains, cited Ruby wrapper files, and
+resolvable local include dependencies. Unrelated C translation units are omitted.
+
+Inside the archive, `sources/` holds the source files, `chains/` the complete
+selected C witness JSONs, and `callsites/` the selected Ruby callsite JSONs.
+`flow-source-map.jsonl` connects them. `source-packages.json` records exact
+published versions/package hashes and upstream commits, including recorded
+gitlinks/vendor provenance. `source-files.jsonl` records each file's SHA256,
+original path and inclusion reason. `include-dependencies.jsonl` records
+resolved, external/missing and ambiguous include references; the source slice
+is intended for review, not as a buildable checkout. It preserves the original
+saved C snapshot status and does not run new tracing.
+
+Recreate the package from the restored source paths in the existing manifests:
+
+```sh
+python ruby-callsite-analysis/scripts/package_review_sources.py \
+  --archive ruby-callsite-analysis/packages/gitlab-app-lib-gem-memory-review-sources.tar.gz
+```
+
+The adjacent `.tar.gz.json` records scope, counts, input hashes, the archive
+digest, and verification of all packaged bytes and source citations.
