@@ -1,0 +1,20 @@
+{
+  "archive_sha256": "f8d595fd335a190985849b4b456e968c60e1f8a76c870244be945bb2db8eeb41",
+  "gem_versions": 770,
+  "locked_entries": 821,
+  "parser_dependency": "PyYAML 6.0.3",
+  "published_package_checksums_verified": 781,
+  "ruby_gemspec_binary_or_metadata_files_in_archive": 0,
+  "source_only_members_verified": 8312,
+  "source_suffix_counts": {
+    ".c": 2280,
+    ".cc": 1573,
+    ".cpp": 25,
+    ".h": 4199,
+    ".hh": 6,
+    ".hpp": 54,
+    ".in": 22,
+    ".inc": 153
+  },
+  "status": "passed"
+}
